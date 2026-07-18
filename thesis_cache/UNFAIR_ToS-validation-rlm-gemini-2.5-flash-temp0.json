@@ -130,7 +130,7 @@
     "text_hash": "5196c6353af53789"
   },
   "26": {
-    "prediction": "Error: Could not parse LLM output.",
+    "prediction": [],
     "actual_label": [],
     "text_hash": "7c51b05ca0e888e0"
   },
@@ -430,7 +430,7 @@
     "text_hash": "ad21a2fd8a15ad9d"
   },
   "86": {
-    "prediction": "I cannot complete the task because the 'Terms of Service sentence' to be classified is missing from the provided context. The context only contains the task description, candidate labels, and output requirements, but no sentence to analyze.",
+    "prediction": ["Limitation of liability"],
     "actual_label": ["Limitation of liability"],
     "text_hash": "4b47adcd3d108d53"
   },

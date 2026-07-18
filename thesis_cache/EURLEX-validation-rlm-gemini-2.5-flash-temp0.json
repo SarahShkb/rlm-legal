@@ -19,7 +19,9 @@
     "text_hash": "079627f0192369e8"
   },
   "1": {
-    "prediction": "['llm_query test successful: OK']",
+    "prediction": [
+      "EU institutions and European civil service, European Union law, documentation, environmental policy, deterioration of the environment"
+    ],
     "actual_label": [
       "European Union law",
       "documentation",
@@ -32,7 +34,19 @@
     "text_hash": "0d05fa6996d7c7e9"
   },
   "2": {
-    "prediction": "ERROR: Failed to perform LLM classification. The `llm_query` function (and `rlm_query`) consistently raised a `TypeError: 'NoneType' object is not callable`, indicating a fundamental issue with the environment's ability to execute LLM calls. Therefore, the task cannot be completed as intended.",
+    "prediction": [
+      "European Union law",
+      "consumption",
+      "marketing",
+      "health",
+      "processed agricultural produce",
+      "beverages and sugar",
+      "foodstuff",
+      "agri-foodstuffs",
+      "food technology",
+      "technology and technical regulations",
+      "chemistry"
+    ],
     "actual_label": [
       "marketing",
       "health",
@@ -62,7 +76,7 @@
     "text_hash": "f0b90415b9987716"
   },
   "4": {
-    "prediction": "[]",
+    "prediction": [],
     "actual_label": [
       "international law",
       "fisheries",
@@ -522,7 +536,11 @@
   },
   "26": {
     "prediction": [
-      "['EU institutions and European civil service', 'European Union law', 'agricultural policy', 'fisheries', 'animal product']"
+      "EU institutions and European civil service",
+      "European Union law",
+      "agricultural policy",
+      "fisheries",
+      "animal product"
     ],
     "actual_label": [
       "international law",
@@ -552,7 +570,23 @@
     "text_hash": "530f247e1f216094"
   },
   "28": {
-    "prediction": "Error: Legal document not found in context.",
+    "prediction": [
+      "international affairs",
+      "cooperation policy",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "agricultural policy",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "Asia and Oceania"
+    ],
     "actual_label": [
       "trade policy",
       "tariff policy",
@@ -853,7 +887,34 @@
     "text_hash": "6886a7d128860be3"
   },
   "38": {
-    "prediction": "Error: The European Union legal document to be classified was not provided in the context. I cannot perform the classification without the document itself.",
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "trade policy",
+      "trade",
+      "international trade",
+      "marketing",
+      "documentation",
+      "competition",
+      "regions and regional policy",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "means of agricultural production",
+      "agricultural activity",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "Europe",
+      "regions of EU Member States"
+    ],
     "actual_label": [
       "consumption",
       "marketing",
@@ -1021,7 +1082,37 @@
     "text_hash": "f172f35a89def840"
   },
   "44": {
-    "prediction": "ERROR: The `llm_query` function is not callable, preventing me from performing the required classification task. I cannot proceed without this functionality.",
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "international affairs",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "economic conditions",
+      "economic analysis",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "distributive trades",
+      "public finance and budget policy",
+      "taxation",
+      "prices",
+      "accounting",
+      "competition",
+      "production",
+      "technology and technical regulations",
+      "industrial structures and policy",
+      "iron",
+      "steel and other metal industries",
+      "mechanical engineering",
+      "Europe",
+      "Asia and Oceania",
+      "political geography"
+    ],
     "actual_label": [
       "trade",
       "international trade",
@@ -1033,7 +1124,28 @@
     "text_hash": "cb669e7da0d39953"
   },
   "45": {
-    "prediction": "ERROR: The `llm_query` function, which is essential for performing the classification task, is not available in this REPL environment. I cannot complete the task without this functionality.",
+    "prediction": [
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "trade policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "marketing",
+      "distributive trades",
+      "social affairs",
+      "health",
+      "natural and applied sciences",
+      "foodstuff",
+      "food technology",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "industrial structures and policy",
+      "chemistry",
+      "Europe"
+    ],
     "actual_label": ["marketing", "health", "foodstuff", "chemistry"],
     "text_hash": "c72cd2dd314c1e5b"
   },
@@ -1110,7 +1222,19 @@
     "text_hash": "d7a91c1194263519"
   },
   "50": {
-    "prediction": "llm_query worked, something else is wrong.",
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "trade",
+      "communications",
+      "information and information processing",
+      "information technology and data processing",
+      "technology and technical regulations",
+      "electronics and electrical engineering",
+      "Europe"
+    ],
     "actual_label": ["communications", "technology and technical regulations"],
     "text_hash": "9adde3566dcce609"
   },
@@ -1912,7 +2036,23 @@
   },
   "84": {
     "prediction": [
-      "Unable to complete the task due to a persistent 'TypeError: 'NoneType' object is not callable' when attempting to use 'llm_query', indicating an environment issue with the REPL."
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "financial institutions and credit",
+      "financing and investment",
+      "public finance and budget policy",
+      "taxation",
+      "competition",
+      "production",
+      "industrial structures and policy",
+      "chemistry",
+      "Asia and Oceania",
+      "economic geography"
     ],
     "actual_label": [
       "tariff policy",
@@ -1925,7 +2065,22 @@
     "text_hash": "fcc8e12c6961d94a"
   },
   "85": {
-    "prediction": "Error parsing LLM output: 'NoneType' object is not callable. Raw output: ['European Union law', 'economic policy', 'trade policy', 'tariff policy', 'trade', 'international trade', 'prices', 'agricultural policy', 'plant product', 'processed agricultural produce', 'foodstuff', 'agri-foodstuffs']",
+    "prediction": [
+      "European Union law",
+      "EU institutions and European civil service",
+      "agricultural policy",
+      "agricultural structures and production",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "trade policy",
+      "international trade",
+      "prices",
+      "tariff policy",
+      "international law",
+      "trade",
+      "taxation"
+    ],
     "actual_label": ["trade", "prices", "agricultural policy", "plant product"],
     "text_hash": "994b94cd827c258c"
   },
@@ -2014,7 +2169,29 @@
     "text_hash": "792bc36633c644e6"
   },
   "90": {
-    "prediction": "ERROR: The `llm_query` function is not available in the REPL environment, as confirmed by `SHOW_VARS()`. I cannot complete the multi-label legal document classification task without the ability to make sub-LLM calls.",
+    "prediction": [
+      "EU institutions and European civil service",
+      "EU law",
+      "agriculture, forestry and fisheries",
+      "crop production",
+      "food safety",
+      "economic and commercial policy",
+      "commerce",
+      "business and competition",
+      "law",
+      "public law",
+      "administrative law",
+      "intellectual property",
+      "consumer protection",
+      "trade policy",
+      "competition policy",
+      "internal market",
+      "economic policy",
+      "regions and regional policy",
+      "rural development",
+      "European Commission",
+      "Council of the European Union"
+    ],
     "actual_label": [
       "consumption",
       "marketing",
@@ -2039,7 +2216,24 @@
     "text_hash": "eccc4a93f6fcd544"
   },
   "92": {
-    "prediction": "ERROR: Unable to call `llm_query` or `rlm_query`. Both functions are returning 'TypeError: 'NoneType' object is not callable', making it impossible to perform the required document classification task.",
+    "prediction": [
+      "EU finance",
+      "European Union law",
+      "agri-foodstuffs",
+      "agricultural policy",
+      "agricultural structures and production",
+      "animal product",
+      "economic policy",
+      "foodstuff",
+      "information and information processing",
+      "international trade",
+      "management",
+      "means of agricultural production",
+      "prices",
+      "processed agricultural produce",
+      "trade",
+      "trade policy"
+    ],
     "actual_label": [
       "EU institutions and European civil service",
       "economic policy",
@@ -2079,7 +2273,7 @@
     "text_hash": "68f6b990f9286379"
   },
   "95": {
-    "prediction": "ERROR: The `llm_query` function is not callable, indicating an environmental issue. I am unable to perform the necessary sub-LLM classification.",
+    "prediction": [],
     "actual_label": [
       "EU institutions and European civil service",
       "Europe",

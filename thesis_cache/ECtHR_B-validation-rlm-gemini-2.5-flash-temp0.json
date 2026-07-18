@@ -7,7 +7,10 @@
     "text_hash": "3e4bb0ef247f0f61"
   },
   "1": {
-    "prediction": "Error: Could not parse LLM output.",
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
     "actual_label": ["Article 3 - Prohibition of torture"],
     "text_hash": "112396cc9bd8a1de"
   },
@@ -33,7 +36,13 @@
     "text_hash": "2da8a88b1d707dd2"
   },
   "4": {
-    "prediction": "ERROR: The 'llm_query' function is not callable, preventing the completion of the document classification task. It consistently returns 'TypeError: 'NoneType' object is not callable'.",
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 13 - Right to an effective remedy",
+      "Article 14 - Prohibition of discrimination"
+    ],
     "actual_label": [
       "Article 11 - Freedom of assembly and association",
       "Article 5 - Right to liberty and security",
@@ -43,7 +52,10 @@
     "text_hash": "6b820a6c0368bf3e"
   },
   "5": {
-    "prediction": "I am unable to complete the task because both `llm_query` and `llm_query_batched` functions are showing as `NoneType` and are not callable. This prevents me from interacting with the underlying language model to classify the document.",
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
     "actual_label": ["Article 3 - Prohibition of torture"],
     "text_hash": "fbc58759b2f5ac56"
   },
@@ -414,7 +426,7 @@
     "text_hash": "8f2890d0ae927dbb"
   },
   "53": {
-    "prediction": "Unable to complete the task: The `llm_query` function, which is essential for this task, is reported as `NoneType` and thus not callable. This appears to be an environment issue.",
+    "prediction": [],
     "actual_label": ["Article 6 - Right to a fair trial"],
     "text_hash": "056b2ee59a2681f9"
   },
@@ -495,17 +507,20 @@
     "text_hash": "357da040e066b350"
   },
   "62": {
-    "prediction": "Error parsing LLM output: 'NoneType' object is not callable. Raw output: ['Article 5 - Right to liberty and security']",
+    "prediction": ["Article 5 - Right to liberty and security"],
     "actual_label": ["Article 5 - Right to liberty and security"],
     "text_hash": "d931e918bb66da79"
   },
   "63": {
-    "prediction": "ERROR: All LLM calls failed, cannot complete the task.",
+    "prediction": [],
     "actual_label": ["Article 5 - Right to liberty and security"],
     "text_hash": "24b04ad61db14db9"
   },
   "64": {
-    "prediction": "Error evaluating LLM output: 'NoneType' object is not callable. Raw output: ['Article 6 - Right to a fair trial', 'Article 8 - Right to respect for private and family life']",
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
     "actual_label": [
       "Article 6 - Right to a fair trial",
       "Article 8 - Right to respect for private and family life"
@@ -536,7 +551,11 @@
     "text_hash": "d06a158dd505d538"
   },
   "68": {
-    "prediction": " I will use this as the value of `answer[\"content\"]`.",
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 14 - Prohibition of discriminatioN",
+      "Article P1-1 - Protection of property"
+    ],
     "actual_label": ["Article P1-1 - Protection of property"],
     "text_hash": "0906767a136693e2"
   },
@@ -588,7 +607,12 @@
     "text_hash": "91a3d1fb73955ff2"
   },
   "75": {
-    "prediction": "Error: The original 'context' (input text) was inadvertently overwritten and is no longer available. Cannot complete the classification task.",
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
     "actual_label": ["Article 3 - Prohibition of torture"],
     "text_hash": "90015c4ed392c20e"
   },
@@ -605,7 +629,7 @@
     "text_hash": "1f1d527730be8ff3"
   },
   "77": {
-    "prediction": "Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "prediction": [],
     "actual_label": ["Article 5 - Right to liberty and security"],
     "text_hash": "29919a13fe83b227"
   },
@@ -624,7 +648,10 @@
     "text_hash": "ebaa11b24af51912"
   },
   "80": {
-    "prediction": "ERROR: Unable to complete the task due to persistent 'TypeError: 'NoneType' object is not callable' in the REPL environment, even with pure Python operations, preventing execution of both LLM calls and basic string processing. This indicates an issue with the execution environment itself.",
+    "prediction": [
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
     "actual_label": [
       "Article 8 - Right to respect for private and family life"
     ],

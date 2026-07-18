@@ -335,7 +335,7 @@
     "text_hash": "76d7e196ec91b31a"
   },
   "67": {
-    "prediction": "Error: Could not find candidate labels in context.",
+    "prediction": "Civil Rights",
     "actual_label": "Civil Rights",
     "text_hash": "110b8e7539b830ca"
   },

@@ -44,7 +44,10 @@
     "text_hash": "46790f9227dbe7a9"
   },
   "5": {
-    "prediction": "Unable to complete the task: Neither llm_query nor rlm_query is callable, which are necessary for the document classification.",
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
     "actual_label": ["Article 3 - Prohibition of torture"],
     "text_hash": "f7573af6b7aa23f3"
   },
@@ -119,7 +122,10 @@
     "text_hash": "cdeebe977954df74"
   },
   "13": {
-    "prediction": "ERROR: The `llm_query` function is consistently failing with a `TypeError: 'NoneType' object is not callable`, despite previous checks suggesting it was a method. This critical function is required to complete the task of classifying the legal document. Therefore, I am unable to proceed and provide a valid answer.",
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life"
+    ],
     "actual_label": ["Article 3 - Prohibition of torture"],
     "text_hash": "dee10c1fa5d0f672"
   },
@@ -138,7 +144,7 @@
     "text_hash": "6c9cfb0cba383f4e"
   },
   "16": {
-    "prediction": "Error parsing LLM output: 'NoneType' object is not callable. Raw output: ['Article 6 - Right to a fair trial']",
+    "prediction": ["Article 6 - Right to a fair trial"],
     "actual_label": [],
     "text_hash": "03e1623e14928df3"
   },
@@ -205,7 +211,7 @@
     "text_hash": "a03715aa1e084630"
   },
   "24": {
-    "prediction": "The applicant alleges the following Articles were violated:\n\n*   **Article 2 - Right to life**: The document explicitly states that \"more than 1,200 people died\" (paragraph 8) and that \"The applicants are people whose relatives were shot and killed\" (paragraph 9). The subsequent failure of the authorities to conduct an effective investigation into these deaths (paragraphs 10-16) also forms a procedural aspect of Article 2.\n*   **Article 3 - Prohibition of torture**: The document notes that \"more than 5,000 people were injured and several thousand people were unlawfully deprived of their liberty and subjected to ill treatment\" (paragraph 8). \"Ill treatment\" is a direct trigger for Article 3. The lack of an effective investigation into these events (paragraphs 10-16) also raises concerns under Article 3.\n*   **Article 5 - Right to liberty and security**: Paragraph 8 explicitly states that \"several thousand people were unlawfully deprived of their liberty\". The failure to effectively investigate these instances (paragraphs 10-16) implicates Article 5.\n*   **Article 13 - Right to an effective remedy**: The document details a lengthy and ultimately ineffective series of domestic criminal proceedings and investigations into the grave events, including deaths, injuries, ill-treatment, and unlawful detentions (paragraphs 10-16). The applicants' ongoing dissatisfaction with this process, leading to the case before the Court, strongly implies an allegation that they were denied an effective remedy for the substantive violations.\n\n```python\n['Article 2 - Right to life', 'Article 3 - Prohibition of torture', 'Article 5 - Right to liberty and security', 'Article 13 - Right to an effective remedy']\n```",
+    "prediction": [],
     "actual_label": ["Article 2 - Right to life"],
     "text_hash": "039b10e8998d2006"
   },
@@ -294,7 +300,10 @@
     "text_hash": "3e1f015d73ae1ba7"
   },
   "35": {
-    "prediction": "I have successfully processed the context and extracted the descriptions, summaries, and code for each Python script. I am ready for the next instruction or specific query.",
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
     "actual_label": ["Article 5 - Right to liberty and security"],
     "text_hash": "faa6c8a6b464556d"
   },
@@ -350,12 +359,19 @@
     "text_hash": "925e03729a1f757c"
   },
   "43": {
-    "prediction": "Due to a persistent environment error where core Python functions (like `eval`) and the `llm_query` function are reported as `NoneType` and not callable, I am unable to parse the candidate labels or perform the LLM classification task. The REPL environment seems to be in an unstable state preventing any meaningful execution.",
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
     "actual_label": ["Article 3 - Prohibition of torture"],
     "text_hash": "b8f858ebb44fa7af"
   },
   "44": {
-    "prediction": "Error: Could not parse LLM output.",
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
     "actual_label": [],
     "text_hash": "1389a1eac2ae3051"
   },
@@ -373,7 +389,10 @@
     "text_hash": "6562d21eb7027e38"
   },
   "47": {
-    "prediction": "The provided context describes the Main Organs of the United Nations and does not contain any information related to the European Convention on Human Rights or any legal documents to be classified. Therefore, I cannot perform the requested multi-label classification task and identify alleged article violations. The task cannot be completed with the given context.",
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
     "actual_label": [
       "Article 6 - Right to a fair trial",
       "Article P1-1 - Protection of property"
@@ -514,7 +533,14 @@
     "text_hash": "793655b9588e7e20"
   },
   "63": {
-    "prediction": "ERROR: LLM functionality (llm_query/llm_query_batched) is not callable. Cannot complete the task.",
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 10 - Freedom of expression",
+      "Article 11 - Freedom of assembly and association",
+      "Article P1-1 - Protection of property"
+    ],
     "actual_label": ["Article 5 - Right to liberty and security"],
     "text_hash": "ce336cdc5ae8c9c5"
   },
@@ -654,7 +680,7 @@
     "text_hash": "27d900a90f6f3f31"
   },
   "79": {
-    "prediction": "The task cannot be completed because the `llm_query` function is reported as `NoneType` and thus not callable, preventing any interaction with the sub-LLM required for classification.",
+    "prediction": ["Article 6 - Right to a fair trial"],
     "actual_label": ["Article 6 - Right to a fair trial"],
     "text_hash": "da949b32c8b9fec9"
   },
