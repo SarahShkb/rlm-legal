@@ -1,0 +1,502 @@
+{
+  "0": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "df0a09e09b2b8bce"
+  },
+  "1": {
+    "prediction": "Federalism",
+    "actual_label": "Economic Activity",
+    "text_hash": "820a4930ecae3768"
+  },
+  "2": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "a23cbe936695ea67"
+  },
+  "3": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "d034f9f5e04d57b3"
+  },
+  "4": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "709a838b39eea59b"
+  },
+  "5": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "355eb5ae1c909d1c"
+  },
+  "6": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "f3f4a26dabda0e87"
+  },
+  "7": {
+    "prediction": "Due Process",
+    "actual_label": "Due Process",
+    "text_hash": "3e7747afb513e8aa"
+  },
+  "8": {
+    "prediction": "Civil Rights",
+    "actual_label": "Economic Activity",
+    "text_hash": "1dfb28c63c391e51"
+  },
+  "9": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "f9db2b0edada2766"
+  },
+  "10": {
+    "prediction": "Judicial Power",
+    "actual_label": "Judicial Power",
+    "text_hash": "7101e2aa2ff68980"
+  },
+  "11": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "b02987d83a52f261"
+  },
+  "12": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "69c3719bd5e7b5ef"
+  },
+  "13": {
+    "prediction": "Due Process",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "bddb1ce3acb5f5ec"
+  },
+  "14": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "1e81789668de6c62"
+  },
+  "15": {
+    "prediction": "Federalism",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "bc40597c11df6f12"
+  },
+  "16": {
+    "prediction": "Federalism",
+    "actual_label": "Economic Activity",
+    "text_hash": "652b7eec6bffd605"
+  },
+  "17": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "509854e199435e36"
+  },
+  "18": {
+    "prediction": "Federalism",
+    "actual_label": "Civil Rights",
+    "text_hash": "e1a220c3ee9db8f8"
+  },
+  "19": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Federal Taxation",
+    "text_hash": "14b359d31a50cbe2"
+  },
+  "20": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "c0070cc3dbd46df8"
+  },
+  "21": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "36506e04a0cdd091"
+  },
+  "22": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "c75789ef3f403430"
+  },
+  "23": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "754e63f8494d1f61"
+  },
+  "24": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "cbc9d1cc8d0a2f26"
+  },
+  "25": {
+    "prediction": "Economic Activity",
+    "actual_label": "Judicial Power",
+    "text_hash": "ab21ddfb1f25eada"
+  },
+  "26": {
+    "prediction": "Judicial Power",
+    "actual_label": "Judicial Power",
+    "text_hash": "cd079c86364048dc"
+  },
+  "27": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "99f3a5967fa7f1e1"
+  },
+  "28": {
+    "prediction": "Federalism",
+    "actual_label": "Economic Activity",
+    "text_hash": "8309fdeadd39593a"
+  },
+  "29": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "5a35b2c38b252ff7"
+  },
+  "30": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "eda6e0ea78bcfedb"
+  },
+  "31": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Civil Rights",
+    "text_hash": "f8a06cbd689cfbed"
+  },
+  "32": {
+    "prediction": "Interstate Relations",
+    "actual_label": "Civil Rights",
+    "text_hash": "3373f6b6fa945b13"
+  },
+  "33": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "a4aff3f5b02f90a5"
+  },
+  "34": {
+    "prediction": "Unions",
+    "actual_label": "Unions",
+    "text_hash": "44eda83e899124d7"
+  },
+  "35": {
+    "prediction": "Unions",
+    "actual_label": "Federalism",
+    "text_hash": "d3225ebb54fd0419"
+  },
+  "36": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "27118694dd72dad7"
+  },
+  "37": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "7083789733f3e0f6"
+  },
+  "38": {
+    "prediction": "Economic Activity",
+    "actual_label": "Judicial Power",
+    "text_hash": "e943d994f8e690b8"
+  },
+  "39": {
+    "prediction": "First Amendment",
+    "actual_label": "Civil Rights",
+    "text_hash": "da9c61db30cab329"
+  },
+  "40": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "5580231f5b6c029d"
+  },
+  "41": {
+    "prediction": "Due Process",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "088e52dc94120f32"
+  },
+  "42": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "4dd51a39cefb6e2b"
+  },
+  "43": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "eddb4f4a29cbc3b2"
+  },
+  "44": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "1ea9651f68a0af4a"
+  },
+  "45": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "0683bcfc657fe7d2"
+  },
+  "46": {
+    "prediction": "Judicial Power",
+    "actual_label": "Judicial Power",
+    "text_hash": "416f656c97fdbd25"
+  },
+  "47": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "1e88c70015936124"
+  },
+  "48": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "d94948502eb3ac42"
+  },
+  "49": {
+    "prediction": "Due Process",
+    "actual_label": "Due Process",
+    "text_hash": "c8c4a9c808595e1e"
+  },
+  "50": {
+    "prediction": "Unions",
+    "actual_label": "Unions",
+    "text_hash": "7a26dae40a97998a"
+  },
+  "51": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "1e9086f1530a0a2b"
+  },
+  "52": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Federal Taxation",
+    "text_hash": "74d6d493de576706"
+  },
+  "53": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "73a3fdfcf882ebc2"
+  },
+  "54": {
+    "prediction": "Due Process",
+    "actual_label": "Due Process",
+    "text_hash": "af3bac870bff0fd0"
+  },
+  "55": {
+    "prediction": "Civil Rights",
+    "actual_label": "Attorneys",
+    "text_hash": "92aed8b5f64583e2"
+  },
+  "56": {
+    "prediction": "Due Process",
+    "actual_label": "Civil Rights",
+    "text_hash": "87635768ff23136d"
+  },
+  "57": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "b26b26749daacce4"
+  },
+  "58": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "7ca5a949f5ad98c7"
+  },
+  "59": {
+    "prediction": "Civil Rights",
+    "actual_label": "Judicial Power",
+    "text_hash": "345b7d0777f294c0"
+  },
+  "60": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "f6048e66ee5bb44b"
+  },
+  "61": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "309e1fac69c5d7e2"
+  },
+  "62": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "ccc9c97f6772f2f3"
+  },
+  "63": {
+    "prediction": "Due Process",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "c41d7383f7291d47"
+  },
+  "64": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "805f06c23c5bcc1b"
+  },
+  "65": {
+    "prediction": "Judicial Power",
+    "actual_label": "Judicial Power",
+    "text_hash": "e66be9ca93fe6a5a"
+  },
+  "66": {
+    "prediction": "Unions",
+    "actual_label": "Economic Activity",
+    "text_hash": "76d7e196ec91b31a"
+  },
+  "67": {
+    "prediction": "Error: Could not find candidate labels in context.",
+    "actual_label": "Civil Rights",
+    "text_hash": "110b8e7539b830ca"
+  },
+  "68": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "5720cc36cb371f4f"
+  },
+  "69": {
+    "prediction": "Due Process",
+    "actual_label": "Civil Rights",
+    "text_hash": "f125741bdeee6373"
+  },
+  "70": {
+    "prediction": "Unions",
+    "actual_label": "Civil Rights",
+    "text_hash": "a689a027d1dfd8c1"
+  },
+  "71": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Federal Taxation",
+    "text_hash": "2117e8851d7ab992"
+  },
+  "72": {
+    "prediction": "Unions",
+    "actual_label": "Federalism",
+    "text_hash": "ed8b206eebceba28"
+  },
+  "73": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "27d8fab897ec246b"
+  },
+  "74": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "596425dc1bb2226b"
+  },
+  "75": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Federal Taxation",
+    "text_hash": "57bb310d21b0b30f"
+  },
+  "76": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "e1f02af1268a86ad"
+  },
+  "77": {
+    "prediction": "Attorneys",
+    "actual_label": "Privacy",
+    "text_hash": "7eb18ad7f73410f5"
+  },
+  "78": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "cca5af738f494b02"
+  },
+  "79": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "ea32aa75ae2296af"
+  },
+  "80": {
+    "prediction": "Unions",
+    "actual_label": "Unions",
+    "text_hash": "5a755cdcdf5820a5"
+  },
+  "81": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "c8445ec0d84f0a74"
+  },
+  "82": {
+    "prediction": "Federalism",
+    "actual_label": "Economic Activity",
+    "text_hash": "ca2c5364ac765880"
+  },
+  "83": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "cdec518bde5783e7"
+  },
+  "84": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Economic Activity",
+    "text_hash": "426da77cebaf75cc"
+  },
+  "85": {
+    "prediction": "Unions",
+    "actual_label": "Unions",
+    "text_hash": "8936ddd099461be2"
+  },
+  "86": {
+    "prediction": "Judicial Power",
+    "actual_label": "Economic Activity",
+    "text_hash": "565e9793a512f003"
+  },
+  "87": {
+    "prediction": "Civil Rights",
+    "actual_label": "Judicial Power",
+    "text_hash": "02278325e2834dba"
+  },
+  "88": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "340bf3a901ac06e4"
+  },
+  "89": {
+    "prediction": "Federalism",
+    "actual_label": "Civil Rights",
+    "text_hash": "308884641fa7d948"
+  },
+  "90": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "1c42270ce73c9d0d"
+  },
+  "91": {
+    "prediction": "First Amendment",
+    "actual_label": "Economic Activity",
+    "text_hash": "7f123ba198d12c01"
+  },
+  "92": {
+    "prediction": "Due Process",
+    "actual_label": "Privacy",
+    "text_hash": "ae76660dca7e8d42"
+  },
+  "93": {
+    "prediction": "Federal Preemption",
+    "actual_label": "Federalism",
+    "text_hash": "ca68f6c8a7ff4170"
+  },
+  "94": {
+    "prediction": "Due Process",
+    "actual_label": "Privacy",
+    "text_hash": "878ba7a63280a1c4"
+  },
+  "95": {
+    "prediction": "Privacy",
+    "actual_label": "Privacy",
+    "text_hash": "62c34bebce82d490"
+  },
+  "96": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "3ebc7bee6648c1f9"
+  },
+  "97": {
+    "prediction": "Interstate Relations",
+    "actual_label": "Judicial Power",
+    "text_hash": "55eb87ee09eb697a"
+  },
+  "98": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Judicial Power",
+    "text_hash": "67a5df47df6ee7f4"
+  },
+  "99": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "fa1cb58f5b836e59"
+  }
+}

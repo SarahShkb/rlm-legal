@@ -1,0 +1,807 @@
+{
+  "0": {
+    "prediction": [
+      "Article 8 - Right to respect for private and family life",
+      "Article 9 - Freedom of thought, conscience and religion"
+    ],
+    "actual_label": [],
+    "text_hash": "eac50eee05cef0f1"
+  },
+  "1": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "ac2c7379c3e01e05"
+  },
+  "2": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 13 - Right to an effective remedy"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "d86e67b02f9cf2e8"
+  },
+  "3": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": [],
+    "text_hash": "2c0730ec12a4aa13"
+  },
+  "4": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": [],
+    "text_hash": "46790f9227dbe7a9"
+  },
+  "5": {
+    "prediction": "Unable to complete the task: Neither llm_query nor rlm_query is callable, which are necessary for the document classification.",
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "f7573af6b7aa23f3"
+  },
+  "6": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 11 - Freedom of assembly and association"
+    ],
+    "actual_label": [
+      "Article 11 - Freedom of assembly and association",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "b973969b8c7f84dc"
+  },
+  "7": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "actual_label": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture"
+    ],
+    "text_hash": "72695c310b2983b3"
+  },
+  "8": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 11 - Freedom of assembly and association"
+    ],
+    "actual_label": [
+      "Article 11 - Freedom of assembly and association",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "68f522ed983451d5"
+  },
+  "9": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "1bf6b6746d81bdcf"
+  },
+  "10": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life",
+      "Article 13 - Right to an effective remedy"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "b4c735f64cef692c"
+  },
+  "11": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article P1-1 - Protection of property"],
+    "text_hash": "4e7db61125cf2a06"
+  },
+  "12": {
+    "prediction": ["Article 10 - Freedom of expression"],
+    "actual_label": [],
+    "text_hash": "cdeebe977954df74"
+  },
+  "13": {
+    "prediction": "ERROR: The `llm_query` function is consistently failing with a `TypeError: 'NoneType' object is not callable`, despite previous checks suggesting it was a method. This critical function is required to complete the task of classifying the legal document. Therefore, I am unable to proceed and provide a valid answer.",
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "dee10c1fa5d0f672"
+  },
+  "14": {
+    "prediction": ["Article 2 - Right to life"],
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "826259577c93e506"
+  },
+  "15": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial",
+      "Article 13 - Right to an effective remedy"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "6c9cfb0cba383f4e"
+  },
+  "16": {
+    "prediction": "Error parsing LLM output: 'NoneType' object is not callable. Raw output: ['Article 6 - Right to a fair trial']",
+    "actual_label": [],
+    "text_hash": "03e1623e14928df3"
+  },
+  "17": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": [],
+    "text_hash": "9fd442a33b68d6d8"
+  },
+  "18": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 14 - Prohibition of discriminatioN",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "7f77fd29381f90a8"
+  },
+  "19": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "069cb38945f1ee53"
+  },
+  "20": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 10 - Freedom of expression"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "19260ccda5871d9a"
+  },
+  "21": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "b98740aebf91838a"
+  },
+  "22": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 9 - Freedom of thought, conscience and religion",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 8 - Right to respect for private and family life",
+      "Article 9 - Freedom of thought, conscience and religion"
+    ],
+    "text_hash": "7dd3a1778867b1f3"
+  },
+  "23": {
+    "prediction": ["Article P1-1 - Protection of property"],
+    "actual_label": ["Article P1-1 - Protection of property"],
+    "text_hash": "a03715aa1e084630"
+  },
+  "24": {
+    "prediction": "The applicant alleges the following Articles were violated:\n\n*   **Article 2 - Right to life**: The document explicitly states that \"more than 1,200 people died\" (paragraph 8) and that \"The applicants are people whose relatives were shot and killed\" (paragraph 9). The subsequent failure of the authorities to conduct an effective investigation into these deaths (paragraphs 10-16) also forms a procedural aspect of Article 2.\n*   **Article 3 - Prohibition of torture**: The document notes that \"more than 5,000 people were injured and several thousand people were unlawfully deprived of their liberty and subjected to ill treatment\" (paragraph 8). \"Ill treatment\" is a direct trigger for Article 3. The lack of an effective investigation into these events (paragraphs 10-16) also raises concerns under Article 3.\n*   **Article 5 - Right to liberty and security**: Paragraph 8 explicitly states that \"several thousand people were unlawfully deprived of their liberty\". The failure to effectively investigate these instances (paragraphs 10-16) implicates Article 5.\n*   **Article 13 - Right to an effective remedy**: The document details a lengthy and ultimately ineffective series of domestic criminal proceedings and investigations into the grave events, including deaths, injuries, ill-treatment, and unlawful detentions (paragraphs 10-16). The applicants' ongoing dissatisfaction with this process, leading to the case before the Court, strongly implies an allegation that they were denied an effective remedy for the substantive violations.\n\n```python\n['Article 2 - Right to life', 'Article 3 - Prohibition of torture', 'Article 5 - Right to liberty and security', 'Article 13 - Right to an effective remedy']\n```",
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "039b10e8998d2006"
+  },
+  "25": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": ["Article 14 - Prohibition of discriminatioN"],
+    "text_hash": "9c400b2ec5bbe047"
+  },
+  "26": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "text_hash": "7411cdcd4ed51070"
+  },
+  "27": {
+    "prediction": [],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "6099c5dd1bb3d777"
+  },
+  "28": {
+    "prediction": [
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": [
+      "Article 14 - Prohibition of discriminatioN",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "5fbbbc6b685bc9c6"
+  },
+  "29": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "2a031655d1365b80"
+  },
+  "30": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "f9504b5c8ff53ebe"
+  },
+  "31": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "e23ec36542a44406"
+  },
+  "32": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "eba1c7039264f176"
+  },
+  "33": {
+    "prediction": [],
+    "actual_label": [
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "325fb3d3ecb16f76"
+  },
+  "34": {
+    "prediction": [],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "3e1f015d73ae1ba7"
+  },
+  "35": {
+    "prediction": "I have successfully processed the context and extracted the descriptions, summaries, and code for each Python script. I am ready for the next instruction or specific query.",
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "faa6c8a6b464556d"
+  },
+  "36": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "69a22b7f715689a4"
+  },
+  "37": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "3878bbc12cc4a58d"
+  },
+  "38": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 14 - Prohibition of discriminatioN",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "e941aae5f50fd6ff"
+  },
+  "39": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": [],
+    "text_hash": "f0893d06fd505ff4"
+  },
+  "40": {
+    "prediction": [],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "54ae265b6609eee2"
+  },
+  "41": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 13 - Right to an effective remedy"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "2c889d490743d0ca"
+  },
+  "42": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "925e03729a1f757c"
+  },
+  "43": {
+    "prediction": "Due to a persistent environment error where core Python functions (like `eval`) and the `llm_query` function are reported as `NoneType` and not callable, I am unable to parse the candidate labels or perform the LLM classification task. The REPL environment seems to be in an unstable state preventing any meaningful execution.",
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "b8f858ebb44fa7af"
+  },
+  "44": {
+    "prediction": "Error: Could not parse LLM output.",
+    "actual_label": [],
+    "text_hash": "1389a1eac2ae3051"
+  },
+  "45": {
+    "prediction": ["Article 10 - Freedom of expression"],
+    "actual_label": [],
+    "text_hash": "bfaec66b1574e609"
+  },
+  "46": {
+    "prediction": [],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "6562d21eb7027e38"
+  },
+  "47": {
+    "prediction": "The provided context describes the Main Organs of the United Nations and does not contain any information related to the European Convention on Human Rights or any legal documents to be classified. Therefore, I cannot perform the requested multi-label classification task and identify alleged article violations. The task cannot be completed with the given context.",
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "a5f3a91153942118"
+  },
+  "48": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "423e66b708589db8"
+  },
+  "49": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "076910b63438dc73"
+  },
+  "50": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "text_hash": "6380900b5ee3f259"
+  },
+  "51": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "2f34651a3675c6c6"
+  },
+  "52": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "5baefbb8767af937"
+  },
+  "53": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "c15e5f1315d70444"
+  },
+  "54": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": [
+      "Article 14 - Prohibition of discriminatioN",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "e7969df213ae8db7"
+  },
+  "55": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "c1eb9edb826a3618"
+  },
+  "56": {
+    "prediction": [],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "e4f80ce604231427"
+  },
+  "57": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 13 - Right to an effective remedy"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "7138d3967400e018"
+  },
+  "58": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "49487cb89cb0688c"
+  },
+  "59": {
+    "prediction": [],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "text_hash": "b872bce83a7afc2b"
+  },
+  "60": {
+    "prediction": ["Article P1-1 - Protection of property"],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "9ce931e10c2e7cca"
+  },
+  "61": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "fd5f88a8e4aed4dd"
+  },
+  "62": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "793655b9588e7e20"
+  },
+  "63": {
+    "prediction": "ERROR: LLM functionality (llm_query/llm_query_batched) is not callable. Cannot complete the task.",
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "ce336cdc5ae8c9c5"
+  },
+  "64": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [],
+    "text_hash": "69c955ce106e9b28"
+  },
+  "65": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "d9f290434b3c6692"
+  },
+  "66": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [],
+    "text_hash": "2045257ad2c74238"
+  },
+  "67": {
+    "prediction": ["Article 3 - Prohibition of torture"],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "4869033d63acc91a"
+  },
+  "68": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 14 - Prohibition of discriminatioN",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article P1-1 - Protection of property"],
+    "text_hash": "50730453c4b12fbc"
+  },
+  "69": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture",
+      "Article 13 - Right to an effective remedy"
+    ],
+    "actual_label": [],
+    "text_hash": "62b470177b8a6ee7"
+  },
+  "70": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 14 - Prohibition of discriminatioN",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "2915e859864d617b"
+  },
+  "71": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "b3d46fdd790cf178"
+  },
+  "72": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "a453d74fd839c15f"
+  },
+  "73": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 9 - Freedom of thought, conscience and religion",
+      "Article 10 - Freedom of expression",
+      "Article 11 - Freedom of assembly and association"
+    ],
+    "actual_label": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture"
+    ],
+    "text_hash": "c0e4367a2c8a404f"
+  },
+  "74": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "bea95a6cab7ed498"
+  },
+  "75": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "d9f6a31beea49743"
+  },
+  "76": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "fc36c50f15cb6d29"
+  },
+  "77": {
+    "prediction": [],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "729865540497da03"
+  },
+  "78": {
+    "prediction": ["Article 10 - Freedom of expression"],
+    "actual_label": [],
+    "text_hash": "27d900a90f6f3f31"
+  },
+  "79": {
+    "prediction": "The task cannot be completed because the `llm_query` function is reported as `NoneType` and thus not callable, preventing any interaction with the sub-LLM required for classification.",
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "da949b32c8b9fec9"
+  },
+  "80": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "cf081124d61a2759"
+  },
+  "81": {
+    "prediction": [],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "7376a39a5a39599f"
+  },
+  "82": {
+    "prediction": ["Article 3 - Prohibition of torture"],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "e1876f09a08284bb"
+  },
+  "83": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "e8a816b6c98b5c71"
+  },
+  "84": {
+    "prediction": ["Article 2 - Right to life"],
+    "actual_label": [],
+    "text_hash": "38bbef6501e9a56d"
+  },
+  "85": {
+    "prediction": [],
+    "actual_label": [
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "fe14c1a4ce113c22"
+  },
+  "86": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "44fda446c51ddb1b"
+  },
+  "87": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "24ffffcf6e00977f"
+  },
+  "88": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "4411742f32f8f436"
+  },
+  "89": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": [],
+    "text_hash": "8d8156569f1cbe82"
+  },
+  "90": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "5f290de3ec294af1"
+  },
+  "91": {
+    "prediction": ["Article 11 - Freedom of assembly and association"],
+    "actual_label": ["Article 11 - Freedom of assembly and association"],
+    "text_hash": "b87b7a17bd620ed8"
+  },
+  "92": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "7444710fd81eca64"
+  },
+  "93": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": ["Article P1-1 - Protection of property"],
+    "text_hash": "8031337b1ef2028d"
+  },
+  "94": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "ad9fdd2b4bf64f31"
+  },
+  "95": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [],
+    "text_hash": "385798d4d74287eb"
+  },
+  "96": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article P1-1 - Protection of property"],
+    "text_hash": "9ad603bfbce45b77"
+  },
+  "97": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 13 - Right to an effective remedy",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [],
+    "text_hash": "9d055a74e9a0da2b"
+  },
+  "98": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "f7c99a791417256c"
+  },
+  "99": {
+    "prediction": [
+      "Article 3 - Prohibition of torture and inhuman or degrading treatment",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "2de0e361dd53d7ba"
+  }
+}

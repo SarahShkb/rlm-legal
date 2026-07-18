@@ -1,0 +1,502 @@
+{
+  "0": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "4e00b3f98f15e3c4"
+  },
+  "1": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "30ad31b5e6d48623"
+  },
+  "2": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "717408466bf40aca"
+  },
+  "3": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "d30965eaf73cddbc"
+  },
+  "4": {
+    "prediction": ["Contract by using"],
+    "actual_label": [],
+    "text_hash": "3c1dba46aafe5589"
+  },
+  "5": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "b0a5e3e8ea5f1cb9"
+  },
+  "6": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "de748a01b31704fc"
+  },
+  "7": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1d21f9d9f0a4de4a"
+  },
+  "8": {
+    "prediction": ["Choice of law"],
+    "actual_label": [],
+    "text_hash": "34eae60b169cb1b1"
+  },
+  "9": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "6119ff8e38d8a696"
+  },
+  "10": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "4848775ae5611e16"
+  },
+  "11": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "e39c1ebf4e814dcb"
+  },
+  "12": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "acaeff5a257f21fd"
+  },
+  "13": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "dfbc511b97f1da0c"
+  },
+  "14": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "23402499dc2c20b0"
+  },
+  "15": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "f7177eb928cf2f3e"
+  },
+  "16": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "a0ecd3f6fe2cf8d0"
+  },
+  "17": {
+    "prediction": ["Choice of law", "Jurisdiction", "Arbitration"],
+    "actual_label": [],
+    "text_hash": "94189d9629e68c53"
+  },
+  "18": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "df4f800b7232577f"
+  },
+  "19": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "40bc2984f0bfb17a"
+  },
+  "20": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1438bf9708bca93f"
+  },
+  "21": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "de41d4e1218f6026"
+  },
+  "22": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1acf1afb6acc711e"
+  },
+  "23": {
+    "prediction": ["Content removal"],
+    "actual_label": [],
+    "text_hash": "8dc7aa463f14e9a9"
+  },
+  "24": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2ec8d8a4876dc4cf"
+  },
+  "25": {
+    "prediction": ["Limitation of liability", "Contract by using"],
+    "actual_label": [],
+    "text_hash": "5196c6353af53789"
+  },
+  "26": {
+    "prediction": "Error: Could not parse LLM output.",
+    "actual_label": [],
+    "text_hash": "7c51b05ca0e888e0"
+  },
+  "27": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "42e5d1c7d4945bc4"
+  },
+  "28": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "e7f8acdc47824436"
+  },
+  "29": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2b02e5d7af174158"
+  },
+  "30": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "23fb6f973af630fe"
+  },
+  "31": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2c43824586c4992c"
+  },
+  "32": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "6829b67955a6f6d0"
+  },
+  "33": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "8645ecc1e3b7649e"
+  },
+  "34": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2245a531ef4b54e6"
+  },
+  "35": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "0ccbf7fb4e3b20b2"
+  },
+  "36": {
+    "prediction": ["Unilateral change"],
+    "actual_label": ["Unilateral change"],
+    "text_hash": "f5c9cb06d8333b4f"
+  },
+  "37": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "c5f55c944168e743"
+  },
+  "38": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "23a84f9d212b89aa"
+  },
+  "39": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "bacfac4e8c3a6f9a"
+  },
+  "40": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "7ab3bbce07702a25"
+  },
+  "41": {
+    "prediction": ["Content removal"],
+    "actual_label": ["Content removal"],
+    "text_hash": "43af9acae3682fd9"
+  },
+  "42": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "675867e8b122e778"
+  },
+  "43": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "70ddd365cb166399"
+  },
+  "44": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "95384e80f375b8c6"
+  },
+  "45": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "ba799c805bef9606"
+  },
+  "46": {
+    "prediction": ["Unilateral change", "Content removal"],
+    "actual_label": ["Content removal", "Unilateral change"],
+    "text_hash": "7b713c65a3312e44"
+  },
+  "47": {
+    "prediction": ["Limitation of liability", "Content removal"],
+    "actual_label": [],
+    "text_hash": "83307d3c74d241bc"
+  },
+  "48": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1825082f6631e499"
+  },
+  "49": {
+    "prediction": ["Contract by using"],
+    "actual_label": [],
+    "text_hash": "fecc0272876dc2cb"
+  },
+  "50": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "37bd0120334f0dc6"
+  },
+  "51": {
+    "prediction": ["Unilateral termination", "Content removal"],
+    "actual_label": [],
+    "text_hash": "c88187387accd2c8"
+  },
+  "52": {
+    "prediction": ["Unilateral termination"],
+    "actual_label": [],
+    "text_hash": "98ce8e1662c4443b"
+  },
+  "53": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1f4ba173df89be2f"
+  },
+  "54": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "08e6ac93238416e2"
+  },
+  "55": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2c230208086f9331"
+  },
+  "56": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "aa0280156f121ab2"
+  },
+  "57": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "e76cce426c5376b1"
+  },
+  "58": {
+    "prediction": ["Content removal"],
+    "actual_label": [],
+    "text_hash": "ca47dd6e1658b6b7"
+  },
+  "59": {
+    "prediction": ["Content removal"],
+    "actual_label": [],
+    "text_hash": "a735929752a7a2b1"
+  },
+  "60": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "d27f1c6be891e9cf"
+  },
+  "61": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "c82026bdab6f0114"
+  },
+  "62": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "cc74ddcf6e21df13"
+  },
+  "63": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "12fb71e30a5389f4"
+  },
+  "64": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "93e0562691042d79"
+  },
+  "65": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "9c6ebd5f22afe7e2"
+  },
+  "66": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "5c64074befe6c4c7"
+  },
+  "67": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "52a9a1e8328ada47"
+  },
+  "68": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "60578410c73072a1"
+  },
+  "69": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "0dc289501f83d1b2"
+  },
+  "70": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "61a49914bd56c10d"
+  },
+  "71": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "9091b8e21d0c4b23"
+  },
+  "72": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "a3471eb0aa574615"
+  },
+  "73": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "3f13c3c59af2315d"
+  },
+  "74": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "4274557cc5c64d99"
+  },
+  "75": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "e866a62cb9c027cd"
+  },
+  "76": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "8d6c9887d2cca703"
+  },
+  "77": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "bc68c9de77b4eda9"
+  },
+  "78": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "4989a9935ed58811"
+  },
+  "79": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "427d27af44800f99"
+  },
+  "80": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2f775b6e1173f2f3"
+  },
+  "81": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "05777a2f16c395c0"
+  },
+  "82": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "95bc1a914c613efd"
+  },
+  "83": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2d8cc2ec4f899c6e"
+  },
+  "84": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": ["Limitation of liability"],
+    "text_hash": "67f0ffb1ecd43e11"
+  },
+  "85": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "ad21a2fd8a15ad9d"
+  },
+  "86": {
+    "prediction": "I cannot complete the task because the 'Terms of Service sentence' to be classified is missing from the provided context. The context only contains the task description, candidate labels, and output requirements, but no sentence to analyze.",
+    "actual_label": ["Limitation of liability"],
+    "text_hash": "4b47adcd3d108d53"
+  },
+  "87": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "9851005984563a52"
+  },
+  "88": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "985f1ba0fb6ee2a3"
+  },
+  "89": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "a89fa3ca68c62302"
+  },
+  "90": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2bf9aa4ec82d0257"
+  },
+  "91": {
+    "prediction": ["Unilateral change"],
+    "actual_label": ["Unilateral change"],
+    "text_hash": "847d8a1b3c3c559d"
+  },
+  "92": {
+    "prediction": ["Unilateral change", "Contract by using"],
+    "actual_label": [],
+    "text_hash": "cacadeaabc07d780"
+  },
+  "93": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "1f1330bc6ee4f286"
+  },
+  "94": {
+    "prediction": ["Unilateral termination", "Unilateral change"],
+    "actual_label": ["Unilateral termination"],
+    "text_hash": "5af177af48b19e8d"
+  },
+  "95": {
+    "prediction": ["Unilateral termination"],
+    "actual_label": [],
+    "text_hash": "c68a8c3af875f2bf"
+  },
+  "96": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "b5b48646e295a80f"
+  },
+  "97": {
+    "prediction": ["Unilateral termination"],
+    "actual_label": ["Unilateral termination"],
+    "text_hash": "031a37bae72bc172"
+  },
+  "98": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "adf821728f51b957"
+  },
+  "99": {
+    "prediction": ["Unilateral termination"],
+    "actual_label": [],
+    "text_hash": "f432e0bf9dfc173b"
+  }
+}

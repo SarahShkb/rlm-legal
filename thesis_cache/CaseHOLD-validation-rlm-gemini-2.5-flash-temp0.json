@@ -1,0 +1,502 @@
+{
+  "0": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "7d250b3ca539fd1b"
+  },
+  "1": {
+    "prediction": 1,
+    "actual_label": 0,
+    "text_hash": "b34a2b91d92bbd21"
+  },
+  "2": {
+    "prediction": 4,
+    "actual_label": 4,
+    "text_hash": "efef7891a3ddeec2"
+  },
+  "3": {
+    "prediction": 4,
+    "actual_label": 3,
+    "text_hash": "fa39ccec68358bf9"
+  },
+  "4": {
+    "prediction": "ERROR: The `llm_query` function (and other LLM interaction functions) described as available were not found in the REPL environment. `SHOW_VARS()` confirmed their absence. Therefore, I cannot complete the task as it requires semantic understanding of legal text via an LLM call.",
+    "actual_label": 1,
+    "text_hash": "e06296b2f93b7cd8"
+  },
+  "5": {
+    "prediction": 0,
+    "actual_label": 0,
+    "text_hash": "34131118303a4fdd"
+  },
+  "6": {
+    "prediction": 3,
+    "actual_label": 1,
+    "text_hash": "d726d8793bef4c13"
+  },
+  "7": {
+    "prediction": 2,
+    "actual_label": 2,
+    "text_hash": "04f8d76c89d3afc4"
+  },
+  "8": {
+    "prediction": "Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "actual_label": 1,
+    "text_hash": "e6bcfc35d0ea99a3"
+  },
+  "9": {
+    "prediction": 1,
+    "actual_label": 0,
+    "text_hash": "f637f40508b6993c"
+  },
+  "10": {
+    "prediction": 2,
+    "actual_label": 2,
+    "text_hash": "f5f7c8ca8f4c2e66"
+  },
+  "11": {
+    "prediction": 2,
+    "actual_label": 1,
+    "text_hash": "890b64970666c2c7"
+  },
+  "12": {
+    "prediction": 5,
+    "actual_label": 4,
+    "text_hash": "88d567ddf4a0b070"
+  },
+  "13": {
+    "prediction": 4,
+    "actual_label": 0,
+    "text_hash": "076955c6394934b1"
+  },
+  "14": {
+    "prediction": 5,
+    "actual_label": 4,
+    "text_hash": "81ad4653196499ce"
+  },
+  "15": {
+    "prediction": 2,
+    "actual_label": 2,
+    "text_hash": "cafac5905f9775a6"
+  },
+  "16": {
+    "prediction": 1,
+    "actual_label": 0,
+    "text_hash": "e9909b9130361ad7"
+  },
+  "17": {
+    "prediction": 4,
+    "actual_label": 4,
+    "text_hash": "127ff2c59d30b1df"
+  },
+  "18": {
+    "prediction": 4,
+    "actual_label": 1,
+    "text_hash": "41e000fd852634b2"
+  },
+  "19": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "256bfec0e15b274b"
+  },
+  "20": {
+    "prediction": 1,
+    "actual_label": 0,
+    "text_hash": "51ab528c7990243b"
+  },
+  "21": {
+    "prediction": 3,
+    "actual_label": 1,
+    "text_hash": "a27d446681dbe9cb"
+  },
+  "22": {
+    "prediction": 4,
+    "actual_label": 0,
+    "text_hash": "8ce9133ce4c3c75c"
+  },
+  "23": {
+    "prediction": 4,
+    "actual_label": 4,
+    "text_hash": "6a34a444f43aea63"
+  },
+  "24": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "ecaa4d1243331d2d"
+  },
+  "25": {
+    "prediction": 2,
+    "actual_label": 2,
+    "text_hash": "c3b5a29da19abe67"
+  },
+  "26": {
+    "prediction": 5,
+    "actual_label": 2,
+    "text_hash": "c8351b67fea75b00"
+  },
+  "27": {
+    "prediction": 0,
+    "actual_label": 0,
+    "text_hash": "aeb916e92bb46293"
+  },
+  "28": {
+    "prediction": 0,
+    "actual_label": 0,
+    "text_hash": "f7bac630c3007d00"
+  },
+  "29": {
+    "prediction": 4,
+    "actual_label": 1,
+    "text_hash": "ec760aa1f4bad438"
+  },
+  "30": {
+    "prediction": 4,
+    "actual_label": 2,
+    "text_hash": "6c6daa81478573f5"
+  },
+  "31": {
+    "prediction": "Error: The `llm_query` function is not callable or available in this REPL environment, preventing the task from being completed as it requires semantic understanding of legal text.",
+    "actual_label": 3,
+    "text_hash": "89f37fb8bae06cb3"
+  },
+  "32": {
+    "prediction": "The legal context discusses an appellant waiving objection to an indictment amendment, the rule that an indictment cannot be amended on the day of trial, and crucially, the principle that *to preserve error for appeal, a defendant must object, otherwise the error is forfeited.* The missing holding from *Hernandez v. State* is cited as further support for this principle.\n\nLet's analyze the candidates:\n\n*   **0:** This discusses waiving a statute of limitations *defense*, not the preservation of error regarding an indictment amendment.\n*   **1:** This describes Article 28.10c regarding when an indictment *cannot* be amended over objection, rather than the consequence of *not* objecting.\n*   **2:** This holding is about the tolling of the statute of limitations by an invalid indictment, which is unrelated to the point about preserving error by objecting to amendments.\n*   **3:** This holding states that \"defects errors and irregularities of either form or substance in an indictment or information must be raised by pretrial objection or are waived in postconviction proceedings.\" It then provides an example where a defendant failed to object to a substantive defect pretrial and thus could not raise it later. This perfectly aligns with the context's emphasis on the need to object to preserve error and the consequence of forfeiture if no objection is made.\n*   **4:** This holding discusses the sufficiency of an indictment to provide notice, not the procedural requirement to object to defects or amendments.\n\nCandidate 3 directly supports the proposition that failure to object to defects or irregularities in an indictment results in waiver, which is the core legal reasoning the passage is illustrating.\n\nThe final answer is $\\boxed{3}$",
+    "actual_label": 1,
+    "text_hash": "7c131152d1ecd22b"
+  },
+  "33": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "9b03e78f44839faa"
+  },
+  "34": {
+    "prediction": 0,
+    "actual_label": 0,
+    "text_hash": "d8fe59497ea255ae"
+  },
+  "35": {
+    "prediction": 3,
+    "actual_label": 0,
+    "text_hash": "0639eeddca0dc331"
+  },
+  "36": {
+    "prediction": 4,
+    "actual_label": 1,
+    "text_hash": "806132b90e634c76"
+  },
+  "37": {
+    "prediction": 4,
+    "actual_label": 4,
+    "text_hash": "9f9f115d3f4bb77a"
+  },
+  "38": {
+    "prediction": "The legal context discusses vicarious liability in the context of expert reports. Specifically, it states that when liability is purely vicarious, a report adequately implicating the actions of an agent or employee is sufficient for the principal. The court then applies this reasoning to reject OGA's assertion that Dr. Brewer's expert reports concerning the individual doctors did not sufficiently implicate OGA for purely vicarious liability claims. The placeholder for the holding should reinforce this point, likely by providing a similar ruling from another case.\n\nLet's evaluate the candidate holdings:\n\n*   **0: holding that no expert reports specifically addressing conduct of professional corporation and professional association were required when plaintiffs alleged only vicarious liability based on medical negligence of entities physicians explaining that the entities conduct is not measured by a medical standard of care but rather their liability was solely vicarious**\n    *   This holding aligns with the reasoning in the context, stating that separate reports for the entity are not required when liability is vicarious.\n\n*   **1: holding that a professional owes no duty to third persons unless the professional had actual knowledge that those persons would rely on his rendering of professional services**\n    *   This holding is unrelated to expert reports or vicarious liability.\n\n*   **2: holding that expert report that sufficiently addressed certain claims against doctor employed by professional association was sufficient as to claims against professional association based on doctors negligence because the doctors negligence is imputed to the association under the professional association act**\n    *   This holding directly supports the court's conclusion. It states that a report sufficient for the doctor is also sufficient for the professional association due to imputation of negligence, which is the core of vicarious liability. This directly addresses the question of whether the reports \"sufficiently implicate OGA.\"\n\n*   **3: holding a condominium association had no duty to a woman who had committed suicide after the association removed the womans dog because while the association knew the dog was essential to the womans will to live the association had no authority to prevent the womans suicide**\n    *   This holding is completely irrelevant to the legal context.\n\n*   **4: recognizing contributory negligence as a defense to professional malpractice claims**\n    *   This holding is about a defense to malpractice, not about expert reports or vicarious liability.\n\nBoth candidate holdings 0 and 2 are consistent with the context. However, the context specifically focuses on whether the reports \"sufficiently implicate OGA.\" Candidate holding 2 directly addresses this by stating that an \"expert report that sufficiently addressed certain claims against doctor... was sufficient as to claims against professional association.\" This phrasing directly echoes the language and conclusion of the context. Furthermore, the explanation of \"because the doctors negligence is imputed to the association\" provides the legal mechanism for this sufficiency, which is typical for a cited case.\n\nThe final answer is $\\boxed{2}$",
+    "actual_label": 2,
+    "text_hash": "ead2bfa5c0899a9c"
+  },
+  "39": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "147e55692d4d3784"
+  },
+  "40": {
+    "prediction": "recognizing that categorical constitutional challenge was fundamentally similar to asapplied constitutional challenge initially raised on appeal",
+    "actual_label": 0,
+    "text_hash": "168477952e8c397a"
+  },
+  "41": {
+    "prediction": 3,
+    "actual_label": 2,
+    "text_hash": "50fecc7b6f2c613f"
+  },
+  "42": {
+    "prediction": 5,
+    "actual_label": 2,
+    "text_hash": "a5b6647e656cef64"
+  },
+  "43": {
+    "prediction": " You should review the conversation and context to ensure your answer is accurate and complete.\n",
+    "actual_label": 3,
+    "text_hash": "c4bab3a4876d18b8"
+  },
+  "44": {
+    "prediction": 4,
+    "actual_label": 4,
+    "text_hash": "8eee4314d937c0cd"
+  },
+  "45": {
+    "prediction": 0,
+    "actual_label": 0,
+    "text_hash": "ba535ba3654ea1ce"
+  },
+  "46": {
+    "prediction": 5,
+    "actual_label": 4,
+    "text_hash": "df3ef11f844d04f3"
+  },
+  "47": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "3148ed548b41a6db"
+  },
+  "48": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "9d4d78a0331f3a03"
+  },
+  "49": {
+    "prediction": "The legal context discusses that questions concerning a suspect's identity are a routine and accepted part of many Terry stops, especially where reasonable suspicion exists. It states that if there are articulable facts supporting reasonable suspicion, a person may be stopped in order to identify and question them. The blank refers to a Colorado case from 2002 that exemplifies this principle or a related aspect of it.\n\nLet's analyze the candidate holdings:\n\n*   **0: holding that questioning of passengers on bus including asking for drivers licenses and tickets constituted consensual encounter and passengers were free to decline to answer questions**\n    *   This describes a consensual encounter on a bus, which might be too specific and might not directly relate to a \"stop based on reasonable suspicion\" for a criminal offense, although it addresses questioning for identification.\n\n*   **1: holding that request of passenger in vehicle lawfully stopped for traffic infraction for her identification was consensual encounter where there was no evidence that defendant was intimidated or forced to comply with request**\n    *   This holding directly addresses a \"request for identification\" made to a \"passenger in a vehicle lawfully stopped.\" A traffic infraction stop is a common type of lawful stop. Characterizing the request for identification as a \"consensual encounter\" (meaning the individual is free to decline without coercion) is a recognized legal distinction, especially when no statute compels identification. This aligns well with the broader discussion of questioning for identity during a lawful stop.\n\n*   **2: holding that if random suspicionless questioning of bus passengers for inspection of identification and tickets was consensual encounter it was not a violation of passengers fourth amendment rights**\n    *   The term \"suspicionless questioning\" contradicts the preceding text's emphasis on \"reasonable suspicion\" for a Terry stop.\n\n*   **3: holding officers request for passengers identification during stop constituted lawful consensual encounter**\n    *   This is similar to option 1, but slightly more general. However, the phrasing \"lawful consensual encounter\" for the *request* itself might be less precise than \"request...was consensual encounter.\" Option 1 provides a more detailed and specific scenario (traffic infraction, lack of intimidation).\n\n*   **4: holding that an encounter was consensual where the defendant was comfortable during the encounter chose not to leave and acquiesced to the officers request to answer questions**\n    *   This is a general definition of a consensual encounter and doesn't specifically address identification or the context of a lawful stop based on suspicion.\n\nOption 1 provides the most specific and fitting legal principle to complete the reasoning. It describes a scenario where identification is requested during a lawful stop (a traffic infraction is a specific \"articulable fact\" leading to a stop), and clarifies that such a request, in the absence of coercion, is considered a consensual encounter. This aligns with the discussion about identifying individuals during lawful stops, contrasting with situations where identity might be compelled by statute (like in *Hiibel*).\n\nThe final answer is $\\boxed{1}$",
+    "actual_label": 3,
+    "text_hash": "0bcc2e6666766df8"
+  },
+  "50": {
+    "prediction": 3,
+    "actual_label": 2,
+    "text_hash": "3cf810102c2785f8"
+  },
+  "51": {
+    "prediction": 1,
+    "actual_label": 3,
+    "text_hash": "589c6593f4e0f1a4"
+  },
+  "52": {
+    "prediction": 1,
+    "actual_label": 0,
+    "text_hash": "f34efc92957b0112"
+  },
+  "53": {
+    "prediction": 4,
+    "actual_label": 4,
+    "text_hash": "ae57969be9039fbd"
+  },
+  "54": {
+    "prediction": 3,
+    "actual_label": 2,
+    "text_hash": "dc66ea313fe5ac3f"
+  },
+  "55": {
+    "prediction": 3,
+    "actual_label": 2,
+    "text_hash": "830287b5d60e1889"
+  },
+  "56": {
+    "prediction": 4,
+    "actual_label": 1,
+    "text_hash": "ccd8c5cbc033b20d"
+  },
+  "57": {
+    "prediction": 1,
+    "actual_label": 0,
+    "text_hash": "d632dce6815201bf"
+  },
+  "58": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "b5aff1b422c25867"
+  },
+  "59": {
+    "prediction": 0,
+    "actual_label": 2,
+    "text_hash": "71f3cc11cdbc030b"
+  },
+  "60": {
+    "prediction": 2,
+    "actual_label": 4,
+    "text_hash": "f3469c1b77b6af04"
+  },
+  "61": {
+    "prediction": 4,
+    "actual_label": 1,
+    "text_hash": "a2981db1d329b659"
+  },
+  "62": {
+    "prediction": "I am unable to complete the task because the `context` variable, which is supposed to contain the legal text and candidate holdings, is empty. Despite initial access in Turn 1, all subsequent attempts to read the `context` variable have shown it to be an empty string, preventing any extraction or further processing using `llm_query`.",
+    "actual_label": 0,
+    "text_hash": "0c3579a6bf1c1862"
+  },
+  "63": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "d38cb84fd452d8a5"
+  },
+  "64": {
+    "prediction": 2,
+    "actual_label": 3,
+    "text_hash": "031b7a0af9a0e83d"
+  },
+  "65": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "d531a5f4a83a8cec"
+  },
+  "66": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "240e4ae185603837"
+  },
+  "67": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "6045aac8f0bd24df"
+  },
+  "68": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "0a6e09f84ce3d786"
+  },
+  "69": {
+    "prediction": "The legal reasoning emphasized in the context is that \"the defendant must have had knowledge or reason to believe that the individual to whom the firearm was transferred had certain prior convictions or is under a criminal justice sentence.\" The cited case, *United States v. Asante*, should support this proposition.\n\nLet's evaluate the candidate holdings:\n\n*   **Candidate 0:** \"holding that the defendants actions fell under the unlawful possession prong where the defendant transferred at least one firearm to a known felon\"\n    *   This implies the defendant had the requisite knowledge (\"known felon\"), which aligns with the context.\n\n*   **Candidate 1:** \"holding that the government must prove the defendant knew of the features of the firearm that brought it within the scope of the act\"\n    *   This focuses on the firearm's features, not the transferee's status. It does not align with the context.\n\n*   **Candidate 2:** \"holding that the government failed to prove the defendants actions fell under the unlawful possession prong bjecause the government failed to present any evidence that the defendant knew that his conduct would result in a firearm being transferred to an individual falling under the narrow guidelines definition of an individual in unlawful possession\"\n    *   This holding directly addresses the government's burden to prove the *defendant's knowledge* about the *recipient's status* (\"individual falling under the narrow guidelines definition of an individual in unlawful possession,\" which corresponds to having \"certain prior convictions or is under a criminal justice sentence\"). This aligns perfectly with the emphasized legal reasoning. The judge's concurrence highlights what the majority \"overlooks,\" and this holding provides a concrete example of the consequence of failing to prove that critical element.\n\n*   **Candidate 3:** \"holding that both the unlawful possession and unlawful use prongs were met and noting that the firearm transferred to the individual was not registered making the individuals possession of it necessarily unlawful\"\n    *   This focuses on the firearm's registration status making possession unlawful, rather than the defendant's knowledge of the transferee's specific disqualifying characteristics (convictions/sentence). The context explicitly states the individual's possession \"need not be actually unlawful,\" but the defendant must have knowledge of the *reason* for potential unlawful possession. This does not fit.\n\n*   **Candidate 4:** \"holding that the government was required to prove that the defendant lacked a license to possess a firearm but not that the defendant possessed the firearm for any duration of time\"\n    *   This focuses on the defendant's licensing, not their knowledge of the transferee's disqualifying status. It does not align with the context.\n\nBetween Candidate 0 and Candidate 2, Candidate 2 provides a more direct and explicit correspondence to the \"defendant must have had knowledge or reason to believe\" requirement, especially in the context of a judicial opinion highlighting what was \"overlooked.\" It specifically states the *failure to prove* the defendant's knowledge regarding the recipient's unlawful status was a critical flaw.\n\nThe final answer is $\\boxed{2}$",
+    "actual_label": 2,
+    "text_hash": "b8db659e638ff904"
+  },
+  "70": {
+    "prediction": 4,
+    "actual_label": 4,
+    "text_hash": "ade339a9f3d65725"
+  },
+  "71": {
+    "prediction": "The legal context discusses the \"emotional distress prong of the stalking statute\" and notes that the plaintiff did not show \"more than anxiety and annoyance\" and presented \"no objective evidence thereof.\" The context cites *CJ Hansen v. Mountain Fuel Supply Co.* as the authority for this point.\n\nLet's evaluate the candidate holdings in light of this:\n\n*   **0: holding that emotional distress requires a showing of either physical symptoms or mental illness**\n    *   This aligns perfectly with the context's requirement for \"more than anxiety and annoyance\" (as physical symptoms or mental illness are a higher bar) and the need for \"objective evidence\" (as physical symptoms are observable and mental illness is typically diagnosed). This is a common standard for emotional distress claims.\n\n*   **1: holding that employee could not state a claim for negligent infliction of emotional distress under fela without a showing of physical impact**\n    *   This is specific to FELA and \"physical impact,\" which is not indicated by the context.\n\n*   **2: holding that title 42 usc 1997ee requires proof of a physical injury before a prisoner can recover for emotional or mental distress and that verbal abuse is not actionable under section 1983**\n    *   This is specific to prisoners and 42 U.S.C. § 1997ee, which is not indicated by the context.\n\n*   **3: holding in a fcra case that plaintiffs may not rely on mere conclusory statements rather they must sufficiently articulate true demonstrable emotional distress including the factual context in which the emotional distress arose evidence corroborating the testimony of the plaintiff the nexus between the conduct of the defendant and the emotional distress the degree of such mental distress mitigating circumstances if any physical injuries suffered due to the emotional distress medical attention resulting from the emotional duress psychiatric or psychological treatment and the loss of income if any**\n    *   While this holding emphasizes \"demonstrable emotional distress\" and objective evidence, consistent with the context, it is explicitly tied to an \"FCRA case.\" The cited case, *Hansen*, is a Utah Supreme Court case concerning negligent infliction of emotional distress, not an FCRA case.\n\n*   **4: holding that under south dakota law compensation for negligent infliction of emotional distress requires manifestation of physical symptoms and intentional infliction of emotional distress requires an extreme disabling emotional response**\n    *   This is specific to \"South Dakota law,\" which is inconsistent with the Utah case cited in the context.\n\nUpon reviewing the principles established in *CJ Hansen v. Mountain Fuel Supply Co., 858 P.2d 970 (Utah 1993)*, the Utah Supreme Court indeed held that to recover for emotional distress, a plaintiff must prove by objective evidence that they have suffered severe emotional distress, which often includes a requirement for either physical manifestations or a diagnosis of mental illness. This standard is precisely what candidate holding 0 describes.\n\nThe final answer is $\\boxed{0}$",
+    "actual_label": 0,
+    "text_hash": "68defd9b8b54599a"
+  },
+  "72": {
+    "prediction": 5,
+    "actual_label": 4,
+    "text_hash": "9ceab4618268d87a"
+  },
+  "73": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "8198746927a78775"
+  },
+  "74": {
+    "prediction": 2,
+    "actual_label": 2,
+    "text_hash": "bbfda6786037fce4"
+  },
+  "75": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "3cf281548db1be0f"
+  },
+  "76": {
+    "prediction": 3,
+    "actual_label": 0,
+    "text_hash": "301c408c6c40e6d4"
+  },
+  "77": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "2e824acc3ab5dbd7"
+  },
+  "78": {
+    "prediction": 1,
+    "actual_label": 0,
+    "text_hash": "6873f358a7266481"
+  },
+  "79": {
+    "prediction": 4,
+    "actual_label": 0,
+    "text_hash": "ba66cada0f23f676"
+  },
+  "80": {
+    "prediction": 0,
+    "actual_label": 0,
+    "text_hash": "1cd90cc8503d8392"
+  },
+  "81": {
+    "prediction": 5,
+    "actual_label": 4,
+    "text_hash": "f0c88e961334390b"
+  },
+  "82": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "6fd2fa8e86143183"
+  },
+  "83": {
+    "prediction": 4,
+    "actual_label": 2,
+    "text_hash": "b0a1ea95157d2d33"
+  },
+  "84": {
+    "prediction": 0,
+    "actual_label": 3,
+    "text_hash": "eed8d9d54219608d"
+  },
+  "85": {
+    "prediction": 5,
+    "actual_label": 4,
+    "text_hash": "eb20bed4e78b6ff1"
+  },
+  "86": {
+    "prediction": 3,
+    "actual_label": 4,
+    "text_hash": "572245ba7d33e770"
+  },
+  "87": {
+    "prediction": 5,
+    "actual_label": 4,
+    "text_hash": "0f8a55359bb08a81"
+  },
+  "88": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "77eeb01d14b7cf0b"
+  },
+  "89": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "e4dc4418f3348ef2"
+  },
+  "90": {
+    "prediction": 4,
+    "actual_label": 4,
+    "text_hash": "4c7b061a086c73eb"
+  },
+  "91": {
+    "prediction": 0,
+    "actual_label": 0,
+    "text_hash": "33de6b3798fce060"
+  },
+  "92": {
+    "prediction": 2,
+    "actual_label": 2,
+    "text_hash": "0d0d7d7240bfa7e4"
+  },
+  "93": {
+    "prediction": 2,
+    "actual_label": 4,
+    "text_hash": "9e14d3a1b4267840"
+  },
+  "94": {
+    "prediction": 5,
+    "actual_label": 1,
+    "text_hash": "e02eb3f1064df371"
+  },
+  "95": {
+    "prediction": 2,
+    "actual_label": 4,
+    "text_hash": "d495bc64acc40e43"
+  },
+  "96": {
+    "prediction": 1,
+    "actual_label": 1,
+    "text_hash": "83f4001422bff8ec"
+  },
+  "97": {
+    "prediction": 5,
+    "actual_label": 4,
+    "text_hash": "f8245cd981ade52b"
+  },
+  "98": {
+    "prediction": 3,
+    "actual_label": 3,
+    "text_hash": "aaeb95a0079ea901"
+  },
+  "99": {
+    "prediction": 3,
+    "actual_label": 2,
+    "text_hash": "49f513cc2a5e814a"
+  }
+}

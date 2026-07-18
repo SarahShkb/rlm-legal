@@ -1,0 +1,502 @@
+{
+  "0": {
+    "prediction": "Amendments",
+    "actual_label": "Amendments",
+    "text_hash": "4a77b8338dac1c87"
+  },
+  "1": {
+    "prediction": "Entire Agreements",
+    "actual_label": "Amendments",
+    "text_hash": "33cd5bb6eb90c2f4"
+  },
+  "2": {
+    "prediction": "Governing Laws",
+    "actual_label": "Governing Laws",
+    "text_hash": "8563115100b324be"
+  },
+  "3": {
+    "prediction": "Final Status: Unable to complete the classification task. I have successfully extracted all 100 candidate labels from the provided context and prepared the `llm_query` template for legal document classification. However, the actual contract provision to be classified (which should be provided as the RLM's input prompt) has consistently been inaccessible. The `prompt` variable is undefined in the REPL environment, preventing me from passing the text to be classified to the sub-LLM. Without this crucial input, I cannot perform the classification and provide a specific label. All setup is complete, but the execution is blocked by the missing input text.",
+    "actual_label": "Headings",
+    "text_hash": "306cbfcda9531229"
+  },
+  "4": {
+    "prediction": "Governing Laws",
+    "actual_label": "Governing Laws",
+    "text_hash": "2f9596874be29602"
+  },
+  "5": {
+    "prediction": "Compliance With Laws",
+    "actual_label": "Compliance With Laws",
+    "text_hash": "936d21c27043ba70"
+  },
+  "6": {
+    "prediction": "Miscellaneous",
+    "actual_label": "Compliance With Laws",
+    "text_hash": "3dbf18765c3721df"
+  },
+  "7": {
+    "prediction": "Submission To Jurisdiction",
+    "actual_label": "Governing Laws",
+    "text_hash": "30033f510dd9ce99"
+  },
+  "8": {
+    "prediction": "None",
+    "actual_label": "Counterparts",
+    "text_hash": "7dd0faa466cbc5ff"
+  },
+  "9": {
+    "prediction": "Taxes",
+    "actual_label": "Withholdings",
+    "text_hash": "7ffb5bb205d0ba8d"
+  },
+  "10": {
+    "prediction": "Indemnifications",
+    "actual_label": "Indemnifications",
+    "text_hash": "33597c08b9e5ce7f"
+  },
+  "11": {
+    "prediction": "Counterparts",
+    "actual_label": "Counterparts",
+    "text_hash": "7aa174ae2e8a938e"
+  },
+  "12": {
+    "prediction": "No Conflicts",
+    "actual_label": "No Conflicts",
+    "text_hash": "3d028c6bf3528926"
+  },
+  "13": {
+    "prediction": "Jurisdiction",
+    "actual_label": "Jurisdictions",
+    "text_hash": "56a942575349f803"
+  },
+  "14": {
+    "prediction": "No Waivers",
+    "actual_label": "Waivers",
+    "text_hash": "df23c21d46215073"
+  },
+  "15": {
+    "prediction": "Existence",
+    "actual_label": "Organizations",
+    "text_hash": "22a301521edc3534"
+  },
+  "16": {
+    "prediction": "ERROR: The 'llm_query' function is consistently failing with 'TypeError: 'NoneType' object is not callable'. I cannot perform the classification task without a functioning LLM call. This is an environment issue.",
+    "actual_label": "Disability",
+    "text_hash": "b7af52b5237e07e4"
+  },
+  "17": {
+    "prediction": "Notices",
+    "actual_label": "Notices",
+    "text_hash": "3b2240114775f7b8"
+  },
+  "18": {
+    "prediction": "No Conflicts",
+    "actual_label": "General",
+    "text_hash": "d68a3b452d98807c"
+  },
+  "19": {
+    "prediction": "Notices",
+    "actual_label": "Notices",
+    "text_hash": "f2d33bad10b8b862"
+  },
+  "20": {
+    "prediction": "No Waivers",
+    "actual_label": "Waivers",
+    "text_hash": "4212fa8530f6433d"
+  },
+  "21": {
+    "prediction": "Insurances",
+    "actual_label": "Insurances",
+    "text_hash": "89443bd5b16101fc"
+  },
+  "22": {
+    "prediction": "Jury Trial Waivers",
+    "actual_label": "Duties",
+    "text_hash": "796d4435b9b1f035"
+  },
+  "23": {
+    "prediction": "Binding Effects",
+    "actual_label": "Forfeitures",
+    "text_hash": "0af6c15f606c422f"
+  },
+  "24": {
+    "prediction": "Governing Laws",
+    "actual_label": "Applicable Laws",
+    "text_hash": "581bbd7d39e5cc28"
+  },
+  "25": {
+    "prediction": "Amendments",
+    "actual_label": "Amendments",
+    "text_hash": "3e69a9e095dfe83c"
+  },
+  "26": {
+    "prediction": "Submission To Jurisdiction",
+    "actual_label": "Governing Laws",
+    "text_hash": "19b229071c3097ec"
+  },
+  "27": {
+    "prediction": "Forfeitures",
+    "actual_label": "Forfeitures",
+    "text_hash": "4975ac7368783d70"
+  },
+  "28": {
+    "prediction": "Counterparts",
+    "actual_label": "Counterparts",
+    "text_hash": "5c38f0b128b40096"
+  },
+  "29": {
+    "prediction": "Remedies",
+    "actual_label": "Specific Performance",
+    "text_hash": "45ed72806f2d1566"
+  },
+  "30": {
+    "prediction": "Binding Effects",
+    "actual_label": "Transactions With Affiliates",
+    "text_hash": "62aa8eb4849e37be"
+  },
+  "31": {
+    "prediction": "Governing Laws",
+    "actual_label": "Applicable Laws",
+    "text_hash": "cf7c9425ed9db844"
+  },
+  "32": {
+    "prediction": "Severability",
+    "actual_label": "Severability",
+    "text_hash": "a0ff459cac0371b6"
+  },
+  "33": {
+    "prediction": "Further Assurances",
+    "actual_label": "Further Assurances",
+    "text_hash": "e528a587e5d57c0f"
+  },
+  "34": {
+    "prediction": "Solvency",
+    "actual_label": "Solvency",
+    "text_hash": "3d2a12643459ef6e"
+  },
+  "35": {
+    "prediction": "Costs",
+    "actual_label": "Fees",
+    "text_hash": "36860b6ce3494d4b"
+  },
+  "36": {
+    "prediction": "Survival",
+    "actual_label": "Survival",
+    "text_hash": "2cdf8406cff82801"
+  },
+  "37": {
+    "prediction": "Applicable Laws",
+    "actual_label": "Further Assurances",
+    "text_hash": "07697fa6d4212664"
+  },
+  "38": {
+    "prediction": "Assignments",
+    "actual_label": "Assignments",
+    "text_hash": "7b5991d6f3a3d78e"
+  },
+  "39": {
+    "prediction": "Duties",
+    "actual_label": "Duties",
+    "text_hash": "467aad551d6b7e67"
+  },
+  "40": {
+    "prediction": "Governing Laws",
+    "actual_label": "Governing Laws",
+    "text_hash": "ede1b0305308c4bc"
+  },
+  "41": {
+    "prediction": "Governing Laws",
+    "actual_label": "Governing Laws",
+    "text_hash": "8f1287b4ca765d98"
+  },
+  "42": {
+    "prediction": "Taxes",
+    "actual_label": "Taxes",
+    "text_hash": "3c6fa59893bd4da1"
+  },
+  "43": {
+    "prediction": "Governing Laws",
+    "actual_label": "Governing Laws",
+    "text_hash": "b83873f4713f7142"
+  },
+  "44": {
+    "prediction": "Governing Laws",
+    "actual_label": "Applicable Laws",
+    "text_hash": "87dbd3e112c0459a"
+  },
+  "45": {
+    "prediction": "Taxes",
+    "actual_label": "General",
+    "text_hash": "c98e7dec2c888fdc"
+  },
+  "46": {
+    "prediction": "Tax Withholdings",
+    "actual_label": "Taxes",
+    "text_hash": "37a14d6bc7184d64"
+  },
+  "47": {
+    "prediction": "Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "actual_label": "Litigations",
+    "text_hash": "55d45acdc3cdc51f"
+  },
+  "48": {
+    "prediction": "Benefits",
+    "actual_label": "Vacations",
+    "text_hash": "6d17b21d4f49886e"
+  },
+  "49": {
+    "prediction": "Erisa",
+    "actual_label": "Terminations",
+    "text_hash": "db4c600dea5f9848"
+  },
+  "50": {
+    "prediction": "General",
+    "actual_label": "Notices",
+    "text_hash": "0ad7638c7a21868a"
+  },
+  "51": {
+    "prediction": "Assignments",
+    "actual_label": "Successors",
+    "text_hash": "a60812f8645ffa1f"
+  },
+  "52": {
+    "prediction": "Non-Disparagement",
+    "actual_label": "Non-Disparagement",
+    "text_hash": "78aba8948f54a05e"
+  },
+  "53": {
+    "prediction": "Waiver Of Jury Trials",
+    "actual_label": "Waiver Of Jury Trials",
+    "text_hash": "f477cd974a3ee470"
+  },
+  "54": {
+    "prediction": "Entire Agreement",
+    "actual_label": "Entire Agreements",
+    "text_hash": "fe2b923d70d4ee98"
+  },
+  "55": {
+    "prediction": "Headings",
+    "actual_label": "Headings",
+    "text_hash": "bc922a4562dbfaa7"
+  },
+  "56": {
+    "prediction": "Severability",
+    "actual_label": "Severability",
+    "text_hash": "6b8aee27c8c2535b"
+  },
+  "57": {
+    "prediction": "The contract provision explicitly states that a participant's rights, payments, and benefits may be \"subject to reduction, cancellation, forfeiture or recoupment\" upon the occurrence of specified events such as termination for cause, policy violations, or breaches of covenants. It also mentions \"clawback\" policies and Dodd-Frank requirements for recoupment.\n\nThe central theme of this provision is the conditions and mechanisms for taking back or nullifying awards and benefits, which directly aligns with the concept of **Forfeitures**. While other labels like \"Benefits,\" \"Payments,\" or \"Remedies\" might touch upon aspects of the clause, \"Forfeitures\" is the most precise and comprehensive description of the actions and consequences outlined.\n\nThe final answer is $\\boxed{\\text{Forfeitures}}$",
+    "actual_label": "Representations",
+    "text_hash": "094870381094fded"
+  },
+  "58": {
+    "prediction": "Terminations",
+    "actual_label": "Payments",
+    "text_hash": "b81b9b1840c7a6c6"
+  },
+  "59": {
+    "prediction": "Submission To Jurisdiction",
+    "actual_label": "Jurisdictions",
+    "text_hash": "e626d24d1e1b52c3"
+  },
+  "60": {
+    "prediction": "Use Of Proceeds",
+    "actual_label": "Use Of Proceeds",
+    "text_hash": "b67b920f5c4a46fd"
+  },
+  "61": {
+    "prediction": "Solvency",
+    "actual_label": "Solvency",
+    "text_hash": "627bde6caaec39ca"
+  },
+  "62": {
+    "prediction": "Counterparts",
+    "actual_label": "Counterparts",
+    "text_hash": "b546d2e8dec94547"
+  },
+  "63": {
+    "prediction": "Restrictive Covenants",
+    "actual_label": "Notices",
+    "text_hash": "1cadc10ed2c49b39"
+  },
+  "64": {
+    "prediction": "Payments",
+    "actual_label": "Fees",
+    "text_hash": "fa78df4e00bb2bad"
+  },
+  "65": {
+    "prediction": "Indemnifications",
+    "actual_label": "Indemnifications",
+    "text_hash": "1ef57890d76b4eea"
+  },
+  "66": {
+    "prediction": "Terminations",
+    "actual_label": "Terminations",
+    "text_hash": "486f5f4fe691fae3"
+  },
+  "67": {
+    "prediction": "Entire Agreements",
+    "actual_label": "Entire Agreements",
+    "text_hash": "6b431c2ac6627037"
+  },
+  "68": {
+    "prediction": "The contract provision explicitly states that the Board may \"terminate the Plan\" and \"amend the Plan.\" Both actions involve altering the existing state or terms of the Plan.\n\n1.  **Terminations**: This label directly addresses the \"terminate the Plan\" part.\n2.  **Amendments**: This label directly addresses the \"amend the Plan\" part.\n3.  **Modifications**: This label serves as a broader category that can encompass both amendments (which are changes to existing terms) and terminations (which are fundamental changes to the existence of the plan). Since the provision deals with both amending and terminating, 'Modifications' is the most comprehensive single label available that covers both aspects.\n\nGiven that I must choose exactly ONE label and the provision covers both amendment and termination, 'Modifications' is the best fit as it broadly describes any change or alteration to the plan, including both specific types mentioned.\n\nThe final answer is $\\boxed{\\text{Modifications}}$",
+    "actual_label": "Terminations",
+    "text_hash": "ecca3f926648f43d"
+  },
+  "69": {
+    "prediction": "Notices",
+    "actual_label": "Notices",
+    "text_hash": "8e3210a16a729d4d"
+  },
+  "70": {
+    "prediction": "Organizations",
+    "actual_label": "Powers",
+    "text_hash": "ae8cca58954366f8"
+  },
+  "71": {
+    "prediction": "Disclosures",
+    "actual_label": "Publicity",
+    "text_hash": "3517a5fd5272f8ab"
+  },
+  "72": {
+    "prediction": "No Waivers",
+    "actual_label": "Waivers",
+    "text_hash": "a8c3ff61c4ee6225"
+  },
+  "73": {
+    "prediction": "Further Assurances",
+    "actual_label": "Further Assurances",
+    "text_hash": "bc7265ba4ddc029e"
+  },
+  "74": {
+    "prediction": "Unable to perform legal document classification. Both `llm_query` and `rlm_query` consistently result in `TypeError: 'NoneType' object is not callable`, preventing any LLM interaction required for this task.",
+    "actual_label": "Terminations",
+    "text_hash": "704997524fb3a9b9"
+  },
+  "75": {
+    "prediction": "Amendments",
+    "actual_label": "Amendments",
+    "text_hash": "94d9cc5a298d2d96"
+  },
+  "76": {
+    "prediction": "Severability",
+    "actual_label": "Severability",
+    "text_hash": "2c05051fb8e3e294"
+  },
+  "77": {
+    "prediction": "Governing Laws",
+    "actual_label": "Governing Laws",
+    "text_hash": "69c597483f2061e3"
+  },
+  "78": {
+    "prediction": "Notices",
+    "actual_label": "Miscellaneous",
+    "text_hash": "397c2fa9d17c826e"
+  },
+  "79": {
+    "prediction": "Litigations",
+    "actual_label": "Litigations",
+    "text_hash": "deefaf02b133dd3c"
+  },
+  "80": {
+    "prediction": "Amendments",
+    "actual_label": "Amendments",
+    "text_hash": "8cb5f90f53e516ae"
+  },
+  "81": {
+    "prediction": "Specific Performance",
+    "actual_label": "Specific Performance",
+    "text_hash": "d87c9f79af335b6a"
+  },
+  "82": {
+    "prediction": "Amendments",
+    "actual_label": "Amendments",
+    "text_hash": "08c249d8dc90fe18"
+  },
+  "83": {
+    "prediction": "Binding Effects",
+    "actual_label": "Benefits",
+    "text_hash": "fddad48eadc7e683"
+  },
+  "84": {
+    "prediction": "Submission To Jurisdiction",
+    "actual_label": "Governing Laws",
+    "text_hash": "772e8487ae2daeb7"
+  },
+  "85": {
+    "prediction": "Closings",
+    "actual_label": "Closings",
+    "text_hash": "30c12db97eab22ad"
+  },
+  "86": {
+    "prediction": "I am unable to classify the contract provision. I have successfully extracted the candidate labels and prepared the classification prompt template, but the contract provision itself was not made available to me within the REPL environment. The 'prompt' variable was consistently undefined, and the provision was not found in 'context', 'context_0', or any other accessible variable. I cannot proceed without the input text to classify.",
+    "actual_label": "Payments",
+    "text_hash": "719deac413987d44"
+  },
+  "87": {
+    "prediction": "Terminations",
+    "actual_label": "General",
+    "text_hash": "b2b2a9eb543649cf"
+  },
+  "88": {
+    "prediction": "Indemnifications",
+    "actual_label": "Indemnifications",
+    "text_hash": "7f897dae39751722"
+  },
+  "89": {
+    "prediction": "Employment",
+    "actual_label": "Terms",
+    "text_hash": "6333dca48adf59c7"
+  },
+  "90": {
+    "prediction": "Extracted candidate labels and prepared a classification prompt template. Ready to classify a contract provision once it is provided.",
+    "actual_label": "Enforceability",
+    "text_hash": "1d1f330d43e722c5"
+  },
+  "91": {
+    "prediction": "Vesting",
+    "actual_label": "Vesting",
+    "text_hash": "19f39a3a81b347bb"
+  },
+  "92": {
+    "prediction": "Entire Agreements",
+    "actual_label": "Integration",
+    "text_hash": "174ed3e62125ecd7"
+  },
+  "93": {
+    "prediction": "Brokers",
+    "actual_label": "Brokers",
+    "text_hash": "51fbf8ec31422ba7"
+  },
+  "94": {
+    "prediction": "Compliance With Laws",
+    "actual_label": "Compliance With Laws",
+    "text_hash": "b4a6f4c64afbd59b"
+  },
+  "95": {
+    "prediction": "No Defaults",
+    "actual_label": "Enforcements",
+    "text_hash": "65e95711fe10f6f9"
+  },
+  "96": {
+    "prediction": "Taxes",
+    "actual_label": "Solvency",
+    "text_hash": "9a007335b906dc36"
+  },
+  "97": {
+    "prediction": "Assignments",
+    "actual_label": "Counterparts",
+    "text_hash": "dcdda3b5f4a3a811"
+  },
+  "98": {
+    "prediction": "No Waivers",
+    "actual_label": "No Waivers",
+    "text_hash": "f614a533a1be0421"
+  },
+  "99": {
+    "prediction": "No Conflicts",
+    "actual_label": "No Conflicts",
+    "text_hash": "964998b55859857d"
+  }
+}
