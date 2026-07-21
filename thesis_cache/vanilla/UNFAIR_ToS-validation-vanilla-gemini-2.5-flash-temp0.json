@@ -1,0 +1,1506 @@
+{
+  "0": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "4e00b3f98f15e3c4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.2341,
+    "usage": {
+      "prompt_token_count": 164,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 505,
+      "total_token_count": 670
+    }
+  },
+  "1": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "30ad31b5e6d48623",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.4927,
+    "usage": {
+      "prompt_token_count": 240,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 456,
+      "total_token_count": 697
+    }
+  },
+  "2": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "717408466bf40aca",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.3963,
+    "usage": {
+      "prompt_token_count": 173,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 397,
+      "total_token_count": 571
+    }
+  },
+  "3": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "d30965eaf73cddbc",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.4062,
+    "usage": {
+      "prompt_token_count": 169,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 613,
+      "total_token_count": 783
+    }
+  },
+  "4": {
+    "prediction": ["Contract by using"],
+    "actual_label": [],
+    "text_hash": "3c1dba46aafe5589",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.8301,
+    "usage": {
+      "prompt_token_count": 182,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 880,
+      "total_token_count": 1067
+    }
+  },
+  "5": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "b0a5e3e8ea5f1cb9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.0378,
+    "usage": {
+      "prompt_token_count": 173,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 547,
+      "total_token_count": 721
+    }
+  },
+  "6": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "de748a01b31704fc",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.3984,
+    "usage": {
+      "prompt_token_count": 162,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 403,
+      "total_token_count": 566
+    }
+  },
+  "7": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1d21f9d9f0a4de4a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.027,
+    "usage": {
+      "prompt_token_count": 192,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 542,
+      "total_token_count": 735
+    }
+  },
+  "8": {
+    "prediction": ["Contract by using"],
+    "actual_label": [],
+    "text_hash": "34eae60b169cb1b1",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.9494,
+    "usage": {
+      "prompt_token_count": 189,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 926,
+      "total_token_count": 1120
+    }
+  },
+  "9": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "6119ff8e38d8a696",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.3558,
+    "usage": {
+      "prompt_token_count": 243,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 435,
+      "total_token_count": 679
+    }
+  },
+  "10": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "4848775ae5611e16",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.505,
+    "usage": {
+      "prompt_token_count": 220,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 401,
+      "total_token_count": 622
+    }
+  },
+  "11": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "e39c1ebf4e814dcb",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.3236,
+    "usage": {
+      "prompt_token_count": 233,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 1014,
+      "total_token_count": 1248
+    }
+  },
+  "12": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "acaeff5a257f21fd",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.9132,
+    "usage": {
+      "prompt_token_count": 235,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 557,
+      "total_token_count": 793
+    }
+  },
+  "13": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "dfbc511b97f1da0c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.8252,
+    "usage": {
+      "prompt_token_count": 185,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 454,
+      "total_token_count": 640
+    }
+  },
+  "14": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "23402499dc2c20b0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.0222,
+    "usage": {
+      "prompt_token_count": 249,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 480,
+      "total_token_count": 730
+    }
+  },
+  "15": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "f7177eb928cf2f3e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.4896,
+    "usage": {
+      "prompt_token_count": 167,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 899,
+      "total_token_count": 1067
+    }
+  },
+  "16": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "a0ecd3f6fe2cf8d0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.3462,
+    "usage": {
+      "prompt_token_count": 168,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 399,
+      "total_token_count": 568
+    }
+  },
+  "17": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "94189d9629e68c53",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.2978,
+    "usage": {
+      "prompt_token_count": 176,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 1456,
+      "total_token_count": 1633
+    }
+  },
+  "18": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "df4f800b7232577f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.7561,
+    "usage": {
+      "prompt_token_count": 180,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 594,
+      "total_token_count": 775
+    }
+  },
+  "19": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "40bc2984f0bfb17a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.4302,
+    "usage": {
+      "prompt_token_count": 162,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 899,
+      "total_token_count": 1067
+    }
+  },
+  "20": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1438bf9708bca93f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.956,
+    "usage": {
+      "prompt_token_count": 162,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 522,
+      "total_token_count": 685
+    }
+  },
+  "21": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "de41d4e1218f6026",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.9108,
+    "usage": {
+      "prompt_token_count": 200,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 1008,
+      "total_token_count": 1214
+    }
+  },
+  "22": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "1acf1afb6acc711e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.202,
+    "usage": {
+      "prompt_token_count": 179,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 1311,
+      "total_token_count": 1495
+    }
+  },
+  "23": {
+    "prediction": ["Content removal"],
+    "actual_label": [],
+    "text_hash": "8dc7aa463f14e9a9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.5943,
+    "usage": {
+      "prompt_token_count": 193,
+      "candidates_token_count": 4,
+      "thoughts_token_count": 821,
+      "total_token_count": 1018
+    }
+  },
+  "24": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2ec8d8a4876dc4cf",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.9178,
+    "usage": {
+      "prompt_token_count": 176,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 474,
+      "total_token_count": 651
+    }
+  },
+  "25": {
+    "prediction": ["Contract by using"],
+    "actual_label": [],
+    "text_hash": "5196c6353af53789",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.3974,
+    "usage": {
+      "prompt_token_count": 209,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 799,
+      "total_token_count": 1013
+    }
+  },
+  "26": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "7c51b05ca0e888e0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.3136,
+    "usage": {
+      "prompt_token_count": 182,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 897,
+      "total_token_count": 1080
+    }
+  },
+  "27": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "42e5d1c7d4945bc4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.0782,
+    "usage": {
+      "prompt_token_count": 169,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 328,
+      "total_token_count": 498
+    }
+  },
+  "28": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "e7f8acdc47824436",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.1792,
+    "usage": {
+      "prompt_token_count": 189,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 711,
+      "total_token_count": 906
+    }
+  },
+  "29": {
+    "prediction": ["Contract by using"],
+    "actual_label": [],
+    "text_hash": "2b02e5d7af174158",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.248,
+    "usage": {
+      "prompt_token_count": 156,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 1503,
+      "total_token_count": 1664
+    }
+  },
+  "30": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "23fb6f973af630fe",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.1219,
+    "usage": {
+      "prompt_token_count": 167,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 479,
+      "total_token_count": 647
+    }
+  },
+  "31": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2c43824586c4992c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.0023,
+    "usage": {
+      "prompt_token_count": 163,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 534,
+      "total_token_count": 698
+    }
+  },
+  "32": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "6829b67955a6f6d0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.0949,
+    "usage": {
+      "prompt_token_count": 203,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 756,
+      "total_token_count": 965
+    }
+  },
+  "33": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "8645ecc1e3b7649e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.7361,
+    "usage": {
+      "prompt_token_count": 194,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 423,
+      "total_token_count": 618
+    }
+  },
+  "34": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2245a531ef4b54e6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.0657,
+    "usage": {
+      "prompt_token_count": 161,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 367,
+      "total_token_count": 529
+    }
+  },
+  "35": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "0ccbf7fb4e3b20b2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.483,
+    "usage": {
+      "prompt_token_count": 177,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 431,
+      "total_token_count": 609
+    }
+  },
+  "36": {
+    "prediction": ["Unilateral change"],
+    "actual_label": ["Unilateral change"],
+    "text_hash": "f5c9cb06d8333b4f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.2512,
+    "usage": {
+      "prompt_token_count": 180,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 377,
+      "total_token_count": 562
+    }
+  },
+  "37": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "c5f55c944168e743",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.9825,
+    "usage": {
+      "prompt_token_count": 160,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 523,
+      "total_token_count": 684
+    }
+  },
+  "38": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "23a84f9d212b89aa",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 1.9798,
+    "usage": {
+      "prompt_token_count": 161,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 337,
+      "total_token_count": 504
+    }
+  },
+  "39": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "bacfac4e8c3a6f9a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.6034,
+    "usage": {
+      "prompt_token_count": 182,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 425,
+      "total_token_count": 613
+    }
+  },
+  "40": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "7ab3bbce07702a25",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.5931,
+    "usage": {
+      "prompt_token_count": 161,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 838,
+      "total_token_count": 1005
+    }
+  },
+  "41": {
+    "prediction": ["Content removal"],
+    "actual_label": ["Content removal"],
+    "text_hash": "43af9acae3682fd9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.73,
+    "usage": {
+      "prompt_token_count": 188,
+      "candidates_token_count": 4,
+      "thoughts_token_count": 466,
+      "total_token_count": 658
+    }
+  },
+  "42": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "675867e8b122e778",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.5566,
+    "usage": {
+      "prompt_token_count": 226,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 1196,
+      "total_token_count": 1423
+    }
+  },
+  "43": {
+    "prediction": ["Content removal"],
+    "actual_label": [],
+    "text_hash": "70ddd365cb166399",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 25.4143,
+    "usage": {
+      "prompt_token_count": 170,
+      "candidates_token_count": 4,
+      "thoughts_token_count": 4923,
+      "total_token_count": 5097
+    }
+  },
+  "44": {
+    "prediction": "['Limitation of liability']",
+    "actual_label": [],
+    "text_hash": "95384e80f375b8c6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.4466,
+    "usage": {
+      "prompt_token_count": 201,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 1188,
+      "total_token_count": 1395
+    }
+  },
+  "45": {
+    "prediction": "[]",
+    "actual_label": [],
+    "text_hash": "ba799c805bef9606",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.4804,
+    "usage": {
+      "prompt_token_count": 181,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 858,
+      "total_token_count": 1040
+    }
+  },
+  "46": {
+    "prediction": "['Unilateral change', 'Content removal']",
+    "actual_label": ["Content removal", "Unilateral change"],
+    "text_hash": "7b713c65a3312e44",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.4802,
+    "usage": {
+      "prompt_token_count": 189,
+      "candidates_token_count": 9,
+      "thoughts_token_count": 367,
+      "total_token_count": 565
+    }
+  },
+  "47": {
+    "prediction": ["Limitation of liability", "Content removal"],
+    "actual_label": [],
+    "text_hash": "83307d3c74d241bc",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.3718,
+    "usage": {
+      "prompt_token_count": 162,
+      "candidates_token_count": 10,
+      "thoughts_token_count": 1342,
+      "total_token_count": 1514
+    }
+  },
+  "48": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1825082f6631e499",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.699,
+    "usage": {
+      "prompt_token_count": 178,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 802,
+      "total_token_count": 981
+    }
+  },
+  "49": {
+    "prediction": ["Contract by using"],
+    "actual_label": [],
+    "text_hash": "fecc0272876dc2cb",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.4927,
+    "usage": {
+      "prompt_token_count": 168,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 397,
+      "total_token_count": 570
+    }
+  },
+  "50": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "37bd0120334f0dc6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.4458,
+    "usage": {
+      "prompt_token_count": 173,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 604,
+      "total_token_count": 778
+    }
+  },
+  "51": {
+    "prediction": ["Unilateral termination", "Content removal"],
+    "actual_label": [],
+    "text_hash": "c88187387accd2c8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.6736,
+    "usage": {
+      "prompt_token_count": 176,
+      "candidates_token_count": 9,
+      "thoughts_token_count": 1553,
+      "total_token_count": 1738
+    }
+  },
+  "52": {
+    "prediction": "['Unilateral termination']",
+    "actual_label": [],
+    "text_hash": "98ce8e1662c4443b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.9885,
+    "usage": {
+      "prompt_token_count": 164,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 1029,
+      "total_token_count": 1198
+    }
+  },
+  "53": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "1f4ba173df89be2f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.2782,
+    "usage": {
+      "prompt_token_count": 206,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 1136,
+      "total_token_count": 1343
+    }
+  },
+  "54": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "08e6ac93238416e2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.1202,
+    "usage": {
+      "prompt_token_count": 206,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 512,
+      "total_token_count": 719
+    }
+  },
+  "55": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2c230208086f9331",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.6565,
+    "usage": {
+      "prompt_token_count": 224,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 596,
+      "total_token_count": 821
+    }
+  },
+  "56": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "aa0280156f121ab2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.4573,
+    "usage": {
+      "prompt_token_count": 167,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 965,
+      "total_token_count": 1133
+    }
+  },
+  "57": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "e76cce426c5376b1",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.872,
+    "usage": {
+      "prompt_token_count": 167,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 824,
+      "total_token_count": 992
+    }
+  },
+  "58": {
+    "prediction": ["Content removal"],
+    "actual_label": [],
+    "text_hash": "ca47dd6e1658b6b7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.1915,
+    "usage": {
+      "prompt_token_count": 195,
+      "candidates_token_count": 4,
+      "thoughts_token_count": 565,
+      "total_token_count": 764
+    }
+  },
+  "59": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "a735929752a7a2b1",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 17.3785,
+    "usage": {
+      "prompt_token_count": 183,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 3210,
+      "total_token_count": 3394
+    }
+  },
+  "60": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "d27f1c6be891e9cf",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.0629,
+    "usage": {
+      "prompt_token_count": 206,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 566,
+      "total_token_count": 773
+    }
+  },
+  "61": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "c82026bdab6f0114",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.5585,
+    "usage": {
+      "prompt_token_count": 175,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 617,
+      "total_token_count": 793
+    }
+  },
+  "62": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "cc74ddcf6e21df13",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.1812,
+    "usage": {
+      "prompt_token_count": 177,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 491,
+      "total_token_count": 669
+    }
+  },
+  "63": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "12fb71e30a5389f4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.7531,
+    "usage": {
+      "prompt_token_count": 195,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 635,
+      "total_token_count": 835
+    }
+  },
+  "64": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "93e0562691042d79",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.4212,
+    "usage": {
+      "prompt_token_count": 169,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 1349,
+      "total_token_count": 1523
+    }
+  },
+  "65": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "9c6ebd5f22afe7e2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.3887,
+    "usage": {
+      "prompt_token_count": 164,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 413,
+      "total_token_count": 578
+    }
+  },
+  "66": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "5c64074befe6c4c7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.3784,
+    "usage": {
+      "prompt_token_count": 163,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 406,
+      "total_token_count": 570
+    }
+  },
+  "67": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "52a9a1e8328ada47",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.9361,
+    "usage": {
+      "prompt_token_count": 173,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 469,
+      "total_token_count": 643
+    }
+  },
+  "68": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "60578410c73072a1",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.1297,
+    "usage": {
+      "prompt_token_count": 172,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 498,
+      "total_token_count": 671
+    }
+  },
+  "69": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "0dc289501f83d1b2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.1561,
+    "usage": {
+      "prompt_token_count": 163,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 319,
+      "total_token_count": 483
+    }
+  },
+  "70": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "61a49914bd56c10d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.6505,
+    "usage": {
+      "prompt_token_count": 168,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 467,
+      "total_token_count": 641
+    }
+  },
+  "71": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "9091b8e21d0c4b23",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.1583,
+    "usage": {
+      "prompt_token_count": 177,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 681,
+      "total_token_count": 864
+    }
+  },
+  "72": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "a3471eb0aa574615",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.679,
+    "usage": {
+      "prompt_token_count": 168,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 473,
+      "total_token_count": 642
+    }
+  },
+  "73": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "3f13c3c59af2315d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.6339,
+    "usage": {
+      "prompt_token_count": 162,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 411,
+      "total_token_count": 579
+    }
+  },
+  "74": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "4274557cc5c64d99",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.66,
+    "usage": {
+      "prompt_token_count": 166,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 428,
+      "total_token_count": 595
+    }
+  },
+  "75": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "e866a62cb9c027cd",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.9315,
+    "usage": {
+      "prompt_token_count": 166,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 473,
+      "total_token_count": 645
+    }
+  },
+  "76": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "8d6c9887d2cca703",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.6876,
+    "usage": {
+      "prompt_token_count": 190,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 651,
+      "total_token_count": 842
+    }
+  },
+  "77": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "bc68c9de77b4eda9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.7029,
+    "usage": {
+      "prompt_token_count": 185,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 456,
+      "total_token_count": 642
+    }
+  },
+  "78": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "4989a9935ed58811",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.2857,
+    "usage": {
+      "prompt_token_count": 182,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 1028,
+      "total_token_count": 1211
+    }
+  },
+  "79": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "427d27af44800f99",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.1152,
+    "usage": {
+      "prompt_token_count": 179,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 558,
+      "total_token_count": 738
+    }
+  },
+  "80": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2f775b6e1173f2f3",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.0478,
+    "usage": {
+      "prompt_token_count": 161,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 504,
+      "total_token_count": 666
+    }
+  },
+  "81": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "05777a2f16c395c0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 1.7417,
+    "usage": {
+      "prompt_token_count": 157,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 245,
+      "total_token_count": 408
+    }
+  },
+  "82": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "95bc1a914c613efd",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.1111,
+    "usage": {
+      "prompt_token_count": 176,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 875,
+      "total_token_count": 1057
+    }
+  },
+  "83": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "2d8cc2ec4f899c6e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.4291,
+    "usage": {
+      "prompt_token_count": 172,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 920,
+      "total_token_count": 1098
+    }
+  },
+  "84": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": ["Limitation of liability"],
+    "text_hash": "67f0ffb1ecd43e11",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.0205,
+    "usage": {
+      "prompt_token_count": 163,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 487,
+      "total_token_count": 656
+    }
+  },
+  "85": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "ad21a2fd8a15ad9d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.7923,
+    "usage": {
+      "prompt_token_count": 181,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 495,
+      "total_token_count": 682
+    }
+  },
+  "86": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": ["Limitation of liability"],
+    "text_hash": "4b47adcd3d108d53",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.1311,
+    "usage": {
+      "prompt_token_count": 194,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 375,
+      "total_token_count": 575
+    }
+  },
+  "87": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "9851005984563a52",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.2826,
+    "usage": {
+      "prompt_token_count": 233,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 395,
+      "total_token_count": 634
+    }
+  },
+  "88": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "985f1ba0fb6ee2a3",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.1677,
+    "usage": {
+      "prompt_token_count": 221,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 512,
+      "total_token_count": 739
+    }
+  },
+  "89": {
+    "prediction": ["Limitation of liability"],
+    "actual_label": [],
+    "text_hash": "a89fa3ca68c62302",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.6385,
+    "usage": {
+      "prompt_token_count": 192,
+      "candidates_token_count": 6,
+      "thoughts_token_count": 626,
+      "total_token_count": 824
+    }
+  },
+  "90": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "2bf9aa4ec82d0257",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.1248,
+    "usage": {
+      "prompt_token_count": 166,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 1712,
+      "total_token_count": 1883
+    }
+  },
+  "91": {
+    "prediction": ["Unilateral change"],
+    "actual_label": ["Unilateral change"],
+    "text_hash": "847d8a1b3c3c559d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.2019,
+    "usage": {
+      "prompt_token_count": 188,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 350,
+      "total_token_count": 543
+    }
+  },
+  "92": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "cacadeaabc07d780",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.4676,
+    "usage": {
+      "prompt_token_count": 206,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 845,
+      "total_token_count": 1056
+    }
+  },
+  "93": {
+    "prediction": ["Unilateral change"],
+    "actual_label": [],
+    "text_hash": "1f1330bc6ee4f286",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.1821,
+    "usage": {
+      "prompt_token_count": 174,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 676,
+      "total_token_count": 855
+    }
+  },
+  "94": {
+    "prediction": [
+      "Unilateral termination",
+      "Unilateral change",
+      "Contract by using"
+    ],
+    "actual_label": ["Unilateral termination"],
+    "text_hash": "5af177af48b19e8d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.9736,
+    "usage": {
+      "prompt_token_count": 198,
+      "candidates_token_count": 15,
+      "thoughts_token_count": 1287,
+      "total_token_count": 1500
+    }
+  },
+  "95": {
+    "prediction": ["Unilateral termination"],
+    "actual_label": [],
+    "text_hash": "c68a8c3af875f2bf",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.4128,
+    "usage": {
+      "prompt_token_count": 157,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 398,
+      "total_token_count": 560
+    }
+  },
+  "96": {
+    "prediction": ["Unilateral termination"],
+    "actual_label": [],
+    "text_hash": "b5b48646e295a80f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.488,
+    "usage": {
+      "prompt_token_count": 164,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 1661,
+      "total_token_count": 1830
+    }
+  },
+  "97": {
+    "prediction": ["Unilateral termination"],
+    "actual_label": ["Unilateral termination"],
+    "text_hash": "031a37bae72bc172",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.3509,
+    "usage": {
+      "prompt_token_count": 178,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 408,
+      "total_token_count": 591
+    }
+  },
+  "98": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "adf821728f51b957",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.487,
+    "usage": {
+      "prompt_token_count": 177,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 607,
+      "total_token_count": 785
+    }
+  },
+  "99": {
+    "prediction": ["Unilateral termination"],
+    "actual_label": [],
+    "text_hash": "f432e0bf9dfc173b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.6364,
+    "usage": {
+      "prompt_token_count": 171,
+      "candidates_token_count": 5,
+      "thoughts_token_count": 940,
+      "total_token_count": 1116
+    }
+  }
+}

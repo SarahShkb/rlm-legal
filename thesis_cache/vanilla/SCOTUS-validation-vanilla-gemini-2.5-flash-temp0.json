@@ -1,0 +1,1502 @@
+{
+  "0": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "df0a09e09b2b8bce",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.1469,
+    "usage": {
+      "prompt_token_count": 9356,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 545,
+      "total_token_count": 9903
+    }
+  },
+  "1": {
+    "prediction": "Federalism",
+    "actual_label": "Economic Activity",
+    "text_hash": "820a4930ecae3768",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.9256,
+    "usage": {
+      "prompt_token_count": 4493,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 556,
+      "total_token_count": 5051
+    }
+  },
+  "2": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "a23cbe936695ea67",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.8259,
+    "usage": {
+      "prompt_token_count": 12365,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 775,
+      "total_token_count": 13142
+    }
+  },
+  "3": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "d034f9f5e04d57b3",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.9016,
+    "usage": {
+      "prompt_token_count": 14021,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1270,
+      "total_token_count": 15293
+    }
+  },
+  "4": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "709a838b39eea59b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.9212,
+    "usage": {
+      "prompt_token_count": 13000,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 823,
+      "total_token_count": 13825
+    }
+  },
+  "5": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "355eb5ae1c909d1c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.1291,
+    "usage": {
+      "prompt_token_count": 20407,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1060,
+      "total_token_count": 21469
+    }
+  },
+  "6": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "f3f4a26dabda0e87",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.188,
+    "usage": {
+      "prompt_token_count": 21411,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1092,
+      "total_token_count": 22505
+    }
+  },
+  "7": {
+    "prediction": "Due Process",
+    "actual_label": "Due Process",
+    "text_hash": "3e7747afb513e8aa",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.5712,
+    "usage": {
+      "prompt_token_count": 20701,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 754,
+      "total_token_count": 21457
+    }
+  },
+  "8": {
+    "prediction": "Civil Rights",
+    "actual_label": "Economic Activity",
+    "text_hash": "1dfb28c63c391e51",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.0526,
+    "usage": {
+      "prompt_token_count": 10929,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 585,
+      "total_token_count": 11516
+    }
+  },
+  "9": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "f9db2b0edada2766",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.2023,
+    "usage": {
+      "prompt_token_count": 13317,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 770,
+      "total_token_count": 14089
+    }
+  },
+  "10": {
+    "prediction": "Federalism",
+    "actual_label": "Judicial Power",
+    "text_hash": "7101e2aa2ff68980",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.6144,
+    "usage": {
+      "prompt_token_count": 20532,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1600,
+      "total_token_count": 22134
+    }
+  },
+  "11": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "b02987d83a52f261",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.9985,
+    "usage": {
+      "prompt_token_count": 22189,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1041,
+      "total_token_count": 23232
+    }
+  },
+  "12": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "69c3719bd5e7b5ef",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.056,
+    "usage": {
+      "prompt_token_count": 26788,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 669,
+      "total_token_count": 27459
+    }
+  },
+  "13": {
+    "prediction": "Due Process",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "bddb1ce3acb5f5ec",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.8246,
+    "usage": {
+      "prompt_token_count": 17529,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1405,
+      "total_token_count": 18936
+    }
+  },
+  "14": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "1e81789668de6c62",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.6438,
+    "usage": {
+      "prompt_token_count": 8374,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1780,
+      "total_token_count": 10156
+    }
+  },
+  "15": {
+    "prediction": "Federalism",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "bc40597c11df6f12",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.9789,
+    "usage": {
+      "prompt_token_count": 13313,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1484,
+      "total_token_count": 14799
+    }
+  },
+  "16": {
+    "prediction": "Federalism",
+    "actual_label": "Economic Activity",
+    "text_hash": "652b7eec6bffd605",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.8469,
+    "usage": {
+      "prompt_token_count": 12571,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1253,
+      "total_token_count": 13826
+    }
+  },
+  "17": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "509854e199435e36",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.556,
+    "usage": {
+      "prompt_token_count": 7352,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 986,
+      "total_token_count": 8340
+    }
+  },
+  "18": {
+    "prediction": "Federalism",
+    "actual_label": "Civil Rights",
+    "text_hash": "e1a220c3ee9db8f8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.0811,
+    "usage": {
+      "prompt_token_count": 29971,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 630,
+      "total_token_count": 30603
+    }
+  },
+  "19": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Federal Taxation",
+    "text_hash": "14b359d31a50cbe2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.6875,
+    "usage": {
+      "prompt_token_count": 35058,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 673,
+      "total_token_count": 35733
+    }
+  },
+  "20": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "c0070cc3dbd46df8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.5585,
+    "usage": {
+      "prompt_token_count": 5792,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1491,
+      "total_token_count": 7285
+    }
+  },
+  "21": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "36506e04a0cdd091",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.225,
+    "usage": {
+      "prompt_token_count": 28983,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1095,
+      "total_token_count": 30080
+    }
+  },
+  "22": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "c75789ef3f403430",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.9364,
+    "usage": {
+      "prompt_token_count": 13709,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 858,
+      "total_token_count": 14569
+    }
+  },
+  "23": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "754e63f8494d1f61",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.4981,
+    "usage": {
+      "prompt_token_count": 14673,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 744,
+      "total_token_count": 15419
+    }
+  },
+  "24": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "cbc9d1cc8d0a2f26",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.4987,
+    "usage": {
+      "prompt_token_count": 4814,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 632,
+      "total_token_count": 5448
+    }
+  },
+  "25": {
+    "prediction": "Economic Activity",
+    "actual_label": "Judicial Power",
+    "text_hash": "ab21ddfb1f25eada",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.2087,
+    "usage": {
+      "prompt_token_count": 1412,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 804,
+      "total_token_count": 2218
+    }
+  },
+  "26": {
+    "prediction": "Judicial Power",
+    "actual_label": "Judicial Power",
+    "text_hash": "cd079c86364048dc",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.8216,
+    "usage": {
+      "prompt_token_count": 15989,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 1740,
+      "total_token_count": 17732
+    }
+  },
+  "27": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "99f3a5967fa7f1e1",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.4708,
+    "usage": {
+      "prompt_token_count": 25390,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 661,
+      "total_token_count": 26053
+    }
+  },
+  "28": {
+    "prediction": "Federalism",
+    "actual_label": "Economic Activity",
+    "text_hash": "8309fdeadd39593a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.3807,
+    "usage": {
+      "prompt_token_count": 11915,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 514,
+      "total_token_count": 12431
+    }
+  },
+  "29": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "5a35b2c38b252ff7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.1059,
+    "usage": {
+      "prompt_token_count": 9057,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 2076,
+      "total_token_count": 11135
+    }
+  },
+  "30": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "eda6e0ea78bcfedb",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.0516,
+    "usage": {
+      "prompt_token_count": 19818,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 431,
+      "total_token_count": 20251
+    }
+  },
+  "31": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Civil Rights",
+    "text_hash": "f8a06cbd689cfbed",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.1651,
+    "usage": {
+      "prompt_token_count": 5535,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 786,
+      "total_token_count": 6323
+    }
+  },
+  "32": {
+    "prediction": "Interstate Relations",
+    "actual_label": "Civil Rights",
+    "text_hash": "3373f6b6fa945b13",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.6744,
+    "usage": {
+      "prompt_token_count": 29459,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 1769,
+      "total_token_count": 31231
+    }
+  },
+  "33": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "a4aff3f5b02f90a5",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.3702,
+    "usage": {
+      "prompt_token_count": 6095,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 950,
+      "total_token_count": 7047
+    }
+  },
+  "34": {
+    "prediction": "Unions",
+    "actual_label": "Unions",
+    "text_hash": "44eda83e899124d7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.215,
+    "usage": {
+      "prompt_token_count": 10616,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 628,
+      "total_token_count": 11246
+    }
+  },
+  "35": {
+    "prediction": "Unions",
+    "actual_label": "Federalism",
+    "text_hash": "d3225ebb54fd0419",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.6465,
+    "usage": {
+      "prompt_token_count": 13654,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 994,
+      "total_token_count": 14650
+    }
+  },
+  "36": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "27118694dd72dad7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.3216,
+    "usage": {
+      "prompt_token_count": 4197,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 592,
+      "total_token_count": 4791
+    }
+  },
+  "37": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "7083789733f3e0f6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.5827,
+    "usage": {
+      "prompt_token_count": 14242,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 710,
+      "total_token_count": 14954
+    }
+  },
+  "38": {
+    "prediction": "Economic Activity",
+    "actual_label": "Judicial Power",
+    "text_hash": "e943d994f8e690b8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.5841,
+    "usage": {
+      "prompt_token_count": 22424,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 972,
+      "total_token_count": 23398
+    }
+  },
+  "39": {
+    "prediction": "First Amendment",
+    "actual_label": "Civil Rights",
+    "text_hash": "da9c61db30cab329",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.1567,
+    "usage": {
+      "prompt_token_count": 24439,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 856,
+      "total_token_count": 25297
+    }
+  },
+  "40": {
+    "prediction": "Miscellaneous",
+    "actual_label": "Economic Activity",
+    "text_hash": "5580231f5b6c029d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.8322,
+    "usage": {
+      "prompt_token_count": 6751,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 2348,
+      "total_token_count": 9100
+    }
+  },
+  "41": {
+    "prediction": "Judicial Power",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "088e52dc94120f32",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.9911,
+    "usage": {
+      "prompt_token_count": 7531,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 1708,
+      "total_token_count": 9242
+    }
+  },
+  "42": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "4dd51a39cefb6e2b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.5219,
+    "usage": {
+      "prompt_token_count": 45237,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 867,
+      "total_token_count": 46106
+    }
+  },
+  "43": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "eddb4f4a29cbc3b2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.2653,
+    "usage": {
+      "prompt_token_count": 14499,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 721,
+      "total_token_count": 15222
+    }
+  },
+  "44": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "1ea9651f68a0af4a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.5993,
+    "usage": {
+      "prompt_token_count": 18650,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 753,
+      "total_token_count": 19405
+    }
+  },
+  "45": {
+    "prediction": "First Amendment",
+    "actual_label": "First Amendment",
+    "text_hash": "0683bcfc657fe7d2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.1793,
+    "usage": {
+      "prompt_token_count": 11413,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 616,
+      "total_token_count": 12031
+    }
+  },
+  "46": {
+    "prediction": "Judicial Power",
+    "actual_label": "Judicial Power",
+    "text_hash": "416f656c97fdbd25",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.6645,
+    "usage": {
+      "prompt_token_count": 24506,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 1169,
+      "total_token_count": 25678
+    }
+  },
+  "47": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "1e88c70015936124",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.2118,
+    "usage": {
+      "prompt_token_count": 21676,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 914,
+      "total_token_count": 22592
+    }
+  },
+  "48": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "d94948502eb3ac42",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.0911,
+    "usage": {
+      "prompt_token_count": 3660,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1221,
+      "total_token_count": 4883
+    }
+  },
+  "49": {
+    "prediction": "Due Process",
+    "actual_label": "Due Process",
+    "text_hash": "c8c4a9c808595e1e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.0695,
+    "usage": {
+      "prompt_token_count": 12796,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 689,
+      "total_token_count": 13487
+    }
+  },
+  "50": {
+    "prediction": "Unions",
+    "actual_label": "Unions",
+    "text_hash": "7a26dae40a97998a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.0093,
+    "usage": {
+      "prompt_token_count": 6623,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 582,
+      "total_token_count": 7207
+    }
+  },
+  "51": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "1e9086f1530a0a2b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.2189,
+    "usage": {
+      "prompt_token_count": 20506,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 838,
+      "total_token_count": 21346
+    }
+  },
+  "52": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Federal Taxation",
+    "text_hash": "74d6d493de576706",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.7474,
+    "usage": {
+      "prompt_token_count": 12285,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 558,
+      "total_token_count": 12845
+    }
+  },
+  "53": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "73a3fdfcf882ebc2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.7835,
+    "usage": {
+      "prompt_token_count": 16679,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 927,
+      "total_token_count": 17608
+    }
+  },
+  "54": {
+    "prediction": "Due Process",
+    "actual_label": "Due Process",
+    "text_hash": "af3bac870bff0fd0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.1219,
+    "usage": {
+      "prompt_token_count": 14525,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 806,
+      "total_token_count": 15333
+    }
+  },
+  "55": {
+    "prediction": "Attorneys",
+    "actual_label": "Attorneys",
+    "text_hash": "92aed8b5f64583e2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.7796,
+    "usage": {
+      "prompt_token_count": 18542,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1560,
+      "total_token_count": 20104
+    }
+  },
+  "56": {
+    "prediction": "Due Process",
+    "actual_label": "Civil Rights",
+    "text_hash": "87635768ff23136d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.258,
+    "usage": {
+      "prompt_token_count": 10841,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1600,
+      "total_token_count": 12443
+    }
+  },
+  "57": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "b26b26749daacce4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.6037,
+    "usage": {
+      "prompt_token_count": 16448,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 830,
+      "total_token_count": 17280
+    }
+  },
+  "58": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "7ca5a949f5ad98c7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.0614,
+    "usage": {
+      "prompt_token_count": 11147,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 905,
+      "total_token_count": 12054
+    }
+  },
+  "59": {
+    "prediction": "Civil Rights",
+    "actual_label": "Judicial Power",
+    "text_hash": "345b7d0777f294c0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.481,
+    "usage": {
+      "prompt_token_count": 633,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 710,
+      "total_token_count": 1345
+    }
+  },
+  "60": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "f6048e66ee5bb44b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.573,
+    "usage": {
+      "prompt_token_count": 5486,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1458,
+      "total_token_count": 6946
+    }
+  },
+  "61": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "309e1fac69c5d7e2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.2206,
+    "usage": {
+      "prompt_token_count": 17303,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 810,
+      "total_token_count": 18115
+    }
+  },
+  "62": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "ccc9c97f6772f2f3",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.6982,
+    "usage": {
+      "prompt_token_count": 1248,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 776,
+      "total_token_count": 2026
+    }
+  },
+  "63": {
+    "prediction": "Due Process",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "c41d7383f7291d47",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.55,
+    "usage": {
+      "prompt_token_count": 8385,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 575,
+      "total_token_count": 8962
+    }
+  },
+  "64": {
+    "prediction": "Federal Taxation",
+    "actual_label": "First Amendment",
+    "text_hash": "805f06c23c5bcc1b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.979,
+    "usage": {
+      "prompt_token_count": 8684,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1985,
+      "total_token_count": 10671
+    }
+  },
+  "65": {
+    "prediction": "Judicial Power",
+    "actual_label": "Judicial Power",
+    "text_hash": "e66be9ca93fe6a5a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.1058,
+    "usage": {
+      "prompt_token_count": 10430,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 915,
+      "total_token_count": 11348
+    }
+  },
+  "66": {
+    "prediction": "Unions",
+    "actual_label": "Economic Activity",
+    "text_hash": "76d7e196ec91b31a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.482,
+    "usage": {
+      "prompt_token_count": 13183,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 785,
+      "total_token_count": 13970
+    }
+  },
+  "67": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Civil Rights",
+    "text_hash": "110b8e7539b830ca",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.9898,
+    "usage": {
+      "prompt_token_count": 29829,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1947,
+      "total_token_count": 31778
+    }
+  },
+  "68": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "5720cc36cb371f4f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.9352,
+    "usage": {
+      "prompt_token_count": 6837,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 836,
+      "total_token_count": 7675
+    }
+  },
+  "69": {
+    "prediction": "Due Process",
+    "actual_label": "Civil Rights",
+    "text_hash": "f125741bdeee6373",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.7714,
+    "usage": {
+      "prompt_token_count": 9986,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1451,
+      "total_token_count": 11439
+    }
+  },
+  "70": {
+    "prediction": "Unions",
+    "actual_label": "Civil Rights",
+    "text_hash": "a689a027d1dfd8c1",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.8697,
+    "usage": {
+      "prompt_token_count": 8649,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1009,
+      "total_token_count": 9660
+    }
+  },
+  "71": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Federal Taxation",
+    "text_hash": "2117e8851d7ab992",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.754,
+    "usage": {
+      "prompt_token_count": 33484,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1283,
+      "total_token_count": 34769
+    }
+  },
+  "72": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "ed8b206eebceba28",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.3777,
+    "usage": {
+      "prompt_token_count": 15187,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1440,
+      "total_token_count": 16629
+    }
+  },
+  "73": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "27d8fab897ec246b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.1704,
+    "usage": {
+      "prompt_token_count": 13549,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 984,
+      "total_token_count": 14535
+    }
+  },
+  "74": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "596425dc1bb2226b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.6354,
+    "usage": {
+      "prompt_token_count": 5475,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 928,
+      "total_token_count": 6405
+    }
+  },
+  "75": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Federal Taxation",
+    "text_hash": "57bb310d21b0b30f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.1396,
+    "usage": {
+      "prompt_token_count": 7229,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 826,
+      "total_token_count": 8057
+    }
+  },
+  "76": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "e1f02af1268a86ad",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.4557,
+    "usage": {
+      "prompt_token_count": 24520,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 2291,
+      "total_token_count": 26813
+    }
+  },
+  "77": {
+    "prediction": "Attorneys",
+    "actual_label": "Privacy",
+    "text_hash": "7eb18ad7f73410f5",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.63,
+    "usage": {
+      "prompt_token_count": 9608,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 804,
+      "total_token_count": 10414
+    }
+  },
+  "78": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "cca5af738f494b02",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.4922,
+    "usage": {
+      "prompt_token_count": 10658,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 563,
+      "total_token_count": 11223
+    }
+  },
+  "79": {
+    "prediction": "Judicial Power",
+    "actual_label": "Economic Activity",
+    "text_hash": "ea32aa75ae2296af",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.2901,
+    "usage": {
+      "prompt_token_count": 12458,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 1109,
+      "total_token_count": 13570
+    }
+  },
+  "80": {
+    "prediction": "Unions",
+    "actual_label": "Unions",
+    "text_hash": "5a755cdcdf5820a5",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.9005,
+    "usage": {
+      "prompt_token_count": 16543,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 737,
+      "total_token_count": 17282
+    }
+  },
+  "81": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "c8445ec0d84f0a74",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.9009,
+    "usage": {
+      "prompt_token_count": 50491,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 697,
+      "total_token_count": 51190
+    }
+  },
+  "82": {
+    "prediction": "Federalism",
+    "actual_label": "Economic Activity",
+    "text_hash": "ca2c5364ac765880",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.1611,
+    "usage": {
+      "prompt_token_count": 12840,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1855,
+      "total_token_count": 14697
+    }
+  },
+  "83": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "cdec518bde5783e7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.1983,
+    "usage": {
+      "prompt_token_count": 14236,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 510,
+      "total_token_count": 14748
+    }
+  },
+  "84": {
+    "prediction": "Federal Taxation",
+    "actual_label": "Economic Activity",
+    "text_hash": "426da77cebaf75cc",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.6577,
+    "usage": {
+      "prompt_token_count": 9430,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1804,
+      "total_token_count": 11236
+    }
+  },
+  "85": {
+    "prediction": "Unions",
+    "actual_label": "Unions",
+    "text_hash": "8936ddd099461be2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.9786,
+    "usage": {
+      "prompt_token_count": 7263,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 663,
+      "total_token_count": 7928
+    }
+  },
+  "86": {
+    "prediction": "Judicial Power",
+    "actual_label": "Economic Activity",
+    "text_hash": "565e9793a512f003",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.0349,
+    "usage": {
+      "prompt_token_count": 5340,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 1040,
+      "total_token_count": 6383
+    }
+  },
+  "87": {
+    "prediction": "Civil Rights",
+    "actual_label": "Judicial Power",
+    "text_hash": "02278325e2834dba",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.055,
+    "usage": {
+      "prompt_token_count": 6296,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 713,
+      "total_token_count": 7011
+    }
+  },
+  "88": {
+    "prediction": "Civil Rights",
+    "actual_label": "Civil Rights",
+    "text_hash": "340bf3a901ac06e4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.2719,
+    "usage": {
+      "prompt_token_count": 11156,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1343,
+      "total_token_count": 12501
+    }
+  },
+  "89": {
+    "prediction": "Federalism",
+    "actual_label": "Civil Rights",
+    "text_hash": "308884641fa7d948",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.4646,
+    "usage": {
+      "prompt_token_count": 13015,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 853,
+      "total_token_count": 13870
+    }
+  },
+  "90": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "1c42270ce73c9d0d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.217,
+    "usage": {
+      "prompt_token_count": 6658,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1632,
+      "total_token_count": 8292
+    }
+  },
+  "91": {
+    "prediction": "Judicial Power",
+    "actual_label": "Economic Activity",
+    "text_hash": "7f123ba198d12c01",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.5225,
+    "usage": {
+      "prompt_token_count": 15054,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 1301,
+      "total_token_count": 16358
+    }
+  },
+  "92": {
+    "prediction": "Privacy",
+    "actual_label": "Privacy",
+    "text_hash": "ae76660dca7e8d42",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.6288,
+    "usage": {
+      "prompt_token_count": 8965,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 929,
+      "total_token_count": 9895
+    }
+  },
+  "93": {
+    "prediction": "Federalism",
+    "actual_label": "Federalism",
+    "text_hash": "ca68f6c8a7ff4170",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.1061,
+    "usage": {
+      "prompt_token_count": 5503,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 787,
+      "total_token_count": 6292
+    }
+  },
+  "94": {
+    "prediction": "Due Process",
+    "actual_label": "Privacy",
+    "text_hash": "878ba7a63280a1c4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.7098,
+    "usage": {
+      "prompt_token_count": 37352,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1548,
+      "total_token_count": 38902
+    }
+  },
+  "95": {
+    "prediction": "Civil Rights",
+    "actual_label": "Privacy",
+    "text_hash": "62c34bebce82d490",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.5718,
+    "usage": {
+      "prompt_token_count": 18612,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 972,
+      "total_token_count": 19586
+    }
+  },
+  "96": {
+    "prediction": "Economic Activity",
+    "actual_label": "Economic Activity",
+    "text_hash": "3ebc7bee6648c1f9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.3112,
+    "usage": {
+      "prompt_token_count": 17428,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1209,
+      "total_token_count": 18639
+    }
+  },
+  "97": {
+    "prediction": "Interstate Relations",
+    "actual_label": "Judicial Power",
+    "text_hash": "55eb87ee09eb697a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.5123,
+    "usage": {
+      "prompt_token_count": 13894,
+      "candidates_token_count": 3,
+      "thoughts_token_count": 1253,
+      "total_token_count": 15150
+    }
+  },
+  "98": {
+    "prediction": "Federalism",
+    "actual_label": "Judicial Power",
+    "text_hash": "67a5df47df6ee7f4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.7293,
+    "usage": {
+      "prompt_token_count": 1195,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 1350,
+      "total_token_count": 2547
+    }
+  },
+  "99": {
+    "prediction": "Criminal Procedure",
+    "actual_label": "Criminal Procedure",
+    "text_hash": "fa1cb58f5b836e59",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.3142,
+    "usage": {
+      "prompt_token_count": 19019,
+      "candidates_token_count": 2,
+      "thoughts_token_count": 819,
+      "total_token_count": 19840
+    }
+  }
+}

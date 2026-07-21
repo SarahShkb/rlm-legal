@@ -1,0 +1,1856 @@
+{
+  "0": {
+    "prediction": ["Article 8 - Right to respect for private and family life"],
+    "actual_label": [
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "3e4bb0ef247f0f61",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.813,
+    "usage": {
+      "prompt_token_count": 650,
+      "candidates_token_count": 14,
+      "thoughts_token_count": 888,
+      "total_token_count": 1552
+    }
+  },
+  "1": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "112396cc9bd8a1de",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.8153,
+    "usage": {
+      "prompt_token_count": 1963,
+      "candidates_token_count": 20,
+      "thoughts_token_count": 936,
+      "total_token_count": 2919
+    }
+  },
+  "2": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "312c0f61c5178b35",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.7026,
+    "usage": {
+      "prompt_token_count": 3157,
+      "candidates_token_count": 31,
+      "thoughts_token_count": 1513,
+      "total_token_count": 4701
+    }
+  },
+  "3": {
+    "prediction": [],
+    "actual_label": [],
+    "text_hash": "2da8a88b1d707dd2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.2794,
+    "usage": {
+      "prompt_token_count": 3865,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 2193,
+      "total_token_count": 6059
+    }
+  },
+  "4": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 11 - Freedom of assembly and association",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "6b820a6c0368bf3e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.3486,
+    "usage": {
+      "prompt_token_count": 6372,
+      "candidates_token_count": 36,
+      "thoughts_token_count": 2725,
+      "total_token_count": 9133
+    }
+  },
+  "5": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "fbc58759b2f5ac56",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.2316,
+    "usage": {
+      "prompt_token_count": 1524,
+      "candidates_token_count": 20,
+      "thoughts_token_count": 1604,
+      "total_token_count": 3148
+    }
+  },
+  "6": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 10 - Freedom of expression",
+      "Article 11 - Freedom of assembly and association"
+    ],
+    "actual_label": [
+      "Article 11 - Freedom of assembly and association",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "98810b6b0d6270f0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.2322,
+    "usage": {
+      "prompt_token_count": 3690,
+      "candidates_token_count": 58,
+      "thoughts_token_count": 2509,
+      "total_token_count": 6257
+    }
+  },
+  "7": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture"
+    ],
+    "actual_label": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture"
+    ],
+    "text_hash": "c99fc31fb69a67b0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.7989,
+    "usage": {
+      "prompt_token_count": 4837,
+      "candidates_token_count": 18,
+      "thoughts_token_count": 1306,
+      "total_token_count": 6161
+    }
+  },
+  "8": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 10 - Freedom of expression",
+      "Article 11 - Freedom of assembly and association"
+    ],
+    "actual_label": [
+      "Article 11 - Freedom of assembly and association",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "a3b71921933d0ad0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.3229,
+    "usage": {
+      "prompt_token_count": 2593,
+      "candidates_token_count": 44,
+      "thoughts_token_count": 1971,
+      "total_token_count": 4608
+    }
+  },
+  "9": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "b78e12ac751f4a3a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.9465,
+    "usage": {
+      "prompt_token_count": 2125,
+      "candidates_token_count": 20,
+      "thoughts_token_count": 1144,
+      "total_token_count": 3289
+    }
+  },
+  "10": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "18f7739ea3c72447",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.9231,
+    "usage": {
+      "prompt_token_count": 2178,
+      "candidates_token_count": 34,
+      "thoughts_token_count": 1952,
+      "total_token_count": 4164
+    }
+  },
+  "11": {
+    "prediction": ["Article P1-1 - Protection of property"],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "b478b7d42c8257ca",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.3703,
+    "usage": {
+      "prompt_token_count": 1507,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1986,
+      "total_token_count": 3504
+    }
+  },
+  "12": {
+    "prediction": ["Article 10 - Freedom of expression"],
+    "actual_label": ["Article 10 - Freedom of expression"],
+    "text_hash": "6faa5493dbfc47dd",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.3036,
+    "usage": {
+      "prompt_token_count": 2751,
+      "candidates_token_count": 10,
+      "thoughts_token_count": 1814,
+      "total_token_count": 4575
+    }
+  },
+  "13": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "c97288cf7a758e6a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.1482,
+    "usage": {
+      "prompt_token_count": 851,
+      "candidates_token_count": 23,
+      "thoughts_token_count": 1350,
+      "total_token_count": 2224
+    }
+  },
+  "14": {
+    "prediction": ["Article 2 - Right to life"],
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "824d4ae14bec794b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.7585,
+    "usage": {
+      "prompt_token_count": 8067,
+      "candidates_token_count": 9,
+      "thoughts_token_count": 1810,
+      "total_token_count": 9886
+    }
+  },
+  "15": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "b6e26abe3f4dba74",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.0255,
+    "usage": {
+      "prompt_token_count": 565,
+      "candidates_token_count": 20,
+      "thoughts_token_count": 783,
+      "total_token_count": 1368
+    }
+  },
+  "16": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "df2d8572a5904bed",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 16.9609,
+    "usage": {
+      "prompt_token_count": 6357,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 3330,
+      "total_token_count": 9698
+    }
+  },
+  "17": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 2 - Right to life",
+      "Article 5 - Right to liberty and security"
+    ],
+    "text_hash": "b81e0ecc551b00f2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.511,
+    "usage": {
+      "prompt_token_count": 2625,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 2911,
+      "total_token_count": 5558
+    }
+  },
+  "18": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "0dc86abe8ab931f0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.7955,
+    "usage": {
+      "prompt_token_count": 3161,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 723,
+      "total_token_count": 3895
+    }
+  },
+  "19": {
+    "prediction": [],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "68142677c94c071e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.8027,
+    "usage": {
+      "prompt_token_count": 5381,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 1097,
+      "total_token_count": 6479
+    }
+  },
+  "20": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 10 - Freedom of expression",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "4905630b0d1370a6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 17.1291,
+    "usage": {
+      "prompt_token_count": 7435,
+      "candidates_token_count": 58,
+      "thoughts_token_count": 3394,
+      "total_token_count": 10887
+    }
+  },
+  "21": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "40521a1a1d5e34e5",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.5583,
+    "usage": {
+      "prompt_token_count": 2450,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 2665,
+      "total_token_count": 5137
+    }
+  },
+  "22": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life",
+      "Article 9 - Freedom of thought, conscience and religion",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 8 - Right to respect for private and family life",
+      "Article 9 - Freedom of thought, conscience and religion"
+    ],
+    "text_hash": "a4b035dbd86c29e2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.9746,
+    "usage": {
+      "prompt_token_count": 10545,
+      "candidates_token_count": 69,
+      "thoughts_token_count": 2053,
+      "total_token_count": 12667
+    }
+  },
+  "23": {
+    "prediction": ["Article P1-1 - Protection of property"],
+    "actual_label": ["Article P1-1 - Protection of property"],
+    "text_hash": "4b5d6fb7dbfd202f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 2.8629,
+    "usage": {
+      "prompt_token_count": 1387,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 483,
+      "total_token_count": 1881
+    }
+  },
+  "24": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "actual_label": [
+      "Article 2 - Right to life",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "718ec2d8d619ca07",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.785,
+    "usage": {
+      "prompt_token_count": 1292,
+      "candidates_token_count": 29,
+      "thoughts_token_count": 1316,
+      "total_token_count": 2637
+    }
+  },
+  "25": {
+    "prediction": ["Article 14 - Prohibition of discriminatioN"],
+    "actual_label": ["Article 14 - Prohibition of discriminatioN"],
+    "text_hash": "d056f814c9bca68f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.2256,
+    "usage": {
+      "prompt_token_count": 4195,
+      "candidates_token_count": 12,
+      "thoughts_token_count": 1105,
+      "total_token_count": 5312
+    }
+  },
+  "26": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "text_hash": "5826f86c4e481ad6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.648,
+    "usage": {
+      "prompt_token_count": 4447,
+      "candidates_token_count": 31,
+      "thoughts_token_count": 1992,
+      "total_token_count": 6470
+    }
+  },
+  "27": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "6fc9a5c80539bd91",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.5327,
+    "usage": {
+      "prompt_token_count": 1739,
+      "candidates_token_count": 25,
+      "thoughts_token_count": 2076,
+      "total_token_count": 3840
+    }
+  },
+  "28": {
+    "prediction": [
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": [
+      "Article 14 - Prohibition of discriminatioN",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "a29e6fc7d522079b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.9557,
+    "usage": {
+      "prompt_token_count": 2209,
+      "candidates_token_count": 26,
+      "thoughts_token_count": 1712,
+      "total_token_count": 3947
+    }
+  },
+  "29": {
+    "prediction": ["Article 8 - Right to respect for private and family life"],
+    "actual_label": [
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "83d6d7a973703155",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.8965,
+    "usage": {
+      "prompt_token_count": 2412,
+      "candidates_token_count": 14,
+      "thoughts_token_count": 2414,
+      "total_token_count": 4840
+    }
+  },
+  "30": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "ab4ef860638075ef",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.788,
+    "usage": {
+      "prompt_token_count": 2278,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1232,
+      "total_token_count": 3521
+    }
+  },
+  "31": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "32c89c51ac26faa9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.2564,
+    "usage": {
+      "prompt_token_count": 2524,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1145,
+      "total_token_count": 3691
+    }
+  },
+  "32": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "2f621d9f792a2371",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.072,
+    "usage": {
+      "prompt_token_count": 2125,
+      "candidates_token_count": 42,
+      "thoughts_token_count": 2333,
+      "total_token_count": 4500
+    }
+  },
+  "33": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "9068a1b615f884c2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.7737,
+    "usage": {
+      "prompt_token_count": 6949,
+      "candidates_token_count": 25,
+      "thoughts_token_count": 3118,
+      "total_token_count": 10092
+    }
+  },
+  "34": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "cec0e21bf70605a4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.9159,
+    "usage": {
+      "prompt_token_count": 1366,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1406,
+      "total_token_count": 2783
+    }
+  },
+  "35": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "019c22e87d15fdd2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.6913,
+    "usage": {
+      "prompt_token_count": 2800,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 2331,
+      "total_token_count": 5153
+    }
+  },
+  "36": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "7b9be6ffa63591d4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.9146,
+    "usage": {
+      "prompt_token_count": 4028,
+      "candidates_token_count": 20,
+      "thoughts_token_count": 2009,
+      "total_token_count": 6057
+    }
+  },
+  "37": {
+    "prediction": [],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "4015591522236181",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.092,
+    "usage": {
+      "prompt_token_count": 2020,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 712,
+      "total_token_count": 2733
+    }
+  },
+  "38": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "73b2d8ea95421645",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.9002,
+    "usage": {
+      "prompt_token_count": 1313,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1703,
+      "total_token_count": 3038
+    }
+  },
+  "39": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": [],
+    "text_hash": "a3e51c39b2226ad4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.9383,
+    "usage": {
+      "prompt_token_count": 1376,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 2590,
+      "total_token_count": 3977
+    }
+  },
+  "40": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "60d37b342de14ff5",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.288,
+    "usage": {
+      "prompt_token_count": 5255,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 2136,
+      "total_token_count": 7413
+    }
+  },
+  "41": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "f9a9a2b09a6b3e50",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.0187,
+    "usage": {
+      "prompt_token_count": 2359,
+      "candidates_token_count": 29,
+      "thoughts_token_count": 1887,
+      "total_token_count": 4275
+    }
+  },
+  "42": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "4cdef4862e2ab72c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.0489,
+    "usage": {
+      "prompt_token_count": 530,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1090,
+      "total_token_count": 1631
+    }
+  },
+  "43": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "de33f7ef03730e27",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.6171,
+    "usage": {
+      "prompt_token_count": 4612,
+      "candidates_token_count": 20,
+      "thoughts_token_count": 1471,
+      "total_token_count": 6103
+    }
+  },
+  "44": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "a751dfb175d3f2d9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.4758,
+    "usage": {
+      "prompt_token_count": 3118,
+      "candidates_token_count": 25,
+      "thoughts_token_count": 1091,
+      "total_token_count": 4234
+    }
+  },
+  "45": {
+    "prediction": ["Article 10 - Freedom of expression"],
+    "actual_label": ["Article 10 - Freedom of expression"],
+    "text_hash": "9dbb364b896fcdaf",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.1411,
+    "usage": {
+      "prompt_token_count": 1909,
+      "candidates_token_count": 10,
+      "thoughts_token_count": 1970,
+      "total_token_count": 3889
+    }
+  },
+  "46": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "a2d9228f518b131a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.4821,
+    "usage": {
+      "prompt_token_count": 936,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 872,
+      "total_token_count": 1830
+    }
+  },
+  "47": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "ed65fb147035cde6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.0409,
+    "usage": {
+      "prompt_token_count": 426,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1039,
+      "total_token_count": 1487
+    }
+  },
+  "48": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "06f273f205bb1077",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.0539,
+    "usage": {
+      "prompt_token_count": 1551,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1130,
+      "total_token_count": 2692
+    }
+  },
+  "49": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "5279075d9781cbe9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.2581,
+    "usage": {
+      "prompt_token_count": 1188,
+      "candidates_token_count": 23,
+      "thoughts_token_count": 1260,
+      "total_token_count": 2471
+    }
+  },
+  "50": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "text_hash": "00daf872d44f4b0c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.2825,
+    "usage": {
+      "prompt_token_count": 907,
+      "candidates_token_count": 31,
+      "thoughts_token_count": 1258,
+      "total_token_count": 2196
+    }
+  },
+  "51": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "df0911da31a35f8c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.7333,
+    "usage": {
+      "prompt_token_count": 3032,
+      "candidates_token_count": 20,
+      "thoughts_token_count": 2349,
+      "total_token_count": 5401
+    }
+  },
+  "52": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "8f2890d0ae927dbb",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.8552,
+    "usage": {
+      "prompt_token_count": 876,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 707,
+      "total_token_count": 1594
+    }
+  },
+  "53": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "056b2ee59a2681f9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.6596,
+    "usage": {
+      "prompt_token_count": 546,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 679,
+      "total_token_count": 1236
+    }
+  },
+  "54": {
+    "prediction": [
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": [
+      "Article 14 - Prohibition of discriminatioN",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "db5c2414d0298189",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.3768,
+    "usage": {
+      "prompt_token_count": 4454,
+      "candidates_token_count": 26,
+      "thoughts_token_count": 1436,
+      "total_token_count": 5916
+    }
+  },
+  "55": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "cb3b9b143294f420",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.2312,
+    "usage": {
+      "prompt_token_count": 2491,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 2814,
+      "total_token_count": 5327
+    }
+  },
+  "56": {
+    "prediction": ["Article P1-1 - Protection of property"],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "428df088c198b2b0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.3969,
+    "usage": {
+      "prompt_token_count": 915,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 569,
+      "total_token_count": 1495
+    }
+  },
+  "57": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "4920af54b3f2628a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.7168,
+    "usage": {
+      "prompt_token_count": 654,
+      "candidates_token_count": 33,
+      "thoughts_token_count": 2073,
+      "total_token_count": 2760
+    }
+  },
+  "58": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "9c93369fe1800b9e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.8708,
+    "usage": {
+      "prompt_token_count": 3395,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 896,
+      "total_token_count": 4302
+    }
+  },
+  "59": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security"
+    ],
+    "text_hash": "5d602038383bfbf7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.4776,
+    "usage": {
+      "prompt_token_count": 16783,
+      "candidates_token_count": 45,
+      "thoughts_token_count": 2639,
+      "total_token_count": 19467
+    }
+  },
+  "60": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "a2f81bde505790ff",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.3861,
+    "usage": {
+      "prompt_token_count": 1458,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1322,
+      "total_token_count": 2802
+    }
+  },
+  "61": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "357da040e066b350",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.6615,
+    "usage": {
+      "prompt_token_count": 3442,
+      "candidates_token_count": 31,
+      "thoughts_token_count": 1707,
+      "total_token_count": 5180
+    }
+  },
+  "62": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "d931e918bb66da79",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.1119,
+    "usage": {
+      "prompt_token_count": 883,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1525,
+      "total_token_count": 2419
+    }
+  },
+  "63": {
+    "prediction": [
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial",
+      "Article 10 - Freedom of expression",
+      "Article 11 - Freedom of assembly and association",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "24b04ad61db14db9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.4361,
+    "usage": {
+      "prompt_token_count": 4695,
+      "candidates_token_count": 55,
+      "thoughts_token_count": 2918,
+      "total_token_count": 7668
+    }
+  },
+  "64": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "67cc18b3ef407f7a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.6563,
+    "usage": {
+      "prompt_token_count": 4568,
+      "candidates_token_count": 25,
+      "thoughts_token_count": 2122,
+      "total_token_count": 6715
+    }
+  },
+  "65": {
+    "prediction": ["Article 3 - Prohibition of torture"],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "a0526a3a0f125cc8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.2383,
+    "usage": {
+      "prompt_token_count": 1305,
+      "candidates_token_count": 9,
+      "thoughts_token_count": 1567,
+      "total_token_count": 2881
+    }
+  },
+  "66": {
+    "prediction": [
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": [
+      "Article 10 - Freedom of expression",
+      "Article 14 - Prohibition of discriminatioN",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "e4eb41f36553be5d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.0451,
+    "usage": {
+      "prompt_token_count": 1642,
+      "candidates_token_count": 26,
+      "thoughts_token_count": 1727,
+      "total_token_count": 3395
+    }
+  },
+  "67": {
+    "prediction": ["Article 3 - Prohibition of torture"],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "d06a158dd505d538",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.6102,
+    "usage": {
+      "prompt_token_count": 2945,
+      "candidates_token_count": 9,
+      "thoughts_token_count": 1415,
+      "total_token_count": 4369
+    }
+  },
+  "68": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 14 - Prohibition of discriminatioN",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article P1-1 - Protection of property"],
+    "text_hash": "0906767a136693e2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.2492,
+    "usage": {
+      "prompt_token_count": 838,
+      "candidates_token_count": 34,
+      "thoughts_token_count": 1224,
+      "total_token_count": 2096
+    }
+  },
+  "69": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "5c244074cfd98fed",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.0684,
+    "usage": {
+      "prompt_token_count": 4014,
+      "candidates_token_count": 18,
+      "thoughts_token_count": 1460,
+      "total_token_count": 5492
+    }
+  },
+  "70": {
+    "prediction": [
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": [
+      "Article 14 - Prohibition of discriminatioN",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "3abe621e6781405f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.3287,
+    "usage": {
+      "prompt_token_count": 2515,
+      "candidates_token_count": 26,
+      "thoughts_token_count": 1624,
+      "total_token_count": 4165
+    }
+  },
+  "71": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "bd503ac682e7a8d0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.7684,
+    "usage": {
+      "prompt_token_count": 5810,
+      "candidates_token_count": 20,
+      "thoughts_token_count": 1765,
+      "total_token_count": 7595
+    }
+  },
+  "72": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "a25844605ec6631b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.1431,
+    "usage": {
+      "prompt_token_count": 641,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 2785,
+      "total_token_count": 3448
+    }
+  },
+  "73": {
+    "prediction": [],
+    "actual_label": [
+      "Article 2 - Right to life",
+      "Article 3 - Prohibition of torture"
+    ],
+    "text_hash": "736ba296f5a49f74",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.5368,
+    "usage": {
+      "prompt_token_count": 3497,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 917,
+      "total_token_count": 4415
+    }
+  },
+  "74": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "actual_label": [
+      "Article 3 - Prohibition of torture",
+      "Article 5 - Right to liberty and security",
+      "Article 6 - Right to a fair trial"
+    ],
+    "text_hash": "91a3d1fb73955ff2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 19.0322,
+    "usage": {
+      "prompt_token_count": 5998,
+      "candidates_token_count": 31,
+      "thoughts_token_count": 3837,
+      "total_token_count": 9866
+    }
+  },
+  "75": {
+    "prediction": [
+      "Article 3 - Prohibition of torture",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "90015c4ed392c20e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.1696,
+    "usage": {
+      "prompt_token_count": 6088,
+      "candidates_token_count": 34,
+      "thoughts_token_count": 2185,
+      "total_token_count": 8307
+    }
+  },
+  "76": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 5 - Right to liberty and security",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "1f1d527730be8ff3",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.5236,
+    "usage": {
+      "prompt_token_count": 3845,
+      "candidates_token_count": 25,
+      "thoughts_token_count": 2993,
+      "total_token_count": 6863
+    }
+  },
+  "77": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "29919a13fe83b227",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.9042,
+    "usage": {
+      "prompt_token_count": 1829,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1707,
+      "total_token_count": 3547
+    }
+  },
+  "78": {
+    "prediction": [],
+    "actual_label": [
+      "Article 10 - Freedom of expression",
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "ed1c1bfba80d7164",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 33.6039,
+    "usage": {
+      "prompt_token_count": 5794,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 6291,
+      "total_token_count": 12086
+    }
+  },
+  "79": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "ebaa11b24af51912",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.1571,
+    "usage": {
+      "prompt_token_count": 1601,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 769,
+      "total_token_count": 2381
+    }
+  },
+  "80": {
+    "prediction": [
+      "Article 8 - Right to respect for private and family life",
+      "Article 14 - Prohibition of discriminatioN"
+    ],
+    "actual_label": [
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "8c617eda49768887",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.2015,
+    "usage": {
+      "prompt_token_count": 5154,
+      "candidates_token_count": 26,
+      "thoughts_token_count": 1416,
+      "total_token_count": 6596
+    }
+  },
+  "81": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "bf3e8574e191902c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.6973,
+    "usage": {
+      "prompt_token_count": 1471,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1075,
+      "total_token_count": 2557
+    }
+  },
+  "82": {
+    "prediction": ["Article 3 - Prohibition of torture"],
+    "actual_label": ["Article 3 - Prohibition of torture"],
+    "text_hash": "dcab2f319c4c31fc",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.4479,
+    "usage": {
+      "prompt_token_count": 2276,
+      "candidates_token_count": 9,
+      "thoughts_token_count": 1573,
+      "total_token_count": 3858
+    }
+  },
+  "83": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "891e925536ab3dc8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.3451,
+    "usage": {
+      "prompt_token_count": 1525,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1624,
+      "total_token_count": 3160
+    }
+  },
+  "84": {
+    "prediction": [],
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "d19e45991cfd0999",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 20.5458,
+    "usage": {
+      "prompt_token_count": 17751,
+      "candidates_token_count": 1,
+      "thoughts_token_count": 2558,
+      "total_token_count": 20310
+    }
+  },
+  "85": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article 8 - Right to respect for private and family life"
+    ],
+    "text_hash": "18ad4262b914e651",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.2153,
+    "usage": {
+      "prompt_token_count": 2244,
+      "candidates_token_count": 25,
+      "thoughts_token_count": 1330,
+      "total_token_count": 3599
+    }
+  },
+  "86": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "45164c3d4b7ac022",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.1039,
+    "usage": {
+      "prompt_token_count": 2360,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1809,
+      "total_token_count": 4191
+    }
+  },
+  "87": {
+    "prediction": [
+      "Article 2 - Right to life",
+      "Article 6 - Right to a fair trial",
+      "Article 11 - Freedom of assembly and association"
+    ],
+    "actual_label": ["Article 2 - Right to life"],
+    "text_hash": "7f4c810aed690b2d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.0123,
+    "usage": {
+      "prompt_token_count": 1059,
+      "candidates_token_count": 32,
+      "thoughts_token_count": 2238,
+      "total_token_count": 3329
+    }
+  },
+  "88": {
+    "prediction": ["Article 5 - Right to liberty and security"],
+    "actual_label": ["Article 5 - Right to liberty and security"],
+    "text_hash": "05938f0f8e1f4c46",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.0758,
+    "usage": {
+      "prompt_token_count": 4869,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 2253,
+      "total_token_count": 7133
+    }
+  },
+  "89": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "1786c164451a8dd8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.2012,
+    "usage": {
+      "prompt_token_count": 4696,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 2401,
+      "total_token_count": 7108
+    }
+  },
+  "90": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "b39b9ff641d9fbb6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.413,
+    "usage": {
+      "prompt_token_count": 2011,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1427,
+      "total_token_count": 3460
+    }
+  },
+  "91": {
+    "prediction": [
+      "Article 10 - Freedom of expression",
+      "Article 11 - Freedom of assembly and association"
+    ],
+    "actual_label": ["Article 11 - Freedom of assembly and association"],
+    "text_hash": "e9a3f0e5b51a5a60",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 4.707,
+    "usage": {
+      "prompt_token_count": 824,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 884,
+      "total_token_count": 1730
+    }
+  },
+  "92": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "050eba0a81fc4b28",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.8665,
+    "usage": {
+      "prompt_token_count": 1100,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1690,
+      "total_token_count": 2801
+    }
+  },
+  "93": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "9f12246bf3f53aba",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.0199,
+    "usage": {
+      "prompt_token_count": 1310,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1537,
+      "total_token_count": 2869
+    }
+  },
+  "94": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "28f505b14769300f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 3.7495,
+    "usage": {
+      "prompt_token_count": 544,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 678,
+      "total_token_count": 1233
+    }
+  },
+  "95": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "c022491ef54ff1d8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 7.6136,
+    "usage": {
+      "prompt_token_count": 578,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1416,
+      "total_token_count": 2016
+    }
+  },
+  "96": {
+    "prediction": ["Article P1-1 - Protection of property"],
+    "actual_label": ["Article P1-1 - Protection of property"],
+    "text_hash": "0f751a57e9dbbb98",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.7553,
+    "usage": {
+      "prompt_token_count": 969,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1227,
+      "total_token_count": 2207
+    }
+  },
+  "97": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "5fc24324b9eaa720",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 5.1289,
+    "usage": {
+      "prompt_token_count": 571,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 984,
+      "total_token_count": 1577
+    }
+  },
+  "98": {
+    "prediction": ["Article 6 - Right to a fair trial"],
+    "actual_label": ["Article 6 - Right to a fair trial"],
+    "text_hash": "e88ae3735ec5e5f9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 8.3094,
+    "usage": {
+      "prompt_token_count": 3018,
+      "candidates_token_count": 11,
+      "thoughts_token_count": 1511,
+      "total_token_count": 4540
+    }
+  },
+  "99": {
+    "prediction": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "actual_label": [
+      "Article 6 - Right to a fair trial",
+      "Article P1-1 - Protection of property"
+    ],
+    "text_hash": "acf1174fba2e7044",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 6.0809,
+    "usage": {
+      "prompt_token_count": 1219,
+      "candidates_token_count": 22,
+      "thoughts_token_count": 1121,
+      "total_token_count": 2362
+    }
+  }
+}

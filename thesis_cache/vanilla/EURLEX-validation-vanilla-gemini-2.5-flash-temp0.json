@@ -1,0 +1,3675 @@
+{
+  "0": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["prices", "agricultural policy", "plant product"],
+    "text_hash": "079627f0192369e8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.9539,
+    "usage": {
+      "prompt_token_count": 970,
+      "candidates_token_count": 64,
+      "thoughts_token_count": 2168,
+      "total_token_count": 3202
+    }
+  },
+  "1": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "documentation",
+      "information and information processing",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "technology and technical regulations",
+      "energy policy",
+      "electrical and nuclear industries",
+      "industrial structures and policy",
+      "Europe"
+    ],
+    "actual_label": [
+      "European Union law",
+      "documentation",
+      "environmental policy",
+      "deterioration of the environment",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "energy policy"
+    ],
+    "text_hash": "0d05fa6996d7c7e9",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.7122,
+    "usage": {
+      "prompt_token_count": 1261,
+      "candidates_token_count": 78,
+      "thoughts_token_count": 3085,
+      "total_token_count": 4424
+    }
+  },
+  "2": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "consumption",
+      "marketing",
+      "distributive trades",
+      "health",
+      "natural and applied sciences",
+      "processed agricultural produce",
+      "beverages and sugar",
+      "foodstuff",
+      "agri-foodstuffs",
+      "food technology",
+      "production",
+      "technology and technical regulations",
+      "chemistry"
+    ],
+    "actual_label": [
+      "marketing",
+      "health",
+      "beverages and sugar",
+      "food technology"
+    ],
+    "text_hash": "dc9255737ac83f1c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.5556,
+    "usage": {
+      "prompt_token_count": 1701,
+      "candidates_token_count": 71,
+      "thoughts_token_count": 2516,
+      "total_token_count": 4288
+    }
+  },
+  "3": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural activity",
+      "fisheries",
+      "animal product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "Europe",
+      "regions of EU Member States"
+    ],
+    "actual_label": [
+      "maritime and inland waterway transport",
+      "natural environment",
+      "fisheries",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "f0b90415b9987716",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.5761,
+    "usage": {
+      "prompt_token_count": 1073,
+      "candidates_token_count": 69,
+      "thoughts_token_count": 2837,
+      "total_token_count": 3979
+    }
+  },
+  "4": {
+    "prediction": [
+      "international affairs",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "natural and applied sciences",
+      "management",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "fisheries",
+      "Europe",
+      "regions of EU Member States"
+    ],
+    "actual_label": [
+      "international law",
+      "fisheries",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "3f1560d62fd0160d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.5833,
+    "usage": {
+      "prompt_token_count": 1238,
+      "candidates_token_count": 60,
+      "thoughts_token_count": 2581,
+      "total_token_count": 3879
+    }
+  },
+  "5": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "public finance and budget policy",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["EU finance", "trade", "plant product"],
+    "text_hash": "050b1644dcdd2004",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.1966,
+    "usage": {
+      "prompt_token_count": 1489,
+      "candidates_token_count": 65,
+      "thoughts_token_count": 1930,
+      "total_token_count": 3484
+    }
+  },
+  "6": {
+    "prediction": [
+      "political framework",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "social affairs",
+      "social protection",
+      "health",
+      "information and information processing",
+      "information technology and data processing",
+      "employment",
+      "labour market",
+      "organisation of work and working conditions",
+      "Europe"
+    ],
+    "actual_label": [
+      "European construction",
+      "economic analysis",
+      "health",
+      "organisation of work and working conditions"
+    ],
+    "text_hash": "5b149b7ad7d4b2d1",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.4165,
+    "usage": {
+      "prompt_token_count": 1130,
+      "candidates_token_count": 64,
+      "thoughts_token_count": 3103,
+      "total_token_count": 4297
+    }
+  },
+  "7": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "health",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "cultivation of agricultural land",
+      "means of agricultural production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "technology and technical regulations",
+      "chemistry"
+    ],
+    "actual_label": [
+      "executive power and public service",
+      "marketing",
+      "health",
+      "agricultural policy",
+      "means of agricultural production",
+      "chemistry"
+    ],
+    "text_hash": "378558c7b87c0d5f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.7376,
+    "usage": {
+      "prompt_token_count": 2835,
+      "candidates_token_count": 87,
+      "thoughts_token_count": 2724,
+      "total_token_count": 5646
+    }
+  },
+  "8": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "prices",
+      "agricultural policy",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["prices", "agricultural policy", "plant product"],
+    "text_hash": "aa1017dbcfe13ef5",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.1981,
+    "usage": {
+      "prompt_token_count": 963,
+      "candidates_token_count": 54,
+      "thoughts_token_count": 2496,
+      "total_token_count": 3513
+    }
+  },
+  "9": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "international affairs",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["trade", "prices", "agricultural policy", "plant product"],
+    "text_hash": "c50cc1e4b86c23ef",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.6727,
+    "usage": {
+      "prompt_token_count": 1033,
+      "candidates_token_count": 76,
+      "thoughts_token_count": 3009,
+      "total_token_count": 4118
+    }
+  },
+  "10": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["trade", "prices", "agricultural policy", "plant product"],
+    "text_hash": "570eab6f10338771",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.1506,
+    "usage": {
+      "prompt_token_count": 954,
+      "candidates_token_count": 77,
+      "thoughts_token_count": 2406,
+      "total_token_count": 3437
+    }
+  },
+  "11": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "EU finance",
+      "economic policy",
+      "economic conditions",
+      "regions and regional policy",
+      "national accounts",
+      "economic analysis",
+      "financing and investment",
+      "public finance and budget policy",
+      "budget",
+      "social affairs",
+      "social protection",
+      "employment",
+      "labour market",
+      "Europe",
+      "regions of EU Member States",
+      "economic geography",
+      "political geography"
+    ],
+    "actual_label": [
+      "EU finance",
+      "economic policy",
+      "budget",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "f646392ac8e5f8d2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.1549,
+    "usage": {
+      "prompt_token_count": 1520,
+      "candidates_token_count": 108,
+      "thoughts_token_count": 2872,
+      "total_token_count": 4500
+    }
+  },
+  "12": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "regions and regional policy",
+      "regions of EU Member States"
+    ],
+    "actual_label": [
+      "EU institutions and European civil service",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "c857b7211a9a9be6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.8151,
+    "usage": {
+      "prompt_token_count": 1069,
+      "candidates_token_count": 41,
+      "thoughts_token_count": 2209,
+      "total_token_count": 3319
+    }
+  },
+  "13": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "agricultural policy",
+      "agricultural structures and production",
+      "plant product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["EU finance", "trade", "plant product"],
+    "text_hash": "bbabe8b898e9b654",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.059,
+    "usage": {
+      "prompt_token_count": 1166,
+      "candidates_token_count": 70,
+      "thoughts_token_count": 2440,
+      "total_token_count": 3676
+    }
+  },
+  "14": {
+    "prediction": [
+      "political framework",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "rights and freedoms",
+      "economic policy",
+      "economic conditions",
+      "economic analysis",
+      "trade policy",
+      "trade",
+      "international trade",
+      "monetary relations",
+      "monetary economics",
+      "financial institutions and credit",
+      "financing and investment",
+      "public finance and budget policy",
+      "budget",
+      "prices",
+      "social affairs",
+      "information and information processing",
+      "competition",
+      "employment",
+      "labour market",
+      "organisation of work and working conditions",
+      "personnel management and staff remuneration",
+      "research and intellectual property",
+      "energy policy",
+      "Europe"
+    ],
+    "actual_label": [
+      "economic policy",
+      "economic conditions",
+      "economic analysis",
+      "monetary economics"
+    ],
+    "text_hash": "0d417f127b35eb54",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.8489,
+    "usage": {
+      "prompt_token_count": 7399,
+      "candidates_token_count": 138,
+      "thoughts_token_count": 3349,
+      "total_token_count": 10886
+    }
+  },
+  "15": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["EU finance", "trade", "plant product"],
+    "text_hash": "bf9e9d9c36862f3c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.4193,
+    "usage": {
+      "prompt_token_count": 1335,
+      "candidates_token_count": 68,
+      "thoughts_token_count": 2221,
+      "total_token_count": 3624
+    }
+  },
+  "16": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "EU finance",
+      "financing and investment",
+      "public finance and budget policy",
+      "budget",
+      "accounting",
+      "transport policy",
+      "land transport",
+      "environmental policy",
+      "deterioration of the environment",
+      "technology and technical regulations",
+      "energy policy",
+      "industrial structures and policy"
+    ],
+    "actual_label": [
+      "budget",
+      "environmental policy",
+      "deterioration of the environment",
+      "mechanical engineering"
+    ],
+    "text_hash": "9c5e16df0a74752d",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.2673,
+    "usage": {
+      "prompt_token_count": 1694,
+      "candidates_token_count": 71,
+      "thoughts_token_count": 2790,
+      "total_token_count": 4555
+    }
+  },
+  "17": {
+    "prediction": [
+      "European Union law",
+      "EU institutions and European civil service",
+      "international affairs",
+      "international security",
+      "United Nations",
+      "international law",
+      "air and space transport",
+      "maritime and inland waterway transport",
+      "transport policy",
+      "financing and investment",
+      "trade policy",
+      "international trade",
+      "rights and freedoms",
+      "economic policy",
+      "Africa",
+      "political geography"
+    ],
+    "actual_label": [
+      "international affairs",
+      "cooperation policy",
+      "civil law",
+      "criminal law",
+      "rights and freedoms",
+      "air and space transport",
+      "Africa"
+    ],
+    "text_hash": "f49cbdef9bd6a6a5",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.7362,
+    "usage": {
+      "prompt_token_count": 2113,
+      "candidates_token_count": 76,
+      "thoughts_token_count": 2398,
+      "total_token_count": 4587
+    }
+  },
+  "18": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "economic conditions",
+      "economic analysis",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production"
+    ],
+    "actual_label": ["trade", "prices", "animal product", "foodstuff"],
+    "text_hash": "a0e535b95642550e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.9536,
+    "usage": {
+      "prompt_token_count": 1040,
+      "candidates_token_count": 84,
+      "thoughts_token_count": 2384,
+      "total_token_count": 3508
+    }
+  },
+  "19": {
+    "prediction": [
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "plant product",
+      "processed agricultural produce",
+      "beverages and sugar",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": [
+      "EU finance",
+      "trade",
+      "prices",
+      "beverages and sugar",
+      "foodstuff"
+    ],
+    "text_hash": "6471337230997e61",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.4691,
+    "usage": {
+      "prompt_token_count": 1086,
+      "candidates_token_count": 61,
+      "thoughts_token_count": 2252,
+      "total_token_count": 3399
+    }
+  },
+  "20": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "economic policy",
+      "regions and regional policy",
+      "trade policy",
+      "trade",
+      "international trade",
+      "marketing",
+      "distributive trades",
+      "competition",
+      "documentation",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "cultivation of agricultural land",
+      "agricultural activity",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "research and intellectual property",
+      "Europe",
+      "regions of EU Member States",
+      "economic geography",
+      "political geography"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "agricultural structures and production",
+      "processed agricultural produce",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "bc5571bee98af221",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.7935,
+    "usage": {
+      "prompt_token_count": 1075,
+      "candidates_token_count": 135,
+      "thoughts_token_count": 3090,
+      "total_token_count": 4300
+    }
+  },
+  "21": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "trade policy",
+      "international trade",
+      "health",
+      "agricultural policy",
+      "plant product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "Asia and Oceania"
+    ],
+    "actual_label": ["trade policy", "health", "foodstuff", "agri-foodstuffs"],
+    "text_hash": "34da8973919ae214",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.0629,
+    "usage": {
+      "prompt_token_count": 1489,
+      "candidates_token_count": 53,
+      "thoughts_token_count": 2928,
+      "total_token_count": 4470
+    }
+  },
+  "22": {
+    "prediction": [
+      "European Union law",
+      "documentation",
+      "information and information processing",
+      "natural and applied sciences",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "cultivation of agricultural land",
+      "means of agricultural production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "chemistry",
+      "Europe"
+    ],
+    "actual_label": [
+      "executive power and public service",
+      "marketing",
+      "information and information processing",
+      "means of agricultural production",
+      "technology and technical regulations"
+    ],
+    "text_hash": "c578dfb87939ac45",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.0841,
+    "usage": {
+      "prompt_token_count": 1401,
+      "candidates_token_count": 97,
+      "thoughts_token_count": 2775,
+      "total_token_count": 4273
+    }
+  },
+  "23": {
+    "prediction": [
+      "politics and public safety",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "trade",
+      "international trade",
+      "consumption",
+      "marketing",
+      "distributive trades",
+      "social affairs",
+      "health",
+      "technology and technical regulations",
+      "chemistry",
+      "Europe",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "deterioration of the environment",
+      "chemistry",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "8daf31e048ea6845",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.5425,
+    "usage": {
+      "prompt_token_count": 2059,
+      "candidates_token_count": 68,
+      "thoughts_token_count": 2749,
+      "total_token_count": 4876
+    }
+  },
+  "24": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "regions and regional policy",
+      "regions of EU Member States"
+    ],
+    "actual_label": [
+      "EU institutions and European civil service",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "2ac55cf666cad8bf",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.01,
+    "usage": {
+      "prompt_token_count": 912,
+      "candidates_token_count": 41,
+      "thoughts_token_count": 2111,
+      "total_token_count": 3064
+    }
+  },
+  "25": {
+    "prediction": [
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "consumption",
+      "marketing",
+      "information technology and data processing",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "plant product",
+      "production",
+      "technology and technical regulations",
+      "energy policy",
+      "electrical and nuclear industries",
+      "industrial structures and policy",
+      "chemistry",
+      "electronics and electrical engineering",
+      "wood industry"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "technology and technical regulations"
+    ],
+    "text_hash": "fa317fb2b3bf2094",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.5778,
+    "usage": {
+      "prompt_token_count": 2037,
+      "candidates_token_count": 91,
+      "thoughts_token_count": 2628,
+      "total_token_count": 4756
+    }
+  },
+  "26": {
+    "prediction": ["European Union law", "fisheries"],
+    "actual_label": [
+      "international law",
+      "maritime and inland waterway transport",
+      "fisheries",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "6116d6fb6f07c272",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.4796,
+    "usage": {
+      "prompt_token_count": 1079,
+      "candidates_token_count": 9,
+      "thoughts_token_count": 2457,
+      "total_token_count": 3545
+    }
+  },
+  "27": {
+    "prediction": [
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "international law",
+      "taxation"
+    ],
+    "actual_label": ["tariff policy", "foodstuff"],
+    "text_hash": "530f247e1f216094",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.0307,
+    "usage": {
+      "prompt_token_count": 1197,
+      "candidates_token_count": 32,
+      "thoughts_token_count": 2961,
+      "total_token_count": 4190
+    }
+  },
+  "28": {
+    "prediction": [
+      "international affairs",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "fisheries",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "Europe",
+      "Asia and Oceania",
+      "political geography"
+    ],
+    "actual_label": [
+      "trade policy",
+      "tariff policy",
+      "international trade",
+      "processed agricultural produce"
+    ],
+    "text_hash": "28930eb737a09d53",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.025,
+    "usage": {
+      "prompt_token_count": 1483,
+      "candidates_token_count": 99,
+      "thoughts_token_count": 2937,
+      "total_token_count": 4519
+    }
+  },
+  "29": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "cooperation policy",
+      "international security",
+      "defence",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "personnel management and staff remuneration",
+      "Europe",
+      "Africa",
+      "political geography"
+    ],
+    "actual_label": [
+      "politics and public safety",
+      "cooperation policy",
+      "European construction",
+      "personnel management and staff remuneration",
+      "Africa"
+    ],
+    "text_hash": "e198960b37dd7151",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.0851,
+    "usage": {
+      "prompt_token_count": 908,
+      "candidates_token_count": 68,
+      "thoughts_token_count": 2730,
+      "total_token_count": 3706
+    }
+  },
+  "30": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "cooperation policy",
+      "international security",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "EU finance",
+      "criminal law",
+      "international law",
+      "rights and freedoms",
+      "economic policy",
+      "economic conditions",
+      "regions and regional policy",
+      "trade",
+      "financing and investment",
+      "public finance and budget policy",
+      "budget",
+      "social affairs",
+      "social protection",
+      "information and information processing",
+      "information technology and data processing",
+      "natural and applied sciences",
+      "business organisation",
+      "management",
+      "accounting",
+      "competition",
+      "employment",
+      "labour market",
+      "transport policy",
+      "organisation of transport",
+      "land transport",
+      "maritime and inland waterway transport",
+      "air and space transport",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "cultivation of agricultural land",
+      "agricultural activity",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "energy policy",
+      "industrial structures and policy",
+      "chemistry",
+      "building and public works",
+      "wood industry",
+      "Europe",
+      "regions of EU Member States",
+      "political geography",
+      "United Nations"
+    ],
+    "actual_label": [
+      "international affairs",
+      "European construction",
+      "communications",
+      "air and space transport",
+      "natural environment",
+      "research and intellectual property",
+      "miscellaneous industries"
+    ],
+    "text_hash": "7949a719e35283e0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 23.3386,
+    "usage": {
+      "prompt_token_count": 8390,
+      "candidates_token_count": 264,
+      "thoughts_token_count": 5010,
+      "total_token_count": 13664
+    }
+  },
+  "31": {
+    "prediction": [
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "health",
+      "natural and applied sciences",
+      "foodstuff",
+      "technology and technical regulations",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "consumption",
+      "health",
+      "agricultural activity",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "2c1fa1a2b5ff51de",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.9307,
+    "usage": {
+      "prompt_token_count": 1175,
+      "candidates_token_count": 59,
+      "thoughts_token_count": 3241,
+      "total_token_count": 4475
+    }
+  },
+  "32": {
+    "prediction": [
+      "international affairs",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "agricultural policy",
+      "fisheries",
+      "Europe",
+      "overseas countries and territories"
+    ],
+    "actual_label": [
+      "international affairs",
+      "European construction",
+      "international law",
+      "fisheries",
+      "Europe",
+      "America",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "05fedcd91f824305",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.2875,
+    "usage": {
+      "prompt_token_count": 1462,
+      "candidates_token_count": 44,
+      "thoughts_token_count": 2138,
+      "total_token_count": 3644
+    }
+  },
+  "33": {
+    "prediction": [
+      "politics and public safety",
+      "international affairs",
+      "cooperation policy",
+      "international law",
+      "European Union law",
+      "information and information processing",
+      "information technology and data processing",
+      "transport policy",
+      "organisation of transport",
+      "maritime and inland waterway transport",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "fisheries",
+      "technology and technical regulations",
+      "United Nations"
+    ],
+    "actual_label": [
+      "international law",
+      "information and information processing",
+      "information technology and data processing",
+      "transport policy",
+      "maritime and inland waterway transport"
+    ],
+    "text_hash": "a4eade3a42c4369a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.3392,
+    "usage": {
+      "prompt_token_count": 1429,
+      "candidates_token_count": 84,
+      "thoughts_token_count": 3094,
+      "total_token_count": 4607
+    }
+  },
+  "34": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "economic policy",
+      "economic conditions",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "marketing",
+      "public finance and budget policy",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "processed agricultural produce",
+      "beverages and sugar",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "Europe"
+    ],
+    "actual_label": [
+      "EU finance",
+      "trade",
+      "prices",
+      "beverages and sugar",
+      "foodstuff"
+    ],
+    "text_hash": "f5ded486d1de5501",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.3583,
+    "usage": {
+      "prompt_token_count": 1086,
+      "candidates_token_count": 103,
+      "thoughts_token_count": 2252,
+      "total_token_count": 3441
+    }
+  },
+  "35": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "economic conditions",
+      "economic analysis",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "financial institutions and credit",
+      "financing and investment",
+      "public finance and budget policy",
+      "taxation",
+      "prices",
+      "competition",
+      "employment",
+      "labour market",
+      "accounting",
+      "production",
+      "energy policy",
+      "electrical and nuclear industries",
+      "industrial structures and policy",
+      "iron, steel and other metal industries",
+      "mechanical engineering",
+      "Europe",
+      "regions of EU Member States",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "industrial structures and policy",
+      "iron, steel and other metal industries",
+      "mechanical engineering",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "b2ee4c476a190fbc",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 16.7848,
+    "usage": {
+      "prompt_token_count": 22514,
+      "candidates_token_count": 161,
+      "thoughts_token_count": 3382,
+      "total_token_count": 26057
+    }
+  },
+  "36": {
+    "prediction": [
+      "international affairs",
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "accounting",
+      "competition",
+      "production",
+      "industrial structures and policy",
+      "Europe",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "international trade",
+      "competition",
+      "chemistry",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "8ec8ae22f7a87588",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.6683,
+    "usage": {
+      "prompt_token_count": 3593,
+      "candidates_token_count": 66,
+      "thoughts_token_count": 2584,
+      "total_token_count": 6243
+    }
+  },
+  "37": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "energy policy",
+      "natural and applied sciences",
+      "technology and technical regulations"
+    ],
+    "actual_label": [
+      "deterioration of the environment",
+      "cultivation of agricultural land",
+      "energy policy",
+      "oil industry",
+      "chemistry"
+    ],
+    "text_hash": "6886a7d128860be3",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.8408,
+    "usage": {
+      "prompt_token_count": 1497,
+      "candidates_token_count": 49,
+      "thoughts_token_count": 2452,
+      "total_token_count": 3998
+    }
+  },
+  "38": {
+    "prediction": [
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "regions and regional policy",
+      "trade",
+      "international trade",
+      "marketing",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "agricultural activity",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "regions of EU Member States",
+      "economic geography"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "processed agricultural produce",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "f822f3fae27507a2",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.3247,
+    "usage": {
+      "prompt_token_count": 1052,
+      "candidates_token_count": 104,
+      "thoughts_token_count": 3161,
+      "total_token_count": 4317
+    }
+  },
+  "39": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "natural and applied sciences",
+      "production",
+      "technology and technical regulations",
+      "industrial structures and policy",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "cultivation of agricultural land",
+      "means of agricultural production",
+      "agricultural activity",
+      "plant product"
+    ],
+    "actual_label": [
+      "executive power and public service",
+      "marketing",
+      "health",
+      "information technology and data processing",
+      "deterioration of the environment",
+      "agricultural policy",
+      "means of agricultural production",
+      "chemistry"
+    ],
+    "text_hash": "2ce033c62276ddca",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.5061,
+    "usage": {
+      "prompt_token_count": 2806,
+      "candidates_token_count": 81,
+      "thoughts_token_count": 2632,
+      "total_token_count": 5519
+    }
+  },
+  "40": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "regions and regional policy",
+      "trade policy",
+      "trade",
+      "marketing",
+      "competition",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "regions of EU Member States"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "foodstuff",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "7ca996e544e6a45c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.4788,
+    "usage": {
+      "prompt_token_count": 1032,
+      "candidates_token_count": 88,
+      "thoughts_token_count": 2480,
+      "total_token_count": 3600
+    }
+  },
+  "41": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "fisheries",
+      "production"
+    ],
+    "actual_label": [
+      "international law",
+      "maritime and inland waterway transport",
+      "natural environment",
+      "fisheries",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "dd82d035a9571b8a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.4713,
+    "usage": {
+      "prompt_token_count": 1072,
+      "candidates_token_count": 40,
+      "thoughts_token_count": 2408,
+      "total_token_count": 3520
+    }
+  },
+  "42": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "cooperation policy",
+      "international security",
+      "defence",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "international law",
+      "documentation",
+      "communications",
+      "information and information processing",
+      "information technology and data processing",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "daeb361b250a1f93",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.5724,
+    "usage": {
+      "prompt_token_count": 972,
+      "candidates_token_count": 91,
+      "thoughts_token_count": 2910,
+      "total_token_count": 3973
+    }
+  },
+  "43": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "regions and regional policy",
+      "documentation",
+      "communications",
+      "information and information processing",
+      "information technology and data processing",
+      "management",
+      "environmental policy",
+      "natural environment",
+      "production",
+      "technology and technical regulations",
+      "Europe",
+      "regions of EU Member States",
+      "economic geography",
+      "political geography"
+    ],
+    "actual_label": [
+      "consumption",
+      "information and information processing",
+      "information technology and data processing",
+      "natural and applied sciences",
+      "technology and technical regulations"
+    ],
+    "text_hash": "f172f35a89def840",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.8501,
+    "usage": {
+      "prompt_token_count": 3646,
+      "candidates_token_count": 96,
+      "thoughts_token_count": 2866,
+      "total_token_count": 6608
+    }
+  },
+  "44": {
+    "prediction": [
+      "international affairs",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "economic policy",
+      "economic conditions",
+      "economic analysis",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "distributive trades",
+      "public finance and budget policy",
+      "taxation",
+      "prices",
+      "business organisation",
+      "accounting",
+      "competition",
+      "production",
+      "industrial structures and policy",
+      "miscellaneous industries",
+      "Europe",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "trade",
+      "international trade",
+      "communications",
+      "competition",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "cb669e7da0d39953",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.4965,
+    "usage": {
+      "prompt_token_count": 6628,
+      "candidates_token_count": 102,
+      "thoughts_token_count": 2965,
+      "total_token_count": 9695
+    }
+  },
+  "45": {
+    "prediction": [
+      "politics and public safety",
+      "EU institutions and European civil service",
+      "European Union law",
+      "trade policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "marketing",
+      "health",
+      "natural and applied sciences",
+      "foodstuff",
+      "food technology",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "industrial structures and policy",
+      "chemistry",
+      "Europe"
+    ],
+    "actual_label": ["marketing", "health", "foodstuff", "chemistry"],
+    "text_hash": "c72cd2dd314c1e5b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 17.9309,
+    "usage": {
+      "prompt_token_count": 3269,
+      "candidates_token_count": 80,
+      "thoughts_token_count": 3521,
+      "total_token_count": 6870
+    }
+  },
+  "46": {
+    "prediction": [
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["prices", "agricultural policy", "plant product"],
+    "text_hash": "faf87436b16d0e91",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.6886,
+    "usage": {
+      "prompt_token_count": 967,
+      "candidates_token_count": 52,
+      "thoughts_token_count": 2484,
+      "total_token_count": 3503
+    }
+  },
+  "47": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "EU finance",
+      "regions and regional policy",
+      "financing and investment",
+      "public finance and budget policy",
+      "budget",
+      "social affairs",
+      "social protection",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "Europe",
+      "regions of EU Member States"
+    ],
+    "actual_label": [
+      "cooperation policy",
+      "EU finance",
+      "deterioration of the environment",
+      "Europe",
+      "regions of EU Member States",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "62ab16d2383f2f70",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.793,
+    "usage": {
+      "prompt_token_count": 1008,
+      "candidates_token_count": 92,
+      "thoughts_token_count": 2096,
+      "total_token_count": 3196
+    }
+  },
+  "48": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "trade",
+      "marketing",
+      "health",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "cultivation of agricultural land",
+      "means of agricultural production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "chemistry"
+    ],
+    "actual_label": [
+      "executive power and public service",
+      "health",
+      "competition",
+      "deterioration of the environment",
+      "agricultural policy",
+      "means of agricultural production",
+      "agricultural activity"
+    ],
+    "text_hash": "7c8b320aee329e40",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.3171,
+    "usage": {
+      "prompt_token_count": 1674,
+      "candidates_token_count": 96,
+      "thoughts_token_count": 2645,
+      "total_token_count": 4415
+    }
+  },
+  "49": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "business classification",
+      "technology and technical regulations",
+      "industrial structures and policy",
+      "electronics and electrical engineering"
+    ],
+    "actual_label": [
+      "tariff policy",
+      "trade",
+      "information technology and data processing"
+    ],
+    "text_hash": "d7a91c1194263519",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.067,
+    "usage": {
+      "prompt_token_count": 1251,
+      "candidates_token_count": 58,
+      "thoughts_token_count": 2475,
+      "total_token_count": 3784
+    }
+  },
+  "50": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "trade policy",
+      "trade",
+      "communications",
+      "information and information processing",
+      "information technology and data processing",
+      "technology and technical regulations",
+      "industrial structures and policy",
+      "electronics and electrical engineering",
+      "Europe"
+    ],
+    "actual_label": ["communications", "technology and technical regulations"],
+    "text_hash": "9adde3566dcce609",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.7738,
+    "usage": {
+      "prompt_token_count": 1322,
+      "candidates_token_count": 72,
+      "thoughts_token_count": 2259,
+      "total_token_count": 3653
+    }
+  },
+  "51": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation"
+    ],
+    "actual_label": ["tariff policy", "leather and textile industries"],
+    "text_hash": "d9e6e1c9c6ffe7fc",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.5236,
+    "usage": {
+      "prompt_token_count": 1259,
+      "candidates_token_count": 36,
+      "thoughts_token_count": 2121,
+      "total_token_count": 3416
+    }
+  },
+  "52": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["tariff policy", "trade", "plant product"],
+    "text_hash": "2140d2431370f189",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.0341,
+    "usage": {
+      "prompt_token_count": 1199,
+      "candidates_token_count": 61,
+      "thoughts_token_count": 2396,
+      "total_token_count": 3656
+    }
+  },
+  "53": {
+    "prediction": [
+      "European Union law",
+      "EU finance",
+      "economic policy",
+      "trade",
+      "financing and investment",
+      "information and information processing",
+      "business classification",
+      "competition",
+      "environmental policy",
+      "production",
+      "technology and technical regulations",
+      "energy policy",
+      "oil industry",
+      "electrical and nuclear industries",
+      "industrial structures and policy",
+      "chemistry",
+      "iron, steel and other metal industries",
+      "building and public works",
+      "wood industry",
+      "Europe"
+    ],
+    "actual_label": [
+      "environmental policy",
+      "deterioration of the environment"
+    ],
+    "text_hash": "626e819441cb99d6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.4862,
+    "usage": {
+      "prompt_token_count": 18601,
+      "candidates_token_count": 92,
+      "thoughts_token_count": 3031,
+      "total_token_count": 21724
+    }
+  },
+  "54": {
+    "prediction": [
+      "international affairs",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "economic conditions",
+      "economic analysis",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "financing and investment",
+      "taxation",
+      "prices",
+      "competition",
+      "employment",
+      "production",
+      "industrial structures and policy",
+      "iron, steel and other metal industries",
+      "Europe",
+      "America",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "trade",
+      "international trade",
+      "competition",
+      "iron, steel and other metal industries",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "8ecea56daeacfd61",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.5641,
+    "usage": {
+      "prompt_token_count": 11742,
+      "candidates_token_count": 98,
+      "thoughts_token_count": 2677,
+      "total_token_count": 14517
+    }
+  },
+  "55": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "regions and regional policy",
+      "trade",
+      "marketing",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "cultivation of agricultural land",
+      "means of agricultural production",
+      "agricultural activity",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "research and intellectual property",
+      "Europe",
+      "regions of EU Member States",
+      "economic geography",
+      "political geography"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "agricultural structures and production",
+      "foodstuff",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "0aff2719cd96ddb7",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 17.083,
+    "usage": {
+      "prompt_token_count": 935,
+      "candidates_token_count": 107,
+      "thoughts_token_count": 3422,
+      "total_token_count": 4464
+    }
+  },
+  "56": {
+    "prediction": [
+      "international affairs",
+      "cooperation policy",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "Africa"
+    ],
+    "actual_label": [
+      "tariff policy",
+      "trade",
+      "international trade",
+      "processed agricultural produce",
+      "Africa"
+    ],
+    "text_hash": "863e6e303184c102",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.1641,
+    "usage": {
+      "prompt_token_count": 1289,
+      "candidates_token_count": 69,
+      "thoughts_token_count": 2441,
+      "total_token_count": 3799
+    }
+  },
+  "57": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "international security",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "trade",
+      "international trade",
+      "monetary relations",
+      "financial institutions and credit",
+      "free movement of capital",
+      "financing and investment",
+      "Asia and Oceania"
+    ],
+    "actual_label": ["international affairs", "Asia and Oceania"],
+    "text_hash": "379e86ba1aab2731",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.6314,
+    "usage": {
+      "prompt_token_count": 943,
+      "candidates_token_count": 84,
+      "thoughts_token_count": 2959,
+      "total_token_count": 3986
+    }
+  },
+  "58": {
+    "prediction": [
+      "political framework",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "economic policy",
+      "regions and regional policy",
+      "trade policy",
+      "trade",
+      "consumption",
+      "marketing",
+      "competition",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "processed agricultural produce",
+      "beverages and sugar",
+      "foodstuff",
+      "agri-foodstuffs",
+      "food technology",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "Europe",
+      "regions of EU Member States",
+      "economic geography"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "agricultural structures and production",
+      "processed agricultural produce",
+      "production",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "ce2ef90b5ccef8ec",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.7571,
+    "usage": {
+      "prompt_token_count": 1055,
+      "candidates_token_count": 120,
+      "thoughts_token_count": 3385,
+      "total_token_count": 4560
+    }
+  },
+  "59": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["prices", "agricultural policy", "plant product"],
+    "text_hash": "03815681da4e065f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.6835,
+    "usage": {
+      "prompt_token_count": 968,
+      "candidates_token_count": 58,
+      "thoughts_token_count": 2351,
+      "total_token_count": 3377
+    }
+  },
+  "60": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "health",
+      "natural and applied sciences",
+      "environmental policy",
+      "natural environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "means of agricultural production",
+      "agricultural activity",
+      "animal product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "food technology",
+      "production",
+      "technology and technical regulations"
+    ],
+    "actual_label": ["marketing", "agricultural activity", "food technology"],
+    "text_hash": "c4d8e0797795bd91",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.9937,
+    "usage": {
+      "prompt_token_count": 1287,
+      "candidates_token_count": 78,
+      "thoughts_token_count": 3314,
+      "total_token_count": 4679
+    }
+  },
+  "61": {
+    "prediction": [
+      "international affairs",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "transport policy",
+      "organisation of transport",
+      "air and space transport",
+      "Europe",
+      "America",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "cooperation policy",
+      "international law",
+      "social affairs",
+      "organisation of transport",
+      "air and space transport"
+    ],
+    "text_hash": "97daf9911bd6ae02",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.6888,
+    "usage": {
+      "prompt_token_count": 2185,
+      "candidates_token_count": 52,
+      "thoughts_token_count": 2693,
+      "total_token_count": 4930
+    }
+  },
+  "62": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "international security",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "international law",
+      "rights and freedoms",
+      "trade policy",
+      "trade",
+      "international trade",
+      "monetary relations",
+      "financial institutions and credit",
+      "free movement of capital",
+      "financing and investment",
+      "transport policy",
+      "Europe",
+      "Africa"
+    ],
+    "actual_label": [
+      "international affairs",
+      "international security",
+      "criminal law",
+      "Africa"
+    ],
+    "text_hash": "2300079f3c78298f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.1281,
+    "usage": {
+      "prompt_token_count": 885,
+      "candidates_token_count": 94,
+      "thoughts_token_count": 3198,
+      "total_token_count": 4177
+    }
+  },
+  "63": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "international security",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "trade",
+      "international trade",
+      "monetary relations",
+      "financial institutions and credit",
+      "free movement of capital",
+      "financing and investment",
+      "Europe",
+      "Africa",
+      "political geography"
+    ],
+    "actual_label": [
+      "international affairs",
+      "cooperation policy",
+      "civil law",
+      "rights and freedoms",
+      "Africa"
+    ],
+    "text_hash": "f4415b7d9cc30ba8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.8505,
+    "usage": {
+      "prompt_token_count": 976,
+      "candidates_token_count": 89,
+      "thoughts_token_count": 2999,
+      "total_token_count": 4064
+    }
+  },
+  "64": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation"
+    ],
+    "actual_label": ["tariff policy", "miscellaneous industries"],
+    "text_hash": "cb0ea4ae3e5f3d2a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.8486,
+    "usage": {
+      "prompt_token_count": 1197,
+      "candidates_token_count": 36,
+      "thoughts_token_count": 2129,
+      "total_token_count": 3362
+    }
+  },
+  "65": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["trade", "prices", "agricultural policy", "plant product"],
+    "text_hash": "24507deae50fc8b8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.9544,
+    "usage": {
+      "prompt_token_count": 1035,
+      "candidates_token_count": 73,
+      "thoughts_token_count": 2434,
+      "total_token_count": 3542
+    }
+  },
+  "66": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "economic policy",
+      "trade",
+      "consumption",
+      "public finance and budget policy",
+      "taxation",
+      "prices",
+      "competition"
+    ],
+    "actual_label": ["marketing", "distributive trades", "taxation"],
+    "text_hash": "39ca75fc3b9dbdc0",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.5332,
+    "usage": {
+      "prompt_token_count": 1425,
+      "candidates_token_count": 44,
+      "thoughts_token_count": 2473,
+      "total_token_count": 3942
+    }
+  },
+  "67": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["prices", "agricultural policy", "plant product"],
+    "text_hash": "a04733b9f5f1012f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.7297,
+    "usage": {
+      "prompt_token_count": 965,
+      "candidates_token_count": 68,
+      "thoughts_token_count": 2764,
+      "total_token_count": 3797
+    }
+  },
+  "68": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "health",
+      "environmental policy",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "means of agricultural production",
+      "agricultural activity",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "natural and applied sciences"
+    ],
+    "actual_label": ["health", "agricultural activity", "food technology"],
+    "text_hash": "404fc8dc417d359f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.9602,
+    "usage": {
+      "prompt_token_count": 1760,
+      "candidates_token_count": 70,
+      "thoughts_token_count": 2698,
+      "total_token_count": 4528
+    }
+  },
+  "69": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["EU finance", "trade", "plant product"],
+    "text_hash": "8e799fda8e1c0b26",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.2477,
+    "usage": {
+      "prompt_token_count": 1334,
+      "candidates_token_count": 68,
+      "thoughts_token_count": 2838,
+      "total_token_count": 4240
+    }
+  },
+  "70": {
+    "prediction": [
+      "European Union law",
+      "marketing",
+      "competition",
+      "environmental policy",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "processed agricultural produce",
+      "beverages and sugar",
+      "foodstuff",
+      "agri-foodstuffs",
+      "food technology",
+      "production",
+      "technology and technical regulations"
+    ],
+    "actual_label": [
+      "international trade",
+      "marketing",
+      "beverages and sugar",
+      "foodstuff",
+      "food technology",
+      "chemistry"
+    ],
+    "text_hash": "98c8400843d7f058",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.7665,
+    "usage": {
+      "prompt_token_count": 4297,
+      "candidates_token_count": 64,
+      "thoughts_token_count": 3364,
+      "total_token_count": 7725
+    }
+  },
+  "71": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade",
+      "documentation",
+      "information and information processing",
+      "information technology and data processing",
+      "management",
+      "accounting",
+      "transport policy",
+      "organisation of transport",
+      "land transport",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "production",
+      "technology and technical regulations",
+      "energy policy",
+      "industrial structures and policy"
+    ],
+    "actual_label": [
+      "environmental policy",
+      "deterioration of the environment"
+    ],
+    "text_hash": "b39015d823d52a7c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.4709,
+    "usage": {
+      "prompt_token_count": 1727,
+      "candidates_token_count": 90,
+      "thoughts_token_count": 2864,
+      "total_token_count": 4681
+    }
+  },
+  "72": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "Europe"
+    ],
+    "actual_label": ["trade", "prices", "agricultural policy", "plant product"],
+    "text_hash": "358248bf61601507",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.0573,
+    "usage": {
+      "prompt_token_count": 1035,
+      "candidates_token_count": 76,
+      "thoughts_token_count": 2385,
+      "total_token_count": 3496
+    }
+  },
+  "73": {
+    "prediction": [
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "EU institutions and European civil service",
+      "European Union law",
+      "trade policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "health",
+      "fisheries",
+      "animal product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "trade policy",
+      "trade",
+      "health",
+      "fisheries",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "86424d754fe5b3b4",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.9427,
+    "usage": {
+      "prompt_token_count": 1335,
+      "candidates_token_count": 71,
+      "thoughts_token_count": 1918,
+      "total_token_count": 3324
+    }
+  },
+  "74": {
+    "prediction": [
+      "international affairs",
+      "cooperation policy",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "agricultural policy",
+      "plant product",
+      "animal product",
+      "processed agricultural produce",
+      "beverages and sugar",
+      "foodstuff",
+      "agri-foodstuffs",
+      "Africa",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "European Union law",
+      "tariff policy",
+      "agricultural activity"
+    ],
+    "text_hash": "78e8fb454f1b8506",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.4523,
+    "usage": {
+      "prompt_token_count": 4871,
+      "candidates_token_count": 79,
+      "thoughts_token_count": 2474,
+      "total_token_count": 7424
+    }
+  },
+  "75": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "international affairs",
+      "economic policy",
+      "economic analysis",
+      "trade policy",
+      "trade",
+      "international trade",
+      "prices",
+      "accounting",
+      "competition",
+      "production",
+      "industrial structures and policy",
+      "chemistry",
+      "Europe",
+      "regions of EU Member States",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "cooperation policy",
+      "trade policy",
+      "tariff policy",
+      "international trade",
+      "chemistry",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "5ff9405265301b6c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.81,
+    "usage": {
+      "prompt_token_count": 3778,
+      "candidates_token_count": 72,
+      "thoughts_token_count": 2728,
+      "total_token_count": 6578
+    }
+  },
+  "76": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "economic policy",
+      "public finance and budget policy",
+      "taxation",
+      "processed agricultural produce",
+      "beverages and sugar",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "Europe",
+      "regions of EU Member States"
+    ],
+    "actual_label": [
+      "taxation",
+      "beverages and sugar",
+      "food technology",
+      "technology and technical regulations",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "dbcdce7cb1a72358",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.6619,
+    "usage": {
+      "prompt_token_count": 1439,
+      "candidates_token_count": 73,
+      "thoughts_token_count": 2422,
+      "total_token_count": 3934
+    }
+  },
+  "77": {
+    "prediction": [
+      "international affairs",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "competition",
+      "foodstuff",
+      "production",
+      "industrial structures and policy",
+      "chemistry",
+      "Europe",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "trade",
+      "international trade",
+      "competition",
+      "food technology",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "504eb8c432d16098",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.0942,
+    "usage": {
+      "prompt_token_count": 1428,
+      "candidates_token_count": 74,
+      "thoughts_token_count": 2746,
+      "total_token_count": 4248
+    }
+  },
+  "78": {
+    "prediction": [
+      "international affairs",
+      "cooperation policy",
+      "European Union law",
+      "international law",
+      "maritime and inland waterway transport",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "fisheries",
+      "production",
+      "industrial structures and policy",
+      "Europe",
+      "political geography"
+    ],
+    "actual_label": [
+      "international law",
+      "maritime and inland waterway transport",
+      "natural environment",
+      "fisheries",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "8f52f457e53b7534",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.3426,
+    "usage": {
+      "prompt_token_count": 1075,
+      "candidates_token_count": 62,
+      "thoughts_token_count": 2357,
+      "total_token_count": 3494
+    }
+  },
+  "79": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "regions and regional policy",
+      "trade policy",
+      "trade",
+      "marketing",
+      "competition",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "regions of EU Member States",
+      "economic geography"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "agricultural structures and production",
+      "foodstuff",
+      "production",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "2e26cad2a6ff760b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.7148,
+    "usage": {
+      "prompt_token_count": 1024,
+      "candidates_token_count": 96,
+      "thoughts_token_count": 2809,
+      "total_token_count": 3929
+    }
+  },
+  "80": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "international affairs",
+      "international security",
+      "international law",
+      "rights and freedoms",
+      "economic policy",
+      "trade policy",
+      "international trade",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "international affairs",
+      "international trade",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "730cf3042b511274",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.3263,
+    "usage": {
+      "prompt_token_count": 895,
+      "candidates_token_count": 47,
+      "thoughts_token_count": 2423,
+      "total_token_count": 3365
+    }
+  },
+  "81": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "executive power and public service",
+      "health",
+      "natural and applied sciences",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "cultivation of agricultural land",
+      "means of agricultural production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "technology and technical regulations",
+      "industrial structures and policy",
+      "chemistry",
+      "Europe"
+    ],
+    "actual_label": [
+      "trade policy",
+      "marketing",
+      "agricultural policy",
+      "means of agricultural production"
+    ],
+    "text_hash": "e46e51fe77a3afca",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.0634,
+    "usage": {
+      "prompt_token_count": 2182,
+      "candidates_token_count": 109,
+      "thoughts_token_count": 2776,
+      "total_token_count": 5067
+    }
+  },
+  "82": {
+    "prediction": [
+      "European Union law",
+      "health",
+      "natural and applied sciences",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "farming systems",
+      "cultivation of agricultural land",
+      "means of agricultural production",
+      "agricultural activity",
+      "plant product",
+      "foodstuff",
+      "agri-foodstuffs",
+      "technology and technical regulations",
+      "chemistry"
+    ],
+    "actual_label": [
+      "executive power and public service",
+      "marketing",
+      "deterioration of the environment",
+      "agricultural policy",
+      "means of agricultural production",
+      "chemistry"
+    ],
+    "text_hash": "35bfcce5a0ac9ab8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.9039,
+    "usage": {
+      "prompt_token_count": 1997,
+      "candidates_token_count": 85,
+      "thoughts_token_count": 2148,
+      "total_token_count": 4230
+    }
+  },
+  "83": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["trade", "prices", "agricultural policy", "plant product"],
+    "text_hash": "a9c144c9ac5f0fe8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 9.6001,
+    "usage": {
+      "prompt_token_count": 1035,
+      "candidates_token_count": 69,
+      "thoughts_token_count": 2224,
+      "total_token_count": 3328
+    }
+  },
+  "84": {
+    "prediction": [
+      "international affairs",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "public finance and budget policy",
+      "taxation",
+      "competition",
+      "production",
+      "industrial structures and policy",
+      "Asia and Oceania"
+    ],
+    "actual_label": [
+      "tariff policy",
+      "trade",
+      "international trade",
+      "chemistry",
+      "Asia and Oceania",
+      "economic geography"
+    ],
+    "text_hash": "fcc8e12c6961d94a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 16.8164,
+    "usage": {
+      "prompt_token_count": 11065,
+      "candidates_token_count": 60,
+      "thoughts_token_count": 3290,
+      "total_token_count": 14415
+    }
+  },
+  "85": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation",
+      "prices",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs"
+    ],
+    "actual_label": ["trade", "prices", "agricultural policy", "plant product"],
+    "text_hash": "994b94cd827c258c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.054,
+    "usage": {
+      "prompt_token_count": 1035,
+      "candidates_token_count": 73,
+      "thoughts_token_count": 2372,
+      "total_token_count": 3480
+    }
+  },
+  "86": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "international security",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "trade",
+      "international trade",
+      "monetary relations",
+      "financial institutions and credit",
+      "free movement of capital",
+      "financing and investment",
+      "transport policy",
+      "energy policy",
+      "oil industry",
+      "industrial structures and policy",
+      "Africa",
+      "political geography"
+    ],
+    "actual_label": [
+      "international affairs",
+      "international security",
+      "technology and technical regulations",
+      "Africa"
+    ],
+    "text_hash": "71a5b893c4f178e6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 17.8639,
+    "usage": {
+      "prompt_token_count": 902,
+      "candidates_token_count": 104,
+      "thoughts_token_count": 4187,
+      "total_token_count": 5193
+    }
+  },
+  "87": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "international affairs",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "international law",
+      "Europe",
+      "America",
+      "political geography"
+    ],
+    "actual_label": [
+      "international affairs",
+      "European construction",
+      "America"
+    ],
+    "text_hash": "d9bbb7ada405ad21",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.2059,
+    "usage": {
+      "prompt_token_count": 882,
+      "candidates_token_count": 51,
+      "thoughts_token_count": 2449,
+      "total_token_count": 3382
+    }
+  },
+  "88": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "social affairs",
+      "health",
+      "natural and applied sciences",
+      "trade policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "marketing",
+      "distributive trades",
+      "production",
+      "technology and technical regulations",
+      "industrial structures and policy",
+      "chemistry",
+      "foodstuff",
+      "food technology",
+      "Europe"
+    ],
+    "actual_label": ["marketing", "health", "foodstuff", "chemistry"],
+    "text_hash": "0df8485c81d22d4b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 14.5751,
+    "usage": {
+      "prompt_token_count": 1263,
+      "candidates_token_count": 99,
+      "thoughts_token_count": 3133,
+      "total_token_count": 4495
+    }
+  },
+  "89": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "regions and regional policy",
+      "Europe",
+      "regions of EU Member States",
+      "political geography"
+    ],
+    "actual_label": [
+      "EU institutions and European civil service",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "792bc36633c644e6",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.7922,
+    "usage": {
+      "prompt_token_count": 1284,
+      "candidates_token_count": 48,
+      "thoughts_token_count": 2626,
+      "total_token_count": 3958
+    }
+  },
+  "90": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "regions and regional policy",
+      "trade policy",
+      "trade",
+      "international trade",
+      "marketing",
+      "competition",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "plant product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "regions of EU Member States",
+      "economic geography"
+    ],
+    "actual_label": [
+      "consumption",
+      "marketing",
+      "plant product",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "cf106172c127951c",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.7637,
+    "usage": {
+      "prompt_token_count": 1045,
+      "candidates_token_count": 100,
+      "thoughts_token_count": 2934,
+      "total_token_count": 4079
+    }
+  },
+  "91": {
+    "prediction": [
+      "international affairs",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "tariff policy",
+      "trade",
+      "international trade",
+      "taxation"
+    ],
+    "actual_label": [
+      "international affairs",
+      "European construction",
+      "international trade",
+      "taxation",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "eccc4a93f6fcd544",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.8393,
+    "usage": {
+      "prompt_token_count": 954,
+      "candidates_token_count": 49,
+      "thoughts_token_count": 2403,
+      "total_token_count": 3406
+    }
+  },
+  "92": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "economic policy",
+      "trade policy",
+      "trade",
+      "international trade",
+      "prices",
+      "documentation",
+      "communications",
+      "information and information processing",
+      "management",
+      "agricultural policy",
+      "agricultural structures and production",
+      "agricultural activity",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "production"
+    ],
+    "actual_label": [
+      "EU institutions and European civil service",
+      "economic policy",
+      "information and information processing",
+      "agricultural policy",
+      "processed agricultural produce",
+      "economic geography"
+    ],
+    "text_hash": "95573f9f95d2b03f",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.7511,
+    "usage": {
+      "prompt_token_count": 1222,
+      "candidates_token_count": 83,
+      "thoughts_token_count": 2532,
+      "total_token_count": 3837
+    }
+  },
+  "93": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "economic policy",
+      "trade policy",
+      "trade",
+      "international trade",
+      "competition",
+      "technology and technical regulations",
+      "energy policy",
+      "electrical and nuclear industries",
+      "industrial structures and policy",
+      "electronics and electrical engineering",
+      "Europe"
+    ],
+    "actual_label": [
+      "EU institutions and European civil service",
+      "European construction",
+      "energy policy",
+      "electrical and nuclear industries"
+    ],
+    "text_hash": "6466556a54319ea8",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 15.9759,
+    "usage": {
+      "prompt_token_count": 1187,
+      "candidates_token_count": 82,
+      "thoughts_token_count": 3299,
+      "total_token_count": 4568
+    }
+  },
+  "94": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "cooperation policy",
+      "international security",
+      "defence",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "EU finance",
+      "international law",
+      "regions and regional policy",
+      "public finance and budget policy",
+      "budget",
+      "research and intellectual property",
+      "energy policy",
+      "electrical and nuclear industries",
+      "Europe",
+      "Asia and Oceania",
+      "political geography",
+      "United Nations"
+    ],
+    "actual_label": ["international security", "defence", "Asia and Oceania"],
+    "text_hash": "68f6b990f9286379",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.527,
+    "usage": {
+      "prompt_token_count": 2621,
+      "candidates_token_count": 106,
+      "thoughts_token_count": 2708,
+      "total_token_count": 5435
+    }
+  },
+  "95": {
+    "prediction": [
+      "political framework",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "regions and regional policy",
+      "regions of EU Member States",
+      "Europe"
+    ],
+    "actual_label": [
+      "EU institutions and European civil service",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "8f289f07b58dd73a",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.2654,
+    "usage": {
+      "prompt_token_count": 1079,
+      "candidates_token_count": 44,
+      "thoughts_token_count": 2740,
+      "total_token_count": 3863
+    }
+  },
+  "96": {
+    "prediction": [
+      "executive power and public service",
+      "international affairs",
+      "cooperation policy",
+      "EU institutions and European civil service",
+      "European Union law",
+      "international law",
+      "economic policy",
+      "trade policy",
+      "trade",
+      "international trade",
+      "consumption",
+      "marketing",
+      "distributive trades",
+      "health",
+      "natural and applied sciences",
+      "environmental policy",
+      "natural environment",
+      "deterioration of the environment",
+      "agricultural policy",
+      "agricultural structures and production",
+      "means of agricultural production",
+      "agricultural activity",
+      "plant product",
+      "animal product",
+      "processed agricultural produce",
+      "foodstuff",
+      "agri-foodstuffs",
+      "food technology",
+      "production",
+      "technology and technical regulations",
+      "leather and textile industries",
+      "Europe",
+      "United Nations"
+    ],
+    "actual_label": [
+      "marketing",
+      "environmental policy",
+      "plant product",
+      "technology and technical regulations"
+    ],
+    "text_hash": "77cd720c48945287",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 13.7688,
+    "usage": {
+      "prompt_token_count": 3026,
+      "candidates_token_count": 186,
+      "thoughts_token_count": 2867,
+      "total_token_count": 6079
+    }
+  },
+  "97": {
+    "prediction": [
+      "politics and public safety",
+      "executive power and public service",
+      "EU institutions and European civil service",
+      "European Union law",
+      "European construction",
+      "documentation",
+      "business organisation",
+      "management",
+      "transport policy",
+      "air and space transport",
+      "environmental policy",
+      "technology and technical regulations"
+    ],
+    "text_hash": "2bc2869b30fa3803",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 12.8409,
+    "usage": {
+      "prompt_token_count": 5607,
+      "candidates_token_count": 85,
+      "thoughts_token_count": 2583,
+      "total_token_count": 8275
+    }
+  },
+  "98": {
+    "prediction": [
+      "EU institutions and European civil service",
+      "European Union law",
+      "financing and investment",
+      "public finance and budget policy",
+      "taxation",
+      "business organisation",
+      "technology and technical regulations",
+      "research and intellectual property",
+      "energy policy",
+      "electrical and nuclear industries",
+      "industrial structures and policy"
+    ],
+    "actual_label": [
+      "taxation",
+      "business classification",
+      "energy policy",
+      "electrical and nuclear industries",
+      "Europe",
+      "economic geography",
+      "political geography"
+    ],
+    "text_hash": "d91ab335b67f709b",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 10.2321,
+    "usage": {
+      "prompt_token_count": 1571,
+      "candidates_token_count": 61,
+      "thoughts_token_count": 2091,
+      "total_token_count": 3723
+    }
+  },
+  "99": {
+    "prediction": [
+      "political framework",
+      "politics and public safety",
+      "executive power and public service",
+      "international affairs",
+      "cooperation policy",
+      "international security",
+      "EU institutions and European civil service",
+      "European Union law",
+      "EU finance",
+      "international law",
+      "rights and freedoms",
+      "economic policy",
+      "monetary relations",
+      "financial institutions and credit",
+      "free movement of capital",
+      "financing and investment",
+      "United Nations"
+    ],
+    "actual_label": ["politics and public safety", "international affairs"],
+    "text_hash": "3e4f1f562f6e167e",
+    "method": "vanilla",
+    "model": "gemini-2.5-flash",
+    "temperature": 0,
+    "latency_seconds": 11.7784,
+    "usage": {
+      "prompt_token_count": 1055,
+      "candidates_token_count": 86,
+      "thoughts_token_count": 2512,
+      "total_token_count": 3653
+    }
+  }
+}
