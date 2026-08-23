@@ -1,3 +1,12 @@
+.DS_Store
 .venv/
 .rlm
 checklist.md
+
+# contract-nli dataset
+contract-nli/raw
+contract-nli/LICENSE
+contract-nli/README.md
+contract-nli/TERMS
+contract-nli/.DS_Store
+
