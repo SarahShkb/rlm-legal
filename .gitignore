@@ -1,5 +1,6 @@
 .DS_Store
 .venv/
+.env
 .rlm
 checklist.md
 
@@ -10,3 +11,4 @@ contract-nli/README.md
 contract-nli/TERMS
 contract-nli/.DS_Store
 
+utils/__pycache__/
