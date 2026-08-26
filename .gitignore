@@ -12,3 +12,4 @@ contract-nli/TERMS
 contract-nli/.DS_Store
 
 utils/__pycache__/
+logs/

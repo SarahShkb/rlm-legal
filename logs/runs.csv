@@ -3,3 +3,146 @@ timestamp,experiment,dataset,row_id,model,method,backend,environment,num_calls,i
 2026-08-25T21:38:01,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,2,5278,7858,,,71.141
 2026-08-25T22:00:58,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,16,38395,16900,,,149.08
 2026-08-25T22:10:21,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,31,143677,51364,,,413.602,'{"Explicit identification": {"choice": "Entailment", "spans": ["All Confidential Information shall be expressly    ││  identified by the Disclosing Party."]}}' 
+2026-08-25T23:07:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2357,2495,4852,,,"{""Explicit identification"": {""choice"": ""Contradiction"", ""spans"": [""In respect of Confidential Information disclosed in documentary form, model or any other tangible form, this shall be marked by the Disclosing Party as confidential or otherwise designated to show expressly or by necessary implication that it is imparted in confidence.""]}}"
+2026-08-25T23:10:04,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,16,41002,14364,,,120.83,"<repl>
+import json
+print(answer.get(""content""))
+print(""READY:"", answer.get(""ready""))
+</repl>"
+2026-08-25T23:17:45,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,31,111559,45235,,,329.35,"{""Explicit identification"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall be expressly identified by the Disclosing Party.""]}}"
+2026-08-26T21:01:13,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2357,4393,6750,,,"{""Explicit identification"": {""choice"": ""Contradiction"", ""spans"": [""In respect of Confidential Information disclosed in documentary form, model or any other tangible form, this shall be marked by the Disclosing Party as confidential or otherwise designated to show expressly or by necessary implication that it is imparted in confidence.""]}}",Entailment
+2026-08-26T21:06:04,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2392,8681,11073,,,"{""0"": {""choice"": ""Entailment"", ""spans"": [""In respect of Confidential Information disclosed in documentary form, model or any other tangible form, this shall be marked by the Disclosing Party as confidential or otherwise designated to show expressly or by necessary implication that it is imparted in confidence."", ""Any Confidential Information disclosed by the Disclosing Party or its Representatives orally or visually, shall be identified as such prior to disclosure and summarized in a writing provided by the Disclosing Party to the Receiving Party within thirty (30) days of the date of initial disclosure.""]}}",Entailment
+2026-08-26T21:08:51,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,16,48563,18205,,,158.054,"<repl>
+import re
+
+# Show all sentences that mention identification/marking/confidential information
+sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', context) if s.strip()]
+print(""TOTAL SENTENCES:"", len(sentences))
+for i, s in enumerate(sentences):
+    low = s.lower()
+    if any(k in low for k in ['identif', 'mark', 'designat', 'label', 'express', 'confidential']):
+        print(f""[{i}] {s}"")
+</repl>",Entailment
+2026-08-26T21:11:19,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,16,43433,16275,,,139.081,"<repl>
+import re, json
+
+c = context if isinstance(context, str) else str(context)
+print(""LEN:"", len(c))
+
+# Sentence splitter (periods, newlines)
+sents = [s.strip() for s in re.split(r'(?<=[.!?])\s+|\n+', c) if s.strip()]
+
+# Print all sentences mentioning identification / marking / designation
+hits = [s for s in sents if re.search(r'identif|mark|designat|label', s, re.I)]
+print(""HIT COUNT:"", len(hits))
+for idx, s in enumerate(hits):
+    print(f""HIT {idx}: {s}"")
+
+# Also print any sentence containing ""shall be"" near ""identified""
+for s in sents:
+    if re.search(r'shall\s+be', s, re.I) and re.search(r'identif', s, re.I):
+        print(""SHALL-BE:"", s)
+</repl>",Entailment
+2026-08-26T21:13:31,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,6096,15389,21485,,,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""Notwithstanding any other provision to the contrary in this Agreement, any information relating or pertaining to the patients of AHPL shall be deemed to be Confidential Information of AHPL.""]}}",Entailment
+2026-08-26T21:16:40,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,16,41708,20742,,,180.392,"<repl>
+import re
+text = context
+sents = re.split(r'(?<=[.!?])\s+|\n(?=\s*(?:[A-Z0-9]|\([a-z0-9]+\)))', text)
+clean = [re.sub(r'\s+', ' ', s).strip() for s in sents if s.strip()]
+# Print all sentences containing ""Confidential Information"" definition or identific* / mark*
+key = [s for s in clean if re.search(r'\b(?:identif|mark|designat|expressly|oral|written|regardless|whether or not)\b', s, re.I)]
+print(""N key:"", len(key))
+for s in key:
+    print("">>"", s[:600])
+</repl>",Entailment
+2026-08-26T21:24:19,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2358,12973,15331,,,"{""1"": {""choice"": ""Contradiction"", ""spans"": [""In respect of Confidential Information disclosed in documentary form, model or any other tangible form, this shall be marked by the Disclosing Party as confidential or otherwise designated to show expressly or by necessary implication that it is imparted in confidence.""]}}",Entailment
+2026-08-26T21:24:42,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,4,11083,2619,,,22.955,"{""Explicit identification"": {""choice"": ""Contradiction"", ""spans"": [""In respect of Confidential Information disclosed in documentary form, model or any other tangible form, this shall be marked by the Disclosing Party as confidential or otherwise designated to show expressly or by necessary implication that it is imparted in confidence.""]}}",Entailment
+2026-08-26T21:27:24,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,16,39947,16909,,,105.459,"{""H1"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall be expressly identified by the Disclosing Party.""]}}",Entailment
+2026-08-26T21:28:16,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,6062,6616,12678,,,"{""H1"": {""choice"": ""Contradiction"", ""spans"": [""Notwithstanding any other provision to the contrary in this Agreement, any information relating or pertaining to the patients of AHPL shall be deemed to be Confidential Information of AHPL."", ""The Company shall ensure that none of the patients of AHPL can be identified in any reports, submissions and publications of the Company, which shall be deemed to be Confidential information of AHPL within the meaning of this clause.""]}}",Entailment
+2026-08-26T21:29:44,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,16,36079,9027,,,63.376,"<repl>
+import json, re
+
+prompt = (
+    ""You are an NLI classifier for legal contracts.\n""
+    ""Hypothesis: All Confidential Information shall be expressly identified by the Disclosing Party.\n\n""
+    ""Contract text:\n"" + context + ""\n\n""
+    ""Classify the hypothesis as exactly one of: Entailment, Contradiction, NotMentioned, ""
+    ""based strictly on the contract text. If Entailment or Contradiction, list the verbatim ""
+    ""contract sentence(s) that support the decision. If NotMentioned, spans must be an empty list.\n""
+    ""Return ONLY a JSON object of the form: {\""choice\"": \""<choice>\"", \""spans\"": [\""<sentence>\"", ...]}""
+)
+
+resp = llm_query(prompt)
+print(""RAW RESP:"", resp[:2000])
+
+obj = None
+try:
+    obj = json.loads(resp)
+except Exception:
+    m = re.search(r'\{.*\}', resp, re.DOTALL)
+    if m:
+        try:
+            obj = json.loads(m.group(0))
+        except Exception:
+            obj = None
+
+if not obj or obj.get(""choice"") not in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+    obj = {""choice"": ""NotMentioned"", ""spans"": []}
+
+answer[""content""] = json.dumps({""Explicit identification"": obj})
+answer[""ready""] = True
+</repl>",Entailment
+2026-08-26T21:30:50,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,16,37175,5764,,,62.655,"<repl>
+import re
+text = context
+sentences = re.split(r'(?<=[.!?])\s+', text)
+for s in sentences:
+    if 'Confidential Information' in s or 'identif' in s.lower():
+        print(s.strip())
+</repl>",Entailment
+2026-08-26T21:31:16,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3600,2768,6368,,,"{""Explicit identification"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-26T21:32:01,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,7,58799,4624,,,44.749,"{""Explicit identification"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-26T21:33:51,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,16,37633,11054,,,92.961,"{""H1"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall be expressly identified by the Disclosing Party.""]}}",NotMentioned
+2026-08-26T21:49:28,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2754,6436,9190,,,"{""1"": {""choice"": ""Contradiction"", ""spans"": [""\""Confidential Information\"" means, subject to section 2.02 below any additional information requested by the Supplier and provided by CPR, or any information supplied by either party that is clearly marked \""Confidential\"" or clearly intended to be disclosed in confidence.""]}}",Entailment
+2026-08-26T21:53:21,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,16,55544,25335,,,211.738,"<repl>
+import json, re
+
+# Print current answer and the full context so we can finalize correctly.
+print(""ANSWER:"", answer.get(""content""))
+print(""READY:"", answer.get(""ready""))
+print(""CONTEXT_BEGIN:"", repr(context[:200]))
+</repl>",Entailment
+2026-08-26T21:55:24,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,16,36402,12412,,,113.27,"{""Explicit identification"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall be expressly identified by the Disclosing Party.""]}}",Entailment
+2026-08-26T21:55:31,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1740,654,2394,,,"{""Explicit identification"": {""choice"": ""NotMentioned"", ""spans"": []}}",Entailment
+2026-08-26T21:57:58,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,16,39818,13663,,,134.156,"<repl>
+print(context)
+</repl>",Entailment
+2026-08-26T21:59:52,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,16,36618,10957,,,110.215,"<repl>
+c = context
+print(""=== FULL CONTEXT (part 1) ==="")
+print(c[:2600])
+</repl>",Entailment
+2026-08-26T22:00:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,4331,5851,10182,,,"{""Explicit identification"": {""choice"": ""Entailment"", ""spans"": [""Confidential Information that is in writing or other tangible form (including electronic form) shall be subject to this Agreement only if it is clearly marked as \""Confidential\"" when disclosed by the Disclosing Party to a Party."", ""Confidential Information that is provided orally shall be subject to this Agreement only if its confidential nature is announced at the time of disclosure and an outline of the scope of the information provided is reduced to writing, with a copy provided to the Party within ten (10) calendar days of oral disclosure of the information."", ""Inadvertent failure to mark Confidential Information as “Confidential” at the time it is disclosed shall not be deemed a waiver by the Disclosing Party of the protections of this Agreement provided that such Confidential Information is identified and marked \""Confidential\"" promptly upon the discovery of its inadvertent disclosure.""]}}",NotMentioned
+2026-08-26T22:04:37,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,16,43110,25538,,,220.924,"{""explicit_identification"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall be expressly identified by the Disclosing Party.""]}}",NotMentioned
+2026-08-26T22:07:17,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,16,38444,17517,,,128.945,"<repl>
+import json
+# Retrieve whatever the previous classification step produced
+if 'answer' in globals():
+    print(""READY:"", answer.get(""ready""))
+    print(""CONTENT:"", answer.get(""content""))
+else:
+    print(""NO ANSWER VAR"")
+</repl>",NotMentioned
+2026-08-26T22:16:20,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2754,4655,7409,,,"{""Explicit identification"": {""choice"": ""Contradiction"", ""spans"": [""\""Confidential Information\"" means, subject to section 2.02 below any additional information requested by the Supplier and provided by CPR, or any information supplied by either party that is clearly marked “Confidential” or clearly intended to be disclosed in confidence.""]}}",Entailment
+2026-08-26T22:16:59,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,3,10787,4640,,,38.688,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""\""Confidential Information\"" means, subject to section 2.02 below any additional information requested by the Supplier and provided by CPR, or any information supplied by either party that is clearly marked “Confidential” or clearly intended to be disclosed in confidence.""]}}",Entailment
+2026-08-26T22:20:13,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,20,69887,22437,,,194.087,"{""Explicit identification"": {""choice"": ""Contradiction"", ""spans"": [""“Confidential Information” means, subject to section 2.02 below any additional information requested by the Supplier and provided by CPR, or any information supplied by either party that is clearly marked “Confidential” or clearly intended to be disclosed in confidence.""]}}",Entailment
+2026-08-26T22:20:42,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1740,3406,5146,,,"{""Explicit identification"": {""choice"": ""NotMentioned"", ""spans"": []}}",Entailment
+2026-08-26T22:23:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,60664,19655,,,161.323,"{""H1"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall be expressly identified by the Disclosing Party.""]}}",Entailment
+2026-08-26T22:24:54,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,17,37889,7201,,,74.492,"{""<hypothesis_id>"": {""choice"": ""NotMentioned"", ""spans"": []}}",Entailment
+2026-08-26T22:25:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,4331,6128,10459,,,"{""Explicit identification"": {""choice"": ""Entailment"", ""spans"": [""Confidential Information that is in writing or other tangible form (including electronic form) shall be subject to this Agreement only if it is clearly marked as \""Confidential\"" when disclosed by the Disclosing Party to a Party."", ""Confidential Information that is provided orally shall be subject to this Agreement only if its confidential nature is announced at the time of disclosure and an outline of the scope of the information provided is reduced to writing, with a copy provided to the Party within ten (10) calendar days of oral disclosure of the information.""]}}",NotMentioned
+2026-08-26T22:29:57,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,70894,29894,,,238.174,"<repl>
+import json
+print(answer.get(""content""))
+print(answer.get(""ready""))
+</repl>",NotMentioned
+2026-08-26T22:31:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,10,45306,11182,,,101.126,"{""Explicit identification"": {""choice"": ""Entailment"", ""spans"": [""Confidential Information that is in writing or other tangible form (including electronic form) shall be subject to this Agreement only if it is clearly marked as \""Confidential\"" when disclosed by the Disclosing Party to a Party."", ""Confidential Information that is provided orally shall be subject to this Agreement only if its confidential nature is announced at the time of disclosure and an outline of the scope of the information provided is reduced to writing, with a copy provided to the Party within ten (10) calendar days of oral disclosure of the information.""]}}",NotMentioned
