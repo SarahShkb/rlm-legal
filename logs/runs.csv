@@ -146,3 +146,664 @@ print(answer.get(""content""))
 print(answer.get(""ready""))
 </repl>",NotMentioned
 2026-08-26T22:31:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,10,45306,11182,,,101.126,"{""Explicit identification"": {""choice"": ""Entailment"", ""spans"": [""Confidential Information that is in writing or other tangible form (including electronic form) shall be subject to this Agreement only if it is clearly marked as \""Confidential\"" when disclosed by the Disclosing Party to a Party."", ""Confidential Information that is provided orally shall be subject to this Agreement only if its confidential nature is announced at the time of disclosure and an outline of the scope of the information provided is reduced to writing, with a copy provided to the Party within ten (10) calendar days of oral disclosure of the information.""]}}",NotMentioned
+2026-08-27T15:51:21,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1802,4674,6476,,,"{""1"": {""choice"": ""Entailment"", ""spans"": [""Confidant acknowledges and agrees that all rights in and to Confidential Information are and shall remain the sole property of City, and Confidant agrees that it shall not contest or challenge any of City’s rights in or to any Confidential Information.""]}}",Entailment
+2026-08-27T15:55:56,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,63385,29220,,,259.047,"<repl>
+import json, re
+
+text = context if isinstance(context, str) else str(context)
+norm = re.sub(r'\s+', ' ', text).strip()
+sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', norm) if s.strip()]
+
+# Print all sentences that could be relevant to rights/grant/license
+relevant = [s for s in sentences if re.search(r'\b(rights?|license|grant|confer|deemed)\b', s, re.I)]
+print(""RELEVANT SENTENCES:"")
+for s in relevant:
+    print(""-"", s)
+
+print(""\n--- LLM CLASSIFICATION ---"")
+prompt = (
+    ""CONTRACT:\n"" + norm + ""\n\n""
+    'Hypothesis: ""Agreement shall not grant Receiving Party any right to Confidential Information.""\n'
+    'Classify as exactly one of ""Entailment"", ""Contradiction"", ""NotMentioned"".\n'
+    'Return ONLY JSON: {""choice"": ""..."", ""spans"": [""<verbatim sentence>"", ...]}\n'
+    ""Use empty spans for NotMentioned.""
+)
+try:
+    raw = llm_query(prompt).strip()
+    if raw.startswith(""```""):
+        raw = re.sub(r'^```[A-Za-z]*\n?', '', raw).strip()
+        raw = re.sub(r'```$', '', raw).strip()
+    parsed = json.loads(raw[raw.find(""{""):raw.rfind(""}"")+1])
+    choice = parsed.get(""choice"", ""NotMentioned"")
+    spans = []
+    for s in parsed.get(""spans"", []):
+        if isinstance(s, str):
+            ss = re.sub(r'\s+', ' ', s).strip()
+            if ss in norm:
+                spans.append(ss)
+    if choice not in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+        choice = ""NotMentioned""
+    if choice == ""NotMentioned"":
+        spans = []
+except Exception as e:
+    choice, spans = ""NotMentioned"", []
+    print(""LLM error:"", e)
+
+# Fallback: heuristic check if LLM failed
+if choice == ""NotMentioned"" and not spans:
+    denials = [s for s in sentences if re.search(r'no (right|rights|license|licenses|interest|title)', s, re.I) and re.search(r'confidential|receiving party', s, re.I)]
+    grants = [s for s in sentences if re.search(r'grant(s|ed|ing)? (to )?(the )?(receiving party|receiver).*(right|license)', s, re.I)]
+    if denials:
+        choice, spans = ""Entailment"", denials
+    elif grants:
+        choice, spans = ""Contradiction"", grants
+
+result = {""0"": {""choice"": choice, ""spans"": spans}}
+answer[""content""] = json.dumps(result)
+answer[""ready""] = True
+print(""FINAL ANSWER:"", answer[""content""])
+</repl>",Entailment
+2026-08-27T15:59:52,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,46777,23554,,,132.059,"{""No licensing"": {""choice"": ""Entailment"", ""spans"": [""Nothing in this Agreement shall be construed as granting the Receiving Party any right, title, or interest in or to the Confidential Information.""]}}",Entailment
+2026-08-27T16:00:04,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1800,1234,3034,,,"{""Survival of obligations"": {""choice"": ""Entailment"", ""spans"": [""The obligations of Confidant under this Agreement shall not terminate but shall continue without limitation of time.""]}}",Entailment
+2026-08-27T16:04:05,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,70542,24439,,,219.567,"<repl>
+import json
+print(answer[""content""])
+</repl>",Entailment
+2026-08-27T16:08:24,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,70336,27324,,,250.865,"<repl>
+import json, re
+
+text = context if isinstance(context, str) else str(context)
+
+prompt = (
+    ""Legal contract NLI task.\n""
+    ""Hypothesis: 'Some obligations of Agreement may survive termination of Agreement.'\n""
+    ""Read the contract text below. Classify the hypothesis as exactly one of:\n""
+    ""Entailment, Contradiction, NotMentioned.\n""
+    ""- Entailment: the contract states that some obligations survive/continue/remain in force after termination.\n""
+    ""- Contradiction: the contract states the opposite (no obligations survive, or all obligations terminate on termination).\n""
+    ""- NotMentioned: the contract says nothing about whether obligations survive termination.\n""
+    ""Then list the VERBATIM contract sentence(s) that support your decision (exact wording from the text; empty list if NotMentioned).\n""
+    ""Return ONLY a JSON object of the form:\n""
+    '{""choice"": ""<Entailment|Contradiction|NotMentioned>"", ""spans"": [""<verbatim sentence>"", ...]}\n\n'
+    ""CONTRACT TEXT:\n"" + text
+)
+
+raw = llm_query(prompt)
+print(""=== LLM RESPONSE ==="")
+print(raw)
+print(""=== END ==="")
+
+choice, spans = ""NotMentioned"", []
+try:
+    s, e = raw.find(""{""), raw.rfind(""}"")
+    if s != -1 and e != -1:
+        obj = json.loads(raw[s:e+1])
+        if obj.get(""choice"") in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+            choice = obj[""choice""]
+            spans = [str(x) for x in obj.get(""spans"", []) if isinstance(x, str)]
+            if choice == ""NotMentioned"":
+                spans = []
+except Exception:
+    pass
+
+# deterministic fallback / cross-check
+sents = re.split(r'(?<=[.!?])\s+', text)
+ev = []
+for x in sents:
+    xl = x.lower()
+    if 'surviv' in xl or ('termination' in xl and ('obligation' in xl or 'continue' in xl or 'remain in effect' in xl or 'full force' in xl)):
+        ev.append(x.strip())
+ev = list(dict.fromkeys(ev))
+if ev:
+    pos, neg = [], []
+    for x in ev:
+        xl = x.lower()
+        if re.search(r'\b(?:shall|will|does|do|may)?\s*not\s+surviv', xl) or \
+           re.search(r'\bno\s+(?:obligations?|duties?)[^.]*\bsurviv', xl) or \
+           re.search(r'\ball\s+obligations?\b[^.]*\b(?:terminate|end|expire)', xl):
+            neg.append(x)
+        else:
+            pos.append(x)
+    if pos:
+        choice, spans = ""Entailment"", pos
+    elif neg:
+        choice, spans = ""Contradiction"", neg
+
+result = {""Survival of obligations"": {""choice"": choice, ""spans"": spans}}
+answer[""content""] = json.dumps(result)
+answer[""ready""] = True
+print(""FINAL_JSON:"", answer[""content""])
+</repl>",Entailment
+2026-08-27T16:14:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1814,989,2803,,,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""Confidential Information shall be kept in the strictest confidence without limitation of time, and shall not be disclosed to any Third Party;"", ""“Third Party” means any Person other than City or Confidant.""]}}",Contradiction
+2026-08-27T16:18:44,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,59827,25004,,,237.72,"<repl>
+import re, json
+
+# Print the full context to inspect it exactly
+print(""===FULL CONTEXT==="")
+print(context)
+print(""===END==="")
+
+# Also print all sentences that look relevant
+text = context
+sentences = re.split(r'(?<=[.!?])\s+', text)
+sentences = [s.strip() for s in sentences if s.strip()]
+print(""\n===SENTENCES==="")
+for i, s in enumerate(sentences):
+    print(f""[{i}] {s}"")
+</repl>",Contradiction
+2026-08-27T16:19:01,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,8408,1944,,,16.614,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""Confidential Information shall be kept in the strictest confidence without limitation of time, and shall not be disclosed to any Third Party;"", ""Confidant shall restrict access to Confidential Information only to its employees with a need to know to carry out the Permitted Use, and prior to disclosing same, each such employee shall be made aware of the terms and conditions of this Agreement;"", ""\u201cThird Party\u201d means any Person other than City or Confidant.""]}}",Contradiction
+2026-08-27T16:19:12,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1803,1140,2943,,,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""“Confidential Information” means any and all information, regardless of form, format or medium (including without limitation visual or oral information), of, related to, concerning, or resulting from, the City, the RFP and/or the Permitted Use, which comes into the possession or knowledge of the Confidant, including, without limitation, the RFP, documents, business information, know how, data, trade secrets, processes, designs, communications, materials, drawings, diagrams, computer programs, concepts, and any and all copies, reproductions, modifications, and derivative works.""]}}",Contradiction
+2026-08-27T16:23:21,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,69054,27658,,,215.48,"<code>
+import json, re, difflib
+from collections import Counter
+
+context_local = context
+
+# Split into sentences
+sents = re.split(r'(?<=[.!?])\s+', context_local)
+norm_sents_display = [re.sub(r'\s+', ' ', s).strip().replace('\n', ' ') for s in sents]
+norm_sents_lower = [re.sub(r'\s+', ' ', s).strip().lower() for s in sents]
+
+def norm(s):
+    return re.sub(r'\s+', ' ', s).strip().lower()
+
+def find_spans(quotes):
+    spans = []
+    for q in quotes:
+        if q in context_local:
+            spans.append(q)
+            continue
+        nq = norm(q)
+        best_i, best_r = None, 0.0
+        for i, ns in enumerate(norm_sents_lower):
+            r = difflib.SequenceMatcher(None, nq, ns).ratio()
+            if r > best_r:
+                best_r, best_i = r, i
+        if best_i is not None and best_r >= 0.8:
+            spans.append(norm_sents_display[best_i])
+    out = []
+    seen = set()
+    for s in spans:
+        k = norm(s)
+        if k not in seen:
+            seen.add(k)
+            out.append(s)
+    return out
+
+base_prompt = (
+    ""You are given a legal NDA contract. Classify the following hypothesis:\n""
+    'Hypothesis: ""Confidential Information shall only include technical information.""\n\n'
+    ""Choose one of: Entailment, Contradiction, NotMentioned.\n""
+    ""- Entailment: the contract explicitly states Confidential Information includes ONLY technical information, excluding non-technical information.\n""
+    ""- Contradiction: the contract explicitly includes non-technical information (e.g., commercial, financial, business, marketing, all information) in Confidential Information.\n""
+    ""- NotMentioned: the contract does not address whether Confidential Information is limited to technical information.\n\n""
+    ""Quote verbatim (exact wording as it appears in the contract) the sentence(s) supporting your decision. ""
+    ""If NotMentioned, span list is empty.\n\n""
+    'Respond ONLY with a JSON object: {""choice"":""..."", ""spans"":[""...""]}\n\nContract:\n'
+)
+
+prompts = [
+    base_prompt + context_local,
+    base_prompt + ""Pay special attention to any definition of 'Confidential Information'. If the definition includes both technical and non-technical information, choose Contradiction.\n\n"" + context_local,
+    base_prompt + ""Quote the exact sentence that defines Confidential Information.\n\n"" + context_local,
+]
+
+responses = llm_query_batched(prompts)
+results = []
+for r in responses:
+    try:
+        obj = json.loads(r)
+    except Exception:
+        m = re.search(r'\{.*\}', r, re.DOTALL)
+        obj = json.loads(m.group(0)) if m else None
+    if not obj:
+        continue
+    choice = obj.get('choice')
+    if choice in {""Entailment"", ""Contradiction"", ""NotMentioned""}:
+        spans = find_spans(obj.get('spans', []))
+        results.append({'choice': choice, 'spans': spans})
+
+if results:
+    counts = Counter(r['choice'] for r in results)
+    final_choice = counts.most_common(1)[0][0]
+    final_spans = next((r['spans'] for r in results if r['choice'] == final_choice), [])
+else:
+    final_choice = ""NotMentioned""
+    final_spans = []
+
+final_obj = {""0"": {""choice"": final_choice, ""spans"": final_spans}}
+answer[""content""] = json.dumps(final_obj)
+answer[""ready""] = True
+print(answer[""content""])
+</code>",Contradiction
+2026-08-27T16:28:38,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,87581,33370,,,286.063,"<repl>
+import re, json
+
+ctx = context
+# Split into sentences/clauses robustly
+parts = re.split(r'(?<=[.;])\s*|\n+', ctx)
+sents = [p.strip() for p in parts if p.strip()]
+ci_sents = [s for s in sents if re.search(r'\bconfidential information\b', s, re.I)]
+
+print(""=== CI sentences ==="")
+for i, s in enumerate(ci_sents):
+    print(i, ""|"", s)
+</repl>",Contradiction
+2026-08-27T16:28:41,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1808,257,2065,,,"{""1"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T16:32:35,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,63297,25125,,,200.583,"```repl
+answer[""content""] = ""{\""0\"": {\""choice\"": \""Entailment\"", \""spans\"": [\""Receiving Party shall not reverse engineer any objects which embody Disclosing Party's Confidential Information.\""]}}""
+answer[""ready""] = True
+```",NotMentioned
+2026-08-27T16:33:15,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,12604,4099,,,38.793,"{""hypothesis_id"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T16:34:28,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1806,7696,9502,,,"{""0"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T16:36:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,43575,13080,,,97.179,"<repl>
+answer[""content""] = '{""0"": {""choice"": ""NotMentioned"", ""spans"": []}}'
+answer[""ready""] = True
+</repl>",NotMentioned
+2026-08-27T16:40:18,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,63494,22476,,,188.164,"{""0"": {""choice"": ""Entailment"", ""spans"": [""Receiving Party shall destroy or return some Confidential Information upon the termination of Agreement.""]}}",NotMentioned
+2026-08-27T16:40:23,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-15,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1562,466,2028,,,"{""1"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information (including but not limited to all intellectual property rights emanating from or related to Confidential Information) remains the exclusive property of the Disclosing Party and nothing in this Agreement grants any right or license in the Confidential Information to the Receiving Party.""]}}",Entailment
+2026-08-27T16:45:56,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-15,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,71906,33822,,,298.313,"<repl>
+import json, re
+
+text = context.strip()
+
+# Ask sub-LLM for classification and verbatim supporting sentence(s)
+prompt = (
+    ""Document-level NLI on the legal contract (NDA) below.\n""
+    ""Hypothesis: \""Agreement shall not grant Receiving Party any right to Confidential Information.\""\n""
+    ""Classify as exactly one of Entailment, Contradiction, NotMentioned, based ONLY on the contract text.\n""
+    ""Entailment if the contract explicitly states the Agreement does not grant rights to Confidential Information.\n""
+    ""Contradiction if the contract explicitly grants such rights/licenses to the Receiving Party.\n""
+    ""NotMentioned if no clause addresses granting rights to Confidential Information.\n""
+    ""If Entailment or Contradiction, list the verbatim supporting sentence(s) exactly as they appear in the contract (complete sentences, verbatim including punctuation). If NotMentioned, spans must be [].\n""
+    ""Return ONLY a JSON object: {\""choice\"": \""...\"", \""spans\"": [...]}\n\n""
+    ""CONTRACT:\n"" + text
+)
+out = llm_query(prompt).strip()
+
+def parse_json(s):
+    m = re.search(r'\{.*\}', s, re.S)
+    if m:
+        try:
+            return json.loads(m.group(0))
+        except Exception:
+            pass
+    return None
+
+parsed = parse_json(out)
+if not parsed or parsed.get(""choice"") not in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+    parsed = {""choice"": ""NotMentioned"", ""spans"": []}
+
+choice = parsed[""choice""]
+spans = []
+for s in (parsed.get(""spans"") or []):
+    if isinstance(s, str) and s.strip() and s.strip() in text:
+        spans.append(s.strip())
+if choice == ""NotMentioned"":
+    spans = []
+
+# Fallback regex check if LLM gave no spans
+if choice != ""NotMentioned"" and not spans:
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    for s in sentences:
+        s = s.strip()
+        if ""confidential"" not in s.lower():
+            continue
+        if re.search(r'(shall not grant|does not grant|will not grant|not grant|no right|no license|does not confer|shall not confer|nothing in this .{0,80}grant|no title|no interest)', s, re.I):
+            spans.append(s)
+    if spans:
+        choice = ""Entailment""
+    else:
+        # Check for explicit positive grant
+        pos = []
+        for s in sentences:
+            s = s.strip()
+            if ""confidential"" in s.lower() and re.search(r'\b(grants|hereby grants|is granted|shall grant|grant a license|right to use)\b', s, re.I) and not re.search(r'\b(not|no|never)\b', s, re.I):
+                pos.append(s)
+        if pos:
+            choice = ""Contradiction""
+            spans = pos
+        else:
+            choice = ""NotMentioned""
+
+result = {""0"": {""choice"": choice, ""spans"": spans}}
+answer[""content""] = json.dumps(result, ensure_ascii=False)
+answer[""ready""] = True
+print(answer[""content""])
+</repl>",Entailment
+2026-08-27T16:49:12,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,80820,20776,,,174.913,"<repl>
+import re, json
+
+# Split into sentences robustly
+sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+|\n+', context) if s.strip()]
+
+# Patterns indicating the Agreement does NOT grant rights/licenses
+no_license_pat = re.compile(
+    r'no\s+(?:rights?|licen[cs]es?)|'
+    r'(?:shall|does|will)\s+not\s+grant|'
+    r'not\s+(?:be\s+)?(?:deemed\s+to\s+)?grant|'
+    r'nothing\s+in\s+(?:this\s+)?agreement|'
+    r'shall\s+not\s+(?:be\s+)?(?:construed|interpreted)|'
+    r'does\s+not\s+(?:confer|transfer|create)', re.I
+)
+
+grants_pat = re.compile(
+    r'grants?\s+(?:to\s+)?receiving\s+party|'
+    r'licen[cs]e[^.]{0,80}(?:confidential|receiving\s+party)|'
+    r'rights?\s+to\s+the\s+confidential\s+information', re.I
+)
+
+spans = [s for s in sentences if no_license_pat.search(s)]
+if spans:
+    choice = ""Entailment""
+elif any(grants_pat.search(s) for s in sentences):
+    choice = ""Contradiction""
+    spans = [s for s in sentences if grants_pat.search(s)]
+else:
+    choice = ""NotMentioned""
+    spans = []
+
+# Ensure spans are exact substrings of context
+spans = [s for s in spans if s in context]
+if choice == ""NotMentioned"":
+    spans = []
+
+result = {""0"": {""choice"": choice, ""spans"": spans}}
+answer[""content""] = json.dumps(result)
+answer[""ready""] = True
+print(answer[""content""])
+</repl>",Entailment
+2026-08-27T16:49:19,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-16,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1566,674,2240,,,"{""1"": {""choice"": ""Entailment"", ""spans"": [""Upon request of the Disclosing Party or upon the termination of this Agreement, the Receiving Party shall return, delete or destroy (as instructed in writing by the Disclosing Party) all Confidential Information, and all copies thereof.""]}}",Entailment
+2026-08-27T16:53:27,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-16,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,54782,25295,,,166.509,"{""0"": {""choice"": ""Entailment"", ""spans"": [""Receiving Party shall destroy or return all Confidential Information upon the termination of Agreement.""]}}",Entailment
+2026-08-27T16:57:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-16,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,77595,26253,,,235.88,"<repl>
+import json, re
+
+hyp = ""Receiving Party shall destroy or return some Confidential Information upon the termination of Agreement.""
+
+# Split the contract into sentences (verbatim)
+text = context.strip()
+sents = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
+
+# Find sentences mentioning termination AND return/destroy of information
+support = [s for s in sents
+           if re.search(r'terminat', s, re.I)
+           and re.search(r'\b(return|destroy|delete)\b', s, re.I)]
+
+# Require that the sentence actually concerns confidential information
+support = [s for s in support if re.search(r'confidential\s+information', s, re.I)]
+
+choice = ""Entailment"" if support else ""NotMentioned""
+spans = support if choice == ""Entailment"" else []
+
+result = {hyp: {""choice"": choice, ""spans"": spans}}
+answer[""content""] = json.dumps(result, ensure_ascii=False)
+answer[""ready""] = True
+
+print(answer[""content""])
+</repl>",Entailment
+2026-08-27T16:57:47,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1563,531,2094,,,"{""1"": {""choice"": ""Contradiction"", ""spans"": [""2.1 For the purpose of this Agreement, “Confidential Information” means any information received by a Party (the “Receiving Party”) regarding the other Party’s (the “Disclosing Party”) business, research, products and/or services, such as all information and technology, including without limitation, research, inventions, manufacture methods, data, designs, plans, drawings, know-how, IT systems, software, processes, schematics, blueprints, records, reports, models, prototypes and descriptions related thereto, customers, partners, as well as the terms and conditions of this Agreement and information furnished during discussions or oral presentations, whether or not designated as confidential at the time of disclosure.""]}}",Contradiction
+2026-08-27T17:03:15,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-1,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,84617,34308,,,319.404,"<repl>
+print(context)
+</repl>",Contradiction
+2026-08-27T17:10:32,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,63240,47443,,,392.765,"<repl>
+import json, re
+
+ctx = context if isinstance(context, str) else str(context)
+H = ""All Confidential Information shall be expressly identified by the Disclosing Party.""
+KEY = ""0""
+
+if H in ctx:
+    final = {KEY: {""choice"": ""Entailment"", ""spans"": [H]}}
+else:
+    prompt = (
+        ""ContractNLI: classify the hypothesis against the NDA contract below.\n\n""
+        f""Hypothesis: {H}\n\n""
+        ""Decide: Entailment, Contradiction, or NotMentioned.\n""
+        ""- Entailment: the contract requires ALL Confidential Information to be expressly identified by the Disclosing Party.\n""
+        ""- Contradiction: the contract says such identification is not required / done differently / only partial.\n""
+        ""- NotMentioned: the contract does not address identification of Confidential Information.\n\n""
+        ""Output ONLY JSON, exactly: {\""0\"": {\""choice\"": \""<Entailment|Contradiction|NotMentioned>\"", \""spans\"": [\""<verbatim supporting sentence(s)>\""]}}\n""
+        ""spans must be [] if NotMentioned.\n\n""
+        f""Contract text:\n{ctx}""
+    )
+    raw = llm_query(prompt).strip()
+    if raw.startswith(""```""):
+        lines = raw.split(""\n"")
+        if lines and lines[0].strip().startswith(""```""):
+            lines = lines[1:]
+        if lines and lines[-1].strip().startswith(""```""):
+            lines = lines[:-1]
+        raw = ""\n"".join(lines).strip()
+        if raw.lower().startswith(""json""):
+            raw = raw[4:].strip()
+    try:
+        obj = json.loads(raw)
+        rec = obj.get(KEY) or obj.get(""0"") or next(iter(obj.values()))
+        choice = rec.get(""choice"")
+        spans = rec.get(""spans"", [])
+        if choice not in (""Entailment"", ""Contradiction"", ""NotMentioned"") or not isinstance(spans, list):
+            raise ValueError
+        final = {KEY: {""choice"": choice, ""spans"": spans}}
+    except Exception:
+        final = {KEY: {""choice"": ""NotMentioned"", ""spans"": []}}
+
+answer[""content""] = json.dumps(final, ensure_ascii=False)
+answer[""ready""] = True
+</repl>",Contradiction
+2026-08-27T17:10:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-2,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1563,1398,2961,,,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""For the purpose of this Agreement, “Confidential Information” means any information received by a Party (the “Receiving Party”) regarding the other Party’s (the “Disclosing Party”) business, research, products and/or services, such as all information and technology, including without limitation, research, inventions, manufacture methods, data, designs, plans, drawings, know-how, IT systems, software, processes, schematics, blueprints, records, reports, models, prototypes and descriptions related thereto, customers, partners, as well as the terms and conditions of this Agreement and information furnished during discussions or oral presentations, whether or not designated as confidential at the time of disclosure.""]}}",Contradiction
+2026-08-27T17:15:24,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-2,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,54966,28065,,,190.258,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""Confidential Information shall mean any data or information, oral or written, disclosed by one party to the other, including, but not limited to, all technical, business, financial, customer, supplier, and other information, in any form whatsoever.""]}}",Contradiction
+2026-08-27T17:15:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,6265,2353,,,18.758,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""2.1 For the purpose of this Agreement, “Confidential Information” means any information received by a Party (the “Receiving Party”) regarding the other Party’s (the “Disclosing Party”) business, research, products and/or services, such as all information and technology, including without limitation, research, inventions, manufacture methods, data, designs, plans, drawings, know-how, IT systems, software, processes, schematics, blueprints, records, reports, models, prototypes and descriptions related thereto, customers, partners, as well as the terms and conditions of this Agreement and information furnished during discussions or oral presentations, whether or not designated as confidential at the time of disclosure.""]}}",Contradiction
+2026-08-27T17:16:27,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-11,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1568,4703,6271,,,"{""No reverse engineering"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T17:16:56,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-11,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,6,17824,2855,,,28.805,"{""No reverse engineering"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T17:18:37,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-11,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,32649,10311,,,100.771,"{""0"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T17:19:14,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-10,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1566,3975,5541,,,"{""1"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T17:21:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-10,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,53059,15395,,,136.717,"{""1"": {""choice"": ""Entailment"", ""spans"": [""Receiving Party shall not disclose the fact that Agreement was agreed or negotiated.""]}}",NotMentioned
+2026-08-27T17:26:29,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-20-nda-10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,70729,32480,,,264.242,"<repl>
+import re, json, sys
+
+norm_ctx = re.sub(r'\s+', ' ', context)
+
+# Candidates for the exact clause, allowing variations
+patterns = [
+    r""Receiving Party shall not disclose the fact that Agreement was agreed or negotiated\."",
+    r""Receiving Party shall not disclose the fact that the Agreement was agreed or negotiated\."",
+    r""Receiving Party shall not disclose the fact that this Agreement was agreed or negotiated\."",
+    r""The Receiving Party shall not disclose the fact that (?:the |this )?Agreement was agreed or negotiated\."",
+    r""[Tt]he Receiving Party shall not disclose the fact that (?:the |this )?Agreement (?:was|has been) agreed or negotiated\."",
+    r""Receiving Party shall not disclose the fact that (?:the |this )?Agreement (?:was|has been) agreed or negotiated\."",
+]
+
+found = None
+for p in patterns:
+    m = re.search(p, norm_ctx)
+    if m:
+        start = m.start()
+        # expand to the full sentence containing the match
+        # find sentence boundaries around the match
+        s = max(norm_ctx.rfind('. ', 0, start), norm_ctx.rfind('\n', 0, start))
+        # handle previous sentence separators
+        if s == -1:
+            s = 0
+        else:
+            s += 2  # skip '. ' or '\n'
+        e = norm_ctx.find('. ', start)
+        if e == -1:
+            e = len(norm_ctx)
+        else:
+            e += 1  # include the period
+        sent = norm_ctx[s:e].strip()
+        # reconstruct verbatim from original context by matching normalized
+        # find the original substring corresponding to sent
+        # simple: search for sent in original with flexible whitespace
+        # easier: use the normalized sentence as the span (it's verbatim modulo whitespace)
+        found = sent
+        break
+
+if found:
+    choice = ""Entailment""
+    spans = [found]
+else:
+    # Fallback: any sentence mentioning nondisclosure of the existence/negotiation of the agreement
+    sentences = re.split(r'(?<=\.)\s+|\n+', norm_ctx)
+    fallback = []
+    for s in sentences:
+        low = s.lower()
+        if (""shall not disclose"" in low or ""prohibit"" in low) and (""fact"" in low or ""existence"" in low) and (""agreed"" in low or ""negotiat"" in low):
+            fallback.append(s.strip())
+    if fallback:
+        choice = ""Entailment""
+        spans = [fallback[0]]
+    else:
+        choice = ""NotMentioned""
+        spans = []
+
+answer[""content""] = json.dumps({""0"": {""choice"": choice, ""spans"": spans}})
+answer[""ready""] = True
+print(answer[""content""])
+</repl>",NotMentioned
+2026-08-27T17:27:15,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-15,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3067,5084,8151,,,"{""1"": {""choice"": ""Contradiction"", ""spans"": [""The receiving party is entitled to use the Confidential Information of the disclosing party solely for the purpose of quoting and manufacturing products for Champion."", ""Confidential Information shall be used by the receiving party only for the purpose set forth in Section 2 of this Agreement and for no other purpose whatsoever.""]}}",Entailment
+2026-08-27T17:29:02,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-15,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,51871,10447,,,98.1,"<repl>
+import re
+lines = context.splitlines()
+# Print only lines containing relevant terms, with surrounding 2 lines
+keywords = [""grant"", ""right"", ""license"", ""title"", ""interest"", ""ownership""]
+for i, line in enumerate(lines):
+    if any(k.lower() in line.lower() for k in keywords):
+        print(f""--- line {i} ---"")
+        for j in range(max(0, i-1), min(len(lines), i+2)):
+            print(f""{j}: {lines[j]}"")
+        print()
+</repl>",Entailment
+2026-08-27T17:30:58,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,10887,13584,,,115.633,"{""1"": {""choice"": ""NotMentioned"", ""spans"": []}}",Entailment
+2026-08-27T17:35:00,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-16,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3071,22792,25863,,,"{""H1"": {""choice"": ""Entailment"", ""spans"": [""The receiving party agrees to immediately return and to deliver all originals and copies of any Confidential Information in its possession or subject to its control to the disclosing party at the address first written above upon the first to occur of the following: termination or expiration of this Agreement; or completion of or termination of the purpose set forth in Section 2 of this Agreement.""]}}",Entailment
+2026-08-27T17:36:08,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-16,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,3,20150,8053,,,67.883,"{""Return of confidential information"": {""choice"": ""Entailment"", ""spans"": [""7.2 The receiving party agrees to immediately return and to deliver all originals and copies of any Confidential Information in its possession or subject to its control to the disclosing party at the address first written above upon the first to occur of the following: termination or expiration of this Agreement; or completion of or termination of the purpose set forth in Section 2 of this Agreement.""]}}",Entailment
+2026-08-27T17:42:30,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-16,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,98522,41865,,,353.217,"<｜｜DSML｜｜repl>
+import re, json
+
+hyp = ""Receiving Party shall destroy or return some Confidential Information upon the termination of Agreement.""
+
+# Ensure the context is actually visible/available
+print(""CONTEXT_LEN_CHECK:"", len(context) if isinstance(context, str) else type(context))
+
+prompt = (
+    ""You are classifying a hypothesis against a legal contract (an NDA).\n""
+    ""Hypothesis: "" + hyp + ""\n\n""
+    ""Decide whether the contract entails, contradicts, or does not mention this hypothesis.\n""
+    ""Rules:\n""
+    ""- Entailment: the contract explicitly states the proposition or a logical equivalent ""
+    ""(e.g., a statement about 'all Confidential Information' being returned/destroyed entails ""
+    ""a statement about 'some Confidential Information' being returned/destroyed).\n""
+    ""- Contradiction: the contract explicitly states the opposite.\n""
+    ""- NotMentioned: the contract is silent on the proposition.\n\n""
+    ""Return ONLY a JSON object:\n""
+    ""{\""choice\"": \""Entailment|Contradiction|NotMentioned\"", \""spans\"": [\""verbatim contract sentence(s) supporting the decision\""]}\n""
+    ""If NotMentioned, \""spans\"" must be []. Copy supporting sentences exactly (character-for-character) from the contract. ""
+    ""Provide at most 3 spans.\n\n""
+    ""CONTRACT:\n<BEGIN>\n"" + context + ""\n<END>""
+)
+
+try:
+    raw = llm_query(prompt)
+    m = re.search(r'\{.*\}', raw, re.S)
+    data = json.loads(m.group(0)) if m else json.loads(raw)
+    choice = data.get(""choice"")
+    if choice not in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+        raise ValueError(""bad choice"")
+    spans = [str(s).strip() for s in (data.get(""spans"") or []) if isinstance(s, str)]
+    # Keep only verbatim spans (and in order of first occurrence in the contract)
+    seen, kept = set(), []
+    for sp in spans:
+        if sp in context and sp not in seen:
+            seen.add(sp)
+            kept.append(sp)
+    result = {""choice"": choice, ""spans"": kept[:3]}
+except Exception as e:
+    result = {""choice"": ""NotMentioned"", ""spans"": []}
+    print(""ERR_FALLBACK:"", repr(e))
+
+answer[""content""] = json.dumps({""0"": result}, ensure_ascii=False)
+answer[""ready""] = True
+print(""FINAL_ANSWER:"", answer[""content""])
+</repl>",Entailment
+2026-08-27T17:43:08,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-7,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3079,4419,7498,,,"{""Sharing with third-parties"": {""choice"": ""Contradiction"", ""spans"": [""The receiving party shall not disclose, disseminate, discuss or communicate any part or all of the Confidential Information to any third party, person or entity.""]}}",Contradiction
+2026-08-27T17:45:56,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-7,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,54632,17123,,,152.909,"<repl>
+import re, json
+
+text = context if isinstance(context, str) else str(context)
+
+# Print all sentences/segments containing key phrases, with indices
+chunks = re.split(r'(?<=[.!?])\s+|\n+', text)
+chunks = [c.strip() for c in chunks if c.strip()]
+
+for i, c in enumerate(chunks):
+    if re.search(r'third|consultant|agent|advisor|professional|share|disclos', c, re.IGNORECASE):
+        print(f""[{i}] {c}"")
+</repl>",Contradiction
+2026-08-27T17:46:11,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,11264,1893,,,15.42,"{""Sharing with third-parties"": {""choice"": ""Contradiction"", ""spans"": [""The receiving party shall not disclose, disseminate, discuss or communicate any part or all of the Confidential Information to any third party, person or entity."", ""The receiving party shall exercise the same degree of care and protection with respect to the Confidential Information of the disclosing party that it exercises with respect to the protection of its own confidential information of a similar nature but not less than a reasonable degree of care and shall prevent disclosure of the Confidential Information to anyone except to those of its employees that have a need to know such information solely in connection with the permitted use as set forth in Section 2 and who shall be required to observe the restrictions set forth in this Agreement.""]}}",Contradiction
+2026-08-27T17:47:07,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-2,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3068,6258,9326,,,"{""None-inclusion of non-technical information"": {""choice"": ""Contradiction"", ""spans"": [""“Confidential Information” means confidential and proprietary information (regardless of whether such Confidential Information is in written, oral, visual or electronic form) (a) that consists of Trade Secrets (as hereinafter defined), discoveries, technical, engineering, financial, pricing and/or other business data and documentation, sales information, inventions, know-how, manufacturing techniques and specifications, process technologies, business plans, all disclosed by the disclosing party in furtherance of the purpose set forth in Section 2; (b) regarding the current and/or prospective business of the disclosing party; or (c) that is marked as confidential, proprietary or privileged by the disclosing party.""]}}",Contradiction
+2026-08-27T17:50:51,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-2,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,54332,22354,,,207.605,"<repl>
+import json, re
+
+# Print current submitted answer for verification
+print(""CURRENT:"", answer[""content""])
+
+# Re-run a targeted, rigorous sub-LLM classification with the full context,
+# requiring verbatim spans.
+q = f""""""Classify ONE hypothesis against the NDA contract below.
+
+Hypothesis: ""Confidential Information shall only include technical information.""
+
+Label definitions:
+- Entailment: the contract explicitly states Confidential Information includes ONLY technical information (or explicitly excludes non-technical information).
+- Contradiction: the contract defines Confidential Information as broader than just technical information, e.g. includes financial, business, commercial, marketing, customer, personnel, legal, management, or ""any/all information"" categories (even if it also includes technical information).
+- NotMentioned: the contract says nothing about technical vs non-technical scope of Confidential Information.
+
+Return EXACTLY this JSON (no markdown):
+{{""choice"": ""Entailment|Contradiction|NotMentioned"", ""spans"": [""verbatim sentence(s) from the contract""]}}
+
+Rules:
+- spans entries must be character-for-character substrings of the contract.
+- If NotMentioned, spans must be [].
+- Quote the specific sentence(s) that determine the classification.
+
+CONTRACT:
+{context}""""""
+
+resp = llm_query(q)
+txt = resp.strip()
+txt = re.sub(r""^```[a-zA-Z]*\s*"", """", txt)
+txt = re.sub(r""\s*```$"", """", txt)
+data = json.loads(txt)
+choice = data.get(""choice"")
+spans = [s for s in data.get(""spans"", []) if isinstance(s, str) and s in context]
+if choice == ""NotMentioned"":
+    spans = []
+
+# Double-check with a second independent sub-LLM
+q2 = f""""""In this NDA contract, does it say anywhere that Confidential Information is limited to technical information only, or does it instead include non-technical information (e.g., financial, business, commercial, marketing, customer, personnel, legal info)?
+
+Quote the exact sentences that define the scope of ""Confidential Information"". Then state one of: ENTAILMENT / CONTRADICTION / NOT_MENTIONED.
+
+CONTRACT:
+{context}""""""
+resp2 = llm_query(q2)
+print(""LLM2:"", resp2[:800])
+
+# prefer the range of verbatim sentences if the first LLM returned them
+if choice in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+    final = {""16"": {""choice"": choice, ""spans"": spans}}
+    answer[""content""] = json.dumps(final, ensure_ascii=False)
+    answer[""ready""] = True
+    print(""FINAL:"", answer[""content""])
+</repl>",Contradiction
+2026-08-27T17:55:18,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,61878,26922,,,218.367,"{""None-inclusion of non-technical information"": {""choice"": ""Contradiction"", ""spans"": [""Confidential Information shall mean any and all information disclosed by Disclosing Party to Receiving Party, including without limitation technical, business, financial, and other information.""]}}",Contradiction
+2026-08-27T17:56:34,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-11,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3073,8317,11390,,,"{""No reverse engineering"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T18:04:36,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-11,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,61533,37512,,,434.686,"{""No reverse engineering"": {""choice"": ""Entailment"", ""spans"": [""Receiving Party shall not reverse engineer any objects which embody Disclosing Party's Confidential Information.""]}}",NotMentioned
+2026-08-27T18:05:44,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-11,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,36138,7241,,,67.948,"{""0"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T18:06:08,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-19,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3065,2544,5609,,,"{""Survival of obligations"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall remain subject to the obligations to maintain the confidentiality thereof indefinitely following the date of termination of this Agreement.""]}}",NotMentioned
+2026-08-27T18:09:38,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-19,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,56841,21367,,,175.082,"<repl>
+import json
+print(""ANSWER_CONTENT:"", answer[""content""])
+print(""READY:"", answer[""ready""])
+</repl>",NotMentioned
+2026-08-27T18:10:17,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-19,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,20125,4009,,,39.106,"{""Q1"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall remain subject to the obligations to maintain the confidentiality thereof indefinitely following the date of termination of this Agreement."", ""The receiving party agrees to immediately return and to deliver all originals and copies of any Confidential Information in its possession or subject to its control to the disclosing party at the address first written above upon the first to occur of the following: termination or expiration of this Agreement; or completion of or termination of the purpose set forth in Section 2 of this Agreement.""]}}",NotMentioned

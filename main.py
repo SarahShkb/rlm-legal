@@ -1,4 +1,3 @@
-import json
 import os
 
 from dotenv import load_dotenv
@@ -9,6 +8,16 @@ from rlm.core.rlm import RLM
 from rlm.logger import RLMLogger
 from rlm.utils.prompts import RLM_SYSTEM_PROMPT
 
+#utils
+from utils.contract_nli_utils import (
+    RLM_FINISH_GUIDE,
+    TASK_SPEC,
+    get_actual_label,
+    get_document_index_by_id,
+    get_hypothesis,
+    load_one_record,
+)
+
 # logger
 from utils.run_logger import log_run
 
@@ -18,75 +27,6 @@ DEEPSEEK_MODEL = "deepseek-v4-flash"
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 TEMPERATURE = 0 
 
-
-# prompt components
-
-# TASK_SPEC: the label set, the JSON output schema, the evidence-citation requirement. 
-# Task-defining, not mechanism-defining.
-TASK_SPEC = """
-TASK: Document-level Natural Language Inference on a legal contract (NDA).
-For each hypothesis below, classify it as exactly one of: "Entailment", \
-"Contradiction", "NotMentioned", and list the verbatim contract sentence(s) \
-that support the decision (empty list if NotMentioned).
-Return ONLY a JSON object of the form:
-{{"<hypothesis_id>": {{"choice": "<Entailment|Contradiction|NotMentioned>", "spans": [<...>]}}, ...}}
-"""
-
-RLM_FINISH_GUIDE = """
-You MUST use `repl` code blocks to inspect and reason over the context.
-
-When you are ready to answer, DO NOT output the answer as Python code.
-
-Instead, in your final `repl` block, execute exactly this pattern:
-
-answer["content"] = <a JSON string containing your final ContractNLI result>
-answer["ready"] = True
-
-The value of answer["content"] must contain ONLY the final JSON object.
-It must not contain markdown fences, Python code, explanations, or commentary.
-
-Once you have enough evidence, stop exploring and submit the answer.
-
-Budget awareness:
-Do not begin a new exploration step when only 2 iterations remain.
-Use the remaining iterations to finalize the answer and explicitly set:
-answer["content"] = ...
-answer["ready"] = True
-"""
-
-# HYPOTHESES_BLOCK: the specific hypothesis (or hypotheses) for this record, 
-# verbatim from the dataset.
-# def build_hypotheses_block(hypotheses: dict) -> str:
-#     lines = ["HYPOTHESES:"]
-#     for hyp_id, hyp_text in hypotheses.items():
-#         lines.append(f'- {hyp_id}: "{hyp_text}"')
-#     return "\n".join(lines)
-
-# get one record of hypothesis
-def get_hypothesis(contractnli_json_path: str, h_id: str = "nda-1") -> str:
-    with open(contractnli_json_path) as f:
-        data = json.load(f)
-    hypes = data["labels"]
-    return f"({hypes[h_id]['short_description']}){hypes[h_id]['hypothesis']}"
- 
- 
-def load_one_record(contractnli_json_path: str, doc_index: int = 0):
-    with open(contractnli_json_path) as f:
-        data = json.load(f)
-    doc = data["documents"][doc_index]
-    contract_text = doc["text"]
-    contract_id = doc["id"]
-    data_split_type = contractnli_json_path.split("/")[-1].split(".")[0]  # "train" | "dev" |"test"
-    row_id = f"{data_split_type}-{contract_id}"
-    return row_id, contract_text
-
-
-def get_actual_label(contractnli_json_path: str, doc_index: int = 0, h_id: str = "nda-1") -> str:
-    with open(contractnli_json_path) as f:
-        data = json.load(f)
-    doc = data["documents"][doc_index]
-    actual_label = doc["annotation_sets"][0]["annotations"][h_id]["choice"]
-    return actual_label
 
 #-----------------------------------------
 # condition 1: vanilla LLM calls (no RLM)
@@ -200,20 +140,28 @@ def run_rlm_customized(row_id: str, contract_text: str, hypotheses: str, actual_
 # Phase 4 of checklist.md: testing ONLY 1 sample from Contrat-NLI dev dataset
 def main():
     CONTRACT_PATH = "./contract-nli/dev.json" 
-    hypothesis_id = "nda-1"
-    hypotheses = get_hypothesis(CONTRACT_PATH, h_id=hypothesis_id)
 
-    for i in range(3):
-        row_id, contract_text = load_one_record(CONTRACT_PATH, doc_index=i+3)
-        actual_label = get_actual_label(CONTRACT_PATH, doc_index=i, h_id=hypothesis_id)
-        print("=== 1. VANILLA ===")
-        print(run_vanilla(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
-    
-        print("\n=== 2. RLM DEFAULT SYSTEM PROMPT ===")
-        print(run_rlm_generic(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
-    
-        print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
-        print(run_rlm_customized(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
+    target_doc_ids = ["19", "20", "32"]
+    target_hypotheses = [
+        ["nda-15", "nda-19", "nda-7", "nda-2", "nda-11", "nda-16"],
+        ["nda-15", "nda-16", "nda-1", "nda-2", "nda-11", "nda-10"],
+        ["nda-15", "nda-16", "nda-7", "nda-2", "nda-11", "nda-19"]]
+
+    for i, doc_id in enumerate(target_doc_ids):
+
+        doc_index = get_document_index_by_id(CONTRACT_PATH, doc_id)
+        row_id, contract_text = load_one_record(CONTRACT_PATH, doc_index=doc_index)
+        for hypothesis_id in target_hypotheses[i]:
+            hypotheses = get_hypothesis(CONTRACT_PATH, h_id=hypothesis_id)
+            actual_label = get_actual_label(CONTRACT_PATH, doc_index=doc_index, h_id=hypothesis_id)
+            print("=== 1. VANILLA ===")
+            print(run_vanilla(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
+        
+            print("\n=== 2. RLM DEFAULT SYSTEM PROMPT ===")
+            print(run_rlm_generic(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
+        
+            print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
+            print(run_rlm_customized(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
 
  
 if __name__ == "__main__":

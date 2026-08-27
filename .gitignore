@@ -13,3 +13,4 @@ contract-nli/.DS_Store
 
 utils/__pycache__/
 logs/
+logs/runs.csv
