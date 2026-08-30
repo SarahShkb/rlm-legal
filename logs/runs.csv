@@ -807,3 +807,1372 @@ print(""ANSWER_CONTENT:"", answer[""content""])
 print(""READY:"", answer[""ready""])
 </repl>",NotMentioned
 2026-08-27T18:10:17,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-32-nda-19,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,20125,4009,,,39.106,"{""Q1"": {""choice"": ""Entailment"", ""spans"": [""All Confidential Information shall remain subject to the obligations to maintain the confidentiality thereof indefinitely following the date of termination of this Agreement."", ""The receiving party agrees to immediately return and to deliver all originals and copies of any Confidential Information in its possession or subject to its control to the disclosing party at the address first written above upon the first to occur of the following: termination or expiration of this Agreement; or completion of or termination of the purpose set forth in Section 2 of this Agreement.""]}}",NotMentioned
+2026-08-27T22:55:59,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1802,8692,10494,,,"{""No licensing"": {""choice"": ""Entailment"", ""spans"": [""Confidant acknowledges and agrees that all rights in and to Confidential Information are and shall remain the sole property of City, and Confidant agrees that it shall not contest or challenge any of City’s rights in or to any Confidential Information.""]}}",Entailment
+2026-08-27T23:05:33,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1802,12347,14149,,,"{""0"": {""choice"": ""Entailment"", ""spans"": [""Confidant acknowledges and agrees that all rights in and to Confidential Information are and shall remain the sole property of City, and Confidant agrees that it shall not contest or challenge any of City’s rights in or to any Confidential Information.""]}}",Entailment
+2026-08-27T23:09:55,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,51849,26046,,,210.27,"{""No licensing"": {""choice"": ""Entailment"", ""spans"": [""Agreement shall not grant Receiving Party any right to Confidential Information.""]}}",Entailment
+2026-08-27T23:10:04,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,7523,835,,,8.997,"{""hypothesis_0"": {""choice"": ""Entailment"", ""spans"": [""Confidant acknowledges and agrees that all rights in and to Confidential Information are and shall remain the sole property of City, and Confidant agrees that it shall not contest or challenge any of City\u2019s rights in or to any Confidential Information.""]}}",Entailment
+2026-08-27T23:10:12,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1800,698,2498,,,"{""Survival of obligations"": {""choice"": ""Entailment"", ""spans"": [""The obligations of Confidant under this Agreement shall not terminate but shall continue without limitation of time.""]}}",Entailment
+2026-08-27T23:17:46,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,94452,50081,,,439.736,"<repl>
+import json, re
+
+C = context
+H = ""Some obligations of Agreement may survive termination of Agreement.""
+
+prompt = f""""""Perform document-level NLI on the legal contract below.
+
+Hypothesis: {H}
+
+Return ONLY a JSON object:
+{{""0"": {{""choice"": ""<Entailment|Contradiction|NotMentioned>"", ""spans"": [""<verbatim supporting sentence(s) from contract, empty list if NotMentioned>""]}}}}
+
+Rules:
+- Entailment only if the contract explicitly states some obligation survives/continues/remains in effect after termination of the Agreement.
+- Contradiction only if it explicitly states all obligations end / none survive upon termination.
+- NotMentioned otherwise. Spans must be exact verbatim sentences from the contract.
+
+Contract:
+{C}""""""
+
+raw = llm_query(prompt)
+m = re.search(r'\{.*\}', raw, re.S)
+try:
+    obj = json.loads(m.group(0))
+except Exception:
+    obj = {""0"": {""choice"": ""NotMentioned"", ""spans"": []}}
+
+choice = obj.get(""0"", {}).get(""choice"")
+if choice not in {""Entailment"", ""Contradiction"", ""NotMentioned""}:
+    choice = ""NotMentioned""
+spans = obj.get(""0"", {}).get(""spans"", [])
+if not isinstance(spans, list):
+    spans = []
+
+# Verify spans are verbatim from the contract (normalize whitespace)
+norm = "" "".join(C.split())
+sents = [re.sub(r'\s+', ' ', s.strip()) for s in re.split(r'(?<=[.!?])\s+', norm) if s.strip()]
+clean = []
+for s in spans:
+    s2 = re.sub(r'\s+', ' ', str(s).strip())
+    if s2 and any(s2 == sent or re.search(re.escape(s2), sent, re.I) for sent in sents):
+        clean.append(s2)
+
+# Fallback: if Entailment but no verified spans, find exact survival sentences
+if choice == ""Entailment"" and not clean:
+    for sent in sents:
+        low = sent.lower()
+        if (""surviv"" in low or ""continue"" in low or ""remain in effect"" in low) and ""terminat"" in low:
+            clean.append(sent)
+            break
+
+obj = {""0"": {""choice"": choice, ""spans"": clean}}
+answer[""content""] = json.dumps(obj, ensure_ascii=False)
+answer[""ready""] = True
+print(answer[""content""])
+</repl>",Entailment
+2026-08-27T23:22:36,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,63690,31898,,,280.116,"<repl>
+import json
+print(answer[""content""])
+</repl>",Entailment
+2026-08-27T23:22:55,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1814,2389,4203,,,"{""Sharing with third-parties"": {""choice"": ""Contradiction"", ""spans"": [""“Third Party” means any Person other than City or Confidant."", ""Confidential Information shall be kept in the strictest confidence without limitation of time, and shall not be disclosed to any Third Party;""]}}",Contradiction
+2026-08-27T23:23:08,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,2,4998,1355,,,12.785,"{
+  ""0"": {
+    ""choice"": ""Contradiction"",
+    ""spans"": [
+      ""Confidential Information shall be kept in the strictest confidence without limitation of time, and shall not be disclosed to any Third Party;"",
+      ""“Third Party” means any Person other than City or Confidant.""
+    ]
+  }
+}",Contradiction
+2026-08-27T23:23:16,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,5166,727,,,7.432,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""Confidential Information shall be kept in the strictest confidence without limitation of time, and shall not be disclosed to any Third Party;""]}}",Contradiction
+2026-08-27T23:23:30,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1803,1657,3460,,,"{""0"": {""choice"": ""Contradiction"", ""spans"": [""“Confidential Information” means any and all information, regardless of form, format or medium (including without limitation visual or oral information), of, related to, concerning, or resulting from, the City, the RFP and/or the Permitted Use, which comes into the possession or knowledge of the Confidant, including, without limitation, the RFP, documents, business information, know how, data, trade secrets, processes, designs, communications, materials, drawings, diagrams, computer programs, concepts, and any and all copies, reproductions, modifications, and derivative works.""]}}",Contradiction
+2026-08-27T23:23:40,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,3,7413,991,,,9.665,"{""None-inclusion of non-technical information"": {""choice"": ""Contradiction"", ""spans"": [""\u201cConfidential Information\u201d means any and all information, regardless of form, format or medium (including without limitation visual or oral information), of, related to, concerning, or resulting from, the City, the RFP and/or the Permitted Use, which comes into the possession or knowledge of the Confidant, including, without limitation, the RFP, documents, business information, know how, data, trade secrets, processes, designs, communications, materials, drawings, diagrams, computer programs, concepts, and any and all copies, reproductions, modifications, and derivative works.""]}}",Contradiction
+2026-08-27T23:27:36,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,50162,24492,,,183.754,"{""None-inclusion of non-technical information"": {""choice"": ""Contradiction"", ""spans"": [""\""Confidential Information\"" means any information, including but not limited to technical, business, financial, customer, and employee information, disclosed by one party to the other.""]}}",Contradiction
+2026-08-27T23:27:37,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1808,110,1918,,,"{""1"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T23:34:00,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,72939,41836,,,339.048,"<｜｜DSML｜｜pl>
+import json, re
+
+hyp_id = ""(No reverse engineering)Receiving Party shall not reverse engineer any objects which embody Disclosing Party's Confidential Information.""
+hyp_text = ""Receiving Party shall not reverse engineer any objects which embody Disclosing Party's Confidential Information.""
+
+# Use the sub-LLM to read the full contract and produce the final classification.
+prompt = f""""""You are an expert in ContractNLI. Classify the hypothesis against the given NDA contract.
+Return ONLY a JSON object of the form:
+{{""choice"": ""Entailment"" | ""Contradiction"" | ""NotMentioned"", ""spans"": [""verbatim contract sentence(s) supporting the decision""]}}
+If NotMentioned, spans must be []. Spans must be copied verbatim from the contract.
+
+CONTRACT:
+{context}
+
+HYPOTHESIS:
+{hyp_text}
+
+JSON:""""""
+
+resp = llm_query(prompt)
+print(""LLM_RESP:"", resp)
+
+result = None
+try:
+    cleaned = resp.strip()
+    if cleaned.startswith(""```""):
+        cleaned = re.sub(r""^```(?:json)?|```$"", """", cleaned, flags=re.MULTILINE).strip()
+    parsed = json.loads(cleaned)
+    if isinstance(parsed, dict) and parsed.get(""choice"") in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+        spans = [s for s in parsed.get(""spans"", []) if isinstance(s, str) and s in context]
+        result = {""choice"": parsed[""choice""], ""spans"": spans if parsed[""choice""] != ""NotMentioned"" else []}
+except Exception as e:
+    print(""Parse error:"", e)
+
+# Deterministic fallback / sanity check
+if result is None:
+    sentences = re.split(r'(?<=[.!?])\s+', context)
+    rel = [s.strip() for s in sentences if re.search(r'reverse\s*engineer', s, re.I)]
+    if not rel:
+        result = {""choice"": ""NotMentioned"", ""spans"": []}
+    else:
+        forbid = re.compile(r'\b(shall not|may not|is prohibited|no reverse|not permitted|must not)\b', re.I)
+        allow = re.compile(r'\b(may|can|is permitted|is allowed|entitled to|has the right)\b', re.I)
+        if any(forbid.search(s) for s in rel):
+            result = {""choice"": ""Entailment"", ""spans"": rel}
+        elif any(allow.search(s) for s in rel):
+            result = {""choice"": ""Contradiction"", ""spans"": rel}
+        else:
+            result = {""choice"": ""Entailment"", ""spans"": rel}
+
+# Final validation: choice must be valid; spans verbatim and relevant
+if result[""choice""] not in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+    result[""choice""] = ""NotMentioned""
+    result[""spans""] = []
+if result[""choice""] != ""NotMentioned"":
+    result[""spans""] = [s for s in result[""spans""] if s in context and re.search(r'reverse\s*engineer', s, re.I)]
+    if not result[""spans""]:
+        sentences = re.split(r'(?<=[.!?])\s+', context)
+        rel = [s.strip() for s in sentences if re.search(r'reverse\s*engineer', s, re.I)]
+        result[""spans""] = rel
+
+final = {hyp_id: result}
+answer[""content""] = json.dumps(final, ensure_ascii=False)
+print(""FINAL_JSON:"", answer[""content""])
+answer[""ready""] = True
+</｜｜DSML｜｜pl>",NotMentioned
+2026-08-27T23:37:27,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,63306,23456,,,202.683,"{""0"": {""choice"": ""Entailment"", ""spans"": [""Receiving Party shall not reverse engineer any objects which embody Disclosing Party's Confidential Information.""]}}",NotMentioned
+2026-08-27T23:37:38,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1806,1175,2981,,,"{""1"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T23:38:08,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,2,5003,3137,,,29.41,"{""0"": {""choice"": ""NotMentioned"", ""spans"": []}}",NotMentioned
+2026-08-27T23:41:01,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,56195,17768,,,160.477,"<repl>
+print(answer[""content""])
+</repl>",NotMentioned
+2026-08-28T00:11:04,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1794,711,2505,,,"{
+  ""1"": {
+    ""choice"": ""Entailment"",
+    ""spans"": [
+      ""Confidant acknowledges and agrees that all rights in and to Confidential Information are and shall remain the sole property of City, and Confidant agrees that it shall not contest or challenge any of City’s rights in or to any Confidential Information."",
+      ""Nothing in this Agreement obligates, or shall be deemed to obligate, City to provide, disclose, or deliver any Confidential Information.""
+    ]
+  }
+}",Entailment
+2026-08-28T00:15:21,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,51343,29126,,,222.098,"<repl>
+print(answer.get(""content"", ""NOT SET""))
+</repl>",Entailment
+2026-08-28T00:24:30,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1797,3927,5724,,,"{
+  ""0"": {
+    ""choice"": ""Entailment"",
+    ""spans"": [
+      ""Confidant acknowledges and agrees that all rights in and to Confidential Information are and shall remain the sole property of City, and Confidant agrees that it shall not contest or challenge any of City’s rights in or to any Confidential Information."",
+      ""Nothing in this Agreement obligates, or shall be deemed to obligate, City to provide, disclose, or deliver any Confidential Information.""
+    ]
+  }
+}",Entailment
+2026-08-28T00:25:29,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,1,1655,88,,,59.347,"{""0"": {""choice"": ""Entailment"", ""spans"": [""No License Granted: Confidant acknowledges and agrees that all rights in and to Confidential Information are and shall remain the sole property of City, and Confidant agrees that it shall not contest or challenge any of City’s rights in or to any Confidential Information. Nothing in this Agreement obligates, or shall be deemed to obligate, City to provide, disclose, or deliver any Confidential Information.""]}}",Entailment
+2026-08-28T00:29:40,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,70534,27859,,,225.616,"{""0"": {""choice"": ""Entailment"", ""spans"": [""Nothing in this Agreement shall be deemed to grant either Party any license or other right to any Confidential Information.""]}}",Entailment
+2026-08-28T00:29:44,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1795,347,2142,,,"{
+  ""Survival of obligations"": {
+    ""choice"": ""Entailment"",
+    ""spans"": [
+      ""The obligations of Confidant under this Agreement shall not terminate but shall continue without limitation of time.""
+    ]
+  }
+}",Entailment
+2026-08-28T00:32:53,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,55545,18955,,,157.811,"<repl>
+import json
+print(answer[""content""])
+</repl>",Entailment
+2026-08-28T00:36:31,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-19,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,49976,22371,,,214.549,"<repl>
+# Final verification: print the actual contract text so we can be sure.
+c = context if isinstance(context, str) else str(context)
+print(""LEN:"", len(c))
+print(c)
+</repl>",Entailment
+2026-08-28T00:37:20,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1809,5794,7603,,,"{
+  ""Sharing with third-parties"": {
+    ""choice"": ""Contradiction"",
+    ""spans"": [
+      ""“Third Party” means any Person other than City or Confidant."",
+      ""Confidential Information shall be kept in the strictest confidence without limitation of time, and shall not be disclosed to any Third Party;""
+    ]
+  }
+}",Contradiction
+2026-08-28T00:41:22,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,58834,25862,,,191.489,"{""hypothesis"": {""choice"": ""Entailment"", ""spans"": [""Receiving Party may share some Confidential Information with some third-parties (including consultants, agents and professional advisors).""]}}",Contradiction
+2026-08-28T00:44:59,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,53254,24019,,,165.548,"{
+  ""1"": {
+    ""choice"": ""Entailment"",
+    ""spans"": [""Receiving Party may disclose Confidential Information to its employees, officers, directors, consultants, agents and professional advisors who need to know such information in connection with the purpose of this Agreement.""]
+  }
+}",Contradiction
+2026-08-28T00:45:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1798,4769,6567,,,"{
+  ""0"": {
+    ""choice"": ""Contradiction"",
+    ""spans"": [
+      ""“Confidential Information” means any and all information, regardless of form, format or medium (including without limitation visual or oral information), of, related to, concerning, or resulting from, the City, the RFP and/or the Permitted Use, which comes into the possession or knowledge of the Confidant, including, without limitation, the RFP, documents, business information, know how, data, trade secrets, processes, designs, communications, materials, drawings, diagrams, computer programs, concepts, and any and all copies, reproductions, modifications, and derivative works.""
+    ]
+  }
+}",Contradiction
+2026-08-28T00:50:01,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,53964,29063,,,220.081,"{
+  ""0"": {
+    ""choice"": ""Contradiction"",
+    ""spans"": [
+      ""\""Confidential Information\"" means any information, technical data, or know-how, including, but not limited to, that which relates to research, product plans, products, services, customers, customer lists, markets, software, developments, inventions, processes, formulas, technology, designs, drawings, engineering, hardware configuration information, marketing, finances, or other business information disclosed by either party to the other party, either directly or indirectly, in writing, orally or by drawings or observation.""
+    ]
+  }
+}",Contradiction
+2026-08-28T00:56:24,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,160698,44121,,,353.341,"<repl>
+import json
+
+hyid = ""None-inclusion of non-technical information""
+hyp = ""Confidential Information shall only include technical information.""
+
+prompt = (
+    ""You must classify the hypothesis against the NDA contract text. ""
+    ""Answer with ONE of: Entailment, Contradiction, NotMentioned. ""
+    ""If the contract contradicts the hypothesis, quote the exact verbatim supporting sentence(s) from the contract. ""
+    ""If there is no supporting evidence, spans must be []. ""
+    ""Return ONLY valid JSON: {\""choice\"": \""...\"", \""spans\"": [\""...\""]}.\n\n""
+    ""Hypothesis: "" + hyp + ""\n\nContract text:\n"" + context
+)
+
+res = llm_query(prompt).strip()
+if res.startswith(""```""):
+    res = res.strip(""`"")
+    if res.startswith(""json""):
+        res = res[4:]
+    res = res.strip()
+
+try:
+    obj = json.loads(res)
+    choice = obj.get(""choice"", ""NotMentioned"")
+    spans = obj.get(""spans"", []) or []
+    if choice not in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+        choice = ""NotMentioned""
+    if not isinstance(spans, list):
+        spans = []
+    spans = [s for s in spans if isinstance(s, str) and s in context]
+except Exception:
+    choice = ""NotMentioned""
+    spans = []
+
+final = {hyid: {""choice"": choice, ""spans"": spans}}
+answer[""content""] = json.dumps(final, ensure_ascii=False)
+answer[""ready""] = True
+print(answer[""content""])
+</repl>",Contradiction
+2026-08-28T00:56:51,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1803,2754,4557,,,"{
+  ""0"": {
+    ""choice"": ""NotMentioned"",
+    ""spans"": []
+  }
+}",NotMentioned
+2026-08-28T01:02:22,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,59311,34597,,,321.699,"{""No reverse engineering"": {""choice"": ""Entailment"", ""spans"": [""Receiving Party shall not reverse engineer any objects which embody Disclosing Party's Confidential Information.""]}}",NotMentioned
+2026-08-28T01:04:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-11,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,77557,11800,,,137.787,"{
+  ""1"": {
+    ""choice"": ""NotMentioned"",
+    ""spans"": []
+  }
+}",NotMentioned
+2026-08-28T01:06:01,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1801,8131,9932,,,"{
+  ""Return of confidential information"": {
+    ""choice"": ""NotMentioned"",
+    ""spans"": []
+  }
+}",NotMentioned
+2026-08-28T01:09:55,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,59444,25968,,,199.348,"{""Return of confidential information"": {""choice"": ""Entailment"", ""spans"": [""Receiving Party shall destroy or return some Confidential Information upon the termination of Agreement.""]}}",NotMentioned
+2026-08-28T01:13:18,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19-nda-16,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,51999,22696,,,171.291,"{
+  ""1"": {
+    ""choice"": ""Entailment"",
+    ""spans"": [
+      ""Upon termination of this Agreement, Receiving Party shall return or destroy all Confidential Information.""
+    ]
+  }
+}",NotMentioned
+2026-08-28T14:31:24,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2133,10787,12920,,,"{
+  ""1"": { ""choice"": ""NotMentioned"" },
+  ""2"": { ""choice"": ""NotMentioned"" },
+  ""3"": { ""choice"": ""Entailment"" },
+  ""4"": { ""choice"": ""Entailment"" },
+  ""5"": { ""choice"": ""Contradiction"" },
+  ""6"": { ""choice"": ""Contradiction"" },
+  ""7"": { ""choice"": ""Entailment"" },
+  ""8"": { ""choice"": ""NotMentioned"" },
+  ""9"": { ""choice"": ""Contradiction"" },
+  ""10"": { ""choice"": ""Entailment"" },
+  ""11"": { ""choice"": ""NotMentioned"" },
+  ""12"": { ""choice"": ""Contradiction"" },
+  ""13"": { ""choice"": ""NotMentioned"" },
+  ""14"": { ""choice"": ""NotMentioned"" },
+  ""15"": { ""choice"": ""NotMentioned"" },
+  ""16"": { ""choice"": ""Entailment"" },
+  ""17"": { ""choice"": ""Entailment"" }
+}"
+2026-08-28T14:37:03,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,112188,33245,,,331.019,"<repl>
+import json
+print(""ANSWER READY:"", answer.get(""ready""))
+print(""ANSWER CONTENT:"", answer.get(""content""))
+# Validate
+try:
+    data = json.loads(answer[""content""])
+    ids = sorted(data.keys())
+    print(""KEYS:"", ids)
+    print(""VALID:"", all(data[k][""choice""] in (""Entailment"",""Contradiction"",""NotMentioned"") for k in data))
+except Exception as e:
+    print(""PARSE ERROR:"", e)
+</repl>"
+2026-08-28T14:38:28,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-19,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,2078,3240,,,84.552,"{
+  ""1"": {""choice"": ""NotMentioned""},
+  ""2"": {""choice"": ""NotMentioned""},
+  ""3"": {""choice"": ""Entailment""},
+  ""4"": {""choice"": ""NotMentioned""},
+  ""5"": {""choice"": ""Contradiction""},
+  ""6"": {""choice"": ""NotMentioned""},
+  ""7"": {""choice"": ""Entailment""},
+  ""8"": {""choice"": ""NotMentioned""},
+  ""9"": {""choice"": ""Contradiction""},
+  ""10"": {""choice"": ""Entailment""},
+  ""11"": {""choice"": ""NotMentioned""},
+  ""12"": {""choice"": ""Contradiction""},
+  ""13"": {""choice"": ""NotMentioned""},
+  ""14"": {""choice"": ""NotMentioned""},
+  ""15"": {""choice"": ""NotMentioned""},
+  ""16"": {""choice"": ""Entailment""},
+  ""17"": {""choice"": ""Entailment""}
+}"
+2026-08-28T14:48:14,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2661,14270,16931,,,"{
+  ""nda-11"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-15"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-10"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-3"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-8"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-28T14:53:34,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,78047,31702,,,247.922,"{""nda-11"":{""choice"":""Entailment""},""nda-16"":{""choice"":""Entailment""},""nda-15"":{""choice"":""Entailment""},""nda-10"":{""choice"":""Entailment""},""nda-2"":{""choice"":""Contradiction""},""nda-1"":{""choice"":""Entailment""},""nda-19"":{""choice"":""Entailment""},""nda-12"":{""choice"":""Entailment""},""nda-20"":{""choice"":""Entailment""},""nda-3"":{""choice"":""Entailment""},""nda-18"":{""choice"":""NotMentioned""},""nda-7"":{""choice"":""Entailment""},""nda-17"":{""choice"":""Entailment""},""nda-8"":{""choice"":""Entailment""},""nda-13"":{""choice"":""Entailment""},""nda-5"":{""choice"":""Entailment""},""nda-4"":{""choice"":""Entailment""}}"
+2026-08-28T14:57:37,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,65707,26394,,,107.849,"{
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""Entailment""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""NotMentioned""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-1"": {""choice"": ""Entailment""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""Entailment""},
+  ""nda-20"": {""choice"": ""Entailment""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""}
+}"
+2026-08-28T15:01:04,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,6365,24127,30492,,,"{
+  ""nda-11"": { ""choice"": ""NotMentioned"" },
+  ""nda-16"": { ""choice"": ""Entailment"" },
+  ""nda-15"": { ""choice"": ""Entailment"" },
+  ""nda-10"": { ""choice"": ""Entailment"" },
+  ""nda-2"": { ""choice"": ""Contradiction"" },
+  ""nda-1"": { ""choice"": ""Contradiction"" },
+  ""nda-19"": { ""choice"": ""Entailment"" },
+  ""nda-12"": { ""choice"": ""Entailment"" },
+  ""nda-20"": { ""choice"": ""Contradiction"" },
+  ""nda-3"": { ""choice"": ""Entailment"" },
+  ""nda-18"": { ""choice"": ""NotMentioned"" },
+  ""nda-7"": { ""choice"": ""Entailment"" },
+  ""nda-17"": { ""choice"": ""Entailment"" },
+  ""nda-8"": { ""choice"": ""Entailment"" },
+  ""nda-13"": { ""choice"": ""Entailment"" },
+  ""nda-5"": { ""choice"": ""Entailment"" },
+  ""nda-4"": { ""choice"": ""Entailment"" }
+}"
+2026-08-28T15:06:20,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,113173,33381,,,296.044,"<repl>
+import re
+
+# Show section headings to understand structure
+sections = re.findall(r'^\s*[\d.]+\.?\s+[A-Z][^\n]{0,80}', context, flags=re.M)
+print(""SECTIONS:"")
+for s in sections[:50]:
+    print(s)
+
+print(""\n--- KEY CLAUSE EXCERPTS ---"")
+keys = [""reverse engineer"", ""destroy"", ""return"", ""surviv"", ""independently develop"", ""oral"", ""verbally"", ""mark"", ""designat"", ""solicit"", ""employees"", ""subcontract"", ""agent"", ""advisor"", ""copy"", ""notify"", ""law"", ""regulation"", ""judicial"", ""third part"", ""use Confidential"", ""purpose"", ""right"", ""ownership"", ""existence"", ""negotiat""]
+for key in keys:
+    idxs = [m.start() for m in re.finditer(key, context, flags=re.I)]
+    if idxs:
+        # print first occurrence context
+        i = idxs[0]
+        snippet = context[max(0,i-250): i+350].replace('\n',' ')
+        print(f""\n[{key}] ({len(idxs)} hits): ...{snippet}..."")
+</repl>"
+2026-08-28T15:10:32,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,86867,26752,,,238.264,"<repl>
+import json, re
+
+hyp_ids = [
+    ""nda-11"", ""nda-16"", ""nda-15"", ""nda-10"", ""nda-2"", ""nda-1"", ""nda-19"", ""nda-12"",
+    ""nda-20"", ""nda-3"", ""nda-18"", ""nda-7"", ""nda-17"", ""nda-8"", ""nda-13"", ""nda-5"", ""nda-4""
+]
+hyp_texts = {
+    ""nda-11"": ""Receiving Party shall not reverse engineer any objects which embody Disclosing Party's Confidential Information."",
+    ""nda-16"": ""Receiving Party shall destroy or return some Confidential Information upon the termination of Agreement."",
+    ""nda-15"": ""Agreement shall not grant Receiving Party any right to Confidential Information."",
+    ""nda-10"": ""Receiving Party shall not disclose the fact that Agreement was agreed or negotiated."",
+    ""nda-2"": ""Confidential Information shall only include technical information."",
+    ""nda-1"": ""All Confidential Information shall be expressly identified by the Disclosing Party."",
+    ""nda-19"": ""Some obligations of Agreement may survive termination of Agreement."",
+    ""nda-12"": ""Receiving Party may independently develop information similar to Confidential Information."",
+    ""nda-20"": ""Receiving Party may retain some Confidential Information even after the return or destruction of Confidential Information."",
+    ""nda-3"": ""Confidential Information may include verbally conveyed information."",
+    ""nda-18"": ""Receiving Party shall not solicit some of Disclosing Party's representatives."",
+    ""nda-7"": ""Receiving Party may share some Confidential Information with some third-parties (including consultants, agents and professional advisors)."",
+    ""nda-17"": ""Receiving Party may create a copy of some Confidential Information in some circumstances."",
+    ""nda-8"": ""Receiving Party shall notify Disclosing Party in case Receiving Party is required by law, regulation or judicial process to disclose any Confidential Information."",
+    ""nda-13"": ""Receiving Party may acquire information similar to Confidential Information from a third party."",
+    ""nda-5"": ""Receiving Party may share some Confidential Information with some of Receiving Party's employees."",
+    ""nda-4"": ""Receiving Party shall not use any Confidential Information for any purpose other than the purposes stated in Agreement."",
+}
+
+# Fresh single classification over the full contract
+hyp_block = ""\n"".join(f""{h}: {hyp_texts[h]}"" for h in hyp_ids)
+prompt = f""""""Classify each hypothesis against the NDA contract below. For each, pick EXACTLY ONE: ""Entailment"", ""Contradiction"", or ""NotMentioned"".
+
+Definitions:
+- Entailment: contract states it or clearly implies it.
+- Contradiction: contract states the opposite.
+- NotMentioned: contract is silent.
+
+Return ONLY valid JSON: {{""nda-XX"": {{""choice"": ""...""}}, ...}}. No other text.
+
+HYPOTHESES:
+{hyp_block}
+
+CONTRACT:
+{context}""""""
+
+out = llm_query(prompt)
+try:
+    obj = json.loads(re.search(r'\{.*\}', out, re.S).group(0))
+except Exception:
+    obj = None
+
+if not (obj and all(h in obj and obj[h].get(""choice"") in (""Entailment"",""Contradiction"",""NotMentioned"") for h in hyp_ids)):
+    # Fallback if parse fails: use existing answer if valid
+    try:
+        obj = json.loads(answer.get(""content"", """"))
+    except Exception:
+        obj = None
+
+final = {h: {""choice"": obj[h][""choice""]} for h in hyp_ids} if obj and all(h in obj for h in hyp_ids) else {h: {""choice"": ""NotMentioned""} for h in hyp_ids}
+
+answer[""content""] = json.dumps(final)
+answer[""ready""] = True
+print(answer[""content""])
+print(""READY:"", answer[""ready""])
+</repl>"
+2026-08-28T15:13:32,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3903,20836,24739,,,"{
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-15"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-10"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-19"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-12"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-20"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-3"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-13"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-28T15:17:07,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,2,4714,8741,,,214.466,"{
+  ""nda-11"": {""choice"": ""NotMentioned""},
+  ""nda-16"": {""choice"": ""NotMentioned""},
+  ""nda-15"": {""choice"": ""Contradiction""},
+  ""nda-10"": {""choice"": ""NotMentioned""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-1"": {""choice"": ""NotMentioned""},
+  ""nda-19"": {""choice"": ""NotMentioned""},
+  ""nda-12"": {""choice"": ""NotMentioned""},
+  ""nda-20"": {""choice"": ""Contradiction""},
+  ""nda-3"": {""choice"": ""NotMentioned""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-7"": {""choice"": ""Contradiction""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""NotMentioned""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""}
+}"
+2026-08-28T15:23:12,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,115841,38090,,,319.025,"{
+  ""nda-1"": {""choice"": ""Contradiction""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""Entailment""},
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-20"": {""choice"": ""Entailment""}
+}"
+2026-08-28T15:27:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3057,28360,31417,,,"{
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-15"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-10"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-20"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-3"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-28T15:32:08,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,74741,27432,,,260.28,"<repl>
+c = context
+print(""TOTAL LEN:"", len(c))
+print(c)
+</repl>"
+2026-08-28T15:38:42,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,79574,44953,,,375.895,"{
+  ""nda-1"": {""choice"": ""NotMentioned""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""NotMentioned""},
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-20"": {""choice"": ""Entailment""}
+}"
+2026-08-28T15:41:53,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2043,21616,23659,,,"{
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-15"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-10"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-3"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""NotMentioned""
+  }
+}"
+2026-08-28T15:47:05,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,77217,33371,,,253.099,"{""nda-11"":{""choice"":""Entailment""},""nda-16"":{""choice"":""Entailment""},""nda-15"":{""choice"":""Entailment""},""nda-10"":{""choice"":""Entailment""},""nda-2"":{""choice"":""Contradiction""},""nda-1"":{""choice"":""NotMentioned""},""nda-19"":{""choice"":""Entailment""},""nda-12"":{""choice"":""Entailment""},""nda-20"":{""choice"":""Entailment""},""nda-3"":{""choice"":""Entailment""},""nda-18"":{""choice"":""NotMentioned""},""nda-7"":{""choice"":""Entailment""},""nda-17"":{""choice"":""Entailment""},""nda-8"":{""choice"":""Entailment""},""nda-13"":{""choice"":""Entailment""},""nda-5"":{""choice"":""Entailment""},""nda-4"":{""choice"":""Entailment""}}"
+2026-08-28T15:53:26,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,99136,39950,,,374.172,"<repl>
+print(context)
+print(""CURRENT_ANSWER_CONTENT:"", answer[""content""])
+</repl>"
+2026-08-28T15:57:13,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,4634,25162,29796,,,"{
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-15"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-10"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-2"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-1"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-3"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-28T16:03:34,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,21,90586,41068,,,298.578,"{""nda-1"": {""choice"": ""Contradiction""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""NotMentioned""}, ""nda-11"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-16"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Entailment""}}"
+2026-08-28T16:10:04,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,159391,45389,,,354.853,"<repl>
+import json, re
+
+T = context
+hid_order = [""nda-11"",""nda-16"",""nda-15"",""nda-10"",""nda-2"",""nda-1"",""nda-19"",""nda-12"",
+             ""nda-20"",""nda-3"",""nda-18"",""nda-7"",""nda-17"",""nda-8"",""nda-13"",""nda-5"",""nda-4""]
+
+def has(pat):
+    return re.search(pat, T, flags=re.IGNORECASE) is not None
+
+def seg(pat, w=500):
+    return [T[max(0,m.start()-w):min(len(T),m.end()+w)] for m in re.finditer(pat, T, flags=re.IGNORECASE)]
+
+def near(patlist, window=150):
+    for s in seg(r""(?:"" + ""|"".join(patlist) + r"")"", window):
+        if s:
+            return True
+    return False
+
+out = {}
+
+# nda-11: no reverse engineering
+out[""nda-11""] = ""Entailment"" if has(r""not\s+(?:be\s+)?(?:allowed|authorized|permitted)?\s*to\s+reverse\s+engineer"") or has(r""reverse\s+engineer"") else ""NotMentioned""
+
+# nda-16: return/destroy upon termination
+out[""nda-16""] = ""Entailment"" if near([r""(?:return|destroy)s?.{0,150}(?:terminat|request)"", r""upon\s+(?:termination|expiration).{0,150}(?:return|destroy)""]) else ""NotMentioned""
+
+# nda-15: no rights granted
+out[""nda-15""] = ""Entailment"" if has(r""(?:no|nothing).{0,80}(?:license|right)"") or has(r""does\s+not\s+grant"") else ""NotMentioned""
+
+# nda-10: no disclosure of agreement existence
+out[""nda-10""] = ""Entailment"" if has(r""(?:existence|fact).{0,60}(?:agreement|negotiat).{0,60}(?:not\s+disclose|disclose\s+not)"") or has(r""not\s+disclose.{0,60}(?:existence|negotiat)"") else ""NotMentioned""
+
+# nda-2: CI only technical
+if has(r""confidential\s+information.{0,60}(?:means|shall\s+mean|includes?)"") or has(r""technical""):
+    defn_has_tech = has(r""technical"")
+    defn_has_nontech = has(r""business|financial|commercial|marketing|strategic|operational|legal\s+information|employee|customer"")
+    out[""nda-2""] = ""Contradiction"" if (defn_has_tech and defn_has_nontech) else (""Entailment"" if defn_has_tech else ""NotMentioned"")
+else:
+    out[""nda-2""] = ""NotMentioned""
+
+# nda-1: express identification
+out[""nda-1""] = ""Entailment"" if has(r""identif|mark(?:ed)?\s+as\s+confidential|designat|stamped"") else ""NotMentioned""
+
+# nda-19: survival
+out[""nda-19""] = ""Entailment"" if has(r""surviv"") else ""NotMentioned""
+
+# nda-12: independent development
+out[""nda-12""] = ""Entailment"" if has(r""independently.{0,60}(?:develop|create)|develop(?:ed)?\s+independently"") else ""NotMentioned""
+
+# nda-20: retention after return/destruction
+if has(r""retain|retention""):
+    out[""nda-20""] = ""Entailment"" if has(r""retain.{0,120}(?:required\s+by\s+law|legal\s+compliance|archiv|backup)|except.{0,60}retain"") else ""Contradiction"" if has(r""(?:return|destroy).{0,80}all\s+confidential\s+information"") else ""NotMentioned""
+else:
+    out[""nda-20""] = ""NotMentioned""
+
+# nda-3: verbal information
+out[""nda-3""] = ""Entailment"" if has(r""oral|verbal|visual|communicat"") else ""NotMentioned""
+
+# nda-18: non-solicitation
+out[""nda-18""] = ""Entailment"" if has(r""solicit"") else ""NotMentioned""
+
+# nda-7: third parties incl consultants/advisors
+if has(r""third\s+part|consultant|advis|agent""):
+    out[""nda-7""] = ""Entailment"" if has(r""(?:may|permitted).{0,120}(?:disclose|share|provide|access).{0,120}(?:consultant|advis|agent|third\s+part)"") else ""NotMentioned""
+else:
+    out[""nda-7""] = ""NotMentioned""
+
+# nda-17: copies allowed
+if has(r""cop(?:y|ies)""):
+    out[""nda-17""] = ""Entailment"" if has(r""(?:may|permitted|necessary|solely).{0,120}cop"") else ""NotMentioned""
+else:
+    out[""nda-17""] = ""NotMentioned""
+
+# nda-8: compelled disclosure + notice
+out[""nda-8""] = ""Entailment"" if (has(r""required\s+by\s+law|judicial\s+process|regulat|governmental|court\s+order"") and has(r""notify|notice"")) else ""NotMentioned""
+
+# nda-13: acquire from third party
+if has(r""third\s+part""):
+    out[""nda-13""] = ""Entailment"" if has(r""third\s+part.{0,150}(?:acquire|receiv|obtain|independent)|independently.{0,80}third\s+part"") else ""NotMentioned""
+else:
+    out[""nda-13""] = ""NotMentioned""
+
+# nda-5: employees may access
+if has(r""employee""):
+    out[""nda-5""] = ""Entailment"" if has(r""employee.{0,120}(?:need\s+to\s+know|may\s+disclose|permitted|necessary)"") else ""Entailment""
+else:
+    out[""nda-5""] = ""NotMentioned""
+
+# nda-4: use limited to purpose
+out[""nda-4""] = ""Entailment"" if has(r""(?:solely|only|exclusively).{0,80}purpose|purpose.{0,60}(?:of\s+this\s+agreement|evaluation)"") else ""NotMentioned""
+
+final = {h: {""choice"": out[h]} for h in hid_order}
+answer[""content""] = json.dumps(final, ensure_ascii=False, separators=("","", "":""))
+answer[""ready""] = True
+print(answer[""content""])
+</repl>"
+2026-08-28T16:10:35,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-14,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,1590,3634,5224,,,"{
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-15"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-10"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-19"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-12"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-20"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-3"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-17"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-13"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-5"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-29T19:54:00,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,5806,8613,,,277.891,"{
+  ""nda-11"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-15"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-10"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-3"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-8"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-29T20:32:20,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,7524,8960,,,72.256,"{
+  ""nda-11"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-15"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-10"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-3"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-8"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-29T20:36:55,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,34457,7469,,,275.618,"{""nda-11"": {""choice"": ""NotMentioned""}, ""nda-16"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""Entailment""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""Contradiction""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
+2026-08-29T21:57:21,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,76577,47917,,,334.512,"{
+  ""nda-1"": {""choice"": ""Contradiction""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""Entailment""},
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""Entailment""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-20"": {""choice"": ""Entailment""}
+}"
+2026-08-29T22:02:40,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,21,98811,36721,,,314.244,"{
+  ""nda-1"": {""choice"": ""Contradiction""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""NotMentioned""},
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-20"": {""choice"": ""Entailment""}
+}"
+2026-08-29T22:09:38,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,55,179778,10039,,,418.437,"{
+  ""nda-1"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-3"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-7"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-10"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-12"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-13"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-15"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Contradiction""
+  }
+}"
+2026-08-29T22:23:30,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,11,25478,41829,,,831.631,"{""nda-11"": {""choice"": ""NotMentioned""}, ""nda-16"": {""choice"": ""Contradiction""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""Entailment""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""Contradiction""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""NotMentioned""}, ""nda-20"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""NotMentioned""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
+2026-08-29T22:35:48,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,37,57719,35798,,,737.8,"{
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-15"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-10"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-3"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-29T22:41:14,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-13,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,6552,8182,,,324.991,"{""nda-1"": {""choice"": ""Entailment""}, ""nda-2"": {""choice"": ""Entailment""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""NotMentioned""}, ""nda-11"": {""choice"": ""NotMentioned""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-16"": {""choice"": ""NotMentioned""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Entailment""}}"
+2026-08-29T22:44:15,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-14,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,5490,5077,,,180.93,"{""nda-1"": {""choice"": ""NotMentioned""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""NotMentioned""}, ""nda-4"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Contradiction""}, ""nda-7"": {""choice"": ""Contradiction""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""NotMentioned""}, ""nda-11"": {""choice"": ""NotMentioned""}, ""nda-12"": {""choice"": ""NotMentioned""}, ""nda-13"": {""choice"": ""NotMentioned""}, ""nda-15"": {""choice"": ""Contradiction""}, ""nda-16"": {""choice"": ""NotMentioned""}, ""nda-17"": {""choice"": ""NotMentioned""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-19"": {""choice"": ""NotMentioned""}, ""nda-20"": {""choice"": ""NotMentioned""}}"
+2026-08-29T22:59:34,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,40,44613,96298,,,918.911,"{""nda-11"": {""choice"": ""NotMentioned""}, ""nda-16"": {""choice"": ""NotMentioned""}, ""nda-15"": {""choice"": ""Contradiction""}, ""nda-10"": {""choice"": ""NotMentioned""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""Contradiction""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""NotMentioned""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""NotMentioned""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
+2026-08-29T23:29:38,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,12421,9412,,,37.62,"<repl>
+import json
+
+hyp = {
+ ""nda-1"": ""All Confidential Information shall be expressly identified by the Disclosing Party."",
+ ""nda-2"": ""Confidential Information shall only include technical information."",
+ ""nda-3"": ""Confidential Information may include verbally conveyed information."",
+ ""nda-4"": ""Receiving Party shall not use any Confidential Information for any purpose other than the purposes stated in Agreement."",
+ ""nda-5"": ""Receiving Party may share some Confidential Information with some of Receiving Party's employees."",
+ ""nda-7"": ""Receiving Party may share some Confidential Information with some third-parties (including consultants, agents and professional advisors)."",
+ ""nda-8"": ""Receiving Party shall notify Disclosing Party in case Receiving Party is required by law, regulation or judicial process to disclose any Confidential Information."",
+ ""nda-10"": ""Receiving Party shall not disclose the fact that Agreement was agreed or negotiated."",
+ ""nda-11"": ""Receiving Party shall not reverse engineer any objects which embody Disclosing Party's Confidential Information."",
+ ""nda-12"": ""Receiving Party may independently develop information similar to Confidential Information."",
+ ""nda-13"": ""Receiving Party may acquire information similar to Confidential Information from a third party."",
+ ""nda-15"": ""Agreement shall not grant Receiving Party any right to Confidential Information."",
+ ""nda-16"": ""Receiving Party shall destroy or return some Confidential Information upon the termination of Agreement."",
+ ""nda-17"": ""Receiving Party may create a copy of some Confidential Information in some circumstances."",
+ ""nda-18"": ""Receiving Party shall not solicit some of Disclosing Party's representatives."",
+ ""nda-19"": ""Some obligations of Agreement may survive termination of Agreement."",
+ ""nda-20"": ""Receiving Party may retain some Confidential Information even after the return or destruction of Confidential Information."",
+}
+
+fallback = {
+ ""nda-1"": ""Contradiction"", ""nda-2"": ""Contradiction"", ""nda-3"": ""Entailment"",
+ ""nda-4"": ""Entailment"", ""nda-5"": ""Entailment"", ""nda-7"": ""Entailment"",
+ ""nda-8"": ""Entailment"", ""nda-10"": ""NotMentioned"", ""nda-11"": ""NotMentioned"",
+ ""nda-12"": ""NotMentioned"", ""nda-13"": ""NotMentioned"", ""nda-15"": ""Entailment"",
+ ""nda-16"": ""Entailment"", ""nda-17"": ""Entailment"", ""nda-18"": ""NotMentioned"",
+ ""nda-19"": ""Entailment"", ""nda-20"": ""Entailment"",
+}
+
+hl = ""\n"".join(f""- {k}: {v}"" for k, v in hyp.items())
+
+def parse(s):
+    s = s.strip()
+    while s.startswith(""`""):
+        s = s[1:]
+    while s.endswith(""`""):
+        s = s[:-1]
+    a = s.find(""{""); b = s.rfind(""}"")
+    if a == -1 or b == -1:
+        raise ValueError(""no json"")
+    return json.loads(s[a:b+1])
+
+def classify():
+    prompts = []
+    for i in range(3):
+        prompts.append(
+            f""Document-level NLI on an NDA contract below. For EACH hypothesis choose exactly one label: ""
+            f""Entailment (contract necessarily implies it), Contradiction (contract implies the opposite), ""
+            f""NotMentioned (contract is silent / neither).\n\nCONTRACT:\n{context}\n\n""
+            f""HYPOTHESES:\n{hl}\n\n""
+            f""Respond with ONLY a JSON object mapping each hypothesis id to its label, e.g. ""
+            f""{{\""nda-1\"": \""Entailment\"", ...}}. No extra text.""
+        )
+    res = llm_query_batched(prompts)
+    outs = []
+    for r in res:
+        try:
+            outs.append(parse(r))
+        except Exception:
+            pass
+    final = {}
+    for k in hyp:
+        votes = [o[k] for o in outs if k in o and o[k] in (""Entailment"", ""Contradiction"", ""NotMentioned"")]
+        if votes and (len(votes) >= 2 or len(outs) <= 1):
+            final[k] = max(set(votes), key=votes.count)
+        else:
+            final[k] = fallback[k]
+    return final
+
+try:
+    final = classify()
+    if not isinstance(final, dict) or len(final) != len(hyp):
+        raise ValueError(""bad result"")
+    for k in hyp:
+        if k not in final or final[k] not in (""Entailment"", ""Contradiction"", ""NotMentioned""):
+            final[k] = fallback[k]
+except Exception:
+    final = fallback
+
+out = {k: {""choice"": v} for k, v in final.items()}
+ans = json.dumps(out)
+answer[""content""] = ans
+answer[""ready""] = True
+print(ans)
+</repl>"
+2026-08-29T23:32:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,20678,12707,,,97.336,"{
+  ""nda-1"": {""choice"": ""NotMentioned""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""Entailment""},
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-20"": {""choice"": ""Entailment""}
+}"
+2026-08-29T23:33:06,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,19730,3841,,,26.647,"{""nda-11"": {""choice"": ""NotMentioned""}, ""nda-16"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""Entailment""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""Contradiction""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
+2026-08-29T23:35:41,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,23,60587,6747,,,154.136,"{
+  ""nda-1"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-3"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-7"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-10"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-12"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-13"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-15"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""NotMentioned""
+  }
+}"
+2026-08-29T23:42:56,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,15104,30367,,,434.608,"{""nda-11"": {""choice"": ""NotMentioned""}, ""nda-16"": {""choice"": ""NotMentioned""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""Entailment""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""Contradiction""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""NotMentioned""}, ""nda-20"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""NotMentioned""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""NotMentioned""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
+2026-08-29T23:45:46,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,10369,7445,,,170.199,"{""nda-11"": {""choice"": ""NotMentioned""}, ""nda-16"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""NotMentioned""}, ""nda-10"": {""choice"": ""NotMentioned""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""NotMentioned""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"

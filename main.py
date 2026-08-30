@@ -10,8 +10,14 @@ from rlm.utils.prompts import RLM_SYSTEM_PROMPT
 
 #utils
 from utils.contract_nli_utils import (
+    CRASH_PROOF_FINAL_SUBMISSION,
+    CRITICAL_OUTPUT_RULE,
+    PRESERVE_VALID_ANSWERS,
+    REPL_STDOUT_VISIBILITY,
     RLM_FINISH_GUIDE,
+    SUB_LLM_VERIFICATION,
     TASK_SPEC,
+    build_hypotheses_block,
     get_actual_label,
     get_document_index_by_id,
     get_hypothesis,
@@ -31,7 +37,7 @@ TEMPERATURE = 0
 #-----------------------------------------
 # condition 1: vanilla LLM calls (no RLM)
 #-----------------------------------------
-def run_vanilla(row_id: str, contract_text: str, hypotheses: str, actual_label: str) -> str:
+def run_vanilla(row_id: str, contract_text: str, hypotheses: str) -> str:
     client = OpenAI(
         api_key=os.environ.get('DEEPSEEK_API_KEY'),
         base_url=DEEPSEEK_BASE_URL,)
@@ -43,13 +49,11 @@ def run_vanilla(row_id: str, contract_text: str, hypotheses: str, actual_label: 
             {"role": "user", "content": f"{TASK_SPEC}\n\n{hypotheses}\n\nCONTRACT:\n{contract_text}"},
         ],
         stream=False,
-        reasoning_effort="high",
         extra_body={"thinking": {"type": "enabled"}}
     )
 
     log_run(
         response,
-        actual=actual_label,
         method="vanilla",
         model=DEEPSEEK_MODEL,
         experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
@@ -66,7 +70,7 @@ def run_vanilla(row_id: str, contract_text: str, hypotheses: str, actual_label: 
 #-----------------------------------------------
 # condition 2: RLM calls (Generic system prompt)
 #-----------------------------------------------
-def run_rlm_generic(row_id: str, contract_text: str, hypotheses: str, actual_label: str) -> str:
+def run_rlm_generic(row_id: str, contract_text: str, hypotheses: str) -> str:
     root_prompt = f"{TASK_SPEC}{RLM_FINISH_GUIDE}\n\n{hypotheses}"
     rlm = RLM(
         backend="openai",
@@ -76,7 +80,15 @@ def run_rlm_generic(row_id: str, contract_text: str, hypotheses: str, actual_lab
             "base_url": DEEPSEEK_BASE_URL,
         },
         verbose=True,
-        sampling_args={"temperature": TEMPERATURE},
+        sampling_args={
+            "temperature": TEMPERATURE,
+            "extra_body":{"thinking": {"type": "enabled"}}
+        },
+        sub_sampling_args={
+            "temperature": TEMPERATURE,
+            "reasoning_effort": "low",
+            "extra_body":{"thinking": {"type": "enabled"}}
+        },
         logger=RLMLogger(log_dir="./logs"),
         max_iterations=20,
             max_tokens=200_000,
@@ -85,7 +97,6 @@ def run_rlm_generic(row_id: str, contract_text: str, hypotheses: str, actual_lab
     result = rlm.completion(prompt=contract_text, root_prompt=root_prompt)
     log_run(
         result,
-        actual=actual_label,
         method="RLM-generic",
         model=DEEPSEEK_MODEL,
         rlm=rlm,
@@ -99,14 +110,23 @@ def run_rlm_generic(row_id: str, contract_text: str, hypotheses: str, actual_lab
 #-----------------------------------------------
 # condition 3: RLM calls (Custom system prompt)
 #-----------------------------------------------
-def run_rlm_customized(row_id: str, contract_text: str, hypotheses: str, actual_label: str) -> str:
+def run_rlm_customized(row_id: str, contract_text: str, hypotheses: str) -> str:
     custom_system_prompt = (
         RLM_SYSTEM_PROMPT
-        + f"\n\n{TASK_SPEC}\n\n{RLM_FINISH_GUIDE}\n\n"
+        + f"\n\n{TASK_SPEC}\n\n{RLM_FINISH_GUIDE}\n\n\n\n"
         + "Reminder: llm_query() calls are isolated completions with no memory "
         "of this system prompt -- restate the label set and the relevant "
         "hypothesis text inside any llm_query() prompt you write."
+        + f"\n\nCRITICAL OUTPUT RULE: {CRITICAL_OUTPUT_RULE}"
+        + f"\n\nCRASH-PROOF FINAL SUBMISSION: {CRASH_PROOF_FINAL_SUBMISSION}"
+        + f"\n\nREPL STDOUT VISIBILITY: {REPL_STDOUT_VISIBILITY}"
+        + f"\n\nPRESERVE VALID ANSWERS: {PRESERVE_VALID_ANSWERS}"
     )
+    root_prompt = f"{TASK_SPEC}{RLM_FINISH_GUIDE}\n\n{hypotheses}\n\n"
+    root_prompt += "Remember: your last message must be the JSON answer, not a repl block. "
+    root_prompt += "If you have already set answer['ready']=True, simply output the JSON object."
+    root_prompt += "\n\nIf you are unsure, always prefer to set answer['ready']=True at least one turn before the last turn."
+    root_prompt += f"\n\nVERIFICATION: {SUB_LLM_VERIFICATION}\n\n"
     rlm = RLM(
         backend="openai",
         backend_kwargs={
@@ -115,17 +135,24 @@ def run_rlm_customized(row_id: str, contract_text: str, hypotheses: str, actual_
             "base_url": DEEPSEEK_BASE_URL,
         },
         verbose=True,
-        sampling_args={"temperature": TEMPERATURE},
-        max_iterations=20,
-        max_tokens=200_000,
+        sampling_args={
+            "temperature": TEMPERATURE,
+            "extra_body":{"thinking": {"type": "enabled"}}
+        },
+        sub_sampling_args={
+            "temperature": TEMPERATURE,
+            "reasoning_effort": "low",
+            "extra_body":{"thinking": {"type": "enabled"}}
+        },
+        max_iterations=5,
+        max_tokens=500_000,
         max_errors=3,
         logger=RLMLogger(log_dir="./logs"),
         custom_system_prompt=custom_system_prompt
     )
-    result = rlm.completion(prompt=contract_text, root_prompt=hypotheses)
+    result = rlm.completion(prompt=contract_text, root_prompt=root_prompt)
     log_run(
         result,
-        actual=actual_label,
         method="RLM-customized",
         model=DEEPSEEK_MODEL,
         experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
@@ -141,27 +168,20 @@ def run_rlm_customized(row_id: str, contract_text: str, hypotheses: str, actual_
 def main():
     CONTRACT_PATH = "./contract-nli/dev.json" 
 
-    target_doc_ids = ["19", "20", "32"]
-    target_hypotheses = [
-        ["nda-15", "nda-19", "nda-7", "nda-2", "nda-11", "nda-16"],
-        ["nda-15", "nda-16", "nda-1", "nda-2", "nda-11", "nda-10"],
-        ["nda-15", "nda-16", "nda-7", "nda-2", "nda-11", "nda-19"]]
+    # target_doc_ids = ["19", "20", "32"]
 
-    for i, doc_id in enumerate(target_doc_ids):
+    for i in range(5):
 
-        doc_index = get_document_index_by_id(CONTRACT_PATH, doc_id)
-        row_id, contract_text = load_one_record(CONTRACT_PATH, doc_index=doc_index)
-        for hypothesis_id in target_hypotheses[i]:
-            hypotheses = get_hypothesis(CONTRACT_PATH, h_id=hypothesis_id)
-            actual_label = get_actual_label(CONTRACT_PATH, doc_index=doc_index, h_id=hypothesis_id)
-            print("=== 1. VANILLA ===")
-            print(run_vanilla(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
+        row_id, contract_text = load_one_record(CONTRACT_PATH, doc_index=i)
+        hypotheses = build_hypotheses_block(CONTRACT_PATH)
+        # print("=== 1. VANILLA ===")
+        # print(run_vanilla(f"{row_id}", contract_text, hypotheses))
         
-            print("\n=== 2. RLM DEFAULT SYSTEM PROMPT ===")
-            print(run_rlm_generic(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
+        # print("\n=== 2. RLM DEFAULT SYSTEM PROMPT ===")
+        # print(run_rlm_generic(f"{row_id}", contract_text, hypotheses))
         
-            print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
-            print(run_rlm_customized(f"{row_id}-{hypothesis_id}", contract_text, hypotheses, actual_label))
+        print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
+        print(run_rlm_customized(f"{row_id}", contract_text, hypotheses))
 
  
 if __name__ == "__main__":

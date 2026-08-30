@@ -20,13 +20,11 @@ CSV_COLUMNS = [
     "cost_usd",
     "execution_time_s",
     "response",
-    "actual",
 ]
 
 
 def log_run(
     result: Any,
-    actual: Any,
     method: Any, #RLM or vanilla
     model: Any, #LLM model name
     rlm: Any, #RLM object, if applicable,
@@ -82,7 +80,6 @@ def log_run(
         "cost_usd": "" if cost is None else round(cost, 8),
         "execution_time_s": None if method == "vanilla" else round(result.execution_time, 3),
         "response": result.response if method != "vanilla" else result.choices[0].message.content,
-        "actual": actual
     }
 
     file_exists = csv_path.exists()
