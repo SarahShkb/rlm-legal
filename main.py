@@ -71,7 +71,11 @@ def run_vanilla(row_id: str, contract_text: str, hypotheses: str) -> str:
 # condition 2: RLM calls (Generic system prompt)
 #-----------------------------------------------
 def run_rlm_generic(row_id: str, contract_text: str, hypotheses: str) -> str:
-    root_prompt = f"{TASK_SPEC}{RLM_FINISH_GUIDE}\n\n{hypotheses}"
+    root_prompt = f"{TASK_SPEC}{RLM_FINISH_GUIDE}\n\n{hypotheses}\n\n"
+    root_prompt += "Remember: your last message must be the JSON answer, not a repl block. "
+    root_prompt += "If you have already set answer['ready']=True, simply output the JSON object."
+    root_prompt += "\n\nIf you are unsure, always prefer to set answer['ready']=True at least one turn before the last turn."
+    root_prompt += f"\n\nVERIFICATION: {SUB_LLM_VERIFICATION}\n\n"
     rlm = RLM(
         backend="openai",
         backend_kwargs={
@@ -90,8 +94,8 @@ def run_rlm_generic(row_id: str, contract_text: str, hypotheses: str) -> str:
             "extra_body":{"thinking": {"type": "enabled"}}
         },
         logger=RLMLogger(log_dir="./logs"),
-        max_iterations=20,
-            max_tokens=200_000,
+        max_iterations=5,
+            max_tokens=500_000,
             max_errors=3,
     )
     result = rlm.completion(prompt=contract_text, root_prompt=root_prompt)
@@ -174,14 +178,14 @@ def main():
 
         row_id, contract_text = load_one_record(CONTRACT_PATH, doc_index=i)
         hypotheses = build_hypotheses_block(CONTRACT_PATH)
-        # print("=== 1. VANILLA ===")
-        # print(run_vanilla(f"{row_id}", contract_text, hypotheses))
+        print("=== 1. VANILLA ===")
+        print(run_vanilla(f"{row_id}", contract_text, hypotheses))
         
         # print("\n=== 2. RLM DEFAULT SYSTEM PROMPT ===")
         # print(run_rlm_generic(f"{row_id}", contract_text, hypotheses))
         
-        print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
-        print(run_rlm_customized(f"{row_id}", contract_text, hypotheses))
+        # print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
+        # print(run_rlm_customized(f"{row_id}", contract_text, hypotheses))
 
  
 if __name__ == "__main__":

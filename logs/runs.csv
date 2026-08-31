@@ -2176,3 +2176,241 @@ print(ans)
 }"
 2026-08-29T23:42:56,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,15104,30367,,,434.608,"{""nda-11"": {""choice"": ""NotMentioned""}, ""nda-16"": {""choice"": ""NotMentioned""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""Entailment""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""Contradiction""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""NotMentioned""}, ""nda-20"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""NotMentioned""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""NotMentioned""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
 2026-08-29T23:45:46,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,10369,7445,,,170.199,"{""nda-11"": {""choice"": ""NotMentioned""}, ""nda-16"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""NotMentioned""}, ""nda-10"": {""choice"": ""NotMentioned""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""NotMentioned""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
+2026-08-30T22:05:30,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,2,142467,15639,,,115.344,"{""nda-11"": {""choice"": ""Entailment""}, ""nda-16"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""Contradiction""}, ""nda-10"": {""choice"": ""Entailment""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""Contradiction""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Entailment""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""NotMentioned""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
+2026-08-30T22:08:27,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,6,16133,19531,,,162.646,"{
+  ""nda-1"": {""choice"": ""NotMentioned""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""Entailment""},
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-20"": {""choice"": ""Entailment""}
+}"
+2026-08-30T22:12:01,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,6,16895,24815,,,184.476,"{
+  ""nda-1"": {""choice"": ""Contradiction""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""Entailment""},
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-20"": {""choice"": ""Entailment""}
+}"
+2026-08-30T22:14:14,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,6,16467,15694,,,112.713,"{""nda-11"": {""choice"": ""Entailment""}, ""nda-16"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""Entailment""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-1"": {""choice"": ""Entailment""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Entailment""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}}"
+2026-08-30T22:16:19,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12,deepseek-v4-flash,RLM-generic,deepseek-v4-flash,,6,18727,15778,,,77.283,"{""nda-1"": {""choice"": ""NotMentioned""}, ""nda-2"": {""choice"": ""Contradiction""}, ""nda-3"": {""choice"": ""Entailment""}, ""nda-4"": {""choice"": ""Entailment""}, ""nda-5"": {""choice"": ""Entailment""}, ""nda-7"": {""choice"": ""Entailment""}, ""nda-8"": {""choice"": ""Entailment""}, ""nda-10"": {""choice"": ""NotMentioned""}, ""nda-11"": {""choice"": ""Entailment""}, ""nda-12"": {""choice"": ""Entailment""}, ""nda-13"": {""choice"": ""Entailment""}, ""nda-15"": {""choice"": ""Entailment""}, ""nda-16"": {""choice"": ""Entailment""}, ""nda-17"": {""choice"": ""Entailment""}, ""nda-18"": {""choice"": ""NotMentioned""}, ""nda-19"": {""choice"": ""Entailment""}, ""nda-20"": {""choice"": ""Entailment""}}"
+2026-08-30T22:56:28,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-3,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2661,6851,9512,,,"{
+  ""nda-11"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-15"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-10"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-3"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-8"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-30T22:57:54,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-7,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,6365,11065,17430,,,"{
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-15"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-10"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-19"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-12"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-20"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-3"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-13"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-30T23:01:58,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-9,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3903,29830,33733,,,"{
+  ""nda-11"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-16"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-15"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-10"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-2"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-1"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-19"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-12"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-20"": {
+    ""choice"": ""Contradiction""
+  },
+  ""nda-3"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-18"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-7"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-17"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-8"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-13"": {
+    ""choice"": ""NotMentioned""
+  },
+  ""nda-5"": {
+    ""choice"": ""Entailment""
+  },
+  ""nda-4"": {
+    ""choice"": ""Entailment""
+  }
+}"
+2026-08-30T23:08:13,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-10,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,3057,41127,44184,,,"{
+  ""nda-11"": {""choice"": ""Entailment""},
+  ""nda-16"": {""choice"": ""NotMentioned""},
+  ""nda-15"": {""choice"": ""Entailment""},
+  ""nda-10"": {""choice"": ""Entailment""},
+  ""nda-2"": {""choice"": ""Contradiction""},
+  ""nda-1"": {""choice"": ""Contradiction""},
+  ""nda-19"": {""choice"": ""Entailment""},
+  ""nda-12"": {""choice"": ""NotMentioned""},
+  ""nda-20"": {""choice"": ""Entailment""},
+  ""nda-3"": {""choice"": ""Entailment""},
+  ""nda-18"": {""choice"": ""NotMentioned""},
+  ""nda-7"": {""choice"": ""Entailment""},
+  ""nda-17"": {""choice"": ""Entailment""},
+  ""nda-8"": {""choice"": ""Entailment""},
+  ""nda-13"": {""choice"": ""Entailment""},
+  ""nda-5"": {""choice"": ""Entailment""},
+  ""nda-4"": {""choice"": ""Entailment""}
+}"
+2026-08-30T23:11:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,contract-nli,dev-12,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,2043,28773,30816,,,"{
+  ""nda-11"": { ""choice"": ""NotMentioned"" },
+  ""nda-16"": { ""choice"": ""Entailment"" },
+  ""nda-15"": { ""choice"": ""NotMentioned"" },
+  ""nda-10"": { ""choice"": ""NotMentioned"" },
+  ""nda-2"": { ""choice"": ""Contradiction"" },
+  ""nda-1"": { ""choice"": ""NotMentioned"" },
+  ""nda-19"": { ""choice"": ""Entailment"" },
+  ""nda-12"": { ""choice"": ""Entailment"" },
+  ""nda-20"": { ""choice"": ""NotMentioned"" },
+  ""nda-3"": { ""choice"": ""Entailment"" },
+  ""nda-18"": { ""choice"": ""NotMentioned"" },
+  ""nda-7"": { ""choice"": ""Entailment"" },
+  ""nda-17"": { ""choice"": ""NotMentioned"" },
+  ""nda-8"": { ""choice"": ""Entailment"" },
+  ""nda-13"": { ""choice"": ""Entailment"" },
+  ""nda-5"": { ""choice"": ""Entailment"" },
+  ""nda-4"": { ""choice"": ""NotMentioned"" }
+}"
