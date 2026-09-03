@@ -16,7 +16,7 @@ TEMPERATURE = 0
 #-----------------------------------------
 # condition 1: vanilla LLM calls (no RLM)
 #-----------------------------------------
-def run_vanilla(dataset: str,row_id: str, contract_text: str, hypotheses: str, TASK_SPEC: str) -> str:
+def run_vanilla(dataset: str,row_id: str, contract_text: str, TASK_SPEC: str) -> str:
     client = OpenAI(
         api_key=os.environ.get('DEEPSEEK_API_KEY'),
         base_url=DEEPSEEK_BASE_URL,)
@@ -25,7 +25,7 @@ def run_vanilla(dataset: str,row_id: str, contract_text: str, hypotheses: str, T
         model=DEEPSEEK_MODEL,
         messages=[
             {"role": "system", "content": "You are a helpful assistant"},
-            {"role": "user", "content": f"{TASK_SPEC}\n\n{hypotheses}\n\nCONTRACT:\n{contract_text}"},
+            {"role": "user", "content": f"{TASK_SPEC}\n\nCONTRACT:\n{contract_text}"},
         ],
         stream=False,
         extra_body={"thinking": {"type": "enabled"}}

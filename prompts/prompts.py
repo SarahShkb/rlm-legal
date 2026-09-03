@@ -22,7 +22,7 @@ Return ONLY:
 #----------------------------------------
 
 RLM_FINISH_GUIDE = """
-Use the REPL to inspect the contract and reason about the hypothesis.
+Use the REPL to inspect the context and reasoning.
 
 When you have enough evidence, STOP exploring and terminate.
 

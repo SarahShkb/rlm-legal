@@ -45,6 +45,7 @@ def get_actual_label(contractnli_json_path: str, doc_index: int = 0, h_id: str =
     actual_label = doc["annotation_sets"][0]["annotations"][h_id]["choice"]
     return actual_label
 
+
 def get_document_index_by_id(contractnli_json_path: str, doc_id: str) -> int:
     with open(contractnli_json_path) as f:
         data = json.load(f)
@@ -63,14 +64,14 @@ def run_contract_nli_pipeline():
     # target_doc_ids = ["19", "20", "32"]
 
     for i in range(5):
-
         row_id, contract_text = load_one_record(CONTRACT_PATH, doc_index=i)
         hypotheses = build_hypotheses_block(CONTRACT_PATH)
+        task_prompt = f"{TASK_SPEC}\n\n{hypotheses}\n\n"
         print("=== 1. VANILLA ===")
-        print(run_vanilla("contract-nli", f"{row_id}", contract_text, hypotheses, TASK_SPEC=TASK_SPEC))
+        print(run_vanilla("contract-nli", f"{row_id}", contract_text, TASK_SPEC=task_prompt))
         
         print("\n=== 2. RLM DEFAULT SYSTEM PROMPT ===")
-        print(run_rlm_generic(f"{row_id}", contract_text, hypotheses, TASK_SPEC=TASK_SPEC))
+        print(run_rlm_generic("contract-nli", f"{row_id}", contract_text, TASK_SPEC=task_prompt))
         
         print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
-        print(run_rlm_customized("contract-nli", f"{row_id}", contract_text, hypotheses, TASK_SPEC=TASK_SPEC))
+        print(run_rlm_customized("contract-nli", f"{row_id}", contract_text, TASK_SPEC=task_prompt))

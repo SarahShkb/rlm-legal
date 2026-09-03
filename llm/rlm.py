@@ -29,8 +29,8 @@ TEMPERATURE = 0
 #-----------------------------------------------
 # condition 2: RLM calls (Generic system prompt)
 #-----------------------------------------------
-def run_rlm_generic(dataset: str, row_id: str, contract_text: str, hypotheses: str, TASK_SPEC: str) -> str:
-    root_prompt = f"{TASK_SPEC}{RLM_FINISH_GUIDE}\n\n{hypotheses}\n\n"
+def run_rlm_generic(dataset: str, row_id: str, contract_text: str, TASK_SPEC: str) -> str:
+    root_prompt = f"{TASK_SPEC}\n\n{RLM_FINISH_GUIDE}\n\n"
     root_prompt += "Remember: your last message must be the JSON answer, not a repl block. "
     root_prompt += "If you have already set answer['ready']=True, simply output the JSON object."
     root_prompt += "\n\nIf you are unsure, always prefer to set answer['ready']=True at least one turn before the last turn."
@@ -73,19 +73,19 @@ def run_rlm_generic(dataset: str, row_id: str, contract_text: str, hypotheses: s
 #-----------------------------------------------
 # condition 3: RLM calls (Custom system prompt)
 #-----------------------------------------------
-def run_rlm_customized(dataset: str, row_id: str, contract_text: str, hypotheses: str, TASK_SPEC: str) -> str:
+def run_rlm_customized(dataset: str, row_id: str, contract_text: str, TASK_SPEC: str) -> str:
     custom_system_prompt = (
         RLM_SYSTEM_PROMPT
         + f"\n\n{TASK_SPEC}\n\n{RLM_FINISH_GUIDE}\n\n\n\n"
         + "Reminder: llm_query() calls are isolated completions with no memory "
         "of this system prompt -- restate the label set and the relevant "
-        "hypothesis text inside any llm_query() prompt you write."
+        "data inside any llm_query() prompt you write."
         + f"\n\nCRITICAL OUTPUT RULE: {CRITICAL_OUTPUT_RULE}"
         + f"\n\nCRASH-PROOF FINAL SUBMISSION: {CRASH_PROOF_FINAL_SUBMISSION}"
         + f"\n\nREPL STDOUT VISIBILITY: {REPL_STDOUT_VISIBILITY}"
         + f"\n\nPRESERVE VALID ANSWERS: {PRESERVE_VALID_ANSWERS}"
     )
-    root_prompt = f"{TASK_SPEC}{RLM_FINISH_GUIDE}\n\n{hypotheses}\n\n"
+    root_prompt = f"{TASK_SPEC}\n\n{RLM_FINISH_GUIDE}\n\n"
     root_prompt += "Remember: your last message must be the JSON answer, not a repl block. "
     root_prompt += "If you have already set answer['ready']=True, simply output the JSON object."
     root_prompt += "\n\nIf you are unsure, always prefer to set answer['ready']=True at least one turn before the last turn."

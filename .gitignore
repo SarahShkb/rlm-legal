@@ -11,6 +11,12 @@ contract-nli/README.md
 contract-nli/TERMS
 contract-nli/.DS_Store
 
+# __pycache__
 utils/__pycache__/
+prompts/__pycache__/
+llm/__pycache__/
+
+
+# logs
 logs/
 logs/runs.csv
