@@ -21,8 +21,8 @@ from utils.run_logger import log_run
 
 load_dotenv()
 DEEPSEEK_API_KEY = os.environ.get('DEEPSEEK_API_KEY')
-DEEPSEEK_MODEL = "deepseek-v4-flash"
-DEEPSEEK_BASE_URL = "https://api.deepseek.com"
+DEEPSEEK_MODEL = os.environ.get('DEEPSEEK_MODEL_NAME')
+DEEPSEEK_BASE_URL = os.environ.get('DEEPSEEK_BASE_URL')
 TEMPERATURE = 0 
 
 

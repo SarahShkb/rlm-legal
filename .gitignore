@@ -15,8 +15,12 @@ contract-nli/.DS_Store
 utils/__pycache__/
 prompts/__pycache__/
 llm/__pycache__/
+maud/__pycache__/
 
 
 # logs
 logs/
 logs/runs.csv
+
+# maud dataset
+maud_workdir/

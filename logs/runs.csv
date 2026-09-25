@@ -2414,3 +2414,216 @@ print(ans)
   ""nda-5"": { ""choice"": ""Entailment"" },
   ""nda-4"": { ""choice"": ""NotMentioned"" }
 }"
+2026-09-03T17:23:16,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,17062,1888,,,16.437,"{""answer"": ""A""}"
+2026-09-03T17:30:54,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,2328,4653,,,39.962,"""D"""
+2026-09-03T17:31:44,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,1311,79,,,50.763,"{""answer"": ""A""}"
+2026-09-03T17:32:18,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,16778,3829,,,33.447,"{""answer"": ""A""}"
+2026-09-03T17:32:45,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_4,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,23075,2971,,,26.076,"{""answer"": ""A""}"
+2026-09-03T17:32:51,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_5,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,8822,567,,,5.805,"{""content"": ""A""}"
+2026-09-03T17:34:28,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_6,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,28881,12733,,,97.266,"{""answer"": ""A""}"
+2026-09-03T17:34:50,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,20426,2274,,,21.271,"{""answer"": ""A""}"
+2026-09-03T17:35:19,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_8,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,78224,3773,,,28.679,"{""answer"": ""A""}"
+2026-09-03T17:35:35,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_9,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,16478,1797,,,15.242,A
+2026-09-03T17:36:09,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,12012,4086,,,33.697,"{""answer"": ""A""}"
+2026-09-04T22:45:47,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,19719,1140,,,11.062,"{""answer"": ""A""}"
+2026-09-04T22:47:10,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,212548,1347,,,82.407,"{""answer"": ""A""}"
+2026-09-04T22:47:26,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,23299,1833,,,16.474,"{""answer"": ""A""}"
+2026-09-04T22:47:46,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_4,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,12736,2276,,,19.44,"{""answer"": ""A""}"
+2026-09-04T22:48:23,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_5,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,35203,4979,,,36.858,"{""answer"": ""A""}"
+2026-09-04T22:48:45,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_6,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,17323,2686,,,21.168,"{""answer"": ""A""}"
+2026-09-04T22:50:18,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,22896,5573,,,92.55,"{""answer"": ""A""}"
+2026-09-04T22:50:31,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_8,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,25433,1437,,,12.862,"{""answer"": ""A""}"
+2026-09-04T22:50:56,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_9,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,11626,2941,,,24.683,"{""answer"": ""A""}"
+2026-09-04T22:51:47,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,1732,8036,,,34.179,"```repl
+try:
+    answer[""content""] = ""A""
+    answer[""ready""] = True
+    print(""submitted"")
+except Exception:
+    answer[""content""] = ""A""
+    answer[""ready""] = True
+```"
+2026-09-04T22:52:11,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_11,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,14658,2810,,,23.22,"{""answer"": ""A""}"
+2026-09-04T22:52:39,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_12,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,23982,3500,,,27.923,"{""answer"": ""A""}"
+2026-09-04T22:53:07,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_13,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,17258,3243,,,27.969,"{""answer"": ""A""}"
+2026-09-04T22:55:17,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_14,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,16280,14131,,,16.691,"{""answer"": ""D""}"
+2026-09-04T22:55:34,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,11655,2029,,,16.222,"{""answer"": ""C""}"
+2026-09-04T22:56:18,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_16,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,39163,4949,,,37.798,"```repl
+try:
+    import json
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+except Exception:
+    import json
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+```"
+2026-09-04T22:56:37,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_17,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,23319,2108,,,18.242,"{""answer"": ""B""}"
+2026-09-04T22:56:53,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_18,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,19579,2234,,,15.975,"{""answer"": ""B""}"
+2026-09-04T22:57:50,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_19,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,15032,6096,,,16.004,"<repl>
+json.dumps({""answer"": ""D""})
+answer[""content""] = json.dumps({""answer"": ""D""})
+answer[""ready""] = True
+print(""ready:"", answer[""ready""])
+</repl>"
+2026-09-04T22:58:10,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_20,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,30831,2106,,,14.426,"```repl
+import json
+answer[""content""] = json.dumps({""answer"": ""B""})
+answer[""ready""] = True
+print(answer[""content""])
+```"
+2026-09-04T22:59:21,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_21,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,49219,8468,,,25.91,"{""answer"": ""B""}"
+2026-09-04T22:59:38,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_22,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,28646,1633,,,12.208,"```repl
+import json
+answer[""content""] = json.dumps({""answer"":""B""})
+answer[""ready""] = True
+print(answer[""content""])
+```"
+2026-09-04T22:59:54,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_23,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,20591,1665,,,15.484,"{""content"": ""C""}"
+2026-09-04T23:00:36,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_24,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,19849,5265,,,42.246,"{""answer"": ""C""}"
+2026-09-04T23:00:52,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_25,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,14203,1740,,,16.033,"{""answer"": ""C""}"
+2026-09-04T23:03:40,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_26,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,285066,9506,,,167.833,"{""answer"": ""A""}"
+2026-09-04T23:04:26,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_dev_27,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,27571,5311,,,40.777,"```repl
+import json
+answer[""content""] = json.dumps({""choice"": ""D""})
+answer[""ready""] = True
+print(answer)
+```"
+2026-09-04T23:10:08,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,15665,8295,,,17.398,"{""answer"": ""D""}"
+2026-09-04T23:11:37,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,65959,12748,,,89.124,"{""answer"": ""A""}"
+2026-09-04T23:12:29,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,72812,6245,,,50.487,"{""answer"": ""A""}"
+2026-09-04T23:13:49,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_4,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,63001,11227,,,80.157,"{""answer"": ""A""}"
+2026-09-04T23:14:04,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_5,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,17918,1761,,,14.689,"{""answer"": ""A""}"
+2026-09-04T23:14:23,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_6,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,15946,2055,,,18.095,"{""answer"": ""A""}"
+2026-09-04T23:14:36,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,9254,1652,,,13.072,"{""answer"": ""A""}"
+2026-09-04T23:14:43,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_8,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,9713,720,,,6.325,"{""answer"": ""A""}"
+2026-09-04T23:14:56,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_9,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,14383,1398,,,12.854,A
+2026-09-04T23:17:17,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,1895,835,,,93.942,"```repl
+import json
+
+# Final decision: Blackstone/QTS 2021 deal: Company Shares -> $78.00 cash each.
+# Press and Section 2.1(b)/(c) describe consideration to target shareholders as cash.
+# Retention Election applies to Minority Limited Partners' partnership units and is not a stock election for Company Shares.
+answer[""content""] = json.dumps({""answer"": ""A""})
+answer[""ready""] = True
+print(answer[""content""])
+```"
+2026-09-04T23:17:44,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_11,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,28367,3391,,,26.325,"{""answer"": ""A""}"
+2026-09-04T23:18:20,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_12,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,8638,167,,,36.604,"{""answer"": ""A""}"
+2026-09-04T23:18:53,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_13,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,23376,4447,,,32.312,"{""answer"": ""A""}"
+2026-09-04T23:20:27,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_14,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,16211,11225,,,37.739,"<repl>
+import re, json, collections
+
+text = context if isinstance(context, str) else str(context)
+
+# Candidate snippets likely to describe the merger consideration.
+patterns = [
+    r""Merger Consideration"",
+    r""Stock Consideration"",
+    r""Cash Consideration"",
+    r""Cash Election"",
+    r""Stock Election"",
+    r""shall be entitled to elect"",
+    r""shall be converted into the right to receive"",
+    r""per share"",
+]
+positions = set()
+for pat in patterns:
+    for m in re.finditer(pat, text, flags=re.I):
+        positions.add(m.start())
+
+# Deduplicate positions within 1500 chars, and keep the strongest article sections only.
+pos_list = sorted(positions)
+picked = []
+prev = -100000
+for p in pos_list:
+    if p - prev >= 1500:
+        picked.append(p)
+        prev = p
+print(""candidate positions:"", len(picked), picked[:12])
+
+snippets = []
+for p in picked[:14]:
+    s = max(0, p - 1800)
+    e = min(len(text), p + 2800)
+    snippet = text[s:e].replace(""\n"", "" "")
+    if len(snippet) > 400:
+        snippets.append(f""POSITION {p}: {snippet}"")
+
+label_map = {
+    ""A"": ""A"", ""ALL CASH"": ""A"", ""CASH"": ""A"", ""STOCK ONLY"": ""B"", ""B"": ""B"",
+    ""MIXED"": ""C"", ""C"": ""C"", ""D"": ""D""
+}
+
+def parse_response(resp):
+    r = resp.strip().upper()
+    # First letter if the response includes ABCD
+    for letter in ""ABCD"":
+        if letter in r.split() or r.startswith(letter) or f""OPTION {letter}"" in r:
+            return letter
+    if ""ALL CASH"" in r or (""CASH"" in r and ""STOCK"" not in r and ""ELECT"" not in r):
+        return ""A""
+    if ""ALL STOCK"" in r or (""STOCK"" in r and ""CASH"" not in r and ""ELECT"" not in r):
+        return ""B""
+    if ""ELECT"" in r:
+        return ""D""
+    if ""MIX"" in r or (""CASH"" in r and ""STOCK"" in r):
+        return ""C""
+    return None
+
+votes = []
+try:
+    prompts = []
+    # Only send a subset of snippets to stay well inside sub-LLM capacity.
+    for i, sn in enumerate(snippets[:10]):
+        prompts.append(
+            ""The following is an excerpt from a merger agreement. ""
+            ""Classify the merger consideration type as strictly one of:\n""
+            ""A = all cash (stockholders get only cash)\n""
+            ""B = all stock (stockholders get only stock)\n""
+            ""C = mixed cash/stock without stockholder election\n""
+            ""D = mixed cash/stock with stockholder election\n\n""
+            f""EXCERPT (excerpt {i+1}):\n{sn}\n\n""
+            ""Reply with only the single letter A, B, C, or D.""
+        )
+    if not prompts:
+        raise ValueError(""no snippets"")
+    resps = llm_query_batched(prompts)
+    for r in resps:
+        v = parse_response(str(r))
+        if v:
+            votes.append(v)
+    cnt = collections.Counter(votes)
+    print(""votes:"", dict(cnt))
+    best = cnt.most_common(1)[0][0] if cnt else None
+except Exception as e:
+    best = None
+    print(""LLM pass failed:"", e)
+
+# Deterministic backup heuristic on full text.
+if not best:
+    counts = {
+        ""cash"": len(re.findall(r""\bcash\b"", text, flags=re.I)),
+        ""stock"": len(re.findall(r""\bcommon stock\b|capital stock|parent common stock"", text, flags=re.I)),
+        ""election"": len(re.findall(r""\belect(?:ion)?\b"", text, flags=re.I)),
+        ""all_cash"": len(re.findall(r""all[- ]cash|cash consideration|in cash"", text, flags=re.I)),
+    }
+    print(""fallback counts:"", counts)
+    # If the considered portion speaks of elections it is a D/C style deal.
+    if counts[""election""] < 5 and counts[""cash""] > 3 and counts[""stock""] < 2:
+        best = ""A""
+    elif counts[""election""] >= 5:
+        best = ""D""
+    elif counts[""cash""] > 2 and counts[""stock""] > 2:
+        best = ""C""
+    elif counts[""stock""] > 2:
+        best = ""B""
+    else:
+        best = ""A""
+
+final = json.dumps({""answer"": best})
+print(""SELECTED:"", best)
+answer[""content""] = final
+answer[""ready""] = True
+</repl>"
+2026-09-04T23:22:58,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,53194,18072,,,150.802,"{""answer"": ""A""}"

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import argparse
 import os
 import re
 import subprocess
@@ -8,6 +7,7 @@ import zipfile
 from dataclasses import dataclass
 
 import pandas as pd
+import tiktoken
 
 from llm.rlm import run_rlm_customized
 
@@ -55,6 +55,12 @@ def get_maud_data_dir(work_dir: str = "maud_workdir", force: bool = False) -> st
     return data_dir
 
 
+def get_main_def(split: str = "train") -> pd.DataFrame:
+    data_dir = get_maud_data_dir()
+    df = pd.read_csv(os.path.join(data_dir, f"MAUD_{split}.csv"))
+    main_df = df[df['data_type'] == "main"].copy()
+    return main_df
+
 # --------------------------------------------------------------------------- 
 # Build the eval set: one row per contract, full contract text as context
 # ---------------------------------------------------------------------------
@@ -66,7 +72,7 @@ class MAUD_Dataset_Sample:
     gold_letter: str
 
 
-def load_maud_dataset_samples(data_dir: str, split: str = "test") -> list[MAUD_Dataset_Sample]:
+def get_maud_with_gold_answer_samples(data_dir: str, split: str = "test") -> list[MAUD_Dataset_Sample]:
     # split: train | dev | test | all (concatenates all three)
     if split == "all":
         frames = [pd.read_csv(os.path.join(data_dir, f"MAUD_{s}.csv")) for s in ("train", "dev", "test")]
@@ -131,9 +137,9 @@ def calculate_accuracy(results: pd.DataFrame) -> float:
 
 
 def run_maud_pipeline(limit: int | None = None):
-    split = "dev"
+    split = "train"
     data_dir = get_maud_data_dir()
-    data = load_maud_dataset_samples(data_dir, split=split)
+    data = get_maud_with_gold_answer_samples(data_dir, split=split)
     prompt = build_maud_type_of_consideration_prompt()
     rows = data[:limit] if limit else data
     save_path = "logs/runs_maud_toc.csv"

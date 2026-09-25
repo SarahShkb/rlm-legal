@@ -1,0 +1,1071 @@
+{
+  "tokenizer": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "contracts": [
+    {
+      "contract_id": 88,
+      "file": "contract_88.txt",
+      "n_chars": 105682,
+      "n_tokens": 21449
+    },
+    {
+      "contract_id": 119,
+      "file": "contract_119.txt",
+      "n_chars": 206216,
+      "n_tokens": 41850
+    },
+    {
+      "contract_id": 6,
+      "file": "contract_6.txt",
+      "n_chars": 217635,
+      "n_tokens": 45924
+    },
+    {
+      "contract_id": 59,
+      "file": "contract_59.txt",
+      "n_chars": 236805,
+      "n_tokens": 47713
+    },
+    {
+      "contract_id": 21,
+      "file": "contract_21.txt",
+      "n_chars": 239583,
+      "n_tokens": 48205
+    },
+    {
+      "contract_id": 112,
+      "file": "contract_112.txt",
+      "n_chars": 249545,
+      "n_tokens": 48686
+    },
+    {
+      "contract_id": 106,
+      "file": "contract_106.txt",
+      "n_chars": 243691,
+      "n_tokens": 49032
+    },
+    {
+      "contract_id": 43,
+      "file": "contract_43.txt",
+      "n_chars": 250143,
+      "n_tokens": 50375
+    },
+    {
+      "contract_id": 138,
+      "file": "contract_138.txt",
+      "n_chars": 249260,
+      "n_tokens": 50891
+    },
+    {
+      "contract_id": 11,
+      "file": "contract_11.txt",
+      "n_chars": 258184,
+      "n_tokens": 51626
+    },
+    {
+      "contract_id": 125,
+      "file": "contract_125.txt",
+      "n_chars": 256365,
+      "n_tokens": 51626
+    },
+    {
+      "contract_id": 55,
+      "file": "contract_55.txt",
+      "n_chars": 257691,
+      "n_tokens": 52118
+    },
+    {
+      "contract_id": 97,
+      "file": "contract_97.txt",
+      "n_chars": 258340,
+      "n_tokens": 52332
+    },
+    {
+      "contract_id": 32,
+      "file": "contract_32.txt",
+      "n_chars": 260492,
+      "n_tokens": 52521
+    },
+    {
+      "contract_id": 113,
+      "file": "contract_113.txt",
+      "n_chars": 258677,
+      "n_tokens": 53039
+    },
+    {
+      "contract_id": 30,
+      "file": "contract_30.txt",
+      "n_chars": 258301,
+      "n_tokens": 53067
+    },
+    {
+      "contract_id": 87,
+      "file": "contract_87.txt",
+      "n_chars": 263275,
+      "n_tokens": 53438
+    },
+    {
+      "contract_id": 115,
+      "file": "contract_115.txt",
+      "n_chars": 266759,
+      "n_tokens": 53531
+    },
+    {
+      "contract_id": 136,
+      "file": "contract_136.txt",
+      "n_chars": 269416,
+      "n_tokens": 54034
+    },
+    {
+      "contract_id": 102,
+      "file": "contract_102.txt",
+      "n_chars": 253599,
+      "n_tokens": 54516
+    },
+    {
+      "contract_id": 124,
+      "file": "contract_124.txt",
+      "n_chars": 267163,
+      "n_tokens": 54594
+    },
+    {
+      "contract_id": 78,
+      "file": "contract_78.txt",
+      "n_chars": 276569,
+      "n_tokens": 56026
+    },
+    {
+      "contract_id": 83,
+      "file": "contract_83.txt",
+      "n_chars": 278247,
+      "n_tokens": 56626
+    },
+    {
+      "contract_id": 75,
+      "file": "contract_75.txt",
+      "n_chars": 283908,
+      "n_tokens": 56751
+    },
+    {
+      "contract_id": 65,
+      "file": "contract_65.txt",
+      "n_chars": 261055,
+      "n_tokens": 56933
+    },
+    {
+      "contract_id": 133,
+      "file": "contract_133.txt",
+      "n_chars": 279637,
+      "n_tokens": 57009
+    },
+    {
+      "contract_id": 47,
+      "file": "contract_47.txt",
+      "n_chars": 259028,
+      "n_tokens": 57521
+    },
+    {
+      "contract_id": 85,
+      "file": "contract_85.txt",
+      "n_chars": 286456,
+      "n_tokens": 58052
+    },
+    {
+      "contract_id": 127,
+      "file": "contract_127.txt",
+      "n_chars": 286202,
+      "n_tokens": 58074
+    },
+    {
+      "contract_id": 82,
+      "file": "contract_82.txt",
+      "n_chars": 291405,
+      "n_tokens": 58271
+    },
+    {
+      "contract_id": 16,
+      "file": "contract_16.txt",
+      "n_chars": 289863,
+      "n_tokens": 58643
+    },
+    {
+      "contract_id": 141,
+      "file": "contract_141.txt",
+      "n_chars": 288268,
+      "n_tokens": 58659
+    },
+    {
+      "contract_id": 39,
+      "file": "contract_39.txt",
+      "n_chars": 290418,
+      "n_tokens": 58711
+    },
+    {
+      "contract_id": 64,
+      "file": "contract_64.txt",
+      "n_chars": 296076,
+      "n_tokens": 59285
+    },
+    {
+      "contract_id": 58,
+      "file": "contract_58.txt",
+      "n_chars": 285180,
+      "n_tokens": 59890
+    },
+    {
+      "contract_id": 130,
+      "file": "contract_130.txt",
+      "n_chars": 298751,
+      "n_tokens": 59996
+    },
+    {
+      "contract_id": 67,
+      "file": "contract_67.txt",
+      "n_chars": 298479,
+      "n_tokens": 60039
+    },
+    {
+      "contract_id": 139,
+      "file": "contract_139.txt",
+      "n_chars": 298466,
+      "n_tokens": 60247
+    },
+    {
+      "contract_id": 14,
+      "file": "contract_14.txt",
+      "n_chars": 304772,
+      "n_tokens": 60593
+    },
+    {
+      "contract_id": 63,
+      "file": "contract_63.txt",
+      "n_chars": 298681,
+      "n_tokens": 60795
+    },
+    {
+      "contract_id": 96,
+      "file": "contract_96.txt",
+      "n_chars": 303800,
+      "n_tokens": 60803
+    },
+    {
+      "contract_id": 101,
+      "file": "contract_101.txt",
+      "n_chars": 306480,
+      "n_tokens": 61478
+    },
+    {
+      "contract_id": 86,
+      "file": "contract_86.txt",
+      "n_chars": 302220,
+      "n_tokens": 61533
+    },
+    {
+      "contract_id": 116,
+      "file": "contract_116.txt",
+      "n_chars": 305224,
+      "n_tokens": 61725
+    },
+    {
+      "contract_id": 129,
+      "file": "contract_129.txt",
+      "n_chars": 310796,
+      "n_tokens": 61895
+    },
+    {
+      "contract_id": 74,
+      "file": "contract_74.txt",
+      "n_chars": 307782,
+      "n_tokens": 62163
+    },
+    {
+      "contract_id": 95,
+      "file": "contract_95.txt",
+      "n_chars": 302894,
+      "n_tokens": 62262
+    },
+    {
+      "contract_id": 104,
+      "file": "contract_104.txt",
+      "n_chars": 309050,
+      "n_tokens": 62564
+    },
+    {
+      "contract_id": 12,
+      "file": "contract_12.txt",
+      "n_chars": 308061,
+      "n_tokens": 62696
+    },
+    {
+      "contract_id": 25,
+      "file": "contract_25.txt",
+      "n_chars": 310505,
+      "n_tokens": 63026
+    },
+    {
+      "contract_id": 146,
+      "file": "contract_146.txt",
+      "n_chars": 312442,
+      "n_tokens": 63028
+    },
+    {
+      "contract_id": 98,
+      "file": "contract_98.txt",
+      "n_chars": 312317,
+      "n_tokens": 63258
+    },
+    {
+      "contract_id": 3,
+      "file": "contract_3.txt",
+      "n_chars": 312017,
+      "n_tokens": 63411
+    },
+    {
+      "contract_id": 72,
+      "file": "contract_72.txt",
+      "n_chars": 315506,
+      "n_tokens": 63585
+    },
+    {
+      "contract_id": 9,
+      "file": "contract_9.txt",
+      "n_chars": 315031,
+      "n_tokens": 63814
+    },
+    {
+      "contract_id": 89,
+      "file": "contract_89.txt",
+      "n_chars": 320625,
+      "n_tokens": 64480
+    },
+    {
+      "contract_id": 62,
+      "file": "contract_62.txt",
+      "n_chars": 321754,
+      "n_tokens": 64514
+    },
+    {
+      "contract_id": 77,
+      "file": "contract_77.txt",
+      "n_chars": 304582,
+      "n_tokens": 64872
+    },
+    {
+      "contract_id": 110,
+      "file": "contract_110.txt",
+      "n_chars": 322627,
+      "n_tokens": 64929
+    },
+    {
+      "contract_id": 36,
+      "file": "contract_36.txt",
+      "n_chars": 322496,
+      "n_tokens": 65115
+    },
+    {
+      "contract_id": 18,
+      "file": "contract_18.txt",
+      "n_chars": 318575,
+      "n_tokens": 65408
+    },
+    {
+      "contract_id": 69,
+      "file": "contract_69.txt",
+      "n_chars": 324178,
+      "n_tokens": 65609
+    },
+    {
+      "contract_id": 61,
+      "file": "contract_61.txt",
+      "n_chars": 323276,
+      "n_tokens": 65641
+    },
+    {
+      "contract_id": 137,
+      "file": "contract_137.txt",
+      "n_chars": 300373,
+      "n_tokens": 65694
+    },
+    {
+      "contract_id": 40,
+      "file": "contract_40.txt",
+      "n_chars": 327439,
+      "n_tokens": 65711
+    },
+    {
+      "contract_id": 107,
+      "file": "contract_107.txt",
+      "n_chars": 326477,
+      "n_tokens": 65825
+    },
+    {
+      "contract_id": 0,
+      "file": "contract_0.txt",
+      "n_chars": 327584,
+      "n_tokens": 65873
+    },
+    {
+      "contract_id": 132,
+      "file": "contract_132.txt",
+      "n_chars": 327982,
+      "n_tokens": 66183
+    },
+    {
+      "contract_id": 7,
+      "file": "contract_7.txt",
+      "n_chars": 331861,
+      "n_tokens": 66744
+    },
+    {
+      "contract_id": 15,
+      "file": "contract_15.txt",
+      "n_chars": 320980,
+      "n_tokens": 66960
+    },
+    {
+      "contract_id": 49,
+      "file": "contract_49.txt",
+      "n_chars": 331790,
+      "n_tokens": 66963
+    },
+    {
+      "contract_id": 48,
+      "file": "contract_48.txt",
+      "n_chars": 331152,
+      "n_tokens": 67272
+    },
+    {
+      "contract_id": 4,
+      "file": "contract_4.txt",
+      "n_chars": 337048,
+      "n_tokens": 67896
+    },
+    {
+      "contract_id": 93,
+      "file": "contract_93.txt",
+      "n_chars": 338698,
+      "n_tokens": 68079
+    },
+    {
+      "contract_id": 144,
+      "file": "contract_144.txt",
+      "n_chars": 341129,
+      "n_tokens": 68676
+    },
+    {
+      "contract_id": 122,
+      "file": "contract_122.txt",
+      "n_chars": 343452,
+      "n_tokens": 68900
+    },
+    {
+      "contract_id": 22,
+      "file": "contract_22.txt",
+      "n_chars": 342658,
+      "n_tokens": 69194
+    },
+    {
+      "contract_id": 114,
+      "file": "contract_114.txt",
+      "n_chars": 344630,
+      "n_tokens": 69398
+    },
+    {
+      "contract_id": 71,
+      "file": "contract_71.txt",
+      "n_chars": 337581,
+      "n_tokens": 69679
+    },
+    {
+      "contract_id": 45,
+      "file": "contract_45.txt",
+      "n_chars": 347591,
+      "n_tokens": 69803
+    },
+    {
+      "contract_id": 60,
+      "file": "contract_60.txt",
+      "n_chars": 342623,
+      "n_tokens": 70262
+    },
+    {
+      "contract_id": 131,
+      "file": "contract_131.txt",
+      "n_chars": 357754,
+      "n_tokens": 70293
+    },
+    {
+      "contract_id": 52,
+      "file": "contract_52.txt",
+      "n_chars": 348379,
+      "n_tokens": 70310
+    },
+    {
+      "contract_id": 1,
+      "file": "contract_1.txt",
+      "n_chars": 333769,
+      "n_tokens": 70483
+    },
+    {
+      "contract_id": 103,
+      "file": "contract_103.txt",
+      "n_chars": 340638,
+      "n_tokens": 70750
+    },
+    {
+      "contract_id": 142,
+      "file": "contract_142.txt",
+      "n_chars": 352306,
+      "n_tokens": 70985
+    },
+    {
+      "contract_id": 35,
+      "file": "contract_35.txt",
+      "n_chars": 350475,
+      "n_tokens": 70994
+    },
+    {
+      "contract_id": 135,
+      "file": "contract_135.txt",
+      "n_chars": 348782,
+      "n_tokens": 71157
+    },
+    {
+      "contract_id": 29,
+      "file": "contract_29.txt",
+      "n_chars": 316348,
+      "n_tokens": 71212
+    },
+    {
+      "contract_id": 148,
+      "file": "contract_148.txt",
+      "n_chars": 355835,
+      "n_tokens": 71537
+    },
+    {
+      "contract_id": 149,
+      "file": "contract_149.txt",
+      "n_chars": 355835,
+      "n_tokens": 71537
+    },
+    {
+      "contract_id": 28,
+      "file": "contract_28.txt",
+      "n_chars": 352715,
+      "n_tokens": 71598
+    },
+    {
+      "contract_id": 53,
+      "file": "contract_53.txt",
+      "n_chars": 355265,
+      "n_tokens": 71668
+    },
+    {
+      "contract_id": 13,
+      "file": "contract_13.txt",
+      "n_chars": 360930,
+      "n_tokens": 71743
+    },
+    {
+      "contract_id": 143,
+      "file": "contract_143.txt",
+      "n_chars": 356050,
+      "n_tokens": 71887
+    },
+    {
+      "contract_id": 90,
+      "file": "contract_90.txt",
+      "n_chars": 359419,
+      "n_tokens": 71983
+    },
+    {
+      "contract_id": 134,
+      "file": "contract_134.txt",
+      "n_chars": 356640,
+      "n_tokens": 72245
+    },
+    {
+      "contract_id": 31,
+      "file": "contract_31.txt",
+      "n_chars": 360547,
+      "n_tokens": 72541
+    },
+    {
+      "contract_id": 17,
+      "file": "contract_17.txt",
+      "n_chars": 355778,
+      "n_tokens": 72544
+    },
+    {
+      "contract_id": 80,
+      "file": "contract_80.txt",
+      "n_chars": 336988,
+      "n_tokens": 72644
+    },
+    {
+      "contract_id": 117,
+      "file": "contract_117.txt",
+      "n_chars": 361027,
+      "n_tokens": 73044
+    },
+    {
+      "contract_id": 56,
+      "file": "contract_56.txt",
+      "n_chars": 345120,
+      "n_tokens": 73620
+    },
+    {
+      "contract_id": 26,
+      "file": "contract_26.txt",
+      "n_chars": 369678,
+      "n_tokens": 74348
+    },
+    {
+      "contract_id": 37,
+      "file": "contract_37.txt",
+      "n_chars": 334240,
+      "n_tokens": 74973
+    },
+    {
+      "contract_id": 120,
+      "file": "contract_120.txt",
+      "n_chars": 373985,
+      "n_tokens": 75703
+    },
+    {
+      "contract_id": 151,
+      "file": "contract_151.txt",
+      "n_chars": 374403,
+      "n_tokens": 76221
+    },
+    {
+      "contract_id": 123,
+      "file": "contract_123.txt",
+      "n_chars": 380170,
+      "n_tokens": 76617
+    },
+    {
+      "contract_id": 50,
+      "file": "contract_50.txt",
+      "n_chars": 378576,
+      "n_tokens": 77024
+    },
+    {
+      "contract_id": 19,
+      "file": "contract_19.txt",
+      "n_chars": 381033,
+      "n_tokens": 77054
+    },
+    {
+      "contract_id": 91,
+      "file": "contract_91.txt",
+      "n_chars": 381137,
+      "n_tokens": 77211
+    },
+    {
+      "contract_id": 128,
+      "file": "contract_128.txt",
+      "n_chars": 386215,
+      "n_tokens": 77604
+    },
+    {
+      "contract_id": 99,
+      "file": "contract_99.txt",
+      "n_chars": 387395,
+      "n_tokens": 77865
+    },
+    {
+      "contract_id": 34,
+      "file": "contract_34.txt",
+      "n_chars": 390174,
+      "n_tokens": 77880
+    },
+    {
+      "contract_id": 126,
+      "file": "contract_126.txt",
+      "n_chars": 384955,
+      "n_tokens": 77921
+    },
+    {
+      "contract_id": 42,
+      "file": "contract_42.txt",
+      "n_chars": 385554,
+      "n_tokens": 77922
+    },
+    {
+      "contract_id": 79,
+      "file": "contract_79.txt",
+      "n_chars": 392259,
+      "n_tokens": 78252
+    },
+    {
+      "contract_id": 100,
+      "file": "contract_100.txt",
+      "n_chars": 372425,
+      "n_tokens": 79078
+    },
+    {
+      "contract_id": 109,
+      "file": "contract_109.txt",
+      "n_chars": 388602,
+      "n_tokens": 80121
+    },
+    {
+      "contract_id": 70,
+      "file": "contract_70.txt",
+      "n_chars": 393286,
+      "n_tokens": 80181
+    },
+    {
+      "contract_id": 41,
+      "file": "contract_41.txt",
+      "n_chars": 398141,
+      "n_tokens": 80409
+    },
+    {
+      "contract_id": 23,
+      "file": "contract_23.txt",
+      "n_chars": 399270,
+      "n_tokens": 80462
+    },
+    {
+      "contract_id": 54,
+      "file": "contract_54.txt",
+      "n_chars": 411374,
+      "n_tokens": 81312
+    },
+    {
+      "contract_id": 2,
+      "file": "contract_2.txt",
+      "n_chars": 402376,
+      "n_tokens": 82185
+    },
+    {
+      "contract_id": 150,
+      "file": "contract_150.txt",
+      "n_chars": 408806,
+      "n_tokens": 82248
+    },
+    {
+      "contract_id": 92,
+      "file": "contract_92.txt",
+      "n_chars": 417069,
+      "n_tokens": 83406
+    },
+    {
+      "contract_id": 38,
+      "file": "contract_38.txt",
+      "n_chars": 416377,
+      "n_tokens": 83797
+    },
+    {
+      "contract_id": 147,
+      "file": "contract_147.txt",
+      "n_chars": 417675,
+      "n_tokens": 83835
+    },
+    {
+      "contract_id": 108,
+      "file": "contract_108.txt",
+      "n_chars": 416269,
+      "n_tokens": 84530
+    },
+    {
+      "contract_id": 20,
+      "file": "contract_20.txt",
+      "n_chars": 418272,
+      "n_tokens": 84833
+    },
+    {
+      "contract_id": 111,
+      "file": "contract_111.txt",
+      "n_chars": 417511,
+      "n_tokens": 85506
+    },
+    {
+      "contract_id": 57,
+      "file": "contract_57.txt",
+      "n_chars": 429055,
+      "n_tokens": 87541
+    },
+    {
+      "contract_id": 140,
+      "file": "contract_140.txt",
+      "n_chars": 412782,
+      "n_tokens": 87626
+    },
+    {
+      "contract_id": 5,
+      "file": "contract_5.txt",
+      "n_chars": 434639,
+      "n_tokens": 87734
+    },
+    {
+      "contract_id": 51,
+      "file": "contract_51.txt",
+      "n_chars": 434115,
+      "n_tokens": 88594
+    },
+    {
+      "contract_id": 46,
+      "file": "contract_46.txt",
+      "n_chars": 437853,
+      "n_tokens": 89894
+    },
+    {
+      "contract_id": 66,
+      "file": "contract_66.txt",
+      "n_chars": 439956,
+      "n_tokens": 90125
+    },
+    {
+      "contract_id": 118,
+      "file": "contract_118.txt",
+      "n_chars": 442222,
+      "n_tokens": 90569
+    },
+    {
+      "contract_id": 94,
+      "file": "contract_94.txt",
+      "n_chars": 454070,
+      "n_tokens": 90826
+    },
+    {
+      "contract_id": 76,
+      "file": "contract_76.txt",
+      "n_chars": 461401,
+      "n_tokens": 92716
+    },
+    {
+      "contract_id": 105,
+      "file": "contract_105.txt",
+      "n_chars": 478667,
+      "n_tokens": 96732
+    },
+    {
+      "contract_id": 44,
+      "file": "contract_44.txt",
+      "n_chars": 471062,
+      "n_tokens": 98081
+    },
+    {
+      "contract_id": 27,
+      "file": "contract_27.txt",
+      "n_chars": 492276,
+      "n_tokens": 98972
+    },
+    {
+      "contract_id": 8,
+      "file": "contract_8.txt",
+      "n_chars": 499505,
+      "n_tokens": 99629
+    },
+    {
+      "contract_id": 121,
+      "file": "contract_121.txt",
+      "n_chars": 492716,
+      "n_tokens": 101543
+    },
+    {
+      "contract_id": 24,
+      "file": "contract_24.txt",
+      "n_chars": 440078,
+      "n_tokens": 101819
+    },
+    {
+      "contract_id": 81,
+      "file": "contract_81.txt",
+      "n_chars": 503131,
+      "n_tokens": 101819
+    },
+    {
+      "contract_id": 73,
+      "file": "contract_73.txt",
+      "n_chars": 502514,
+      "n_tokens": 103442
+    },
+    {
+      "contract_id": 84,
+      "file": "contract_84.txt",
+      "n_chars": 553965,
+      "n_tokens": 114798
+    },
+    {
+      "contract_id": 10,
+      "file": "contract_10.txt",
+      "n_chars": 733317,
+      "n_tokens": 148772
+    },
+    {
+      "contract_id": 68,
+      "file": "contract_68.txt",
+      "n_chars": 778048,
+      "n_tokens": 158247
+    },
+    {
+      "contract_id": 145,
+      "file": "contract_145.txt",
+      "n_chars": 810485,
+      "n_tokens": 163088
+    },
+    {
+      "contract_id": 33,
+      "file": "contract_33.txt",
+      "n_chars": 999236,
+      "n_tokens": 202079
+    }
+  ],
+  "sorted_contract_ids": [
+    88,
+    119,
+    6,
+    59,
+    21,
+    112,
+    106,
+    43,
+    138,
+    11,
+    125,
+    55,
+    97,
+    32,
+    113,
+    30,
+    87,
+    115,
+    136,
+    102,
+    124,
+    78,
+    83,
+    75,
+    65,
+    133,
+    47,
+    85,
+    127,
+    82,
+    16,
+    141,
+    39,
+    64,
+    58,
+    130,
+    67,
+    139,
+    14,
+    63,
+    96,
+    101,
+    86,
+    116,
+    129,
+    74,
+    95,
+    104,
+    12,
+    25,
+    146,
+    98,
+    3,
+    72,
+    9,
+    89,
+    62,
+    77,
+    110,
+    36,
+    18,
+    69,
+    61,
+    137,
+    40,
+    107,
+    0,
+    132,
+    7,
+    15,
+    49,
+    48,
+    4,
+    93,
+    144,
+    122,
+    22,
+    114,
+    71,
+    45,
+    60,
+    131,
+    52,
+    1,
+    103,
+    142,
+    35,
+    135,
+    29,
+    148,
+    149,
+    28,
+    53,
+    13,
+    143,
+    90,
+    134,
+    31,
+    17,
+    80,
+    117,
+    56,
+    26,
+    37,
+    120,
+    151,
+    123,
+    50,
+    19,
+    91,
+    128,
+    99,
+    34,
+    126,
+    42,
+    79,
+    100,
+    109,
+    70,
+    41,
+    23,
+    54,
+    2,
+    150,
+    92,
+    38,
+    147,
+    108,
+    20,
+    111,
+    57,
+    140,
+    5,
+    51,
+    46,
+    66,
+    118,
+    94,
+    76,
+    105,
+    44,
+    27,
+    8,
+    121,
+    24,
+    81,
+    73,
+    84,
+    10,
+    68,
+    145,
+    33
+  ]
+}
