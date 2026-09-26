@@ -1,35 +1,427 @@
-import os
+"""
+MAUD RLM-vs-Vanilla evaluation pipeline
+========================================
 
+Goal: decide, with 100-200 examples, whether Recursive Language Models (RLM;
+Zhang, Kraska & Khattab, 2025, arXiv:2512.24601) outperform a vanilla LLM call
+as (a) full-contract context length and (b) task complexity grow, on MAUD
+(Wang et al., 2023, EMNLP).
+
+Sections:
+  1. Load data + sanity-check schema
+  2. Contract-level length bins (you already built this on the 152 contracts)
+  3. Complexity feature engineering (answer-option count, excerpt length)
+  4. EDA: check whether your stratification axes are confounded before locking design
+  5. Stratified sampler (length_bin x category), with complexity_tier recorded
+     as a covariate rather than a forced sampling stratum (see note in section 5)
+  6. Per-question answer-option key (built from the FULL ~39k table, not the sample)
+  7. Prompt templates (identical query for both arms -- only the context-handling
+     harness should differ between vanilla and RLM)
+  8. Evaluation loop skeleton (plug in your own model / RLM callers)
+  9. Answer parsing + scoring
+ 10. Statistical analysis: McNemar (per cell), pooled GEE logistic interaction
+     model (primary inferential tool -- more powered than per-cell tests at n=100-200),
+     bootstrap CIs on the accuracy gap
+
+Schema assumed (matches theatticusproject/maud / nguha-legalbench derived tables):
+  contract_name, text, text_type, category, question, subquestion, answer, label, id
+If your columns differ, the loader below will warn you rather than silently failing.
+"""
+
+import json
+import re
+
+import numpy as np
 import pandas as pd
-import tiktoken
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+from statsmodels.stats.contingency_tables import mcnemar
 
-from maud.maud_utils import get_maud_data_dir
+from utils.maud_utils import get_main_def
 
-DEEKSEEK_MODEL = os.environ.get('DEEPSEEK_MODEL_NAME')
+RANDOM_SEED = 42
 
-def get_nominated_maud_raw_data(main_df: pd.DataFrame) -> pd.DataFrame:
-    enc = tiktoken.encoding_for_model(DEEKSEEK_MODEL)
-    main_df['n_tokens'] = main_df['text'].apply(lambda t: len(enc.encode(str(t))))
 
-    q25, q50, q75 = main_df['n_tokens'].quantile([.25, .5, .75])
-    bins = [0, q25, q50, q75, float("inf")]
-    main_df['length_bucket'] = pd.cut(
-        main_df['n_tokens'], bins=bins,
-        labels=["short", "medium", "long", "very_long"]
+# ---------------------------------------------------------------------------
+# 2. CONTRACT-LEVEL LENGTH BINS
+#    (you already tokenized the 152 raw contracts with the DeepSeek tokenizer --
+#    reuse that Series here instead of recomputing it)
+# ---------------------------------------------------------------------------
+
+
+def bin_contracts_by_length(maud_contracts_token_count_json_path: str, n_bins: int = 4) -> pd.DataFrame:
+
+    # Load JSON already produced by maud_contract_token_counts.py 
+    # (list of dicts, each with "file" and "n_tokens")
+    with open(maud_contracts_token_count_json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    contracts_list = data["contracts"]
+    contract_token_counts = pd.Series(
+        {item["file"]: item["n_tokens"] for item in contracts_list}
     )
-    print(main_df['length_bucket'].value_counts())
+    labels = [f"len_bin_{i + 1}" for i in range(n_bins)]
 
-    primary_sample = main_df.groupby('length_bucket', group_keys=False).apply(
-        lambda g: g.sample(n=min(25, len(g)), random_state=42)
+    bins = pd.qcut(
+        contract_token_counts,
+        q=n_bins,
+        labels=labels
     )
-    primary_sample.to_csv("batch100_length_stratified.csv", index=False)
+    return pd.DataFrame({
+        "contract_name": contract_token_counts.index,
+        "n_tokens_contract": contract_token_counts.values,
+        "length_bin": bins.values,
+    })
 
-    # --- Step 2: secondary, separate robustness set (rare answers) ---
-    rare_df = df[df['text_type'] == RARE_LABEL].copy()
-    rare_sample = rare_df.sample(n=min(25, len(rare_df)), random_state=42)
-    rare_sample.to_csv("bonus25_rare_answers.csv", index=False)
 
-    # --- Step 3: leakage check between the two sets ---
-    overlap_keys = set(zip(primary_sample['contract_name'], primary_sample['question'])) & \
-                set(zip(rare_df['contract_name'], rare_df['question']))
-    print(f"Overlapping contract+question pairs between primary and rare sets: {len(overlap_keys)}")
+# ---------------------------------------------------------------------------
+# 3. COMPLEXITY FEATURE ENGINEERING
+# ---------------------------------------------------------------------------
+def add_complexity_features(df: pd.DataFrame, excerpt_tokenizer=None) -> pd.DataFrame:
+    # adds complexity_tier (binary / 3-way / multi-way)
+    # and excerpt_n_tokens columns, plus cleans up category
+
+    df = df.copy()
+    df["category"] = df["category"].astype(str).str.strip()
+
+    n_options = df.groupby("question")["answer"].transform("nunique")
+    df["n_answer_options"] = n_options
+    df["complexity_tier"] = pd.cut(
+        df["n_answer_options"], bins=[0, 2, 3, 100],
+        labels=["binary", "3-way", "multi-way(4+)"]
+    )
+
+    if excerpt_tokenizer is None:
+        df["excerpt_n_tokens"] = df["text"].astype(str).str.split().str.len()
+    else:
+        df["excerpt_n_tokens"] = df["text"].astype(str).map(excerpt_tokenizer)
+
+    return df
+
+
+def build_master_table(df: pd.DataFrame, contract_bins: pd.DataFrame) -> pd.DataFrame:
+    merged = df.merge(contract_bins, on="contract_name", how="left")
+    n_unmatched = merged["length_bin"].isna().sum()
+    if n_unmatched:
+        print(f"WARNING: {n_unmatched} rows didn't match a contract length bin -- "
+              f"check contract_name formatting/spelling consistency.")
+    return merged
+
+
+# ---------------------------------------------------------------------------
+# 4. EDA -- run this BEFORE finalizing the sampling design
+# ---------------------------------------------------------------------------
+def check_axis_confounding(master: pd.DataFrame) -> None:
+    """
+    Your four factors are not guaranteed independent. In particular, check
+    whether full-contract length correlates with category and with excerpt
+    length in YOUR corpus before treating them as fully separate,
+    freely-crossable axes -- if two axes are highly correlated, a "factorial"
+    design over both is mostly wasted cells.
+    """
+    print("Mean excerpt length by category:")
+    print(master.groupby("category")["excerpt_n_tokens"].mean().sort_values(ascending=False))
+    print("\nContract length vs. category (row counts):")
+    print(pd.crosstab(master["length_bin"], master["category"]))
+    corr = master[["n_tokens_contract", "excerpt_n_tokens"]].corr().iloc[0, 1]
+    print(f"\nCorrelation(full contract length, excerpt length) = {corr:.3f}")
+
+
+# ---------------------------------------------------------------------------
+# 5. STRATIFIED SAMPLER
+# ---------------------------------------------------------------------------
+def stratified_sample(master: pd.DataFrame,
+                       n_contracts_per_bin: int = 7,
+                       max_rows_per_contract: int = 6,
+                       target_total=(100, 200),
+                       seed: int = RANDOM_SEED) -> pd.DataFrame:
+    selected = []
+
+    for _, bin_df in master.groupby("length_bin", observed=True):
+        contracts_in_bin = bin_df["contract_name"].unique()
+        lengths = bin_df.drop_duplicates("contract_name").set_index("contract_name")["n_tokens_contract"]
+        lengths = lengths.loc[contracts_in_bin].sort_values()
+
+        n_pick = min(n_contracts_per_bin, len(lengths))
+        idx = np.linspace(0, len(lengths) - 1, n_pick).round().astype(int)
+        picked_contracts = lengths.iloc[idx].index.tolist()
+
+        for contract in picked_contracts:
+            c_df = bin_df[bin_df["contract_name"] == contract]
+            picks = []
+            for _, cell_df in c_df.groupby("category", observed=True):
+                if len(cell_df) > 0:
+                    picks.append(cell_df.sample(1, random_state=seed))
+            if picks:
+                contract_pick = pd.concat(picks)
+                if len(contract_pick) > max_rows_per_contract:
+                    contract_pick = contract_pick.sample(max_rows_per_contract, random_state=seed)
+                selected.append(contract_pick)
+
+    sample = pd.concat(selected).drop_duplicates(subset="id").reset_index(drop=True)
+    lo, hi = target_total
+    if not (lo <= len(sample) <= hi):
+        print(f"NOTE: sample size = {len(sample)}, outside target range {target_total}. "
+              f"Tune n_contracts_per_bin / max_rows_per_contract and re-run.")
+    return sample
+
+
+def coverage_report(sample: pd.DataFrame) -> None:
+    print(f"Total rows: {len(sample)} | Distinct contracts: {sample['contract_name'].nunique()}")
+    print("\nCells (length_bin x category):")
+    print(pd.crosstab(sample["length_bin"], sample["category"]))
+    print("\nCategory totals in sample:")
+    print(sample["category"].value_counts())
+    print("\ncomplexity_tier distribution (recorded, not sampling-forced -- check it's not "
+          "badly skewed):")
+    print(sample["complexity_tier"].value_counts())
+    print("\nRows per length bin:")
+    print(sample["length_bin"].value_counts().sort_index())
+
+
+def collapse_rare_categories(sample: pd.DataFrame, min_count: int = 12,
+                             other_label: str = "Other") -> pd.DataFrame:
+    """
+    For statistical modeling only (keep the original `category` column for
+    descriptive reporting). Categories with fewer than `min_count` rows IN
+    THIS SAMPLE get folded into "Other" -- with 100-200 rows, General
+    Information/Knowledge/Remedies will typically land here. This avoids
+    near-empty or empty model x category cells in the GEE interaction model,
+    which otherwise risk unstable estimates or quasi-separation.
+    """
+    sample = sample.copy()
+    counts = sample["category"].value_counts()
+    rare = counts[counts < min_count].index
+    sample["category_grp"] = sample["category"].where(~sample["category"].isin(rare), other_label)
+    if len(rare):
+        print(f"Collapsed into '{other_label}' for modeling: {list(rare)} "
+              f"(counts: {counts[rare].to_dict()})")
+    return sample
+
+
+# ---------------------------------------------------------------------------
+# 6. ANSWER-OPTION KEY -- build from the FULL table so rare options aren't lost
+# ---------------------------------------------------------------------------
+def build_answer_key(full_df: pd.DataFrame) -> dict:
+    return {q: sorted(grp["answer"].dropna().unique().tolist())
+            for q, grp in full_df.groupby("question")}
+
+
+# ---------------------------------------------------------------------------
+# 7. PROMPTS -- identical query text for both arms; only the harness differs
+# ---------------------------------------------------------------------------
+SYSTEM_PROMPT = (
+    "You are an experienced M&A attorney reviewing a merger agreement. "
+    "Answer strictly and only from the contract text you are given. "
+    "The clause relevant to the question is not always near the start of the "
+    "document, and some questions require connecting language from more than "
+    "one section (for example, a defined term in one article and its use "
+    "elsewhere). Do not rely on outside knowledge of market-standard terms; "
+    "if this contract's language differs from typical practice, follow the "
+    "contract as written."
+)
+
+
+def build_query(question_text: str, options: list) -> str:
+    letters = [chr(ord("A") + i) for i in range(len(options))]
+    options_block = "\n".join(f"{l}. {opt}" for l, opt in zip(letters, options))
+    return (
+        f"Deal point question: {question_text}\n\n"
+        f"Answer options:\n{options_block}\n\n"
+        "Instructions: choose exactly one option based only on the contract "
+        "text. You may briefly explain your reasoning, but the LAST line of "
+        "your response must be exactly in the form:\nAnswer: <LETTER>"
+    )
+
+
+def build_vanilla_prompt(context_text: str, question_text: str, options: list) -> list:
+    query = build_query(question_text, options)
+    user_msg = f"[CONTRACT TEXT]\n{context_text}\n[END CONTRACT TEXT]\n\n{query}"
+    return [{"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_msg}]
+
+
+def build_rlm_inputs(context_text: str, question_text: str, options: list) -> dict:
+    """
+    For the RLM harness: `context_text` is loaded as the `context` variable in
+    the REPL environment; `query` is the top-level prompt given to the root LM,
+    which then recursively decomposes/queries `context` (calling itself over
+    programmatic snippets). Keep `query` byte-for-byte identical to the
+    vanilla arm's query -- the experiment is only valid if the sole difference
+    between arms is the context-handling harness, not the wording of the ask.
+    """
+    return {
+        "context": context_text,
+        "query": SYSTEM_PROMPT + "\n\n" + build_query(question_text, options),
+    }
+
+
+# ---------------------------------------------------------------------------
+# 8. EVALUATION LOOP -- plug in your own model / RLM call functions
+# ---------------------------------------------------------------------------
+def run_eval(sample: pd.DataFrame, answer_key: dict,
+             vanilla_call, rlm_call, contract_texts: dict) -> pd.DataFrame:
+    """
+    vanilla_call(messages: list[dict]) -> str
+    rlm_call(query: str, context: str) -> str
+    contract_texts: dict mapping contract_name -> FULL raw contract string
+                    (use the full document, not the MAUD excerpt, if your goal
+                    is to test long-context handling -- see the note above the
+                    prompt section in the chat reply).
+    """
+    results = []
+    for _, row in sample.iterrows():
+        options = answer_key[row["question"]]
+        context_text = contract_texts[row["contract_name"]]
+
+        vanilla_msgs = build_vanilla_prompt(context_text, row["question"], options)
+        rlm_inputs = build_rlm_inputs(context_text, row["question"], options)
+
+        vanilla_out = vanilla_call(vanilla_msgs)
+        rlm_out = rlm_call(rlm_inputs["query"], rlm_inputs["context"])
+
+        record = row.to_dict()
+        record["_answer_options"] = options
+        record["vanilla_output"] = vanilla_out
+        record["rlm_output"] = rlm_out
+        results.append(record)
+
+    res_df = pd.DataFrame(results)
+    res_df["vanilla_correct"] = res_df.apply(lambda r: score_row(r, "vanilla_output"), axis=1)
+    res_df["rlm_correct"] = res_df.apply(lambda r: score_row(r, "rlm_output"), axis=1)
+    return res_df
+
+
+# ---------------------------------------------------------------------------
+# 9. PARSING + SCORING
+# ---------------------------------------------------------------------------
+def parse_answer_letter(model_output: str):
+    matches = re.findall(r"Answer:\s*([A-Z])\b", str(model_output).strip())
+    return matches[-1] if matches else None
+
+
+def score_row(row, output_col: str):
+    letter = parse_answer_letter(row[output_col])
+    if letter is None:
+        return np.nan
+    idx = ord(letter) - ord("A")
+    options = row["_answer_options"]
+    if not (0 <= idx < len(options)):
+        return np.nan
+    return int(options[idx] == row["answer"])
+
+
+# ---------------------------------------------------------------------------
+# 10. STATISTICAL ANALYSIS
+# ---------------------------------------------------------------------------
+def mcnemar_overall(res_df: pd.DataFrame):
+    both = ((res_df.vanilla_correct == 1) & (res_df.rlm_correct == 1)).sum()
+    v_only = ((res_df.vanilla_correct == 1) & (res_df.rlm_correct == 0)).sum()
+    r_only = ((res_df.vanilla_correct == 0) & (res_df.rlm_correct == 1)).sum()
+    neither = ((res_df.vanilla_correct == 0) & (res_df.rlm_correct == 0)).sum()
+    table = [[both, v_only], [r_only, neither]]
+    result = mcnemar(table, exact=True)
+    print(f"n={len(res_df)}  Vanilla acc={res_df.vanilla_correct.mean():.1%}  "
+          f"RLM acc={res_df.rlm_correct.mean():.1%}  "
+          f"(RLM-only-correct={r_only}, Vanilla-only-correct={v_only})  "
+          f"McNemar exact p={result.pvalue:.4f}")
+    return result
+
+
+def mcnemar_by_group(res_df: pd.DataFrame, group_col: str):
+    """Treat these as DESCRIPTIVE, not the primary test -- at n~15-30/cell,
+    McNemar alone is only well-powered for large (>~25pt) gaps. See the pooled
+    model below for the properly-powered interaction test."""
+    for g, gdf in res_df.groupby(group_col, observed=True):
+        print(f"\n--- {group_col} = {g} (n={len(gdf)}) ---")
+        mcnemar_overall(gdf)
+
+
+def pooled_interaction_model(res_df: pd.DataFrame, min_category_count: int = 12):
+    """
+    Primary inferential tool: reshape to long format (one row per
+    model x question-instance) and fit a GEE logistic model clustered by
+    contract+question, testing whether the vanilla-vs-RLM gap depends on
+    length_bin / category / complexity_tier. This pools information across all
+    cells rather than testing each cell in isolation, which is what makes it
+    usable at n=100-200 (see the power simulation for why per-cell tests alone
+    need much larger n).
+
+    Uses category_grp (rare categories collapsed to "Other") rather than the
+    raw 7-level category, since at n=100-200 the rare categories (General
+    Information, Knowledge, Remedies) will typically have too few rows for a
+    stable model x category interaction term on their own.
+    """
+    res_df = collapse_rare_categories(res_df, min_count=min_category_count)
+    long_df = pd.concat([
+        res_df.assign(model="vanilla", correct=res_df.vanilla_correct),
+        res_df.assign(model="rlm", correct=res_df.rlm_correct),
+    ], ignore_index=True)
+    long_df["model"] = pd.Categorical(long_df["model"], categories=["vanilla", "rlm"])
+    long_df["cluster_id"] = (long_df["contract_name"].astype(str) + "_" +
+                              long_df["question"].astype(str))
+
+    model = smf.gee(
+        "correct ~ model * length_bin + model * category_grp + model * complexity_tier",
+        groups="cluster_id", data=long_df, family=sm.families.Binomial()
+    )
+    fit = model.fit()
+    print(fit.summary())
+    return fit
+
+
+def bootstrap_gap_ci(res_df: pd.DataFrame, group_col=None, n_boot=5000, seed=RANDOM_SEED):
+    rng = np.random.default_rng(seed)
+
+    def one_group_ci(gdf):
+        idx_all = gdf.index.to_numpy()
+        gaps = np.empty(n_boot)
+        for i in range(n_boot):
+            samp = rng.choice(idx_all, size=len(idx_all), replace=True)
+            s = gdf.loc[samp]
+            gaps[i] = s.rlm_correct.mean() - s.vanilla_correct.mean()
+        return gaps.mean(), np.percentile(gaps, [2.5, 97.5])
+
+    if group_col is None:
+        mean_gap, ci = one_group_ci(res_df)
+        print(f"Overall RLM-Vanilla accuracy gap: {mean_gap:+.1%}  95% CI [{ci[0]:+.1%}, {ci[1]:+.1%}]")
+    else:
+        for g, gdf in res_df.groupby(group_col, observed=True):
+            mean_gap, ci = one_group_ci(gdf)
+            print(f"{group_col}={g} (n={len(gdf)}): gap={mean_gap:+.1%}  95% CI [{ci[0]:+.1%}, {ci[1]:+.1%}]")
+
+
+# ---------------------------------------------------------------------------
+# EXAMPLE USAGE
+# ---------------------------------------------------------------------------
+if __name__ == "__main__":
+    # 1. Load
+    df = get_main_def(split="train")
+
+    # 2. Your existing contract-length quantiles (reuse your own Series here)
+    contract_token_counts_path = "maud_contract_lengths.json"
+    contract_bins = bin_contracts_by_length(contract_token_counts_path, n_bins=4)
+
+    # 3. Features
+    master = build_master_table(add_complexity_features(df), contract_bins)
+
+    # 4. EDA before locking the design
+    check_axis_confounding(master)
+
+    # 5. Sample (stratifies by length_bin x category; complexity_tier is
+    #    recorded on every row for analysis, not forced as a sampling cell)
+    # sample = stratified_sample(master, n_contracts_per_bin=7, max_rows_per_contract=6)
+    # coverage_report(sample)
+
+    # 6. Answer key from the FULL table
+    # answer_key = build_answer_key(df)
+
+    # 7-8. Run eval (plug in your vanilla_call / rlm_call / contract_texts)
+    # res_df = run_eval(sample, answer_key, vanilla_call, rlm_call, contract_texts)
+
+    # 10. Analyze
+    # mcnemar_overall(res_df)
+    # mcnemar_by_group(res_df, "length_bin")
+    # pooled_interaction_model(res_df)
+    # bootstrap_gap_ci(res_df, group_col="length_bin")
+    

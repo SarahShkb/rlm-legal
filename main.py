@@ -1,7 +1,7 @@
 from maud.maud_contracts_token_analysis import (
     save_contracts_token_count_to_json,
 )
-from maud.maud_utils import run_maud_pipeline
+from utils.maud_utils import run_maud_pipeline
 from utils.contract_nli_utils import run_contract_nli_pipeline
 
 
