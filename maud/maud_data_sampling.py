@@ -35,6 +35,7 @@ import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+from scipy.stats import chi2_contingency
 from statsmodels.stats.contingency_tables import mcnemar
 
 from utils.maud_utils import get_main_def
@@ -68,7 +69,7 @@ def bin_contracts_by_length(maud_contracts_token_count_json_path: str, n_bins: i
         labels=labels
     )
     return pd.DataFrame({
-        "contract_name": contract_token_counts.index,
+        "contract_name": contract_token_counts.index.str.removesuffix(".txt"),
         "n_tokens_contract": contract_token_counts.values,
         "length_bin": bins.values,
     })
@@ -100,7 +101,8 @@ def add_complexity_features(df: pd.DataFrame, excerpt_tokenizer=None) -> pd.Data
 
 
 def build_master_table(df: pd.DataFrame, contract_bins: pd.DataFrame) -> pd.DataFrame:
-    merged = df.merge(contract_bins, on="contract_name", how="left")
+    filtered_df = df[df["contract_name"] != "<RARE_ANSWERS>"]
+    merged = filtered_df.merge(contract_bins, on="contract_name", how="left")
     n_unmatched = merged["length_bin"].isna().sum()
     if n_unmatched:
         print(f"WARNING: {n_unmatched} rows didn't match a contract length bin -- "
@@ -112,17 +114,21 @@ def build_master_table(df: pd.DataFrame, contract_bins: pd.DataFrame) -> pd.Data
 # 4. EDA -- run this BEFORE finalizing the sampling design
 # ---------------------------------------------------------------------------
 def check_axis_confounding(master: pd.DataFrame) -> None:
-    """
-    Your four factors are not guaranteed independent. In particular, check
-    whether full-contract length correlates with category and with excerpt
-    length in YOUR corpus before treating them as fully separate,
-    freely-crossable axes -- if two axes are highly correlated, a "factorial"
-    design over both is mostly wasted cells.
-    """
+    # check whether full-contract length correlates
+    # with category and with excerpt length
+    # and also check the correlation between excerpt length and category
+
     print("Mean excerpt length by category:")
     print(master.groupby("category")["excerpt_n_tokens"].mean().sort_values(ascending=False))
     print("\nContract length vs. category (row counts):")
-    print(pd.crosstab(master["length_bin"], master["category"]))
+    ct = pd.crosstab(master["length_bin"], master["category"])
+    print(ct)
+    chi2, _, _, _ = chi2_contingency(ct)
+    n = ct.to_numpy().sum()
+    k = min(ct.shape) - 1
+    cramers_v = np.sqrt(chi2 / (n * k)) if k > 0 else float("nan")
+    print(f"Cramer's V(length_bin, category) = {cramers_v:.3f}  "
+          f"(rule of thumb: <0.1 negligible, 0.1-0.3 weak, 0.3-0.5 moderate, >0.5 strong)")
     corr = master[["n_tokens_contract", "excerpt_n_tokens"]].corr().iloc[0, 1]
     print(f"\nCorrelation(full contract length, excerpt length) = {corr:.3f}")
 
@@ -131,40 +137,133 @@ def check_axis_confounding(master: pd.DataFrame) -> None:
 # 5. STRATIFIED SAMPLER
 # ---------------------------------------------------------------------------
 def stratified_sample(master: pd.DataFrame,
-                       n_contracts_per_bin: int = 7,
+                       n_contracts_per_bin=None,
                        max_rows_per_contract: int = 6,
-                       target_total=(100, 200),
+                       force_include_longest: int = 2,
+                       target_total=(100, 250),
+                       max_attempts: int = 6,
+                       growth_factor: float = 1.6,
                        seed: int = RANDOM_SEED) -> pd.DataFrame:
-    selected = []
-
-    for _, bin_df in master.groupby("length_bin", observed=True):
-        contracts_in_bin = bin_df["contract_name"].unique()
+    
+    bin_order = (master.groupby("length_bin", observed=True)["n_tokens_contract"]
+                        .mean().sort_values().index.tolist())
+    n_bins = len(bin_order)
+    print(f"Bin order resolved shortest -> longest (by mean contract length): {bin_order}")
+ 
+    if n_contracts_per_bin is None:
+        n_contracts_per_bin = np.linspace(4, 10, n_bins).round().astype(int).tolist()
+    elif isinstance(n_contracts_per_bin, int):
+        n_contracts_per_bin = [n_contracts_per_bin] * n_bins
+    n_contracts_per_bin = list(n_contracts_per_bin)
+    assert len(n_contracts_per_bin) == n_bins, (
+        f"n_contracts_per_bin must be an int or a list with one value per bin "
+        f"({n_bins} bins found: {bin_order})"
+    )
+ 
+    contract_lengths_master = (master.drop_duplicates("contract_name")
+                                      .set_index("contract_name")["n_tokens_contract"])
+    overall_longest = contract_lengths_master.nlargest(force_include_longest).index.tolist()
+    print(f"Force-including as longest ({force_include_longest}): {overall_longest}")
+    if contract_lengths_master.isna().any():
+        print(f"NOTE: {contract_lengths_master.isna().sum()} contracts in master have no "
+              f"n_tokens_contract (merge didn't match) -- they CANNOT be force-included "
+              f"even if they're actually your longest. Run diagnose_contract_matching().")
+ 
+    # Precompute each bin's full contract pool once, so retries don't refilter master repeatedly.
+    bin_pools = {}
+    bin_dfs = {}
+    for bin_name in bin_order:
+        bin_df = master[master["length_bin"] == bin_name]
+        bin_dfs[bin_name] = bin_df
         lengths = bin_df.drop_duplicates("contract_name").set_index("contract_name")["n_tokens_contract"]
-        lengths = lengths.loc[contracts_in_bin].sort_values()
-
-        n_pick = min(n_contracts_per_bin, len(lengths))
-        idx = np.linspace(0, len(lengths) - 1, n_pick).round().astype(int)
-        picked_contracts = lengths.iloc[idx].index.tolist()
-
-        for contract in picked_contracts:
-            c_df = bin_df[bin_df["contract_name"] == contract]
-            picks = []
-            for _, cell_df in c_df.groupby("category", observed=True):
-                if len(cell_df) > 0:
-                    picks.append(cell_df.sample(1, random_state=seed))
-            if picks:
-                contract_pick = pd.concat(picks)
-                if len(contract_pick) > max_rows_per_contract:
-                    contract_pick = contract_pick.sample(max_rows_per_contract, random_state=seed)
-                selected.append(contract_pick)
-
-    sample = pd.concat(selected).drop_duplicates(subset="id").reset_index(drop=True)
+        bin_pools[bin_name] = lengths.sort_values()
+ 
+    def build_once(n_per_bin):
+        selected = []
+        for bin_name, n_pick_target in zip(bin_order, n_per_bin):
+            lengths = bin_pools[bin_name]
+            n_pick = min(n_pick_target, len(lengths))
+            if n_pick == 0:
+                continue
+            idx = np.linspace(0, len(lengths) - 1, n_pick).round().astype(int)
+            picked_contracts = set(lengths.iloc[idx].index.tolist())
+            picked_contracts |= (set(overall_longest) & set(lengths.index))
+ 
+            bin_df = bin_dfs[bin_name]
+            for contract in picked_contracts:
+                c_df = bin_df[bin_df["contract_name"] == contract]
+                picks = []
+                for _, cell_df in c_df.groupby("category", observed=True):
+                    if len(cell_df) > 0:
+                        picks.append(cell_df.sample(1, random_state=seed))
+                if picks:
+                    contract_pick = pd.concat(picks)
+                    if len(contract_pick) > max_rows_per_contract:
+                        contract_pick = contract_pick.sample(max_rows_per_contract, random_state=seed)
+                    selected.append(contract_pick)
+        if not selected:
+            return master.iloc[0:0].copy()
+        return pd.concat(selected).drop_duplicates(subset="id").reset_index(drop=True)
+ 
     lo, hi = target_total
+    current_n = n_contracts_per_bin[:]
+    sample = build_once(current_n)
+ 
+    attempt = 1
+    while len(sample) < lo and attempt <= max_attempts:
+        pool_sizes = {b: len(bin_pools[b]) for b in bin_order}
+        maxed_out = all(n >= pool_sizes[b] for n, b in zip(current_n, bin_order))
+        if maxed_out:
+            print(f"NOTE: every bin is already drawing its FULL contract pool {pool_sizes} "
+                  f"at max_rows_per_contract={max_rows_per_contract}, and that only yields "
+                  f"{len(sample)} rows -- this is a structural ceiling in your data (probably "
+                  f"fewer categories represented per contract than {max_rows_per_contract}). "
+                  f"Raise max_rows_per_contract, lower target_total's floor, or add more "
+                  f"length bins' worth of contracts to go further.")
+            break
+        current_n = [min(pool_sizes[b], max(n + 1, round(n * growth_factor)))
+                     for n, b in zip(current_n, bin_order)]
+        print(f"Attempt {attempt}: {len(sample)} rows < target floor {lo}. "
+              f"Growing n_contracts_per_bin to {current_n} and retrying.")
+        sample = build_once(current_n)
+        attempt += 1
+ 
+    if len(sample) > hi:
+        is_protected = sample["contract_name"].isin(overall_longest)
+        protected, rest = sample[is_protected], sample[~is_protected]
+        n_trim = max(0, hi - len(protected))
+        rest_trimmed = rest.sample(min(n_trim, len(rest)), random_state=seed) if len(rest) else rest
+        sample = (pd.concat([protected, rest_trimmed])
+                    .drop_duplicates(subset="id").reset_index(drop=True))
+        print(f"Trimmed down to {len(sample)} rows to respect the target ceiling of {hi} "
+              f"(force-included longest contracts were protected from trimming).")
+ 
     if not (lo <= len(sample) <= hi):
-        print(f"NOTE: sample size = {len(sample)}, outside target range {target_total}. "
-              f"Tune n_contracts_per_bin / max_rows_per_contract and re-run.")
+        print(f"NOTE: final sample size = {len(sample)}, still outside target range {target_total}.")
+ 
+    missing = [c for c in overall_longest if c not in sample["contract_name"].values]
+    if missing:
+        print(f"WARNING: these force-included contracts are STILL not in the final sample: "
+              f"{missing}. Reason for each:")
+        for c in missing:
+            length = contract_lengths_master.get(c, np.nan)
+            if pd.isna(length):
+                print(f"  '{c}': no valid n_tokens_contract in master (merge never matched it) "
+                      f"-- run diagnose_contract_matching() / check_contract_present().")
+                continue
+            c_rows = master[master["contract_name"] == c]
+            c_bins = c_rows["length_bin"].dropna().unique().tolist()
+            print(f"  '{c}': n_tokens_contract={length}, length_bin={c_bins}, "
+                  f"{len(c_rows)} rows in master, categories present: "
+                  f"{c_rows['category'].unique().tolist()}. It matched fine but produced zero "
+                  f"picks -- check whether c_rows above is unexpectedly empty for this contract.")
+    else:
+        print(f"Confirmed: all {len(overall_longest)} force-included longest contract(s) "
+              f"are present in the final sample.")
+ 
+    with pd.option_context("display.max_rows", None):
+        print(sample)
     return sample
-
 
 def coverage_report(sample: pd.DataFrame) -> None:
     print(f"Total rows: {len(sample)} | Distinct contracts: {sample['contract_name'].nunique()}")
@@ -404,13 +503,15 @@ if __name__ == "__main__":
 
     # 3. Features
     master = build_master_table(add_complexity_features(df), contract_bins)
+    with pd.option_context("display.max_rows", None):
+        print(df[df["contract_name"] == "contract_33"])
 
     # 4. EDA before locking the design
-    check_axis_confounding(master)
+    # check_axis_confounding(master)
 
     # 5. Sample (stratifies by length_bin x category; complexity_tier is
     #    recorded on every row for analysis, not forced as a sampling cell)
-    # sample = stratified_sample(master, n_contracts_per_bin=7, max_rows_per_contract=6)
+    # sample = stratified_sample(master)
     # coverage_report(sample)
 
     # 6. Answer key from the FULL table
