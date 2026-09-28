@@ -30,6 +30,8 @@ If your columns differ, the loader below will warn you rather than silently fail
 
 import json
 import re
+from collections import Counter
+from itertools import zip_longest
 
 import numpy as np
 import pandas as pd
@@ -42,12 +44,6 @@ from utils.maud_utils import get_main_def
 
 RANDOM_SEED = 42
 
-
-# ---------------------------------------------------------------------------
-# 2. CONTRACT-LEVEL LENGTH BINS
-#    (you already tokenized the 152 raw contracts with the DeepSeek tokenizer --
-#    reuse that Series here instead of recomputing it)
-# ---------------------------------------------------------------------------
 
 
 def bin_contracts_by_length(maud_contracts_token_count_json_path: str, n_bins: int = 4) -> pd.DataFrame:
@@ -75,9 +71,6 @@ def bin_contracts_by_length(maud_contracts_token_count_json_path: str, n_bins: i
     })
 
 
-# ---------------------------------------------------------------------------
-# 3. COMPLEXITY FEATURE ENGINEERING
-# ---------------------------------------------------------------------------
 def add_complexity_features(df: pd.DataFrame, excerpt_tokenizer=None) -> pd.DataFrame:
     # adds complexity_tier (binary / 3-way / multi-way)
     # and excerpt_n_tokens columns, plus cleans up category
@@ -110,9 +103,6 @@ def build_master_table(df: pd.DataFrame, contract_bins: pd.DataFrame) -> pd.Data
     return merged
 
 
-# ---------------------------------------------------------------------------
-# 4. EDA -- run this BEFORE finalizing the sampling design
-# ---------------------------------------------------------------------------
 def check_axis_confounding(master: pd.DataFrame) -> None:
     # check whether full-contract length correlates
     # with category and with excerpt length
@@ -133,9 +123,33 @@ def check_axis_confounding(master: pd.DataFrame) -> None:
     print(f"\nCorrelation(full contract length, excerpt length) = {corr:.3f}")
 
 
+# tells us how many distinct contracts are represented 
+# in each length_bin x question_type cell
+def question_support_table(df: pd.DataFrame) -> pd.DataFrame:
+    support = (
+        df.groupby(["question", "length_bin"])["contract_name"]
+        .nunique()
+        .unstack(fill_value=0)
+    )
+
+    return support.sort_values(
+        by=list(support.columns),
+        ascending=False
+    )
+
+
 # ---------------------------------------------------------------------------
-# 5. STRATIFIED SAMPLER
+# 5. SAMPLING
 # ---------------------------------------------------------------------------
+
+# this function is for sampling based of 4 features:
+# 1. length_bin (contract-level full text length)
+# 2. category (question type)
+# 3. complexity_tier (binary / 3-way / multi-way)   
+# 4.  length_text
+# but for some reason, it doesn't work as I want. 
+# One of the disadvantages is that it doesn't guarantee that the longest contracts 
+# are included in the sample.
 def stratified_sample(master: pd.DataFrame,
                        n_contracts_per_bin=None,
                        max_rows_per_contract: int = 6,
@@ -264,6 +278,62 @@ def stratified_sample(master: pd.DataFrame,
     with pd.option_context("display.max_rows", None):
         print(sample)
     return sample
+
+
+def sample_one_row_per_contract(df, seed=42, w_cell=1.0, w_bin_q=1.0, w_global_q=1.0):
+    """
+    Greedy, usage-balanced selection.
+ 
+    For each contract, look at all its candidate rows and pick the one whose
+    question / category / tier has been used the least so far:
+ 
+        score = w_cell     * uses of (bin, category, tier)   -> variety inside each bin
+              + w_bin_q    * uses of (bin, question)         -> avoid repeating a question in a bin
+              + w_global_q * uses of question (all bins)     -> every question gets covered
+ 
+    Lowest score wins; ties are broken randomly. Contracts are processed
+    round-robin across the length bins so no single bin uses up the rare
+    questions first.
+    """
+    rng = np.random.default_rng(seed)
+    df = df.reset_index(drop=True)
+ 
+    # each contract must belong to exactly one length bin
+    assert df.groupby("contract_name")["length_bin"].nunique().max() == 1, \
+        "a contract has rows in more than one bin"
+ 
+    groups = {c: g for c, g in df.groupby("contract_name")}
+ 
+    # shuffle contracts inside each bin, then interleave the bins
+    per_bin = [rng.permutation(g["contract_name"].unique()).tolist()
+               for _, g in df.groupby("length_bin")]
+    order = [c for tup in zip_longest(*per_bin) for c in tup if c is not None]
+ 
+    q_global, q_bin, cell_bin = Counter(), Counter(), Counter()
+    picked = []
+ 
+    for contract in order:
+        cand = groups[contract]
+        b = cand["length_bin"].iloc[0]
+ 
+        scores = np.array([
+            w_cell * cell_bin[(b, cat, tier)]
+            + w_bin_q * q_bin[(b, q)]
+            + w_global_q * q_global[q]
+            for q, cat, tier in zip(cand["question"], cand["category"], cand["complexity_tier"])
+        ], dtype=float)
+        scores += rng.uniform(0, 1e-3, size=len(scores))  # random tie-break
+ 
+        row = cand.iloc[int(scores.argmin())]
+        picked.append(row)
+ 
+        q_global[row["question"]] += 1
+        q_bin[(b, row["question"])] += 1
+        cell_bin[(b, row["category"], row["complexity_tier"])] += 1
+ 
+    return pd.DataFrame(picked).reset_index(drop=True)
+
+
 
 def coverage_report(sample: pd.DataFrame) -> None:
     print(f"Total rows: {len(sample)} | Distinct contracts: {sample['contract_name'].nunique()}")
@@ -503,15 +573,26 @@ if __name__ == "__main__":
 
     # 3. Features
     master = build_master_table(add_complexity_features(df), contract_bins)
+    support_table = question_support_table(master)
     with pd.option_context("display.max_rows", None):
-        print(df[df["contract_name"] == "contract_33"])
+        print(support_table)
 
     # 4. EDA before locking the design
     # check_axis_confounding(master)
 
     # 5. Sample (stratifies by length_bin x category; complexity_tier is
     #    recorded on every row for analysis, not forced as a sampling cell)
-    # sample = stratified_sample(master)
+    sample = sample_one_row_per_contract(master, seed=RANDOM_SEED)
+    with pd.option_context("display.max_rows", None):
+        print(sample.sort_values(by="n_tokens_contract").reset_index(drop=True))
+
+    with pd.option_context("display.max_colwidth", 20):
+        for (length_bin, complexity_tier, category), group in sample.groupby(
+            ["length_bin", "complexity_tier", "category"], observed=True
+            ):
+            print(f"\n--- Length Bin: {length_bin}, Complexity Tier: {complexity_tier}, Category: {category} ---")
+            print(group[["contract_name", "complexity_tier", "category"]])
+
     # coverage_report(sample)
 
     # 6. Answer key from the FULL table
