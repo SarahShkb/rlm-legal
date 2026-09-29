@@ -1,0 +1,165 @@
+{
+  "\"Ability to consummate\" concept is subject to MAE carveouts": "Is the impact on the target's ability to consummate the transaction subject to the Material Adverse Effect (MAE) carveouts?",
+
+  "\"Financial point of view\" is the sole consideration": "Is \"financial point of view\" the sole consideration when determining whether an acquisition proposal is a superior offer?",
+
+  "A/P/C application to-Answer": "To which matters or circumstances does the A/P/C provision apply under the agreement?",
+
+  "Absence of Litigation Closing Condition: Governmental v. Non-Governmental-Answer": "Does the absence-of-litigation closing condition apply to governmental proceedings, non-governmental proceedings, or both?",
+
+  "Absence of Litigation Closing Condition: Pending v. Threatened v. Threatened in Writing-Answer": "Does the absence-of-litigation closing condition apply to pending litigation, threatened litigation, threatened litigation in writing, or some combination of these?",
+
+  "Accuracy of Fundamental Target R&Ws-Types of R&Ws": "Which types of Target representations and warranties are treated as fundamental representations and warranties?",
+
+  "Accuracy of Fundamental Target R&Ws: Bringdown Standard": "How accurate must the fundamental Target representations and warranties be under the bringdown provision?",
+
+  "Accuracy of Target\"General\" R&W: Bringdown Standard Answer": "What accuracy standard applies to the Target's general representations and warranties under the bringdown provision?",
+
+  "Accuracy of Target \"General\" R&W: Bringdown Timing Answer": "When must the Target's general representations and warranties be accurate: at signing, at closing, or both?",
+
+  "Accuracy of Target Capitalization R&W (outstanding shares): Bringdown Standard Answer": "What accuracy standard applies to the Target's capitalization representation regarding outstanding shares under the bringdown provision?",
+
+  "Acquisition Proposal Timing-Answer": "When is an acquisition proposal permitted or required to be made under the agreement?",
+
+  "Acquisition Proposal required to be publicly disclosed-Answer": "Does the agreement require an acquisition proposal to be publicly disclosed?",
+
+  "Acquisition Proposal required to be publicly disclosed-Answer (Y/N)": "Does the agreement require an acquisition proposal to be publicly disclosed?",
+
+  "Acquisition Proposal required to be still pending-Answer (Y/N)": "Does the acquisition proposal have to remain pending in order for the relevant provision or right to apply?",
+
+  "Actions taken by Buyer-Answer(Y/N)": "Does the MAE definition carve out effects arising from actions taken by the Buyer?",
+
+  "Actions taken with consent or approval of Buyer-Answer (Y/N)": "Does the MAE definition carve out effects arising from actions taken with the Buyer's consent or approval?",
+
+  "Additional matching rights period for modifications (COR)-Answer": "How long is the additional matching-rights period for modifications in connection with a change of recommendation (COR)?",
+
+  "Additional matching rights period for modifications (FTR)-Answer": "How long is the additional matching-rights period for modifications in connection with a fiduciary termination right (FTR)?",
+
+  "Announcement, pendencyor consummation of deal (Y/N)": "Does the MAE definition carve out effects arising from the announcement, pendency, or consummation of the transaction?",
+
+  "Application of Buyer consent requirement (negative interim covenant)-Answer": "To which negative interim covenants or prohibited actions does the Buyer-consent requirement apply?",
+
+  "Breach of Meeting Covenant required to be willful, material and/or intentional": "Must a breach of the meeting covenant be willful, material, intentional, or some combination of these?",
+
+  "Breach of No Shop required to be willful, material and/or intentional": "Must a breach of the no-shop provision be willful, material, intentional, or some combination of these?",
+
+  "Buyer consent requirement (negative interim covenant)-Answer": "What actions or matters require the Buyer's consent under the negative interim covenant?",
+
+  "Buyer consent requirement (ordinary course)-Answer": "When Buyer consent is required for the acquired company's ordinary business operations, are there limitations on the Buyer's right to condition, withhold, or delay consent?",
+
+  "COR permitted in response to Intervening Event": "Is a change of recommendation (COR) permitted in response to an intervening event?",
+
+  "COR permitted with board fiduciary determination only": "Is a change of recommendation permitted only if the Board determines that the change is required to fulfill its fiduciary duties?",
+
+  "COR standard (intervening event)": "What standard must the Board follow when determining whether to change its recommendation in response to an intervening event?",
+
+  "COR standard (superior offer)": "What standard must the Board follow when determining whether to change its recommendation in connection with a superior offer?",
+
+  "Change in Target's industry: subject to \"disproportionate impact\" modifier": "Does a change in the Target's industry qualify as an MAE only if it has a disproportionate impact on the Target?",
+
+  "Changes in GAAP or other accounting principles (Y/N)": "Does the MAE definition contain a carveout for changes in GAAP or other accounting principles?",
+
+  "Changes in GAAP or other accounting principles:  subject to \"disproportionate impact\" modifier": "Do changes in GAAP or other accounting principles qualify for the MAE carveout only when they have a disproportionate impact on the Target?",
+
+  "Changes in Target's industry (Y/N)": "Does the MAE definition contain a carveout for changes in the Target's industry?",
+
+  "Changes in market price/trading volume of Target's securities or credit rating (Y/N)": "Does the MAE definition contain a carveout for changes in the market price or trading volume of the Target's securities or changes in its credit rating?",
+
+  "Compliance with Target Covenant Closing Condition-Answer": "What does the closing condition require regarding the Target's compliance with its covenants?",
+
+  "Constructive Knowledge-Answer": "What does the agreement provide regarding constructive knowledge in the definition of Knowledge?",
+
+  "Definition contains a materiality standard (Y/N)": "Does the relevant definition contain an express materiality standard?",
+
+  "Definition contains knowledge requirement - answer": "What knowledge requirement, if any, is included in the definition of an Intervening Event?",
+
+  "Definition includes asset deals-Answer": "What qualifies as a superior offer with respect to an acquisition structured as an asset deal?",
+
+  "Definition includes stock deals-Answer": "What qualifies as a superior offer with respect to an acquisition structured as a stock deal?",
+
+  "FLS (MAE) Standard-Answer": "What forward-looking standard is used to determine whether an event or effect constitutes a Material Adverse Effect (MAE)?",
+
+  "FLS (MAE) applies to": "To which MAE provisions, carveouts, or circumstances does the forward-looking standard apply?",
+
+  "FTR Triggers-Answer": "What events or circumstances trigger the Fiduciary Termination Right (FTR)?",
+
+  "Failure to meet projections (Y/N)": "Does the MAE definition contain a carveout for failure to meet projections, forecasts, estimates, or similar financial expectations?",
+
+  "Fiduciary exception:  Board determination standard-Answer (no-shop)": "What standard must the Board satisfy to take action notwithstanding the no-shop provision under the fiduciary exception?",
+
+  "Fiduciary exception: Board determination trigger (no shop)-Answer": "What type of acquisition proposal or offer can trigger the fiduciary exception to the no-shop provision?",
+
+  "General Antitrust Efforts Standard-Answer": "What level of efforts is required to obtain antitrust or regulatory approval for the transaction?",
+
+  "General economic and financial conditions (Y/N)": "Does the MAE definition contain a carveout for general economic and financial conditions?",
+
+  "General political and/or social conditions (Y/N)": "Does the MAE definition contain a carveout for general political and/or social conditions?",
+
+  "General political and/or social conditions:  subject to \"disproportionate impact\" modifier": "Do general political or social conditions qualify for the MAE carveout only if they have a disproportionate impact on the Target?",
+
+  "Includes \"consistent with past practice\"": "Does the relevant efforts or operating covenant include the phrase or concept \"consistent with past practice\"?",
+
+  "Initial matching rights period (COR)-Answer": "How long is the initial matching-rights period in connection with a change of recommendation (COR)?",
+
+  "Initial matching rights period (FTR)-Answer": "How long is the initial matching-rights period in connection with the Fiduciary Termination Right (FTR)?",
+
+  "Intervening Event -Required to Occur After Signing - answer": "Is an Intervening Event required to occur after the signing of the agreement?",
+
+  "Knowledge Definition limited to one or more identified persons-Answer (Y/": "Is the definition of Knowledge limited to the knowledge of one or more specifically identified persons?",
+
+  "Knowledge Definition-Answer": "What counts as Knowledge under the agreement?",
+
+  "Knowledge persons include Target management (intervening event)": "Does the definition of an Intervening Event attribute relevant knowledge to members of Target management?",
+
+  "Liability for breaches of no-shop by Target Representatives (Y/N)": "Does the agreement impose liability on the Target for breaches of the no-shop provision by Target Representatives?",
+
+  "Liability standard for no-shop breach by Target Non-D&O Representatives": "What is the liability standard for a no-shop breach by Target non-director/non-officer representatives?",
+
+  "Limitations on FTR Exercise-Answer": "What limitations apply to the exercise of the Fiduciary Termination Right (FTR)?",
+
+  "MAE Forward looking standard (Y/N)": "Does the MAE definition use a forward-looking standard?",
+
+  "MAE applies to Target and subsidiaries (MAE)-Answer": "Does the MAE definition apply to the Target and its subsidiaries, rather than only to the Target itself?",
+
+  "MAE definition includes adverse impact on Target's ability to consummate (Y/N)": "Does the MAE definition include an adverse effect on the Target's ability to consummate the transaction?",
+
+  "MAEdefinition includes reference to Target \"prospects\" (Y/N)": "Does the MAE definition expressly refer to the Target's \"prospects\" or \"prospect\"?",
+
+  "Materiality/MAE Scrape applies to": "To which representations and warranties does the materiality or MAE scrape apply?",
+
+  "Matters listed ondisclosure schedules-Answer (Y/N)": "Does the relevant provision contain a carveout or treatment for matters listed on the disclosure schedules?",
+
+  "Negative Interim Covenant includes carveout for pandemic responses-Answer (Y/N)": "Does the negative interim covenant contain a carveout for actions taken in response to a pandemic or public-health event?",
+
+  "Number of additional matching rights periods for modifications (COR)": "How many additional matching-rights periods are provided for modifications in connection with a change of recommendation (COR)?",
+
+  "Number of additional matching rights periods for modifications (FTR)": "How many additional matching-rights periods are provided for modifications in connection with the Fiduciary Termination Right (FTR)?",
+
+  "Ordinary Course Covenant includes carve-out for Pandemic responses-Answer (Y/N)": "Does the ordinary-course covenant contain a carveout for actions taken in response to a pandemic or public-health event?",
+
+  "Ordinary course efforts standard-Answer": "What efforts standard applies to the Target's ordinary-course obligations?",
+
+  "Pandemic or other public health event: Specific reference to COVID-19": "Does the MAE definition specifically refer to COVID-19 in its treatment of pandemics or other public-health events?",
+
+  "Pandemic or other public health event: specific reference to pandemic-related governmental responses or measures": "Does the MAE definition specifically refer to pandemic-related governmental responses or measures?",
+
+  "Relational language (MAE carveout)-Answer (Dropdown)": "What relational language, if any, is used in the MAE carveout?",
+
+  "Relational language (MAE carveout)-Answer (Y/N)": "Does the MAE carveout use relational language comparing the Target's impact with other companies, industries, or participants?",
+
+  "Relational language (MAE) applies to": "To which MAE carveouts does the relational language apply?",
+
+  "Specific Performance-Answer": "What does the Specific Performance provision provide regarding the parties' entitlement to specific performance in the event of a contractual breach?",
+
+  "Tail Period Length-Answer": "How long is the Tail Period?",
+
+  "Target stockholder proceedings-Answer (Y/N)": "Does the relevant closing condition address the existence or absence of proceedings brought by Target stockholders?",
+
+  "Target's securities or credit rating: subject to \"disproportionate impact\" modifier": "Do changes in the Target's securities price, trading volume, or credit rating qualify for the MAE carveout only if they have a disproportionate impact on the Target?",
+
+  "Type of Consideration-Answer": "What type of consideration is specified in the agreement: all cash, all stock, mixed cash/stock, or mixed cash/stock with an election?",
+
+  "W/N/A/F applies to-Answer": "To which matters or MAE carveouts does the W/N/A/F provision apply?",
+
+  "W/N/A/F subject to \"disproportionate impact\"-Answer": "Is the W/N/A/F-related MAE carveout subject to a disproportionate-impact requirement?"
+}

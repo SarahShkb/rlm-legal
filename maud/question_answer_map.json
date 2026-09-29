@@ -1,0 +1,470 @@
+{
+  "\"Ability to consummate\" concept is subject to MAE carveouts": [
+    "No",
+    "Yes"
+  ],
+  "\"Financial point of view\" is the sole consideration": ["No", "Yes"],
+  "A/P/C application to-Answer": [
+    "announcement, pendency",
+    "announcement, pendency, consummation",
+    "announcement",
+    "announcement, consummation",
+    "No"
+  ],
+  "Absence of Litigation Closing Condition: Governmental v. Non-Governmental-Answer": [
+    "Governmental litigation only",
+    "Non-Governmental & governmental litigation"
+  ],
+  "Absence of Litigation Closing Condition: Pending v. Threatened v. Threatened in Writing-Answer": [
+    "Pending",
+    "Pending or threatened (without \"writing\" requirement)"
+  ],
+  "Accuracy of Fundamental Target R&Ws-Types of R&Ws": [
+    "Capitalization-Other, No MAE",
+    "Capitalization-Other, Authority, Organization, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement",
+    "Capitalization-Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Subsidiaries, Brokers' Fee",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Subsidiaries, No MAE, Brokers' Fee, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Subsidiaries, No MAE, Brokers' Fee, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee, Takeover Statutes, Rights Agreement",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, No MAE, Brokers' Fee",
+    "Capitalization-Other, Approval, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE",
+    "Authority, Approval, Enforceability",
+    "Authority, Approval, Enforceability, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, Brokers' Fee, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee, Takeover Statutes, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Other",
+    "Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Opinion of Financial Advisor, Other",
+    "Authority, Approval, Enforceability, No MAE, Brokers' Fee",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, Brokers' Fee, Takeover Statutes",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Opinion of Financial Advisor, Other",
+    "Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Takeover Statutes, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee, Takeover Statutes",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Subsidiaries, No MAE, Takeover Statutes, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, Brokers' Fee, Takeover Statutes, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee, Opinion of Financial Advisor, No-Conflict",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, Brokers' Fee, No-Conflict",
+    "Authority, Approval, Enforceability, No MAE, Brokers' Fee, Takeover Statutes, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Brokers' Fee, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, No-Conflict, Other",
+    "Capitalization-Other, No MAE, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, No-Conflict",
+    "Capitalization-Other, Authority, Enforceability, Brokers' Fee",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, No MAE, Brokers' Fee, Takeover Statutes",
+    "Capitalization-Other, Authority, Approval, Organization, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, Subsidiaries, Brokers' Fee",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor, No-Conflict",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Takeover Statutes, Rights Agreement, Opinion of Financial Advisor, Tax",
+    "Authority, Approval, Enforceability, Organization, Brokers' Fee",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization, No MAE, Brokers' Fee, Rights Agreement, Opinion of Financial Advisor",
+    "Authority, Approval, Enforceability, No MAE, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Enforceability, Organization, No MAE, Brokers' Fee, Opinion of Financial Advisor, No-Conflict",
+    "Capitalization-Other, Authority, Enforceability, Organization, Brokers' Fee, Takeover Statutes, Opinion of Financial Advisor, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, No MAE, Brokers' Fee, Rights Agreement, Other",
+    "Capitalization-Other, Authority, Approval, Enforceability, Organization"
+  ],
+  "Accuracy of Fundamental Target R&Ws: Bringdown Standard": [
+    "Accurate at another materiality standard (e.g., hybrid standard)",
+    "Accurate in all material respects",
+    "Accurate in all respects"
+  ],
+  "Accuracy of Target \"General\" R&W: Bringdown Standard Answer": [
+    "All/The R&Ws accurate at MAE standard",
+    "R&Ws accurate at another materiality standard (e.g., hybrid standard)"
+  ],
+  "Accuracy of Target \"General\" R&W: Bringdown Timing Answer": [
+    "At Closing Only",
+    "At Signing & At Closing"
+  ],
+  "Accuracy of Target Capitalization R&W (outstanding shares): Bringdown Standard Answer": [
+    "Accurate in all material respects",
+    "Accurate in all respects",
+    "Accurate in all respects with below-threshold carveout",
+    "Accurate in all respects with de minimis exception"
+  ],
+  "Acquisition Proposal Timing-Answer": [
+    "Same Acquisition Proposal - Must sign during Tail Period and close after Tail Period, Different Acquisition Proposal - Must sign during Tail Period and close after Tail Period",
+    "Same Acquisition Proposal - Must sign during Tail Period (no closing requirement), Different Acquisition Proposal - Must sign during Tail Period (no closing requirement)",
+    "Same Acquisition Proposal - Must be approved or not opposed (or another similar action) during Tail Period and transaction must close after Tail Period, Different Acquisition Proposal - Must be approved or not opposed (or another similar action) during Tail Period and transaction must close after Tail Period",
+    "Same Acquisition Proposal - Must close during Tail Period, Different Acquisition Proposal must close during Tail Period",
+    "Same Acquisition Proposal - Must sign during Tail Period and close after Tail Period",
+    "Same Acquisition Proposal - Must sign during Tail Period (no closing requirement)",
+    "Same Acquisition Proposal - Must sign during Tail Period (no closing requirement), Different Acquisition Proposal - Must sign during Tail Period and close after Tail Period",
+    "Same Acquisition Proposal - Must be approved or not opposed to (or another similar action) during Tail Period (no closing requirement), Different Acquisition Proposal - Must be approved or not opposed (or another similar action) during Tail Period (no closing requirement)"
+  ],
+  "Acquisition Proposal required to be publicly disclosed-Answer": [
+    "\u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + Breach Trigger, \u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + No-Vote / MTC Failure Trigger",
+    "\u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + No-Vote / MTC Failure Trigger, \u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + Outside Date Trigger",
+    "\u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + Breach Trigger",
+    "\u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + No-Vote / MTC Failure Trigger",
+    "\u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + Breach Trigger, \u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + No-Vote / MTC Failure Trigger, \u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + Outside Date Trigger",
+    "\u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + Breach Trigger, \u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + Outside Date Trigger",
+    "\u201cPublicly disclosed\u201d requirement applies to Acquisition Proposal + Outside Date Trigger",
+    "No"
+  ],
+  "Acquisition Proposal required to be publicly disclosed-Answer (Y/N)": [
+    "No",
+    "Yes"
+  ],
+  "Acquisition Proposal required to be still pending-Answer (Y/N)": [
+    "No",
+    "Yes"
+  ],
+  "Action prohibited/omission required by the agreement-Answer": ["No", "Yes"],
+  "Actions required under transaction agreement-Answer (Y/N)": ["No", "Yes"],
+  "Actions taken by Buyer-Answer (Y/N)": ["No", "Yes"],
+  "Actions taken with consent or approval of Buyer-Answer (Y/N)": ["No", "Yes"],
+  "Additional matching rights period for modifications (COR)-Answer": [
+    "2 business days or less",
+    "3 business days",
+    "4 business days",
+    "5 business days",
+    "None"
+  ],
+  "Additional matching rights period for modifications (FTR)-Answer": [
+    "2 business days or less",
+    "3 business days",
+    "3 days",
+    "4 business days"
+  ],
+  "Announcement, pendency or consummation of deal (Y/N)": ["No", "Yes"],
+  "Application of Buyer consent requirement (negative interim covenant)-Answer": [
+    "Applies only to specified negative covenants",
+    "Applies to all negative covenants"
+  ],
+  "Breach of Meeting Covenant required to be willful, material and/or intentional": [
+    "Yes",
+    "No"
+  ],
+  "Breach of No Shop required to be willful, material and/or intentional": [
+    "Yes",
+    "No"
+  ],
+  "Buyer consent requirement (negative interim covenant)-Answer": [
+    "Consent may not be unreasonably withheld, conditioned or delayed",
+    "Flat consent"
+  ],
+  "Buyer consent requirement (ordinary course)-Answer": [
+    "Consent may not be unreasonably withheld, conditioned or delayed",
+    "Flat consent"
+  ],
+  "COR permitted in response to Intervening Event": ["No", "Yes"],
+  "COR permitted with board fiduciary determination only": ["No", "Yes"],
+  "COR standard (board determination only)-answer": [
+    "More likely than not violate fiduciary duties"
+  ],
+  "COR standard (intervening event)": [
+    "\"Inconsistent\" with fiduciary duties",
+    "\"Reasonably likely/expected breach\" of fiduciary duties",
+    "\"Reasonably likely/expected to be inconsistent\" with fiduciary duties",
+    "\"Reasonably likely/expected violation\" of fiduciary duties",
+    "More likely than not violate fiduciary duties",
+    "Other specified standard"
+  ],
+  "COR standard (superior offer)": [
+    "\"Breach\" of fiduciary duties",
+    "\"Inconsistent\" with fiduciary duties",
+    "\"Reasonably likely/expected breach\" of fiduciary duties",
+    "\"Reasonably likely/expected to be inconsistent\" with fiduciary duties",
+    "\"Reasonably likely/expected violation\" of fiduciary duties",
+    "\"Violation\" of fiduciary duties",
+    "More likely than not violate fiduciary duties",
+    "None",
+    "Other specified standard"
+  ],
+  "Change in Target's industry: subject to \"disproportionate impact\" modifier": [
+    "No",
+    "Yes"
+  ],
+  "Change in law (Y/N)": ["Yes"],
+  "Change in law:  subject to \"disproportionate impact\" modifier": [
+    "No",
+    "Yes"
+  ],
+  "Changes in GAAP or other accounting principles (Y/N)": ["No", "Yes"],
+  "Changes in GAAP or other accounting principles:  subject to \"disproportionate impact\" modifier": [
+    "No",
+    "Yes"
+  ],
+  "Changes in Target's industry (Y/N)": ["No", "Yes"],
+  "Changes in market price/trading volume of Target's securities or credit rating (Y/N)": [
+    "No",
+    "Yes"
+  ],
+  "Compliance with Target Covenant Closing Condition-Answer": [
+    "All Covenants",
+    "Each Covenant"
+  ],
+  "Constructive Knowledge-Answer": ["Based on investigation or inquiry"],
+  "Definition contains a materiality standard (Y/N)": ["No", "Yes"],
+  "Definition contains knowledge requirement - answer": [
+    "Known, but consequences unknown or not reasonably foreseeable, at signing",
+    "Known, but consequences unknown, at signing",
+    "Not known and not reasonably foreseeable at signing",
+    "Not known at signing"
+  ],
+  "Definition includes asset deals-Answer": [
+    "\"All or substantially all\"",
+    "50%",
+    "Greater than 50% but not \"all or substantially all\"",
+    "Less than 50%"
+  ],
+  "Definition includes stock deals-Answer": [
+    "\"All or substantially all\"",
+    "50%",
+    "Greater than 50% but not \"all or substantially all\"",
+    "Less than 50%"
+  ],
+  "FLS (MAE) Standard-Answer": [
+    "\"Would\"",
+    "\"Would\" (reasonably) be expected to",
+    "No",
+    "Other forward-looking standard"
+  ],
+  "FLS (MAE) applies to": [
+    "ability to consummate transaction",
+    "business and operation of Target",
+    "business and operation of Target, ability to consummate transaction",
+    "No"
+  ],
+  "FTR Triggers-Answer": ["Superior Offer"],
+  "Failure to meet projections (Y/N)": ["No", "Yes"],
+  "Failure to meet projections: subject to \"disproportionate impact\" modifier": [
+    "No",
+    "Yes"
+  ],
+  "Fiduciary exception:  Board determination standard-Answer (no-shop)": [
+    "\"Inconsistent\" with fiduciary duties",
+    "\"Reasonably likely/expected breach\" of fiduciary duties",
+    "\"Reasonably likely/expected to be inconsistent\" with fiduciary duties",
+    "\"Reasonably likely/expected violation\" of fiduciary duties",
+    "\"Required to comply\" with fiduciary duties",
+    "None",
+    "Other specified standard"
+  ],
+  "Fiduciary exception: Board determination trigger (no shop)-Answer": [
+    "Acquisition Proposal only",
+    "Superior Offer, or Acquisition Proposal reasonably likely/expected to result in a Superior Offer"
+  ],
+  "General Antitrust Efforts Standard-Answer": [
+    "Commercially reasonable efforts",
+    "Flat standard",
+    "Reasonable best efforts"
+  ],
+  "General economic and financial conditions (Y/N)": ["No", "Yes"],
+  "General economic and financial conditions: subject to \"disproportionate impact\" modifier": [
+    "No",
+    "Yes"
+  ],
+  "General political and/or social conditions (Y/N)": ["No", "Yes"],
+  "General political and/or social conditions:  subject to \"disproportionate impact\" modifier": [
+    "No",
+    "Yes"
+  ],
+  "Includes \"consistent with past practice\"": ["No", "Yes"],
+  "Initial matching rights period (COR)-Answer": [
+    "3 business days",
+    "3 calendar days",
+    "4 business days",
+    "4 calendar days",
+    "5 business days"
+  ],
+  "Initial matching rights period (FTR)-Answer": [
+    "3 business days",
+    "3 calendar days",
+    "4 business days",
+    "4 calendar days",
+    "5 business days",
+    "Greater than 5 business days"
+  ],
+  "Intervening Event - Required to Occur After Signing - answer": [
+    "May occur or arise prior to signing",
+    "Must occur or arise after signing"
+  ],
+  "Knowledge Definition limited to one or more identified persons-Answer (Y/": [
+    "No",
+    "Yes"
+  ],
+  "Knowledge Definition-Answer": ["Actual knowledge", "Constructive knowledge"],
+  "Knowledge persons include Target management (intervening event)": [
+    "No",
+    "Yes"
+  ],
+  "Liability for breaches of no-shop by Target Representatives (Y/N)": [
+    "No",
+    "Yes"
+  ],
+  "Liability standard for no-shop breach by Target Non-D&O Representatives": [
+    "Reasonable standard",
+    "Strict liability"
+  ],
+  "Limitations on FTR Exercise-Answer": [
+    "Material breach of no-shop resulting in a Superior Offer",
+    "Breach of no-shop resulting in a Superior Offer",
+    "Material breach of no-shop",
+    "Any breach of no-shop",
+    "Other",
+    "Breach of no-shop resulting in a Superior Offer, (Material) breach of other provisions of agreement",
+    "(Material) breach of other provisions of agreement",
+    "Any breach of no-shop, (Material) breach of other provisions of agreement",
+    "Material breach of no-shop, (Material) breach of other provisions of agreement",
+    "Material breach of no-shop resulting in a Superior Offer, (Material) breach of other provisions of agreement"
+  ],
+  "MAE Forward looking standard (Y/N)": ["No", "Yes"],
+  "MAE applies to Target and subsidiaries (MAE)-Answer": [
+    "Applies to Target and subsidiaries \"taken as a whole\"",
+    "No"
+  ],
+  "MAE definition includes adverse impact on Target's ability to consummate (Y/N)": [
+    "No",
+    "Yes"
+  ],
+  "MAE definition includes reference to Target \"prospects\" (Y/N)": [
+    "No",
+    "Yes"
+  ],
+  "Materiality/MAE Scrape applies to": [
+    "General R&Ws, fundamental/Special R&Ws",
+    "General R&Ws",
+    "General R&Ws, Specified R&Ws only",
+    "fundamental/Special R&Ws",
+    "General R&Ws, Capitalization R&Ws, fundamental/Special R&Ws",
+    "General R&Ws, Capitalization R&Ws",
+    "General R&Ws, Capitalization R&Ws, Specified R&Ws only"
+  ],
+  "Matters listed on disclosure schedules-Answer (Y/N)": ["No", "Yes"],
+  "Negative Interim Covenant includes carveout for pandemic responses-Answer (Y/N)": [
+    "No",
+    "Yes"
+  ],
+  "Number of additional matching rights periods for modifications (COR)": [
+    "Continuous matching right",
+    "None"
+  ],
+  "Number of additional matching rights periods for modifications (FTR)": [
+    "Continuous matching right",
+    "None"
+  ],
+  "Ordinary Course Covenant includes carve-out for Pandemic responses-Answer (Y/N)": [
+    "No",
+    "Yes"
+  ],
+  "Ordinary course efforts standard-Answer": [
+    "Commercially reasonable efforts",
+    "Flat covenant (no efforts standard)",
+    "Reasonable best efforts"
+  ],
+  "Pandemic or other public health event-Answer (Y/N)": ["No", "Yes"],
+  "Pandemic or other public health event:  subject to \"disproportionate impact\" modifier": [
+    "No",
+    "Yes"
+  ],
+  "Pandemic or other public health event: Specific reference to COVID-19": [
+    "No",
+    "Yes"
+  ],
+  "Pandemic or other public health event: specific reference to pandemic-related governmental responses or measures": [
+    "No",
+    "Yes"
+  ],
+  "Relational language (MAE carveout)-Answer (Dropdown)": [
+    "No",
+    "\"Resulting from\"",
+    "\"Resulting from\", \"Attributable to\"",
+    "\"Relating to\"",
+    "\"Resulting from\", Other",
+    "\"Resulting from\", \"Relating to\"",
+    "\"Resulting from\", \"Arising from/out of\", \"Relating to\"",
+    "\"Resulting from\", \"Arising from/out of\", \"Relating to\", Other",
+    "\"Resulting from\", \"Arising from/out of\", \"Attributable to\"",
+    "\"Resulting from\", \"Arising from/out of\", Relational language varies among carveouts",
+    "\"Resulting from\", \"Arising from/out of\"",
+    "\"Resulting from\", \"Arising from/out of\", \"Relating to\", Relational language varies among carveouts",
+    "\"Resulting from\", \"Arising from/out of\", \"Relating to\", \"Attributable to\"",
+    "\"Arising from/out of\"",
+    "\"Arising from/out of\", \"Relating to\"",
+    "\"Resulting from\", \"Arising from/out of\", \"Relating to\", \"Attributable to\", Relational language varies among carveouts",
+    "\"Arising from/out of\", Other",
+    "\"Attributable to\""
+  ],
+  "Relational language (MAE carveout)-Answer (Y/N)": ["No", "Yes"],
+  "Relational language (MAE) applies to": [
+    "All MAE carveouts",
+    "No",
+    "Some MAE carveouts"
+  ],
+  "Specific Performance-Answer": [
+    "\"entitled to seek\" specific performance",
+    "\"entitled to\" specific performance"
+  ],
+  "Tail Period Length-Answer": [
+    "12 months or longer",
+    "within 12 months",
+    "within 9 months"
+  ],
+  "Target stockholder proceedings-Answer (Y/N)": ["No", "Yes"],
+  "Target's securities or credit rating: subject to \"disproportionate impact\" modifier": [
+    "No",
+    "Yes"
+  ],
+  "Type of Consideration-Answer": [
+    "All Cash",
+    "All Stock",
+    "Mixed Cash/Stock",
+    "Mixed Cash/Stock: Election"
+  ],
+  "W/N/A/F applies to-Answer": [
+    "War or terrorism, Natural disaster, force majeure",
+    "War or terrorism, Natural disaster",
+    "War or terrorism",
+    "No",
+    "War or terrorism, Natural disaster, \"act of God\"",
+    "War or terrorism, Natural disaster, \"act of God\", force majeure"
+  ],
+  "W/N/A/F subject to \"disproportionate impact\"-Answer": [
+    "War or terrorism, Natural disaster",
+    "War or terrorism",
+    "War or terrorism, Natural disaster, force majeure",
+    "Natural disaster",
+    "No",
+    "War or terrorism, Natural disaster, \"act of God\"",
+    "War or terrorism, Natural disaster, \"act of God\", force majeure",
+    "Natural disaster, \"act of God\"",
+    "War or terrorism, \"act of God\", force majeure"
+  ],
+  "War, terrorism, natural disasters, \"acts of God\" or force majeure-Answer (Y/N)": [
+    "Yes",
+    "No"
+  ]
+}

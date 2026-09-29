@@ -32,6 +32,7 @@ import json
 import re
 from collections import Counter
 from itertools import zip_longest
+from string import ascii_uppercase
 
 import numpy as np
 import pandas as pd
@@ -275,8 +276,6 @@ def stratified_sample(master: pd.DataFrame,
         print(f"Confirmed: all {len(overall_longest)} force-included longest contract(s) "
               f"are present in the final sample.")
  
-    with pd.option_context("display.max_rows", None):
-        print(sample)
     return sample
 
 
@@ -461,137 +460,125 @@ def run_eval(sample: pd.DataFrame, answer_key: dict,
     return res_df
 
 
-# ---------------------------------------------------------------------------
-# 9. PARSING + SCORING
-# ---------------------------------------------------------------------------
-def parse_answer_letter(model_output: str):
-    matches = re.findall(r"Answer:\s*([A-Z])\b", str(model_output).strip())
-    return matches[-1] if matches else None
-
-
-def score_row(row, output_col: str):
-    letter = parse_answer_letter(row[output_col])
-    if letter is None:
-        return np.nan
-    idx = ord(letter) - ord("A")
-    options = row["_answer_options"]
-    if not (0 <= idx < len(options)):
-        return np.nan
-    return int(options[idx] == row["answer"])
-
-
-# ---------------------------------------------------------------------------
-# 10. STATISTICAL ANALYSIS
-# ---------------------------------------------------------------------------
-def mcnemar_overall(res_df: pd.DataFrame):
-    both = ((res_df.vanilla_correct == 1) & (res_df.rlm_correct == 1)).sum()
-    v_only = ((res_df.vanilla_correct == 1) & (res_df.rlm_correct == 0)).sum()
-    r_only = ((res_df.vanilla_correct == 0) & (res_df.rlm_correct == 1)).sum()
-    neither = ((res_df.vanilla_correct == 0) & (res_df.rlm_correct == 0)).sum()
-    table = [[both, v_only], [r_only, neither]]
-    result = mcnemar(table, exact=True)
-    print(f"n={len(res_df)}  Vanilla acc={res_df.vanilla_correct.mean():.1%}  "
-          f"RLM acc={res_df.rlm_correct.mean():.1%}  "
-          f"(RLM-only-correct={r_only}, Vanilla-only-correct={v_only})  "
-          f"McNemar exact p={result.pvalue:.4f}")
-    return result
-
-
-def mcnemar_by_group(res_df: pd.DataFrame, group_col: str):
-    """Treat these as DESCRIPTIVE, not the primary test -- at n~15-30/cell,
-    McNemar alone is only well-powered for large (>~25pt) gaps. See the pooled
-    model below for the properly-powered interaction test."""
-    for g, gdf in res_df.groupby(group_col, observed=True):
-        print(f"\n--- {group_col} = {g} (n={len(gdf)}) ---")
-        mcnemar_overall(gdf)
-
-
-def pooled_interaction_model(res_df: pd.DataFrame, min_category_count: int = 12):
+def extract_question_answer_options(df, normalize=True):
     """
-    Primary inferential tool: reshape to long format (one row per
-    model x question-instance) and fit a GEE logistic model clustered by
-    contract+question, testing whether the vanilla-vs-RLM gap depends on
-    length_bin / category / complexity_tier. This pools information across all
-    cells rather than testing each cell in isolation, which is what makes it
-    usable at n=100-200 (see the power simulation for why per-cell tests alone
-    need much larger n).
-
-    Uses category_grp (rare categories collapsed to "Other") rather than the
-    raw 7-level category, since at n=100-200 the rare categories (General
-    Information, Knowledge, Remedies) will typically have too few rows for a
-    stable model x category interaction term on their own.
+    Returns:
+      summary   -- one row per question: n_rows, n_unique_answers, answer_options (sorted list)
+      options   -- dict {question: [answer options...]}, ready to json.dump
     """
-    res_df = collapse_rare_categories(res_df, min_count=min_category_count)
-    long_df = pd.concat([
-        res_df.assign(model="vanilla", correct=res_df.vanilla_correct),
-        res_df.assign(model="rlm", correct=res_df.rlm_correct),
-    ], ignore_index=True)
-    long_df["model"] = pd.Categorical(long_df["model"], categories=["vanilla", "rlm"])
-    long_df["cluster_id"] = (long_df["contract_name"].astype(str) + "_" +
-                              long_df["question"].astype(str))
-
-    model = smf.gee(
-        "correct ~ model * length_bin + model * category_grp + model * complexity_tier",
-        groups="cluster_id", data=long_df, family=sm.families.Binomial()
-    )
-    fit = model.fit()
-    print(fit.summary())
-    return fit
-
-
-def bootstrap_gap_ci(res_df: pd.DataFrame, group_col=None, n_boot=5000, seed=RANDOM_SEED):
-    rng = np.random.default_rng(seed)
-
-    def one_group_ci(gdf):
-        idx_all = gdf.index.to_numpy()
-        gaps = np.empty(n_boot)
-        for i in range(n_boot):
-            samp = rng.choice(idx_all, size=len(idx_all), replace=True)
-            s = gdf.loc[samp]
-            gaps[i] = s.rlm_correct.mean() - s.vanilla_correct.mean()
-        return gaps.mean(), np.percentile(gaps, [2.5, 97.5])
-
-    if group_col is None:
-        mean_gap, ci = one_group_ci(res_df)
-        print(f"Overall RLM-Vanilla accuracy gap: {mean_gap:+.1%}  95% CI [{ci[0]:+.1%}, {ci[1]:+.1%}]")
-    else:
-        for g, gdf in res_df.groupby(group_col, observed=True):
-            mean_gap, ci = one_group_ci(gdf)
-            print(f"{group_col}={g} (n={len(gdf)}): gap={mean_gap:+.1%}  95% CI [{ci[0]:+.1%}, {ci[1]:+.1%}]")
+    QUESTION_COL = "question"
+    ANSWER_COL = "answer"
+    work = df[[QUESTION_COL, ANSWER_COL]].copy()
+ 
+    if normalize:
+        # strip whitespace so "Yes" and "Yes " don't count as two different answers;
+        # keep original case though, since e.g. "CoR"/"FTR" abbreviations are case-sensitive
+        work[ANSWER_COL] = work[ANSWER_COL].astype(str).str.strip()
+ 
+    grouped = work.groupby(QUESTION_COL)[ANSWER_COL]
+ 
+    summary = grouped.agg(
+        n_rows="count",
+        n_unique_answers="nunique",
+        answer_options=lambda s: s.unique(),
+    ).reset_index()
+    summary = summary.sort_values(QUESTION_COL).reset_index(drop=True)
+ 
+    options = dict(zip(summary[QUESTION_COL], summary["answer_options"]))
+    return summary, options
 
 
-# ---------------------------------------------------------------------------
-# EXAMPLE USAGE
-# ---------------------------------------------------------------------------
+
+
+def fix_answer_options(data: dict, majority_threshold: float = 0.5):
+    """
+    data: dict of {question: [answer strings]}
+    Returns (fixed, report):
+      fixed  -- same shape as `data`, with multi-select questions' answer
+                lists replaced by their atomic tag vocabulary
+      report -- {question: {"status", "n_before", "n_after", "frac_multi_token"}}
+                status is one of:
+                  "fixed_multiselect" -- auto-replaced with atomic tags
+                  "check_manually"    -- some but not most answers have commas;
+                                         left unchanged, worth a manual look
+                  "left_unchanged"    -- looks like a genuine single-choice question
+    """
+    fixed, report = {}, {}
+ 
+    for question, answers in data.items():
+        answers = [a.strip() for a in answers if isinstance(a, str) and a.strip()]
+        tokenized = [[t.strip() for t in a.split(",")] for a in answers]
+        frac_multi = sum(1 for toks in tokenized if len(toks) > 1) / len(answers) if answers else 0.0
+ 
+        if frac_multi >= majority_threshold:
+            vocab = sorted({t for toks in tokenized for t in toks})
+            status = "fixed_multiselect"
+            fixed[question] = vocab
+        elif frac_multi > 0:
+            status = "check_manually"
+            fixed[question] = answers
+        else:
+            status = "left_unchanged"
+            fixed[question] = answers
+ 
+        report[question] = {
+            "status": status,
+            "n_before": len(answers),
+            "n_after": len(fixed[question]),
+            "frac_multi_token": round(frac_multi, 2),
+        }
+ 
+    return fixed, report
+ 
+ 
+def fix_answer_options_file(in_path: str, out_path: str, majority_threshold: float = 0.5):
+    """Load JSON from in_path, fix it, save to out_path, print a short summary."""
+    data = json.load(open(in_path))
+    fixed, report = fix_answer_options(data, majority_threshold)
+ 
+    json.dump(fixed, open(out_path, "w"), indent=2)
+ 
+    for status in ("fixed_multiselect", "check_manually"):
+        rows = [(q, r) for q, r in report.items() if r["status"] == status]
+        if rows:
+            print(f"\n{status} ({len(rows)}):")
+            for q, r in rows:
+                print(f"  {q}: {r['n_before']} -> {r['n_after']} options "
+                      f"(frac_multi_token={r['frac_multi_token']})")
+ 
+    return fixed, report
+
+
+
 if __name__ == "__main__":
-    # 1. Load
     df = get_main_def(split="train")
 
-    # 2. Your existing contract-length quantiles (reuse your own Series here)
     contract_token_counts_path = "maud_contract_lengths.json"
     contract_bins = bin_contracts_by_length(contract_token_counts_path, n_bins=4)
 
-    # 3. Features
     master = build_master_table(add_complexity_features(df), contract_bins)
     support_table = question_support_table(master)
-    with pd.option_context("display.max_rows", None):
-        print(support_table)
+    # with pd.option_context("display.max_rows", None):
+    #     print(support_table)
 
-    # 4. EDA before locking the design
+    # EDA before locking the design
     # check_axis_confounding(master)
 
-    # 5. Sample (stratifies by length_bin x category; complexity_tier is
+    # Sample (stratifies by length_bin x category; complexity_tier is
     #    recorded on every row for analysis, not forced as a sampling cell)
     sample = sample_one_row_per_contract(master, seed=RANDOM_SEED)
-    with pd.option_context("display.max_rows", None):
-        print(sample.sort_values(by="n_tokens_contract").reset_index(drop=True))
+    # with pd.option_context("display.max_rows", None):
+    #     print(sample.sort_values(by="n_tokens_contract").reset_index(drop=True))
 
-    with pd.option_context("display.max_colwidth", 20):
-        for (length_bin, complexity_tier, category), group in sample.groupby(
-            ["length_bin", "complexity_tier", "category"], observed=True
-            ):
-            print(f"\n--- Length Bin: {length_bin}, Complexity Tier: {complexity_tier}, Category: {category} ---")
-            print(group[["contract_name", "complexity_tier", "category"]])
+
+    summary, options = extract_question_answer_options(df)
+
+    # print(options)
+    # with open("maud/question_answer_map.json", "w", encoding="utf-8") as f:
+    #     json.dump(options, f, indent=4, default=lambda o: o.to_pylist() if hasattr(o, "to_pylist") else (o.as_py() if hasattr(o, "as_py") else str(o)))
+
+
+    fixed, report = fix_answer_options_file("maud/question_answer_map.json", "maud/question_answer_map_unique.json")
 
     # coverage_report(sample)
 
