@@ -13,7 +13,7 @@
 
   "Accuracy of Fundamental Target R&Ws: Bringdown Standard": "How accurate must the fundamental Target representations and warranties be under the bringdown provision?",
 
-  "Accuracy of Target\"General\" R&W: Bringdown Standard Answer": "What accuracy standard applies to the Target's general representations and warranties under the bringdown provision?",
+  "Accuracy of Target \"General\" R&W: Bringdown Standard Answer": "What accuracy standard applies to the Target's general representations and warranties under the bringdown provision?",
 
   "Accuracy of Target \"General\" R&W: Bringdown Timing Answer": "When must the Target's general representations and warranties be accurate: at signing, at closing, or both?",
 
@@ -27,7 +27,7 @@
 
   "Acquisition Proposal required to be still pending-Answer (Y/N)": "Does the acquisition proposal have to remain pending in order for the relevant provision or right to apply?",
 
-  "Actions taken by Buyer-Answer(Y/N)": "Does the MAE definition carve out effects arising from actions taken by the Buyer?",
+  "Actions taken by Buyer-Answer (Y/N)": "Does the MAE definition carve out effects arising from actions taken by the Buyer?",
 
   "Actions taken with consent or approval of Buyer-Answer (Y/N)": "Does the MAE definition carve out effects arising from actions taken with the Buyer's consent or approval?",
 
@@ -35,7 +35,7 @@
 
   "Additional matching rights period for modifications (FTR)-Answer": "How long is the additional matching-rights period for modifications in connection with a fiduciary termination right (FTR)?",
 
-  "Announcement, pendencyor consummation of deal (Y/N)": "Does the MAE definition carve out effects arising from the announcement, pendency, or consummation of the transaction?",
+  "Announcement, pendency or consummation of deal (Y/N)": "Does the MAE definition carve out effects arising from the announcement, pendency, or consummation of the transaction?",
 
   "Application of Buyer consent requirement (negative interim covenant)-Answer": "To which negative interim covenants or prohibited actions does the Buyer-consent requirement apply?",
 
@@ -103,7 +103,7 @@
 
   "Initial matching rights period (FTR)-Answer": "How long is the initial matching-rights period in connection with the Fiduciary Termination Right (FTR)?",
 
-  "Intervening Event -Required to Occur After Signing - answer": "Is an Intervening Event required to occur after the signing of the agreement?",
+  "Intervening Event - Required to Occur After Signing - answer": "Is an Intervening Event required to occur after the signing of the agreement?",
 
   "Knowledge Definition limited to one or more identified persons-Answer (Y/": "Is the definition of Knowledge limited to the knowledge of one or more specifically identified persons?",
 
@@ -123,11 +123,11 @@
 
   "MAE definition includes adverse impact on Target's ability to consummate (Y/N)": "Does the MAE definition include an adverse effect on the Target's ability to consummate the transaction?",
 
-  "MAEdefinition includes reference to Target \"prospects\" (Y/N)": "Does the MAE definition expressly refer to the Target's \"prospects\" or \"prospect\"?",
+  "MAE definition includes reference to Target \"prospects\" (Y/N)": "Does the MAE definition expressly refer to the Target's \"prospects\" or \"prospect\"?",
 
   "Materiality/MAE Scrape applies to": "To which representations and warranties does the materiality or MAE scrape apply?",
 
-  "Matters listed ondisclosure schedules-Answer (Y/N)": "Does the relevant provision contain a carveout or treatment for matters listed on the disclosure schedules?",
+  "Matters listed on disclosure schedules-Answer (Y/N)": "Does the relevant provision contain a carveout or treatment for matters listed on the disclosure schedules?",
 
   "Negative Interim Covenant includes carveout for pandemic responses-Answer (Y/N)": "Does the negative interim covenant contain a carveout for actions taken in response to a pandemic or public-health event?",
 

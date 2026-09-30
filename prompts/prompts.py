@@ -33,6 +33,8 @@ answer["ready"] = True
 
 The value of answer["content"] must be ONLY the final JSON object.
 Do not put Python code, markdown, or explanation inside answer["content"].
+
+IMPORTANT: End the loop when answer["ready"] is True and return answer["content"].
 """
 
 CRITICAL_OUTPUT_RULE = """
@@ -41,10 +43,11 @@ CRITICAL_OUTPUT_RULE = """
 - The final answer (the one the user sees) must be a plain JSON object, NOT inside a repl block.
 - To prepare the final answer, set answer["content"] and answer["ready"] = True inside a repl block in an earlier turn.
 - If you have already set answer["ready"] = True, the next turn should output ONLY the JSON (no repl).
+- IMPORTANT: End the loop when answer["ready"] is True and return answer["content"].
 """
 
 CRASH_PROOF_FINAL_SUBMISSION = """
-When you are within the last 3 turns and you intend to set answer["ready"] = True, 
+When you are within the last turn and you intend to set answer["ready"] = True, 
 your code MUST be structured as follows:
 try:
     # Your LLM calls and parsing
@@ -54,11 +57,14 @@ except Exception:
     # Hardcoded fallback (e.g., using the last valid state or a conservative default)
     answer["content"] = json.dumps({{...}})  # fallback JSON
     answer["ready"] = True
+
+
+IMPORTANT: return answer["content"]. NEVER output a repl block in the final turn.
 """
 
 REPL_STDOUT_VISIBILITY = """
 Every time you execute a ```repl``` block, its printed output (stdout) will be visible to you 
-in the next turn's prompt, between the "Turn N/20" messages. 
+in the next turn's prompt, between the "Turn n/N" messages. 
 If your REPL produces no output, you will see an empty observation.
 You can always rely on seeing the output; if you don't see it, it means the REPL produced no output or errored.
 """
@@ -66,7 +72,7 @@ You can always rely on seeing the output; if you don't see it, it means the REPL
 PRESERVE_VALID_ANSWERS = """
 If you have already set answer["ready"] = True and answer["content"] contains a valid JSON object,
 DO NOT overwrite it in later turns unless you have strong evidence that it is wrong.
-Instead, simply output the JSON object as your final message (without a repl block).
+Instead, simply output the answer["content"] JSON object as your final message (without a repl block).
 """
 
 SUB_LLM_VERIFICATION = """

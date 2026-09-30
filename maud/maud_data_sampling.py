@@ -370,19 +370,42 @@ def run_maud_152_sample_pipeline():
     master = build_master_table(add_complexity_features(df), contract_bins)
     sample = sample_one_row_per_contract(master, seed=RANDOM_SEED)
 
+    limit_index = 125
 
-    for row in sample.itertuples(index=True):
+    samples_sorted = sample.sort_values(by="n_tokens_contract").reset_index(drop=True)
+    for row in samples_sorted.itertuples(index=True):
+        if row.Index < limit_index:
+            continue
         full_question = question_full_text_map[row.question]
         answer_options = question_answer_map_unique[row.question]
         with open(f"{CONTRACTS_DIR}/{row.contract_name}.txt", "r", encoding="utf-8-sig") as f:
             contract_text = f.read()
+
+        print(f"=========ROW: {row.Index}============")
         
         task_prompt = build_query(question_text=full_question, options=answer_options)
         print("=== 1. VANILLA ===")
-        print(run_vanilla("maud_152_samples", f"{row.Index}", contract_text, TASK_SPEC=task_prompt, experiment="maud_152_samples_per_contract_batch_run"))
-        
+        vanilla_res = run_vanilla(
+            dataset="maud_152_samples",
+            row_id=f"{row.contract_name}_{row.Index}",
+            contract_text=contract_text,
+            TASK_SPEC=task_prompt,
+            experiment="maud_152_samples_per_contract_batch_run",
+        )
+        print(vanilla_res)
+
+
         print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
-        print(run_rlm_customized("maud_152_samples", f"{row.Index}", contract_text, TASK_SPEC=task_prompt, experiment="maud_152_samples_per_contract_batch_run"))
+        rlm_res = run_rlm_customized(
+            dataset="maud_152_samples",
+            row_id=f"{row.contract_name}_{row.Index}",
+            contract_text=contract_text,
+            TASK_SPEC=task_prompt,
+            experiment="maud_152_samples_per_contract_batch_run",
+            max_iterations=8
+        )
+        print(rlm_res)
+        
 
 
 
