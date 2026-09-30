@@ -1,47 +1,15 @@
-"""
-MAUD RLM-vs-Vanilla evaluation pipeline
-========================================
-
-Goal: decide, with 100-200 examples, whether Recursive Language Models (RLM;
-Zhang, Kraska & Khattab, 2025, arXiv:2512.24601) outperform a vanilla LLM call
-as (a) full-contract context length and (b) task complexity grow, on MAUD
-(Wang et al., 2023, EMNLP).
-
-Sections:
-  1. Load data + sanity-check schema
-  2. Contract-level length bins (you already built this on the 152 contracts)
-  3. Complexity feature engineering (answer-option count, excerpt length)
-  4. EDA: check whether your stratification axes are confounded before locking design
-  5. Stratified sampler (length_bin x category), with complexity_tier recorded
-     as a covariate rather than a forced sampling stratum (see note in section 5)
-  6. Per-question answer-option key (built from the FULL ~39k table, not the sample)
-  7. Prompt templates (identical query for both arms -- only the context-handling
-     harness should differ between vanilla and RLM)
-  8. Evaluation loop skeleton (plug in your own model / RLM callers)
-  9. Answer parsing + scoring
- 10. Statistical analysis: McNemar (per cell), pooled GEE logistic interaction
-     model (primary inferential tool -- more powered than per-cell tests at n=100-200),
-     bootstrap CIs on the accuracy gap
-
-Schema assumed (matches theatticusproject/maud / nguha-legalbench derived tables):
-  contract_name, text, text_type, category, question, subquestion, answer, label, id
-If your columns differ, the loader below will warn you rather than silently failing.
-"""
-
 import json
-import re
 from collections import Counter
 from itertools import zip_longest
-from string import ascii_uppercase
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import statsmodels.api as sm
-import statsmodels.formula.api as smf
 from scipy.stats import chi2_contingency
-from statsmodels.stats.contingency_tables import mcnemar
 
-from utils.maud_utils import get_main_def
+from llm.rlm import run_rlm_customized
+from llm.vanila import run_vanilla
+from utils.maud_utils import get_main_def, get_maud_data_dir
 
 RANDOM_SEED = 42
 
@@ -333,7 +301,6 @@ def sample_one_row_per_contract(df, seed=42, w_cell=1.0, w_bin_q=1.0, w_global_q
     return pd.DataFrame(picked).reset_index(drop=True)
 
 
-
 def coverage_report(sample: pd.DataFrame) -> None:
     print(f"Total rows: {len(sample)} | Distinct contracts: {sample['contract_name'].nunique()}")
     print("\nCells (length_bin x category):")
@@ -367,99 +334,61 @@ def collapse_rare_categories(sample: pd.DataFrame, min_count: int = 12,
     return sample
 
 
-# ---------------------------------------------------------------------------
-# 6. ANSWER-OPTION KEY -- build from the FULL table so rare options aren't lost
-# ---------------------------------------------------------------------------
-def build_answer_key(full_df: pd.DataFrame) -> dict:
-    return {q: sorted(grp["answer"].dropna().unique().tolist())
-            for q, grp in full_df.groupby("question")}
-
-
-# ---------------------------------------------------------------------------
-# 7. PROMPTS -- identical query text for both arms; only the harness differs
-# ---------------------------------------------------------------------------
-SYSTEM_PROMPT = (
-    "You are an experienced M&A attorney reviewing a merger agreement. "
-    "Answer strictly and only from the contract text you are given. "
-    "The clause relevant to the question is not always near the start of the "
-    "document, and some questions require connecting language from more than "
-    "one section (for example, a defined term in one article and its use "
-    "elsewhere). Do not rely on outside knowledge of market-standard terms; "
-    "if this contract's language differs from typical practice, follow the "
-    "contract as written."
-)
-
 
 def build_query(question_text: str, options: list) -> str:
     letters = [chr(ord("A") + i) for i in range(len(options))]
     options_block = "\n".join(f"{l}. {opt}" for l, opt in zip(letters, options))
-    return (
-        f"Deal point question: {question_text}\n\n"
-        f"Answer options:\n{options_block}\n\n"
-        "Instructions: choose exactly one option based only on the contract "
-        "text. You may briefly explain your reasoning, but the LAST line of "
-        "your response must be exactly in the form:\nAnswer: <LETTER>"
-    )
+    prompt = f"""You are analyzing a merger agreement.
+
+            Question:
+            {question_text}
+
+            Answer choices:
+            {options_block}
+
+            Answer the question using the merger agreement provided to you.
+
+            Select the single answer choice that is best supported by the agreement.
+
+            Return only the answer choice."""
+
+    return prompt
+    
 
 
-def build_vanilla_prompt(context_text: str, question_text: str, options: list) -> list:
-    query = build_query(question_text, options)
-    user_msg = f"[CONTRACT TEXT]\n{context_text}\n[END CONTRACT TEXT]\n\n{query}"
-    return [{"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_msg}]
+def run_maud_152_sample_pipeline():
+    maud_data_dir = get_maud_data_dir()
+    CONTRACTS_DIR = f"""{maud_data_dir}/contracts"""
+    with open("maud/question_full_text_map.json", "r", encoding="utf-8") as f:
+        question_full_text_map = json.load(f)
+    with open("maud/question_answer_map_unique.json", "r", encoding="utf-8") as f:
+        question_answer_map_unique = json.load(f)
+
+    df = get_main_def(split="train")
+    contract_token_counts_path = "maud_contract_lengths.json"
+    contract_bins = bin_contracts_by_length(contract_token_counts_path, n_bins=4)
+    master = build_master_table(add_complexity_features(df), contract_bins)
+    sample = sample_one_row_per_contract(master, seed=RANDOM_SEED)
 
 
-def build_rlm_inputs(context_text: str, question_text: str, options: list) -> dict:
-    """
-    For the RLM harness: `context_text` is loaded as the `context` variable in
-    the REPL environment; `query` is the top-level prompt given to the root LM,
-    which then recursively decomposes/queries `context` (calling itself over
-    programmatic snippets). Keep `query` byte-for-byte identical to the
-    vanilla arm's query -- the experiment is only valid if the sole difference
-    between arms is the context-handling harness, not the wording of the ask.
-    """
-    return {
-        "context": context_text,
-        "query": SYSTEM_PROMPT + "\n\n" + build_query(question_text, options),
-    }
+    for row in sample.itertuples(index=True):
+        full_question = question_full_text_map[row.question]
+        answer_options = question_answer_map_unique[row.question]
+        with open(f"{CONTRACTS_DIR}/{row.contract_name}.txt", "r", encoding="utf-8-sig") as f:
+            contract_text = f.read()
+        
+        task_prompt = build_query(question_text=full_question, options=answer_options)
+        print("=== 1. VANILLA ===")
+        print(run_vanilla("maud_152_samples", f"{row.Index}", contract_text, TASK_SPEC=task_prompt, experiment="maud_152_samples_per_contract_batch_run"))
+        
+        print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
+        print(run_rlm_customized("maud_152_samples", f"{row.Index}", contract_text, TASK_SPEC=task_prompt, experiment="maud_152_samples_per_contract_batch_run"))
 
 
-# ---------------------------------------------------------------------------
-# 8. EVALUATION LOOP -- plug in your own model / RLM call functions
-# ---------------------------------------------------------------------------
-def run_eval(sample: pd.DataFrame, answer_key: dict,
-             vanilla_call, rlm_call, contract_texts: dict) -> pd.DataFrame:
-    """
-    vanilla_call(messages: list[dict]) -> str
-    rlm_call(query: str, context: str) -> str
-    contract_texts: dict mapping contract_name -> FULL raw contract string
-                    (use the full document, not the MAUD excerpt, if your goal
-                    is to test long-context handling -- see the note above the
-                    prompt section in the chat reply).
-    """
-    results = []
-    for _, row in sample.iterrows():
-        options = answer_key[row["question"]]
-        context_text = contract_texts[row["contract_name"]]
 
-        vanilla_msgs = build_vanilla_prompt(context_text, row["question"], options)
-        rlm_inputs = build_rlm_inputs(context_text, row["question"], options)
-
-        vanilla_out = vanilla_call(vanilla_msgs)
-        rlm_out = rlm_call(rlm_inputs["query"], rlm_inputs["context"])
-
-        record = row.to_dict()
-        record["_answer_options"] = options
-        record["vanilla_output"] = vanilla_out
-        record["rlm_output"] = rlm_out
-        results.append(record)
-
-    res_df = pd.DataFrame(results)
-    res_df["vanilla_correct"] = res_df.apply(lambda r: score_row(r, "vanilla_output"), axis=1)
-    res_df["rlm_correct"] = res_df.apply(lambda r: score_row(r, "rlm_output"), axis=1)
-    return res_df
-
-
+# ------------------------------------------------
+# generate json files for question mappings
+# -------------------------------------------------
 def extract_question_answer_options(df, normalize=True):
     """
     Returns:
@@ -486,8 +415,6 @@ def extract_question_answer_options(df, normalize=True):
  
     options = dict(zip(summary[QUESTION_COL], summary["answer_options"]))
     return summary, options
-
-
 
 
 def fix_answer_options(data: dict, majority_threshold: float = 0.5):
@@ -548,6 +475,8 @@ def fix_answer_options_file(in_path: str, out_path: str, majority_threshold: flo
  
     return fixed, report
 
+#---------------------------------------------------
+
 
 
 if __name__ == "__main__":
@@ -567,18 +496,14 @@ if __name__ == "__main__":
     # Sample (stratifies by length_bin x category; complexity_tier is
     #    recorded on every row for analysis, not forced as a sampling cell)
     sample = sample_one_row_per_contract(master, seed=RANDOM_SEED)
-    # with pd.option_context("display.max_rows", None):
-    #     print(sample.sort_values(by="n_tokens_contract").reset_index(drop=True))
+    with pd.option_context("display.max_rows", None):
+        print(sample.sort_values(by="n_tokens_contract").reset_index(drop=True)["complexity_tier"])
 
-
-    summary, options = extract_question_answer_options(df)
 
     # print(options)
     # with open("maud/question_answer_map.json", "w", encoding="utf-8") as f:
     #     json.dump(options, f, indent=4, default=lambda o: o.to_pylist() if hasattr(o, "to_pylist") else (o.as_py() if hasattr(o, "as_py") else str(o)))
 
-
-    fixed, report = fix_answer_options_file("maud/question_answer_map.json", "maud/question_answer_map_unique.json")
 
     # coverage_report(sample)
 

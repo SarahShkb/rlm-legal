@@ -93,7 +93,7 @@ def calculate_accuracy(results: pd.DataFrame) -> float:
     return acc
 
 
-def run_maud_pipeline(limit: int | None = None):
+def run_maud_type_of_consideration_pipeline(limit: int | None = None):
     split = "train"
     data_dir = get_maud_data_dir()
     data = get_maud_with_gold_answer_samples(data_dir, split=split)

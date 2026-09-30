@@ -1,7 +1,5 @@
-from maud.maud_contracts_token_analysis import (
-    save_contracts_token_count_to_json,
-)
-from utils.maud_utils import run_maud_pipeline
+from maud.maud_data_sampling import run_maud_152_sample_pipeline
+from maud.maud_type_of_consideration import run_maud_type_of_consideration_pipeline
 from utils.contract_nli_utils import run_contract_nli_pipeline
 
 
@@ -11,7 +9,9 @@ def main():
 
     # phase 4.2
     #run_maud_pipeline()
-    save_contracts_token_count_to_json()
+
+    # phase 4.3
+    run_maud_152_sample_pipeline()
 
  
 if __name__ == "__main__":

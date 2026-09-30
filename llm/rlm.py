@@ -73,7 +73,7 @@ def run_rlm_generic(dataset: str, row_id: str, contract_text: str, TASK_SPEC: st
 #-----------------------------------------------
 # condition 3: RLM calls (Custom system prompt)
 #-----------------------------------------------
-def run_rlm_customized(dataset: str, row_id: str, contract_text: str, TASK_SPEC: str) -> str:
+def run_rlm_customized(dataset: str, row_id: str, contract_text: str, TASK_SPEC: str, experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized") -> str:
     custom_system_prompt = (
         RLM_SYSTEM_PROMPT
         + f"\n\n{TASK_SPEC}\n\n{RLM_FINISH_GUIDE}\n\n\n\n"
@@ -107,7 +107,7 @@ def run_rlm_customized(dataset: str, row_id: str, contract_text: str, TASK_SPEC:
             "reasoning_effort": "low",
             "extra_body":{"thinking": {"type": "enabled"}}
         },
-        max_iterations=5,
+        max_iterations=10,
         max_tokens=500_000,
         max_errors=3,
         logger=RLMLogger(log_dir="./logs"),
@@ -118,7 +118,7 @@ def run_rlm_customized(dataset: str, row_id: str, contract_text: str, TASK_SPEC:
         result,
         method="RLM-customized",
         model=DEEPSEEK_MODEL,
-        experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
+        experiment=experiment,
         dataset=dataset,
         rlm=rlm,
         row_id=row_id,

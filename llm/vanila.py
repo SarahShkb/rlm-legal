@@ -16,7 +16,7 @@ TEMPERATURE = 0
 #-----------------------------------------
 # condition 1: vanilla LLM calls (no RLM)
 #-----------------------------------------
-def run_vanilla(dataset: str,row_id: str, contract_text: str, TASK_SPEC: str) -> str:
+def run_vanilla(dataset: str,row_id: str, contract_text: str, TASK_SPEC: str, experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized") -> str:
     client = OpenAI(
         api_key=os.environ.get('DEEPSEEK_API_KEY'),
         base_url=DEEPSEEK_BASE_URL,)
@@ -35,7 +35,7 @@ def run_vanilla(dataset: str,row_id: str, contract_text: str, TASK_SPEC: str) ->
         response,
         method="vanilla",
         model=DEEPSEEK_MODEL,
-        experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
+        experiment=experiment,
         dataset=dataset,
         rlm={},
         total_tokens=response.usage.total_tokens,

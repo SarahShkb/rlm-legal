@@ -1,3 +1,13 @@
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+from statsmodels.stats.contingency_tables import mcnemar
+
+from maud.maud_data_sampling import collapse_rare_categories
+
+RANDOM_SEED = 42
+
 def score_row(row, output_col: str):
     letter = parse_answer_letter(row[output_col])
     if letter is None:

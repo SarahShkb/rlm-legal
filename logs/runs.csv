@@ -2627,3 +2627,21 @@ answer[""content""] = final
 answer[""ready""] = True
 </repl>"
 2026-09-04T23:22:58,rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized,maud_type_of_consideration,maud_type_of_consideration_train_15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,53194,18072,,,150.802,"{""answer"": ""A""}"
+2026-09-30T02:38:39,maud_152_samples_per_contract_batch_run,maud_152_samples,0,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,54630,2254,56884,,,B
+2026-09-30T02:38:49,maud_152_samples_per_contract_batch_run,maud_152_samples,0,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,25750,1141,,,7.258,"```repl
+import json
+print(""Answer determination:"")
+# Section 7.6: Each of OCSI and OCSL shall cause its Representatives to comply with no-solicitation.
+# Breach by Representatives = breach by the party (covenant is ""shall cause its Representatives not to"").
+# Liability therefore attaches to the party (Target).
+try:
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+    print(answer)
+except Exception:
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+    print(""fallback"", answer)
+```"
+2026-09-30T02:38:54,maud_152_samples_per_contract_batch_run,maud_152_samples,1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65822,799,66621,,,B. Yes
+2026-09-30T02:38:58,maud_152_samples_per_contract_batch_run,maud_152_samples,1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,8738,287,,,3.493,"""B"""
