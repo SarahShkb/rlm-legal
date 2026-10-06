@@ -778,8 +778,8 @@ def get_sample_rows_for_maud_152(split: str = "train") -> list:
     ]
     print(sample.shape)
     samples_sorted = sample.sort_values(by="n_tokens_contract").reset_index(drop=True)
-    with pd.option_context("display.max_rows", None, "display.max_colwidth", 20):
-        print(samples_sorted[["answer", "complexity_tier", "is_multi_select", "gold_letters"]])
+    # with pd.option_context("display.max_rows", None, "display.max_colwidth", 20):
+    #     print(samples_sorted[["answer", "complexity_tier", "is_multi_select", "gold_letters"]])
     # with pd.option_context("display.max_rows", None, "display.max_colwidth", 30):
     #     print(samples_sorted[["question", "answer", "gold_letters"]])
     return samples_sorted
@@ -795,13 +795,13 @@ def run_maud_152_sample_pipeline():
 
 
 
-    limit_index = 142
+    limit_index = 141
 
     samples_sorted = get_sample_rows_for_maud_152(split="train")
     print(samples_sorted[["contract_name", "question", "answer", "gold_letters", "n_tokens_contract"]])
 
     for row in samples_sorted.itertuples(index=True):
-        if row.Index < limit_index:
+        if row.Index != limit_index:
             continue
         full_question = question_full_text_map[row.question]
         answer_options = question_answer_map_unique[row.question]
@@ -812,15 +812,15 @@ def run_maud_152_sample_pipeline():
         print(f"=========ROW: {row.Index}============")
         
         task_prompt = build_query(question_text=full_question, multi_select=is_multi_select, options=answer_options)
-        print("=== 1. VANILLA ===")
-        vanilla_res = run_vanilla(
-            dataset="maud_152_samples",
-            row_id=f"{row.contract_name}_{row.Index}",
-            contract_text=contract_text,
-            TASK_SPEC=task_prompt,
-            experiment="maud_152_samples_per_contract_batch_run",
-        )
-        print(vanilla_res)
+        # print("=== 1. VANILLA ===")
+        # vanilla_res = run_vanilla(
+        #     dataset="maud_152_samples",
+        #     row_id=f"{row.contract_name}_{row.Index}",
+        #     contract_text=contract_text,
+        #     TASK_SPEC=task_prompt,
+        #     experiment="maud_152_samples_per_contract_batch_run",
+        # )
+        # print(vanilla_res)
 
 
         print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")

@@ -4426,3 +4426,4 @@ print(answer)
 2026-10-06T12:32:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_145_150,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,6495,520,,,4.004,"""Answer: B"""
 2026-10-06T12:32:24,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_33_151,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,202257,1229,203486,,,Answer: B
 2026-10-06T12:33:41,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_33_151,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,150,173,,,76.635,"{""answer"": ""B""}"
+2026-10-06T13:20:56,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_27_141,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,14307,579,,,6.55,Answer: A
