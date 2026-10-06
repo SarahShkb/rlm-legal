@@ -1,7 +1,11 @@
+import difflib
 import json
+import numbers
+import re
 from collections import Counter
 from itertools import zip_longest
 from pathlib import Path
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -62,6 +66,162 @@ def add_complexity_features(df: pd.DataFrame, excerpt_tokenizer=None) -> pd.Data
     return df
 
 
+
+def load_options(path: str) -> dict[str, list[str]]:
+    """Load the options JSON: {question_text: [option, option, ...], ...}."""
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, dict):
+        raise ValueError("Options JSON must be an object: {question: [options]}")
+    return {q: list(opts) for q, opts in data.items()}
+ 
+ 
+def _options_resolver(options_by_question: dict[str, list]):
+    """
+    Returns get_options(question) -> list of options.
+    Matches the question text exactly first, then ignoring case/whitespace,
+    then ignoring punctuation as well (a loose key shared by two different
+    questions is not used, to avoid guessing).
+    """
+    norm_map = {_norm(q): opts for q, opts in options_by_question.items()}
+    loose_map: dict[str, list] = {}
+    clashes = set()
+    for q, opts in options_by_question.items():
+        k = _loose(q)
+        if k in loose_map and loose_map[k] is not opts:
+            clashes.add(k)
+        loose_map[k] = opts
+    for k in clashes:
+        loose_map.pop(k)
+ 
+    def get_options(question: str) -> list:
+        if question in options_by_question:
+            return options_by_question[question]
+        opts = norm_map.get(_norm(question)) or loose_map.get(_loose(question))
+        if opts is None:
+            close = difflib.get_close_matches(str(question), list(options_by_question), n=1, cutoff=0.6)
+            hint = f" Closest key in the options JSON: {close[0]!r}." if close else ""
+            raise KeyError(f"No options found for question {question!r}.{hint}")
+        return opts
+ 
+    return get_options
+
+def _okey(k: any) -> any:
+    """Normalise a question key (string or tuple of strings) for override lookup."""
+    if isinstance(k, tuple):
+        return tuple(_okey(x) for x in k)
+    return _norm(k) if isinstance(k, str) else k
+
+
+def _multi_select_info(
+    df: pd.DataFrame,
+    options_by_question: dict[str, list],
+    question_col: str,
+    gold_col: str,
+    overrides: Optional[dict],
+    reference_df: Optional[pd.DataFrame],
+    key_cols: Optional[list],
+) -> pd.DataFrame:
+    """
+    Shared engine (private). Returns a DataFrame aligned POSITIONALLY with the rows
+    of `df` (fresh RangeIndex) with the columns: n_options, n_gold, is_multi, source.
+    Nothing is added to `df` itself.
+    """
+    get_options = _options_resolver(options_by_question)
+    key_cols = key_cols or [question_col]
+ 
+    def keys_of(frame: pd.DataFrame) -> list:
+        return list(zip(*[frame[c] for c in key_cols]))
+ 
+    def n_gold_of(frame: pd.DataFrame) -> list:
+        return [
+            len(gold_to_letters(g, get_options(q)))
+            for g, q in zip(frame[gold_col], frame[question_col])
+        ]
+ 
+    n_options = [len(get_options(q)) for q in df[question_col]]
+    n_gold = n_gold_of(df)
+ 
+    # Most gold answers ever seen per question (this df + optional reference_df)
+    max_gold: dict = {}
+    evidence = [(keys_of(df), n_gold)]
+    if reference_df is not None:
+        evidence.append((keys_of(reference_df), n_gold_of(reference_df)))
+    for keys, counts in evidence:
+        for key, n in zip(keys, counts):
+            max_gold[key] = max(max_gold.get(key, 0), n)
+ 
+    if overrides and key_cols == [question_col]:
+        for k in overrides:      # a typo in an override key fails loudly, with a hint
+            get_options(k)
+    manual = {_okey(k): bool(v) for k, v in (overrides or {}).items()}
+ 
+    flags, sources = [], []
+    for key in keys_of(df):
+        ov = manual.get(_okey(key[0] if len(key) == 1 else key))
+        if ov is not None:
+            if not ov and max_gold[key] > 1:
+                raise ValueError(
+                    f"Override says single-answer but the data has {max_gold[key]} gold "
+                    f"answers for: {key[0] if len(key) == 1 else key!r}"
+                )
+            flags.append(ov)
+            sources.append("manual")
+        elif max_gold[key] > 1:
+            flags.append(True)
+            sources.append("observed_multiple_gold")
+        else:
+            flags.append(False)
+            sources.append("no_multi_observed")
+ 
+    return pd.DataFrame(
+        {"n_options": n_options, "n_gold": n_gold, "is_multi_select": flags, "source": sources}
+    )
+ 
+ 
+def add_is_multi_select(
+    df: pd.DataFrame,
+    options_by_question: dict[str, list],
+    question_col: str = "question",
+    gold_col: str = "gold",
+    overrides: Optional[dict] = None,
+    reference_df: Optional[pd.DataFrame] = None,
+    key_cols: Optional[list] = None,
+    out_col: str = "is_multi_select",
+) -> pd.DataFrame:
+    """
+    Returns a copy of `df` with exactly ONE new column, `is_multiselect` (bool):
+    True if the QUESTION can have more than one answer. Nothing else is added
+    or changed.
+ 
+    `options_by_question` is the dict loaded from your JSON ({question: [options]},
+    see load_options); the dataframe needs no options column.
+ 
+    The flag is per QUESTION, not per row: if any row of a question has several
+    gold answers, every row of that question is marked multiselect, even rows
+    whose own gold happens to be a single option.
+ 
+    Observation can only prove "multi", never "single". To reduce false negatives:
+      * reference_df : a larger dataframe (same question/gold columns), e.g. the
+                       full dataset your sample was drawn from; extra evidence.
+      * overrides    : {question_text: True/False} for questions you know about.
+                       Keys are validated against the options JSON. Setting False
+                       when the data shows 2+ gold answers raises.
+      * key_cols     : columns identifying a question (default: [question_col]);
+                       use e.g. a question-id column if question texts are not unique.
+ 
+    To see HOW each question was decided (manual / observed / not observed), use
+    multi_select_report(...).
+    """
+    info = _multi_select_info(
+        df, options_by_question, question_col, gold_col, overrides, reference_df, key_cols
+    )
+    df = df.copy()
+    df[out_col] = info["is_multi_select"].to_numpy()
+    return df
+
+
+
 def build_master_table(df: pd.DataFrame, contract_bins: pd.DataFrame) -> pd.DataFrame:
     filtered_df = df[df["contract_name"] != "<RARE_ANSWERS>"]
     merged = filtered_df.merge(contract_bins, on="contract_name", how="left")
@@ -70,6 +230,7 @@ def build_master_table(df: pd.DataFrame, contract_bins: pd.DataFrame) -> pd.Data
         print(f"WARNING: {n_unmatched} rows didn't match a contract length bin -- "
               f"check contract_name formatting/spelling consistency.")
     return merged
+
 
 
 def check_axis_confounding(master: pd.DataFrame) -> None:
@@ -301,111 +462,7 @@ def sample_one_row_per_contract(df, seed=42, w_cell=1.0, w_bin_q=1.0, w_global_q
     return pd.DataFrame(picked).reset_index(drop=True)
 
 
-def coverage_report(sample: pd.DataFrame) -> None:
-    print(f"Total rows: {len(sample)} | Distinct contracts: {sample['contract_name'].nunique()}")
-    print("\nCells (length_bin x category):")
-    print(pd.crosstab(sample["length_bin"], sample["category"]))
-    print("\nCategory totals in sample:")
-    print(sample["category"].value_counts())
-    print("\ncomplexity_tier distribution (recorded, not sampling-forced -- check it's not "
-          "badly skewed):")
-    print(sample["complexity_tier"].value_counts())
-    print("\nRows per length bin:")
-    print(sample["length_bin"].value_counts().sort_index())
-
-
-def collapse_rare_categories(sample: pd.DataFrame, min_count: int = 12,
-                             other_label: str = "Other") -> pd.DataFrame:
-    """
-    For statistical modeling only (keep the original `category` column for
-    descriptive reporting). Categories with fewer than `min_count` rows IN
-    THIS SAMPLE get folded into "Other" -- with 100-200 rows, General
-    Information/Knowledge/Remedies will typically land here. This avoids
-    near-empty or empty model x category cells in the GEE interaction model,
-    which otherwise risk unstable estimates or quasi-separation.
-    """
-    sample = sample.copy()
-    counts = sample["category"].value_counts()
-    rare = counts[counts < min_count].index
-    sample["category_grp"] = sample["category"].where(~sample["category"].isin(rare), other_label)
-    if len(rare):
-        print(f"Collapsed into '{other_label}' for modeling: {list(rare)} "
-              f"(counts: {counts[rare].to_dict()})")
-    return sample
-
-
-
-def build_query(question_text: str, options: list) -> str:
-    letters = [chr(ord("A") + i) for i in range(len(options))]
-    options_block = "\n".join(f"{l}. {opt}" for l, opt in zip(letters, options))
-    prompt = f"""You are analyzing a merger agreement.
-
-            Question:
-            {question_text}
-
-            Answer choices:
-            {options_block}
-
-            Answer the question using the merger agreement provided to you.
-
-            Select the single answer choice that is best supported by the agreement.
-
-            Return only the answer choice."""
-
-    return prompt
-    
-
-
-def run_maud_152_sample_pipeline():
-    maud_data_dir = get_maud_data_dir()
-    CONTRACTS_DIR = f"""{maud_data_dir}/contracts"""
-    with open("maud/question_full_text_map.json", "r", encoding="utf-8") as f:
-        question_full_text_map = json.load(f)
-    with open("maud/question_answer_map_unique.json", "r", encoding="utf-8") as f:
-        question_answer_map_unique = json.load(f)
-
-    df = get_main_def(split="train")
-    contract_token_counts_path = "maud_contract_lengths.json"
-    contract_bins = bin_contracts_by_length(contract_token_counts_path, n_bins=4)
-    master = build_master_table(add_complexity_features(df), contract_bins)
-    sample = sample_one_row_per_contract(master, seed=RANDOM_SEED)
-
-    limit_index = 125
-
-    samples_sorted = sample.sort_values(by="n_tokens_contract").reset_index(drop=True)
-    for row in samples_sorted.itertuples(index=True):
-        if row.Index < limit_index:
-            continue
-        full_question = question_full_text_map[row.question]
-        answer_options = question_answer_map_unique[row.question]
-        with open(f"{CONTRACTS_DIR}/{row.contract_name}.txt", "r", encoding="utf-8-sig") as f:
-            contract_text = f.read()
-
-        print(f"=========ROW: {row.Index}============")
-        
-        task_prompt = build_query(question_text=full_question, options=answer_options)
-        print("=== 1. VANILLA ===")
-        vanilla_res = run_vanilla(
-            dataset="maud_152_samples",
-            row_id=f"{row.contract_name}_{row.Index}",
-            contract_text=contract_text,
-            TASK_SPEC=task_prompt,
-            experiment="maud_152_samples_per_contract_batch_run",
-        )
-        print(vanilla_res)
-
-
-        print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
-        rlm_res = run_rlm_customized(
-            dataset="maud_152_samples",
-            row_id=f"{row.contract_name}_{row.Index}",
-            contract_text=contract_text,
-            TASK_SPEC=task_prompt,
-            experiment="maud_152_samples_per_contract_batch_run",
-            max_iterations=8
-        )
-        print(rlm_res)
-        
+#----------------------------------------------------------------------------
 
 
 
@@ -498,7 +555,285 @@ def fix_answer_options_file(in_path: str, out_path: str, majority_threshold: flo
  
     return fixed, report
 
-#---------------------------------------------------
+# ---------------------------------------------------
+
+
+
+#------------------------------------------------
+# RUNNING
+# ------------------------------------------------
+def letters_for(n: int) -> list[str]:
+    return [chr(ord("A") + i) for i in range(n)]
+ 
+ 
+def get_tier(options: list, multi_select: bool = False) -> str:
+    if multi_select:
+        return "multi"
+    return "binary" if len(options) == 2 else "single"
+
+
+def build_query(
+    question_text: str,
+    options: list,
+    multi_select: bool = False,
+    allow_none: bool = False,
+) -> str:
+    ROLE = "You are an expert M&A attorney analyzing a merger agreement."
+    letters = letters_for(len(options))
+    options_block = "\n".join(f"{l}. {o}" for l, o in zip(letters, options))
+    tier = get_tier(options, multi_select)
+ 
+    if tier == "binary":
+        task = (
+            "This is a binary question: exactly ONE of the two answer choices is correct.\n"
+            "Select the choice that is best supported by the merger agreement. "
+        )
+        fmt = (
+            "Respond with exactly one line in this format, and nothing else:\n"
+            f"Answer: <letter>   (where <letter> is {letters[0]} or {letters[1]})"
+        )
+ 
+    elif tier == "single":
+        task = (
+            f"This is a single-answer question: exactly ONE of the {len(options)} "
+            "answer choices is correct.\n"
+            "Select the choice that is best supported by the merger agreement. "
+            "When choices differ by degree or scope, pick the one that matches the "
+            "agreement's precise language rather than a broader or narrower reading."
+        )
+        fmt = (
+            "Respond with exactly one line in this format, and nothing else:\n"
+            f"Answer: <letter>   (where <letter> is one of {', '.join(letters)})"
+        )
+ 
+    else:  # multi
+        none_rule = (
+            "\nIf none of the choices apply, respond with: Answer: NONE"
+            if allow_none
+            else "\nAt least one choice must be selected."
+        )
+        task = (
+            "This is a select-all-that-apply question: ONE OR MORE answer choices "
+            "may be correct.\n"
+            "Evaluate each choice independently against the merger agreement. "
+            "Select every choice that the agreement supports, and no others. "
+            "Do not select a choice merely because it is plausible."
+        )
+        fmt = (
+            "Respond with exactly one line in this format, and nothing else:\n"
+            "Answer: <letters>   (comma-separated, alphabetical order, "
+            "e.g. \"Answer: A, C\"; valid letters: " + ", ".join(letters) + ")"
+            + none_rule
+        )
+ 
+    # No indentation inside the string: leading spaces would leak into the prompt.
+    return f"""{ROLE}
+ 
+    Question:
+    {question_text}
+    
+    Answer choices:
+    {options_block}
+    
+    Instructions:
+    {task}
+    Base your answer only on the merger agreement provided to you, not on outside knowledge.
+    
+    {fmt}"""
+    
+
+def _norm(s) -> str:
+    return re.sub(r"\s+", " ", str(s)).strip().casefold()
+
+
+def _loose(s) -> str:
+    """
+    Loose key: also ignores all punctuation and whitespace, so
+    '(e.g., hybrid standard)', '(e.g. hybrid standard)' and '(e.g.,hybrid standard)'
+    all compare equal.
+    """
+    return re.sub(r"[\W_]+", "", _norm(s))
+ 
+_SEP_RE = re.compile(r"([,;\n])")
+
+def _build_lookups(options: list) -> tuple[dict[str, str], dict[str, str]]:
+    """(exact_lookup, loose_lookup): key -> letter. Ambiguous loose keys are dropped."""
+    letters = letters_for(len(options))
+    exact = {_norm(o): l for o, l in zip(options, letters)}
+    loose: dict[str, str] = {}
+    clashes = set()
+    for o, l in zip(options, letters):
+        k = _loose(o)
+        if k in loose and loose[k] != l:
+            clashes.add(k)
+        loose[k] = l
+    for k in clashes:
+        loose.pop(k)
+    return exact, loose
+
+
+def _match(cand: str, exact: dict, loose: dict) -> Optional[str]:
+    """Exact match first, then punctuation/whitespace-insensitive match."""
+    return exact.get(_norm(cand)) or loose.get(_loose(cand))
+
+
+def _text_to_letters(s: str, exact: dict, loose: dict) -> list[str]:
+    """
+    Map a gold string to option letters. The string may be one option, or
+    several options joined by ',' / ';' / newline.
+ 
+    Option texts can themselves contain commas (e.g. "... (e.g., hybrid
+    standard)"), so instead of a blind split we search for a segmentation
+    where EVERY segment is a known option, trying longer segments first
+    (so the whole string is tried as a single option before anything is split).
+    """
+    s = s.strip()
+    whole = _match(s, exact, loose)
+    if whole:
+        return [whole]
+ 
+    pieces = _SEP_RE.split(s)            # text, sep, text, sep, text, ...
+    texts, seps = pieces[0::2], pieces[1::2]
+    n = len(texts)
+ 
+    def segment(i: int) -> Optional[list[str]]:
+        if i == n:
+            return []
+        if not texts[i].strip():         # empty piece, e.g. trailing comma
+            return segment(i + 1)
+        for j in range(n, i, -1):        # longest span first
+            cand = "".join(texts[k] + seps[k] for k in range(i, j - 1)) + texts[j - 1]
+            letter = _match(cand, exact, loose)
+            if letter:
+                rest = segment(j)
+                if rest is not None:
+                    return [letter] + rest
+        return None
+ 
+    result = segment(0)
+    if not result:
+        # Diagnostic: strip every recognisable option out of the (normalised)
+        # gold string and show what is left over.
+        leftover = _loose(s)
+        for k in sorted(loose, key=len, reverse=True):
+            leftover = leftover.replace(k, "")
+        hint = f" Unmatched text (normalised): {leftover!r}." if leftover else ""
+        raise ValueError(f"Gold answer {s!r} could not be matched to the options.{hint}")
+    return result
+
+
+def gold_to_letters(gold, options: list) -> list[str]:
+    """
+    gold may be: an option text, several option texts joined by commas
+                 ("X, Y"), a list of option texts (each item may itself be
+                 comma-joined), an int index, or a list of int indices.
+    Returns sorted letters, e.g. ["A"] or ["A", "C"].
+    """
+    # print(f"gold_to_letters: gold={gold}, options={options}")
+    letters = letters_for(len(options))
+    exact, loose = _build_lookups(options)
+    items = [gold] if isinstance(gold, (str, numbers.Integral, float)) else list(gold)
+    if pd.isna(gold):
+        items = ['None']
+
+    # print(f"index: {idx}, gold={gold}, items={items}, options={options}")
+    out: list[str] = []
+    for g in items:
+        if isinstance(g, numbers.Integral):
+            if not 0 <= int(g) < len(options):
+                raise ValueError(f"Gold index {g} out of range for {len(options)} options")
+            out.append(letters[int(g)])
+        else:
+            try:
+                out.extend(_text_to_letters(str(g), exact, loose))
+            except ValueError as e:
+                raise ValueError(f"{e} Options: {options}") from None
+    return sorted(set(out))
+
+
+def get_sample_rows_for_maud_152(split: str = "train") -> list:
+    with open("maud/question_answer_map_unique.json", "r", encoding="utf-8") as f:
+        question_answer_map_unique = json.load(f)
+    df = get_main_def(split=split)
+    contract_token_counts_path = "maud_contract_lengths.json"
+    contract_bins = bin_contracts_by_length(contract_token_counts_path, n_bins=4)
+    master = build_master_table(add_complexity_features(df), contract_bins)
+    options_by_question = load_options("maud/question_answer_map_unique.json")
+    master = add_is_multi_select(
+        master, question_col="question", options_by_question=options_by_question, gold_col="answer"
+    )
+    sample = sample_one_row_per_contract(master, seed=RANDOM_SEED)
+    # with pd.option_context("display.max_rows", None):
+    #     print(sample[["question","answer", "is_multi_select"]])
+    print(sample.shape)
+    sample["gold_letters"] = [
+        gold_to_letters(
+            g,
+            question_answer_map_unique[row.question]
+        )
+        for sample_idx, (g, (_, row)) in enumerate(
+            zip(sample["answer"], sample.iterrows()),
+            start=1
+        )
+    ]
+    print(sample.shape)
+    samples_sorted = sample.sort_values(by="n_tokens_contract").reset_index(drop=True)
+    with pd.option_context("display.max_rows", None, "display.max_colwidth", 20):
+        print(samples_sorted[["answer", "complexity_tier", "is_multi_select", "gold_letters"]])
+    # with pd.option_context("display.max_rows", None, "display.max_colwidth", 30):
+    #     print(samples_sorted[["question", "answer", "gold_letters"]])
+    return samples_sorted
+
+
+def run_maud_152_sample_pipeline():
+    maud_data_dir = get_maud_data_dir()
+    CONTRACTS_DIR = f"""{maud_data_dir}/contracts"""
+    with open("maud/question_full_text_map.json", "r", encoding="utf-8") as f:
+        question_full_text_map = json.load(f)
+    with open("maud/question_answer_map_unique.json", "r", encoding="utf-8") as f:
+        question_answer_map_unique = json.load(f)
+
+
+
+    limit_index = 142
+
+    samples_sorted = get_sample_rows_for_maud_152(split="train")
+    print(samples_sorted[["contract_name", "question", "answer", "gold_letters", "n_tokens_contract"]])
+
+    for row in samples_sorted.itertuples(index=True):
+        if row.Index < limit_index:
+            continue
+        full_question = question_full_text_map[row.question]
+        answer_options = question_answer_map_unique[row.question]
+        is_multi_select = row.is_multi_select
+        with open(f"{CONTRACTS_DIR}/{row.contract_name}.txt", "r", encoding="utf-8-sig") as f:
+            contract_text = f.read()
+
+        print(f"=========ROW: {row.Index}============")
+        
+        task_prompt = build_query(question_text=full_question, multi_select=is_multi_select, options=answer_options)
+        print("=== 1. VANILLA ===")
+        vanilla_res = run_vanilla(
+            dataset="maud_152_samples",
+            row_id=f"{row.contract_name}_{row.Index}",
+            contract_text=contract_text,
+            TASK_SPEC=task_prompt,
+            experiment="maud_152_samples_per_contract_batch_run",
+        )
+        print(vanilla_res)
+
+
+        print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
+        rlm_res = run_rlm_customized(
+            dataset="maud_152_samples",
+            row_id=f"{row.contract_name}_{row.Index}",
+            contract_text=contract_text,
+            TASK_SPEC=task_prompt,
+            experiment="maud_152_samples_per_contract_batch_run",
+            max_iterations=8
+        )
+        print(rlm_res)
+        
 
 
 

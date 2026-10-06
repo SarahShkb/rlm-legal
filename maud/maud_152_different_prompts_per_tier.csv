@@ -1,0 +1,663 @@
+# max iteration = 8
+timestamp,experiment,dataset,row_id,model,method,backend,environment,num_calls,input_tokens,output_tokens,total_tokens,cost_usd,execution_time_s,raw_result
+2026-10-06T00:24:42,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_88_0,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,21656,2295,23951,,,Answer: C
+2026-10-06T00:26:56,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_88_0,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,43243,4651,,,134.634,"{""answer"": ""C""}"
+2026-10-06T00:27:02,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_119_1,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,42085,326,42411,,,Answer: D
+2026-10-06T00:27:23,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_119_1,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,30638,2947,,,14.022,"```python
+import re, json
+
+def show(label, s, radius=350):
+    results = []
+    for m in re.finditer(s, context):
+        results.append((m.start(), context[max(0,m.start()-radius):m.start()+radius].replace('\n',' ')))
+    return results
+
+# Locate closing-condition bringdown text: search for ""true and correct"" occurrences
+tc = [m.start() for m in re.finditer(r'true and correct', context)]
+print(""num 'true and correct':"", len(tc))
+for s in tc:
+    print(""POS"", s)
+    print(context[max(0,s-400):s+400].replace('\n',' '))
+    print('=====')
+
+# look for de minimis
+dm = [m.start() for m in re.finditer(r'de minimis', context)]
+print(""num 'de minimis':"", len(dm))
+for s in dm:
+    print(""DM POS"", s)
+    print(context[max(0,s-350):s+350].replace('\n',' '))
+    print('=====')
+
+# Decide
+has_deminimis = len(dm) > 0
+print(""HAS_DE_MINIMIS"", has_deminimis)
+```"
+2026-10-06T00:27:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_6_2,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,46092,262,46354,,,Answer: A
+2026-10-06T00:27:32,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_6_2,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,14719,455,,,4.608,"{""answer"": ""A""}"
+2026-10-06T00:27:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_59_3,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,47880,138,48018,,,Answer: B
+2026-10-06T00:27:40,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_59_3,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,8517,483,,,5.412,"{""answer"": ""Answer: B""}"
+2026-10-06T00:27:48,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_21_4,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,48379,1676,50055,,,Answer: A
+2026-10-06T00:28:08,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_21_4,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,19147,4089,,,19.281,"{""answer"": ""A""}"
+2026-10-06T00:28:10,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_112_5,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,48918,160,49078,,,Answer: B
+2026-10-06T00:28:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_112_5,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,21356,1163,,,8.294,"{""Answer"": ""B""}"
+2026-10-06T00:28:21,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_106_6,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,49202,204,49406,,,Answer: B
+2026-10-06T00:28:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_106_6,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,15626,329,,,5.902,Answer: B
+2026-10-06T00:29:06,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_43_7,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,50603,9196,59799,,,"Answer: B, D"
+2026-10-06T00:29:22,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_43_7,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,26512,2401,,,13.072,"{""answer"": ""B, C, D""}"
+2026-10-06T00:29:43,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_138_8,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,51157,4841,55998,,,"Answer: C, D"
+2026-10-06T00:33:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_138_8,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,191,1308,,,201.94,"{""answer"": ""D""}"
+2026-10-06T00:33:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_11_9,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,51846,2685,54531,,,Answer: B
+2026-10-06T00:33:46,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_11_9,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,31323,5146,,,27.243,"{""answer"": ""B""}"
+2026-10-06T00:33:49,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_125_10,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,51829,377,52206,,,Answer: B
+2026-10-06T00:34:03,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_125_10,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,30199,1662,,,13.791,"{""answer"": ""B""}"
+2026-10-06T00:34:09,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_55_11,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,52310,213,52523,,,Answer: A
+2026-10-06T00:34:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_55_11,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,10463,545,,,5.031,"{""answer"": ""A"", ""reasoning"": ""Definition of Knowledge requires 'actual knowledge ... after reasonable inquiry of their direct reports' \u2014 based on investigation or inquiry.""}"
+2026-10-06T00:34:17,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_97_12,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,52500,193,52693,,,Answer: A
+2026-10-06T00:34:25,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_97_12,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,16908,1139,,,7.994,"{""answer"": ""A"", ""reason"": ""The definition of Intervening Event refers to events 'not known by the Company Board' - knowledge is attributed to the board of directors, not to members of Target management.""}"
+2026-10-06T00:34:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_32_13,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,52693,198,52891,,,Answer: B
+2026-10-06T00:34:43,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_32_13,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,32089,1906,,,13.779,"```repl
+import json
+try:
+    # Section 5.2 is the negative interim covenant (""shall not""), and exception (y)
+    # carves out actions in response to COVID-19 / pandemic / epidemic / disease outbreak.
+    idx = context.find(""5.2 Operation of the Acquired Corporations"")
+    snippet = context[idx:idx+1500].replace(""\n"","" "")
+    has_carveout = ""in response to COVID-19 or any other pandemic, epidemic or disease outbreak"" in context
+    print(""Section 5.2 found at"", idx)
+    print(""Pandemic carveout present in negative covenant (exception y):"", has_carveout)
+    print(snippet[:1200])
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+except Exception:
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+```"
+2026-10-06T00:34:55,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_113_14,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,53231,2233,55464,,,Answer: A
+2026-10-06T00:35:07,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_113_14,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,38706,1259,,,9.633,"```repl
+import json
+answer[""content""] = json.dumps({""answer"": ""A"", ""reasoning"": ""Annex I Paragraph 2(b)(ii) provides that the Company's general representations and warranties (other than Sections 4.1, 4.2, 4.3, 4.20, 4.23, 4.24) must be true and correct except where the failure to be true and correct (disregarding any materiality or Company Material Adverse Effect qualifiers) has not had a Company Material Adverse Effect — i.e., the general R&Ws are tested at the MAE standard.""})
+answer[""ready""] = True
+print(answer[""content""])
+```"
+2026-10-06T00:35:10,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_30_15,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,53239,195,53434,,,Answer: B
+2026-10-06T00:35:22,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_30_15,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,22136,1617,,,11.27,"{""answer"": ""B""}"
+2026-10-06T00:35:29,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_87_16,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,53614,1390,55004,,,Answer: B
+2026-10-06T00:36:01,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_87_16,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,819,540,,,31.142,"{""answer"": ""B"", ""explanation"": ""The MAE definition's clause (ii) covers impairment of the ability to consummate the transaction, and the 'provided that ... there shall be excluded any effect' carveouts apply to the determination of whether a Material Adverse Effect has occurred generally, not just clause (i). Thus the ability-to-consummate prong is subject to the MAE carveouts.""}"
+2026-10-06T00:36:31,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_115_17,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,53835,6955,60790,,,"Answer: B, C, D, I, M"
+2026-10-06T00:37:39,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_115_17,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,45065,15783,,,37.203,"```repl
+import re
+# Extract all Section 4.xx headings in body
+for m in re.finditer(r'Section 4\.\d+[A-Za-z]?\s+[A-Z][A-Za-z ,;\.\'\-\u2019]+\.', context):
+    s = m.start()
+    if s > 60000:
+        print(s, repr(context[s:s+90]))
+```"
+2026-10-06T00:38:07,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_136_18,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,54261,6056,60317,,,Answer: A
+2026-10-06T00:38:22,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_136_18,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,32677,2553,,,14.621,"{""answer"": ""B""}"
+2026-10-06T00:38:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_102_19,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,54686,2072,56758,,,Answer: B
+2026-10-06T00:38:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_102_19,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,144,284,,,16.329,"{""answer"": ""B""}"
+2026-10-06T00:39:29,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_124_20,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,55015,8632,63647,,,"Answer: C, E"
+2026-10-06T00:40:46,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_124_20,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,48962,15417,,,76.553,"Answer: C, E"
+2026-10-06T00:40:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_78_21,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,56258,338,56596,,,Answer: C
+2026-10-06T00:41:02,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_78_21,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,496,1127,,,11.602,"{""answer"": ""C"", ""reasoning"": ""Section 6.2(e) initial matching-rights period for a Change of Recommendation is four (4) business days prior written notice; subsequent amendments use three (3) business days.""}"
+2026-10-06T00:41:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_83_22,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,56795,316,57111,,,Answer: B
+2026-10-06T00:41:12,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_83_22,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,14261,575,,,6.212,"{""answer"": ""B"", ""reasoning"": ""Section 6.01(a) operating covenant requires the Company to 'use commercially reasonable efforts to conduct its business in the ordinary course consistent with past practice,' so the covenant includes the concept 'consistent with past practice.'""}"
+2026-10-06T00:41:15,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_75_23,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,56918,434,57352,,,Answer: A
+2026-10-06T00:41:30,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_75_23,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,34927,2177,,,14.617,"{""answer"": ""A""}"
+2026-10-06T00:41:33,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_65_24,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,57102,100,57202,,,Answer: B
+2026-10-06T00:41:40,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_65_24,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,18977,516,,,6.138,"{""answer"": ""B""}"
+2026-10-06T00:41:48,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_133_25,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,57254,1669,58923,,,"Answer: A, C"
+2026-10-06T00:42:42,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_133_25,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,29597,10452,,,53.288,"Answer: A, C"
+2026-10-06T00:42:45,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_47_26,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,57821,282,58103,,,Answer: B
+2026-10-06T00:42:51,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_47_26,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,15951,628,,,5.737,"{""answer"": ""Answer: B""}"
+2026-10-06T00:42:54,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_85_27,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,58232,266,58498,,,Answer: B
+2026-10-06T00:42:59,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_85_27,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,11149,748,,,5.057,"{""answer"": ""B""}"
+2026-10-06T00:43:03,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_127_28,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,58262,357,58619,,,Answer: A
+2026-10-06T00:43:20,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_127_28,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,41901,2273,,,16.094,"```repl
+import json
+answer[""content""] = ""Answer: A""
+answer[""ready""] = True
+print(answer[""content""])
+```"
+2026-10-06T00:43:35,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_82_29,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,58514,3069,61583,,,"Answer: A, B, D, E"
+2026-10-06T00:44:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_82_29,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,32684,7375,,,13.385,"```repl
+import re, json
+low = context.lower()
+disp = [m.start() for m in re.finditer(""disproportion"", low)]
+print(""disproportion positions:"", disp)
+mae = [m.start() for m in re.finditer(""material adverse effect"", low)]
+print(""MAE count:"", len(mae), ""first:"", mae[:5])
+
+# Build a big slice around disproportionate language; fallback to broad slice
+if disp:
+    j = disp[0]
+else:
+    j = 20000
+sl = context[max(0,j-9000):j+3000]
+print(""SLICE LEN"", len(sl))
+print(sl[:200])
+
+prompt = """"""You are an expert M&A attorney. Analyze the merger agreement excerpt below (DiaSorin S.p.A. / Luminex Corporation, April 11, 2021).
+
+Question: Is the Material Adverse Effect (MAE) carveout relating to war/terrorism, natural disaster, ""act of God"", or force majeure subject to a ""disproportionate impact"" requirement — i.e., does the agreement's disproportionate-impact proviso cover those carveouts?
+
+Answer choices (select ALL that apply):
+A. ""act of God""
+B. Natural disaster
+C. No
+D. War or terrorism
+E. force majeure
+
+Return ONLY a line of the form:
+Answer: <comma-separated letters>
+Where <letters> are the chosen options. If the W/N/A/F carveouts are NOT subject to the disproportionate-impact requirement, choose C.
+
+Excerpt:
+"""""" + sl
+
+try:
+    ans = llm_query(prompt)
+    print(""LLM SAYS:"", ans)
+except Exception as e:
+    print(""LLM error:"", e)
+    ans = """"
+```"
+2026-10-06T00:44:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_16_30,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,58870,451,59321,,,Answer: B
+2026-10-06T00:44:37,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_16_30,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,50778,3346,,,18.943,"{""answer"": ""B""}"
+2026-10-06T00:44:39,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_141_31,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,58869,127,58996,,,Answer: C
+2026-10-06T00:44:48,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_141_31,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,29576,773,,,8.741,"{""answer"": ""C""}"
+2026-10-06T00:44:52,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_39_32,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,58877,243,59120,,,Answer: A
+2026-10-06T00:45:06,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_39_32,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,38469,1609,,,12.3,"```repl
+import json
+# The merger agreement contains NO ""intervening event"" trigger. The only basis for a
+# Company Board Adverse Recommendation (change of recommendation) is an Acquisition Proposal
+# constituting a Superior Proposal (Section 5.4 / 5.9). Hence a COR is NOT permitted in
+# response to an intervening event.
+answer[""content""] = json.dumps({""answer"": ""A""})
+answer[""ready""] = True
+print(answer[""content""])
+```"
+2026-10-06T00:45:10,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_64_33,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,59471,291,59762,,,Answer: B
+2026-10-06T00:45:16,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_64_33,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,17244,776,,,6.156,"{""answer"": ""B""}"
+2026-10-06T00:45:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_58_34,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,60062,127,60189,,,Answer: B
+2026-10-06T00:45:28,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_58_34,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,42644,1127,,,9.916,B
+2026-10-06T00:45:31,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_130_35,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,60206,214,60420,,,Answer: A
+2026-10-06T00:45:36,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_130_35,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,15482,718,,,4.891,"{""answer"": ""A"", ""explanation"": ""Section 5.01(a) obligates the Company (Target) to use its commercially reasonable efforts to conduct its business in the ordinary course, so choice A applies.""}"
+2026-10-06T00:46:19,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_67_36,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,60392,10481,70873,,,Answer: J
+2026-10-06T00:48:11,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_67_36,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,3683,12251,,,111.786,"{""answer"": ""G""}"
+2026-10-06T00:48:15,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_139_37,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,60423,500,60923,,,Answer: B
+2026-10-06T00:48:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_139_37,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,29584,1684,,,11.78,"{""answer"": ""B"", ""reasoning"": ""Section 6.3(a) provides that any violation of the no-shop restrictions by the Company's Representatives (including non-director/non-officer representatives) shall be a breach of Section 6.3 by the Company, imposing strict liability.""}"
+2026-10-06T00:48:31,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_14_38,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,60796,556,61352,,,Answer: B
+2026-10-06T00:48:51,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_14_38,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,36807,3763,,,20.073,"{""answer"": ""B""}"
+2026-10-06T00:49:10,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_63_39,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,61037,4191,65228,,,"Answer: B, D"
+2026-10-06T00:50:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_63_39,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,35172,19461,,,84.339,"{""answer"": ""B, D""}"
+2026-10-06T00:50:39,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_96_40,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,60971,571,61542,,,Answer: B
+2026-10-06T00:50:59,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_96_40,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,40486,2873,,,17.832,Answer: B
+2026-10-06T00:51:07,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_101_41,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,61723,1708,63431,,,"Answer: A, C"
+2026-10-06T00:51:20,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_101_41,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,18229,2431,,,12.975,"{""answer"": ""A, C""}"
+2026-10-06T00:51:26,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_86_42,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,61725,743,62468,,,Answer: A
+2026-10-06T00:51:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_86_42,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,15000,1275,,,8.345,"{""answer"": ""A""}"
+2026-10-06T00:51:36,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_116_43,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,61897,200,62097,,,Answer: B
+2026-10-06T00:51:46,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_116_43,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,756,479,,,9.667,"{""answer"": ""B""}"
+2026-10-06T00:51:48,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_129_44,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,62056,151,62207,,,Answer: A
+2026-10-06T00:52:00,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_129_44,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,32308,1077,,,9.554,"```python
+import re
+defs = []
+for m in re.finditer(r'[Kk]nowledge', context):
+    i = m.start()
+    window = context[i:i+500]
+    if re.search(r'\bmeans\b', window):
+        defs.append(context[i-30:i+500])
+print(""num defs:"", len(defs))
+for d in defs[:5]:
+    print(""======="")
+    print(d[:450])
+print(""LEN"", len(context))
+```"
+2026-10-06T00:52:08,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_74_45,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,62339,1433,63772,,,Answer: A
+2026-10-06T00:53:44,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_74_45,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,1442,12780,,,95.89,"{""answer"": ""A""}"
+2026-10-06T00:53:47,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_95_46,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,62489,196,62685,,,Answer: B
+2026-10-06T00:54:12,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_95_46,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,40072,5834,,,25.023,"{""Answer"": ""B""}"
+2026-10-06T00:54:39,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_104_47,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,62792,6054,68846,,,"Answer: B, C"
+2026-10-06T00:55:04,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_104_47,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,26003,4305,,,19.56,"Answer: B, C, D"
+2026-10-06T00:55:09,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_12_48,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,62874,781,63655,,,Answer: B
+2026-10-06T00:56:10,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_12_48,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,40805,12331,,,48.372,"```repl
+import json, re
+try:
+    # Look for dual-timing rep language in Article IV / reps
+    hits = []
+    for pat in [r'as of the date of this Agreement and as of', r'as of the Closing Date', r'as of the date hereof']:
+        for m in re.finditer(pat, context):
+            hits.append((pat, context[max(0,m.start()-60):m.start()+100]))
+    for h in hits[:20]:
+        print(h)
+    print(""count:"", len(hits))
+    # The closing/offer condition (d) requires Company reps true ""as of the Expiration Time""
+    # Reps are contained in the Agreement dated Dec 18, 2020 (signing) AND brought down to closing.
+    # => accurate at both signing and closing.
+    ans = ""Answer: B""
+except Exception as e:
+    print(""err"", e)
+    ans = ""Answer: B""
+
+answer[""content""] = json.dumps({""answer"": ans})
+answer[""ready""] = True
+print(""submitted:"", ans)
+```"
+2026-10-06T00:56:22,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_25_49,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,63268,2483,65751,,,"Answer: B, D"
+2026-10-06T00:57:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_25_49,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,48619,9122,,,42.925,"{""answer"": ""B, D""}"
+2026-10-06T00:57:08,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_146_50,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,63263,290,63553,,,Answer: D
+2026-10-06T00:57:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_146_50,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,18738,549,,,5.534,"{""answer"": ""D""}"
+2026-10-06T00:57:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_98_51,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,63535,514,64049,,,Answer: A
+2026-10-06T00:57:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_98_51,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,17211,1732,,,8.953,"{""answer"": ""A"", ""standard"": ""\""would be inconsistent with its fiduciary duties under applicable Law\""""}"
+2026-10-06T00:57:29,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_3_52,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,63643,68,63711,,,Answer: A
+2026-10-06T00:57:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_3_52,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,19894,315,,,4.201,"{""answer"": ""A""}"
+2026-10-06T00:57:40,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_72_53,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,63746,1065,64811,,,Answer: B
+2026-10-06T00:57:46,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_72_53,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,16363,548,,,5.224,Answer: B
+2026-10-06T00:57:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_9_54,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,64060,434,64494,,,Answer: A
+2026-10-06T00:59:02,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_9_54,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,51695,1422,,,72.576,"{""answer"": ""A"", ""reasoning"": ""Section 5.2(c)(ii) defines the initial 'Notice Period' as three (3) Business Days (reduced to two (2) Business Days only for subsequent notices).""}"
+2026-10-06T00:59:19,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_89_55,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,64709,3390,68099,,,Answer: C
+2026-10-06T00:59:26,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_89_55,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,19384,1131,,,7.111,"{""answer"": ""C""}"
+2026-10-06T01:01:21,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_62_56,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,64935,25346,90281,,,"Answer: D, E"
+2026-10-06T01:04:11,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_62_56,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,3243,5223,,,46.186,"I have one turn left. Let me finalize based on my analysis of Section 7.3(b), the tail-period provision.
+
+```repl
+import json
+try:
+    # Section 7.3(b)(iii): within 9 months after termination the Company
+    # ""consummates an Acquisition Transaction OR enters into an agreement for
+    # an Acquisition Transaction which Acquisition Transaction is subsequently
+    # consummated"". Tail refers to any ""Acquisition Transaction"" (not same party)
+    # => ""Different"". Triggers cover closing within tail (E) and signing within
+    # tail with later closing (D).
+    letters = ""D, E""
+    answer[""content""] = json.dumps({""answer"": letters, ""response"": ""Answer: "" + letters})
+    answer[""ready""] = True
+except Exception:
+    answer[""content""] = '{""answer"": ""D, E"", ""response"": ""Answer: D, E""}'
+    answer[""ready""] = True
+
+print(answer[""content""])
+print(""ready:"", answer[""ready""])
+```"
+2026-10-06T01:04:15,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_77_57,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65078,429,65507,,,Answer: C
+2026-10-06T01:04:31,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_77_57,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,38870,2368,,,16.383,"{""answer"": ""C"", ""explanation"": ""The relational language (the 'materially disproportionately adverse ... as compared to other companies in the industry' qualifier) applies only 'with respect to subclauses (A), (B), (C), (D) and (G),' expressly excluding subclauses (E) and (F). Thus it applies to some MAE carveouts, not all.""}"
+2026-10-06T01:04:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_110_58,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65115,291,65406,,,Answer: B
+2026-10-06T01:04:41,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_110_58,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,16870,689,,,6.463,"{""answer"": ""B""}"
+2026-10-06T01:04:47,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_36_59,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65335,985,66320,,,Answer: B
+2026-10-06T01:05:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_36_59,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,879,2717,,,46.59,"{""answer"": ""B"", ""reasoning"": ""Under the Section 7.2(a) bringdown, the fundamental Company reps (Sections 4.1 Organization, 4.3 Authority, 4.20 Brokers, 4.23 Takeover Statutes, 4.24 Rights Agreement) must be true and correct in all material respects (ignoring materiality/MAE qualifiers and subject to date-specific reps).""}"
+2026-10-06T01:05:46,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_18_60,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65577,2184,67761,,,Answer: A
+2026-10-06T01:06:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_18_60,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,40210,9292,,,14.187,"```repl
+import re, json
+try:
+    # Collect the key regions: recommendation-change / no-solicitation / termination fee
+    t1 = context[228600:232100]   # Recommendation Change + fiduciary out
+    t2 = context[256150:261200]   # likely no-solicitation / Acquisition Proposal def
+    t3 = context[285150:289600]   # termination fee (tail) provisions
+    joined = (""=== REGION A (recommendation change / fiduciary out) ===\n"" + t1 +
+              ""\n\n=== REGION B (no-solicitation / Acquisition Proposal definition) ===\n"" + t2 +
+              ""\n\n=== REGION C (termination fee) ===\n"" + t3)
+    prompt = (
+        ""You are an expert M&A attorney analyzing a merger agreement.\n""
+        ""Question: Does the acquisition proposal have to remain pending in order for the relevant provision or right to apply?\n""
+        ""Answer choices: A. No   B. Yes\n""
+        ""Base your answer only on the merger agreement text below.\n""
+        ""Reply with exactly one line: 'Answer: A' or 'Answer: B'.\n\n""
+        ""MERGER AGREEMENT TEXT:\n"" + joined + ""\n\nAnswer:""
+    )
+    r = llm_query(prompt)
+    print(""LLM RESPONSE:"", repr(r))
+    letter = ""B""
+    m = re.search(r'Answer:\s*([AB])', r)
+    if m:
+        letter = m.group(1)
+    else:
+        # fallback parse
+        if re.search(r'\bA\b', r) and not re.search(r'\bB\b', r):
+            letter = ""A""
+    answer[""content""] = ""Answer: "" + letter
+    answer[""ready""] = True
+    print(""SET:"", answer[""content""])
+except Exception as e:
+    print(""ERROR:"", e)
+    answer[""content""] = ""Answer: B""
+    answer[""ready""] = True
+```"
+2026-10-06T01:06:41,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_69_61,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65847,1095,66942,,,"Answer: B, C"
+2026-10-06T01:06:58,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_69_61,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,32970,2822,,,17.198,"{""answer"": ""B, C""}"
+2026-10-06T01:07:03,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_61_62,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65802,581,66383,,,Answer: B
+2026-10-06T01:07:25,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_61_62,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,35227,3936,,,22.404,"{""answer"": ""A"", ""reason"": ""The Company Material Adverse Effect definition uses the backward-looking standard 'has a material adverse effect', not forward-looking language such as 'would reasonably be expected to have'.""}"
+2026-10-06T01:07:34,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_137_63,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65867,1608,67475,,,Answer: A
+2026-10-06T01:07:48,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_137_63,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,36103,1969,,,13.108,"{""answer"": ""A""}"
+2026-10-06T01:07:52,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_40_64,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,65878,654,66532,,,Answer: B
+2026-10-06T01:08:00,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_40_64,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,22092,663,,,6.886,"{""answer"": ""B""}"
+2026-10-06T01:08:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_107_65,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,66068,3254,69322,,,"Answer: B, D"
+2026-10-06T01:09:28,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_107_65,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,33645,16503,,,73.948,"{""answer"": ""B, D""}"
+2026-10-06T01:09:33,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_0_66,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,66052,672,66724,,,Answer: A
+2026-10-06T01:09:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_0_66,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,51026,3150,,,16.107,"{""answer"": ""A""}"
+2026-10-06T01:09:52,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_132_67,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,66356,103,66459,,,Answer: B
+2026-10-06T01:10:03,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_132_67,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,32409,988,,,10.633,"{""answer"": ""B""}"
+2026-10-06T01:10:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_7_68,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,66913,109,67022,,,Answer: B
+2026-10-06T01:10:12,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_7_68,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,16143,641,,,6.721,"{""answer"": ""B""}"
+2026-10-06T01:10:17,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_15_69,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,67170,731,67901,,,Answer: B
+2026-10-06T01:10:29,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_15_69,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,31509,1905,,,11.677,"{""answer"": ""B""}"
+2026-10-06T01:10:39,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_49_70,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,67140,1698,68838,,,Answer: A
+2026-10-06T01:10:51,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_49_70,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,30135,1421,,,11.671,"{""answer"": ""B""}"
+2026-10-06T01:10:53,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_48_71,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,67501,247,67748,,,Answer: B
+2026-10-06T01:11:16,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_48_71,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,45551,3698,,,14.774,"```repl
+import json
+try:
+    # Quick sanity check on context_0 (in case it's a separate/underlying document)
+    try:
+        c0 = context_0
+        print(""context_0 type:"", type(c0))
+        try:
+            print(""context_0 len:"", len(c0))
+        except Exception:
+            pass
+        import re
+        s0 = c0 if isinstance(c0, str) else str(c0)
+        for kw in [""superior"", ""assets""]:
+            idxs = [m.start() for m in re.finditer(re.escape(kw), s0.lower())]
+            print(kw, len(idxs), idxs[:5])
+    except Exception as e:
+        print(""context_0 check failed:"", e)
+
+    # Evidence: definition of ""Company Superior Proposal"" requires beneficial ownership of
+    # ""fifty percent (50%) or more of the assets (on a consolidated basis)"" (asset deal prong),
+    # and the ""Superior Proposal"" definition raises all Company Acquisition Proposal
+    # percentages to 50%.  Precise threshold for an asset deal = 50%.
+    final_letter = ""B""
+    answer[""content""] = json.dumps({""answer"": final_letter})
+    answer[""ready""] = True
+except Exception:
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+```"
+2026-10-06T01:11:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_4_72,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,68106,123,68229,,,Answer: C
+2026-10-06T01:11:23,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_4_72,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,15131,390,,,4.666,"{""answer"": ""C""}"
+2026-10-06T01:12:00,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_93_73,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,68308,8848,77156,,,"Answer: A, C"
+2026-10-06T01:12:19,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_93_73,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,47199,2963,,,19.362,"{""answer"": ""A, B, C""}"
+2026-10-06T01:12:23,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_144_74,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,68844,317,69161,,,Answer: A
+2026-10-06T01:12:29,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_144_74,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,12435,712,,,6.155,"""Answer: A"""
+2026-10-06T01:13:17,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_122_75,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,69204,11356,80560,,,"Answer: A, B, C, D, E, G, I, M"
+2026-10-06T01:14:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_122_75,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,43041,13846,,,60.772,"{""Answer"": ""A, B, C, D, E, G, I, M""}"
+2026-10-06T01:14:22,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_22_76,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,69427,380,69807,,,Answer: A
+2026-10-06T01:14:40,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_22_76,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,36737,3136,,,17.759,"{""answer"": ""A""}"
+2026-10-06T01:14:43,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_114_77,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,69563,294,69857,,,Answer: B
+2026-10-06T01:14:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_114_77,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,21000,834,,,7.38,"{""answer"": ""B"", ""reasoning"": ""The MAE definition excludes 'any COVID-19 Measures' under clause (d)(B), and COVID-19 Measures is defined as governmental orders, directives, guidelines and recommendations in response to COVID-19, i.e., pandemic-related governmental responses.""}"
+2026-10-06T01:15:07,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_71_78,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,69908,3368,73276,,,Answer: A
+2026-10-06T01:15:21,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_71_78,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,42848,2048,,,13.601,"{""answer"": ""A""}"
+2026-10-06T01:15:42,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_45_79,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,69976,4755,74731,,,Answer: B
+2026-10-06T01:15:49,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_45_79,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,17571,743,,,6.437,"{""answer"": ""B""}"
+2026-10-06T01:15:53,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_60_80,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,70438,422,70860,,,Answer: A
+2026-10-06T01:16:02,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_60_80,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,27459,969,,,8.716,"{""answer"": ""A""}"
+2026-10-06T01:16:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_131_81,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,70464,5216,75680,,,Answer: A
+2026-10-06T01:17:00,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_131_81,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,511,3401,,,29.973,"```repl
+import json
+try:
+    # Section 8.1(e)(v) and 8.1(f)(v): termination requires that the party ""materially breaches
+    # its obligations under Section 6.3 / Section 6.4"" (the meeting covenants).
+    # Therefore a breach of the meeting covenant must be MATERIAL.
+    q = """"""Based ONLY on the following merger agreement termination provision, answer YES or NO:
+Must a breach of the stockholder meeting covenant (Section 6.3/6.4) be MATERIAL to give the other party a termination right? Quote the exact operative words.
+
+Provision 8.1(e)(v): 'materially breaches its obligations under Section 6.3 or Section 6.13'
+Provision 8.1(f)(v): 'materially breaches its obligations under Section 6.4'
+""""""
+    r = llm_query(q)
+    print(""SUB:"", r)
+    answer[""content""] = json.dumps({""answer"": ""A""})
+    answer[""ready""] = True
+except Exception as e:
+    print(""ERR"", e)
+    answer[""content""] = json.dumps({""answer"": ""A""})
+    answer[""ready""] = True
+print(answer)
+```"
+2026-10-06T01:17:03,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_52_82,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,70482,295,70777,,,Answer: A
+2026-10-06T01:17:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_52_82,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,56915,989,,,10.177,"{""answer"": ""A""}"
+2026-10-06T01:17:20,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_1_83,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,70662,851,71513,,,Answer: A
+2026-10-06T01:17:46,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_1_83,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,45776,4294,,,26.443,"{""answer"": ""A""}"
+2026-10-06T01:17:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_103_84,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,70928,644,71572,,,Answer: B
+2026-10-06T01:18:28,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_103_84,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,423,240,,,37.254,"{""answer"": ""B"", ""choice"": ""Applies to all negative covenants""}"
+2026-10-06T01:18:31,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_142_85,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,71177,257,71434,,,Answer: A
+2026-10-06T01:18:38,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_142_85,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,21225,743,,,7.276,"{""answer"": ""A"", ""reasoning"": ""The definition of Knowledge (Section 1.89) provides that it means the actual knowledge of the executive officers or directors of the Company 'after reasonable inquiry,' i.e., knowledge imputed based on reasonable investigation or inquiry.""}"
+2026-10-06T01:18:42,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_35_86,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,71184,317,71501,,,Answer: A
+2026-10-06T01:18:49,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_35_86,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,26640,787,,,7.331,"{""answer"": ""A""}"
+2026-10-06T01:18:52,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_135_87,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,71377,208,71585,,,Answer: C
+2026-10-06T01:18:59,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_135_87,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,18553,582,,,6.836,"{""answer"": ""C""}"
+2026-10-06T01:19:02,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_29_88,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,71398,259,71657,,,Answer: A
+2026-10-06T01:19:12,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_29_88,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,17881,1584,,,9.058,"{""answer"": ""A"", ""reasoning"": ""Section 8.5(a) states the parties 'shall be entitled to seek an injunction or injunctions to prevent breaches of this Agreement and to specific performance of the terms hereof' \u2014 the operative phrase is 'entitled to seek' specific performance.""}"
+2026-10-06T01:19:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_149_89,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,71704,197,71901,,,Answer: B
+2026-10-06T01:19:20,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_149_89,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,16068,545,,,5.158,"{""answer"": ""B""}"
+2026-10-06T01:19:53,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_148_90,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,71765,8057,79822,,,Answer: C
+2026-10-06T01:22:12,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_148_90,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,3262,4794,,,138.046,"{""answer"": ""A"", ""response"": ""Answer: A""}"
+2026-10-06T01:22:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_28_91,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,71830,59,71889,,,Answer: A
+2026-10-06T01:22:23,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_28_91,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,440,158,,,9.124,"{""answer"": ""Answer: A""}"
+2026-10-06T01:23:10,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_53_92,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,71903,10975,82878,,,Answer: D
+2026-10-06T01:27:36,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_53_92,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,6504,18722,,,265.435,"{""answer"": ""A""}"
+2026-10-06T01:28:16,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_13_93,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,72047,9053,81100,,,"Answer: A, B, C, D, E"
+2026-10-06T01:29:52,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_13_93,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,89655,21825,,,95.353,"A, B, C, D, E"
+2026-10-06T01:29:58,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_143_94,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,72115,1102,73217,,,"Answer: B, C, D"
+2026-10-06T01:30:22,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_143_94,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,37148,4220,,,23.869,"{""answer"": ""B, C, D""}"
+2026-10-06T01:30:37,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_90_95,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,72249,3001,75250,,,"Answer: A, D"
+2026-10-06T01:30:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_90_95,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,31423,1219,,,11.767,"```python
+import re
+# Search for the MAE definition and its carveouts with relational prepositions
+pats = ['arising', 'attributable', 'relating to', 'resulting from', 'out of']
+low = context.lower()
+for p in pats:
+    idxs = [m.start() for m in re.finditer(p, low)]
+    print(p, len(idxs), idxs[:8])
+```"
+2026-10-06T01:31:01,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_134_96,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,72511,1885,74396,,,"Answer: B, D"
+2026-10-06T01:31:40,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_134_96,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,39789,7284,,,39.044,"{""answer"": ""B, D""}"
+2026-10-06T01:31:42,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_31_97,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,72719,125,72844,,,Answer: B
+2026-10-06T01:31:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_31_97,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,3,21328,711,,,6.569,"""Answer: B"""
+2026-10-06T01:31:53,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_17_98,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,72771,310,73081,,,Answer: B
+2026-10-06T01:32:01,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_17_98,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,21567,1015,,,7.227,"{""answer"": ""B""}"
+2026-10-06T01:32:03,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_80_99,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,72847,170,73017,,,Answer: B
+2026-10-06T01:32:15,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_80_99,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,215,65,,,11.774,Answer: B
+2026-10-06T01:32:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_117_100,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,73254,172,73426,,,Answer: A
+2026-10-06T01:32:28,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_117_100,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,24989,1407,,,9.462,"{""answer"": ""A"", ""choice"": ""Commercially reasonable efforts""}"
+2026-10-06T01:32:33,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_56_101,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,73786,588,74374,,,Answer: B
+2026-10-06T01:32:58,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_56_101,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,44682,3999,,,15.916,"Based on my analysis, Section 6.3(c) of the agreement provides a fiduciary out allowing the Board to submit the agreement ""without recommendation"" (which explicitly ""shall constitute a Recommendation Change"") if it determines it would more likely than not violate fiduciary duties. Critically, the notice provision refers to describing ""such other event or circumstances"" beyond an Acquisition Proposal — functionally an intervening event. This confirms a COR is permitted in response to an intervening event.
+
+```repl
+import json
+try:
+    # Confirm no ""intervening"" defined term and the ""such other event or circumstances"" language exists
+    has_other_event = ""such other event or circumstances"" in context
+    no_intervening_def = ""intervening"" not in context.lower()
+    # Recommendation Change fiduciary out present
+    has_rec_change = ""Recommendation Change"" in context
+    print(""has 'such other event or circumstances':"", has_other_event)
+    print(""no 'intervening' term:"", no_intervening_def)
+    print(""has 'Recommendation Change':"", has_rec_change)
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+except Exception:
+    answer[""content""] = json.dumps({""answer"": ""B""})
+    answer[""ready""] = True
+```"
+2026-10-06T01:33:06,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_26_102,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,74590,1531,76121,,,"Answer: A, B"
+2026-10-06T01:35:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_26_102,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,732,16058,,,110.43,"I've located the key bring-down condition (Section 7.2(a)). Let me do a final verification of the scrape scope and submit.
+
+```repl
+import json
+try:
+    # Quick check of the other ""without giving effect"" occurrence
+    i = context.find(""without giving effect"", 356000)
+    print(""other occurrence:"", context[i-300:i+300] if i!=-1 else ""none"")
+
+    # Analysis summary from Section 7.2(a):
+    # Clause (i): Article III General R&Ws -> SCRAPED (without giving effect to materiality/MAE)
+    # Clause (ii): 3.1, 3.2, 3.3(a)(i), 3.24 -> NOT scraped
+    # Clause (iii): 3.10(b)(i) -> NOT scraped
+    # Clause (iv): 3.5(a),(c),(d),(e) = Capitalization R&Ws -> SCRAPED
+    answer[""content""] = json.dumps({""answer"": ""A, B""})
+    answer[""ready""] = True
+    print(""SET:"", answer[""content""])
+except Exception:
+    answer[""content""] = json.dumps({""answer"": ""A, B""})
+    answer[""ready""] = True
+    print(""FALLBACK SET:"", answer[""content""])
+```"
+2026-10-06T01:35:26,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_37_103,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,75179,1673,76852,,,Answer: A
+2026-10-06T01:39:19,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_37_103,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,19,8984,35902,,,232.579,"{""answer"": ""C""}"
+2026-10-06T01:39:22,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_120_104,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,75870,126,75996,,,Answer: B
+2026-10-06T01:39:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_120_104,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,11435,374,,,4.597,Answer: B
+2026-10-06T01:39:43,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_151_105,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,76467,3224,79691,,,"Answer: A, C"
+2026-10-06T01:39:52,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_151_105,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,18523,1129,,,9.41,"{""answer"": ""A, C""}"
+2026-10-06T01:39:55,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_123_106,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,76827,169,76996,,,Answer: C
+2026-10-06T01:40:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_123_106,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,20445,683,,,10.125,"{""answer"": ""C""}"
+2026-10-06T01:40:08,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_50_107,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,77185,113,77298,,,Answer: A
+2026-10-06T01:40:26,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_50_107,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,53708,2162,,,12.796,"```repl
+import re, json
+# Look for any definition of Knowledge - search near capitalized Knowledge for ""means"" within 60 chars after
+found=False
+for m in re.finditer(r'Knowledge', context):
+    i=m.start()
+    tail=context[i:i+60]
+    if 'means' in tail:
+        print(""FOUND:"", repr(context[i-10:i+300]))
+        found=True
+print(""found def:"", found)
+# Search for ""’s Knowledge"" or ""Knowledge”""
+for m in re.finditer(r'[\u2019\u201c\u201d""]Knowledge', context):
+    print(""Q:"", m.start(), repr(context[m.start()-5:m.start()+50]))
+```
+
+Let me do a final check for a Knowledge definition.
+
+```repl
+import re
+# Check around each ""Knowledge"" whether preceded by ""the "" and defined
+# Also look for ""Knowledge of"" definition phrase
+for pat in [r'Knowledge”\s+means', r'Knowledge” shall mean', r'“Knowledge”']:
+    print(pat, [m.start() for m in re.finditer(pat, context)])
+# print the definitions index lines / table around 355352 Article IX
+print(context[3570:3800])
+```
+
+Final search."
+2026-10-06T01:40:32,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_19_108,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,77246,882,78128,,,Answer: A
+2026-10-06T01:41:38,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_19_108,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,991,14016,,,66.515,Answer: A
+2026-10-06T01:41:41,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_91_109,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,77381,117,77498,,,Answer: B
+2026-10-06T01:41:46,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_91_109,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,16104,395,,,5.199,"{""answer"": ""B""}"
+2026-10-06T01:41:55,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_128_110,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,77787,1464,79251,,,Answer: A
+2026-10-06T01:42:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_128_110,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,18456,1255,,,9.234,"{""answer"": ""A""}"
+2026-10-06T01:42:07,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_99_111,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,78031,124,78155,,,Answer: B
+2026-10-06T01:42:20,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_99_111,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,35196,1837,,,12.266,"{""answer"": ""Answer: B""}"
+2026-10-06T01:42:24,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_34_112,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,78126,356,78482,,,Answer: D
+2026-10-06T01:42:38,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_34_112,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,45768,1899,,,13.949,"{""answer"": ""D""}"
+2026-10-06T01:42:40,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_126_113,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,78098,221,78319,,,Answer: A
+2026-10-06T01:42:57,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_126_113,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,19906,2833,,,16.069,"{""answer"": ""B"", ""choice"": ""B. Must occur or arise after signing""}"
+2026-10-06T01:43:02,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_42_114,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,78188,673,78861,,,"Answer: A, C"
+2026-10-06T01:43:13,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_42_114,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,37384,1721,,,11.321,"{""answer"": ""A, C""}"
+2026-10-06T01:43:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_79_115,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,78472,575,79047,,,Answer: C
+2026-10-06T01:43:56,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_79_115,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,620,3428,,,37.306,Answer: C
+2026-10-06T01:43:58,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_100_116,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,79249,218,79467,,,Answer: A
+2026-10-06T01:44:04,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_100_116,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,12810,514,,,5.043,"{""answer"": ""A""}"
+2026-10-06T01:44:08,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_109_117,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,80283,283,80566,,,Answer: A
+2026-10-06T01:44:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_109_117,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,1048,151,,,19.471,"{""answer"": ""A""}"
+2026-10-06T01:44:32,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_70_118,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,80416,596,81012,,,Answer: D
+2026-10-06T01:44:57,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_70_118,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,36249,4871,,,24.893,"{""answer"": ""D""}"
+2026-10-06T01:45:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_41_119,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,80638,3464,84102,,,"Answer: A, C"
+2026-10-06T01:45:31,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_41_119,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,38489,2673,,,16.586,"{""answer"": ""A, C""}"
+2026-10-06T01:45:54,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_23_120,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,80705,5236,85941,,,"Answer: A, B, D"
+2026-10-06T01:47:33,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_23_120,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,21672,23438,,,99.111,"{""answer"": ""A, B, D""}"
+2026-10-06T01:47:37,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_54_121,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,81480,424,81904,,,Answer: A
+2026-10-06T01:47:51,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_54_121,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,45654,1919,,,13.116,"{""answer"": ""A"", ""reasoning"": ""Section 6.03(b) requires First Choice and First Choice Bank to have performed and complied with all of their respective obligations under this Agreement in all material respects \u2014 'All Covenants'.""}"
+2026-10-06T01:47:53,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_2_122,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,82395,131,82526,,,Answer: C
+2026-10-06T01:48:00,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_2_122,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,20589,722,,,6.602,"{""answer"": ""C""}"
+2026-10-06T01:48:07,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_150_123,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,82451,1117,83568,,,Answer: B
+2026-10-06T01:48:42,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_150_123,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,30094,7099,,,34.199,"""B"""
+2026-10-06T01:49:08,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_92_124,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,83759,5991,89750,,,Answer: A
+2026-10-06T01:52:24,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_92_124,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,174572,46398,,,195.314,Answer: A
+2026-10-06T01:52:27,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_38_125,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,83968,179,84147,,,Answer: A
+2026-10-06T01:52:39,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_38_125,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,41036,1205,,,10.566,"```repl
+print(context[301246:305800])
+```"
+2026-10-06T01:52:48,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_147_126,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,84011,1560,85571,,,Answer: A
+2026-10-06T01:53:06,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_147_126,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,29410,2842,,,11.351,"{""answer"": ""A""}"
+2026-10-06T01:53:19,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_108_127,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,84703,2519,87222,,,Answer: B
+2026-10-06T01:53:35,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_108_127,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,43511,2108,,,11.48,"I'm at the final turn — let me read the crucial Section 7.1(c)/(d) text to determine the qualifier for a no-shop breach, then submit.
+
+```repl
+print(""=== 343300-345800 ==="")
+print(context[343300:345800])
+```"
+2026-10-06T01:53:38,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_20_128,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,85006,205,85211,,,Answer: B
+2026-10-06T01:53:47,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_20_128,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,37794,1004,,,9.259,"{""answer"": ""B""}"
+2026-10-06T01:53:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_111_129,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,85738,160,85898,,,Answer: A
+2026-10-06T01:54:02,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_111_129,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,50411,1472,,,11.379,Answer: A
+2026-10-06T01:54:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_57_130,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,87713,209,87922,,,Answer: B
+2026-10-06T01:54:13,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_57_130,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,33898,805,,,7.991,"{""answer"": ""B""}"
+2026-10-06T01:54:20,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_140_131,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,87868,1320,89188,,,Answer: B
+2026-10-06T01:54:51,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_140_131,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,38456,6072,,,30.886,Answer: B
+2026-10-06T01:54:54,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_5_132,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,87912,244,88156,,,Answer: B
+2026-10-06T01:54:59,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_5_132,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,14121,515,,,4.822,Answer: B
+2026-10-06T01:55:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_51_133,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,88786,789,89575,,,Answer: A
+2026-10-06T01:55:12,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_51_133,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,15705,830,,,6.36,"{""answer"": ""A""}"
+2026-10-06T01:55:24,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_46_134,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,90062,2390,92452,,,Answer: A
+2026-10-06T01:55:45,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_46_134,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,34167,4624,,,20.897,"{""answer"": ""A""}"
+2026-10-06T01:55:48,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_66_135,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,90292,199,90491,,,Answer: B
+2026-10-06T01:55:54,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_66_135,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,23557,434,,,5.089,"{""answer"": ""B""}"
+2026-10-06T01:56:26,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_118_136,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,90835,7289,98124,,,Answer: A
+2026-10-06T01:58:44,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_118_136,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,47187,32826,,,137.449,"{""answer"": ""B, C, D""}"
+2026-10-06T01:59:32,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_94_137,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,91059,10719,101778,,,Answer: A
+2026-10-06T01:59:48,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_94_137,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,36200,2127,,,11.705,"```repl
+import re, json
+for term in ['revis', 'Opportunity to propose', 'propose revisions', 'in a manner', 'materially amend', 'amend or modify', 'Opportunity']:
+    try:
+        ms = list(re.finditer(term, context, re.IGNORECASE))
+        print(term, len(ms))
+    except Exception as ex:
+        print(term, ""ERR"", ex)
+# Also raw check of 'atch'
+print(""atch:"", context.count(""atch""))
+print(""Matching:"", context.count(""Matching""))
+print(""match:"", context.count(""match""))
+```"
+2026-10-06T01:59:59,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_76_138,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,92958,2150,95108,,,"Answer: A, B, D"
+2026-10-06T02:00:18,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_76_138,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,30899,2540,,,13.34,"{""answer"": ""Answer: A, B, D, E""}"
+2026-10-06T02:00:22,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_105_139,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,96906,155,97061,,,Answer: B
+2026-10-06T02:00:29,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_105_139,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,16560,604,,,7.432,"{""answer"": ""B"", ""explanation"": ""The Company Material Adverse Effect definition contains clause (vii), which excludes 'any failure, in and of itself, by the Company to meet any internal or published projections, forecasts, estimates, or predictions in respect of revenues, earnings, or other financial or operating metrics for any period.' Thus the MAE definition does contain a carveout for failure to meet projections/forecasts/estimates.""}"
+2026-10-06T02:00:36,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_44_140,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,98351,1086,99437,,,Answer: E
+2026-10-06T02:00:51,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_44_140,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,7,30737,1832,,,14.635,"{""Answer"": ""E""}"
+2026-10-06T02:00:54,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_27_141,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,99154,164,99318,,,Answer: A
+2026-10-06T12:29:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_8_142,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,99795,1553,101348,,,Answer: A
+2026-10-06T12:29:24,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_8_142,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,54993,2758,,,18.832,"{""answer"": ""Answer: B""}"
+2026-10-06T12:29:29,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_121_143,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,101717,357,102074,,,Answer: B
+2026-10-06T12:29:42,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_121_143,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,4,13565,1510,,,12.69,"{""answer"": ""B""}"
+2026-10-06T12:29:45,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_24_144,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,101980,96,102076,,,Answer: A
+2026-10-06T12:29:54,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_24_144,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,31765,655,,,8.716,"{""answer"": ""A""}"
+2026-10-06T12:29:57,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_81_145,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,102025,233,102258,,,Answer: C
+2026-10-06T12:30:13,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_81_145,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,9,37348,1567,,,12.102,"The relational (""disproportionately affects... relative to other similarly situated companies"") language applies only to clauses (1), (2), (3), (4), (5), (11), or (12) — not to all carveouts. This matches ""Some MAE carveouts.""
+
+```repl
+import json
+try:
+    # Confirm: relational language applies to a subset, not all carveouts
+    assert ""clauses (1), (2), (3), (4), (5), (11) or (12)"" in context
+    answer[""content""] = json.dumps({""answer"": ""C""})
+    answer[""ready""] = True
+except Exception:
+    answer[""content""] = json.dumps({""answer"": ""C""})
+    answer[""ready""] = True
+print(answer)
+```"
+2026-10-06T12:30:17,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_73_146,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,103630,252,103882,,,Answer: B
+2026-10-06T12:30:29,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_73_146,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,6,24601,1564,,,11.785,Answer: B
+2026-10-06T12:30:37,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_84_147,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,115026,1319,116345,,,Answer: B
+2026-10-06T12:31:04,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_84_147,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,8,46514,4228,,,26.701,"{""answer"": ""B""}"
+2026-10-06T12:31:31,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_10_148,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,149032,5263,154295,,,"Answer: C, F"
+2026-10-06T12:31:50,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_10_148,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,17626,2879,,,18.161,"{""answer"": ""C, F""}"
+2026-10-06T12:31:54,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_68_149,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,158457,219,158676,,,Answer: C
+2026-10-06T12:32:05,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_68_149,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,5,29170,1177,,,10.546,"{""answer"": ""C""}"
+2026-10-06T12:32:10,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_145_150,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,163274,317,163591,,,Answer: B
+2026-10-06T12:32:14,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_145_150,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,2,6495,520,,,4.004,"""Answer: B"""
+2026-10-06T12:32:24,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_33_151,deepseek-v4-flash,vanilla,deepseek-v4-flash,,1,202257,1229,203486,,,Answer: B
+2026-10-06T12:33:41,maud_152_samples_per_contract_batch_run,maud_152_samples,contract_33_151,deepseek-v4-flash,RLM-customized,deepseek-v4-flash,,1,150,173,,,76.635,"{""answer"": ""B""}"

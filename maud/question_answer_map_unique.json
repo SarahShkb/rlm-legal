@@ -41,8 +41,7 @@
   ],
   "Accuracy of Target \"General\" R&W: Bringdown Standard Answer": [
     "All/The R&Ws accurate at MAE standard",
-    "R&Ws accurate at another materiality standard (e.g.",
-    "hybrid standard)"
+    "R&Ws accurate at another materiality standard (e.g., hybrid standard)"
   ],
   "Accuracy of Target \"General\" R&W: Bringdown Timing Answer": [
     "At Closing Only",
