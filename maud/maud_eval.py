@@ -387,6 +387,66 @@ def paired_table(res: pd.DataFrame, policy: str = "lenient", a: str = "vanilla",
     return t
 
 
+
+def logs_table(res: pd.DataFrame, sort_by: Optional[str] = None,
+               extra_cols: tuple = ("length_bin",), methods=("vanilla", "rlm")) -> pd.DataFrame:
+    """The compact per-sample table: pos, length bin, gold letter(s), each method's answer.
+ 
+    Cell format:  '<letters> ✓|✗'  (exact match with gold),  '(repl)' appended when the RLM answer
+    was recovered from REPL code,  '-  [status]'  when there is no usable answer.
+    """
+    missing = [c for c in extra_cols if c not in res.columns]
+    if missing:
+        raise KeyError(f"Columns {missing} not found in results; available: {list(res.columns)[:15]}...")
+ 
+    def cell(pred: str, correct: bool, status: str) -> str:
+        if not pred:
+            return f"-  [{status}]"
+        tag = " (repl)" if status == "repl_recovered" else ""
+        return f"{pred} {'✓' if correct else '✗'}{tag}"
+ 
+    out = pd.DataFrame(index=res.index)
+    for c in extra_cols:
+        out[c] = res[c].astype(str)
+    out["gold"] = res["gold"]
+    for m in methods:
+        out[m] = [cell(p, c, s) for p, c, s in
+                  zip(res[f"{m}_pred"], res[f"{m}_correct_lenient"], res[f"{m}_status"])]
+    if sort_by:
+        out = out.sort_values(sort_by, kind="stable")
+    return out
+
+
+def print_logs(res: pd.DataFrame, sort_by: Optional[str] = None,
+               extra_cols: tuple = ("length_bin",), methods=("vanilla", "rlm"),
+               save_csv: Optional[str] = None) -> None:
+    """Print one line per sample: length bin, gold letter(s) and each method's answer letter(s).
+ 
+    Legend:  ✓ / ✗ = exact match / mismatch with gold
+             (repl)  = RLM answer recovered from REPL code, not a real final answer
+             [status] = no usable answer (e.g. [repl_no_answer])
+    Prints ALL rows in `res`; filter first to see a subset, e.g.
+        print_logs(res[res.rlm_status != "final"])
+        print_logs(res[res.vanilla_correct_lenient != res.rlm_correct_lenient])
+    `sort_by` can be any printed column (e.g. "length_bin", "gold"); ties keep sample order.
+    `save_csv="logs.csv"` also writes the same table to a CSV (UTF-8 with BOM so Excel shows ✓/✗).
+    """
+    out = logs_table(res, sort_by, extra_cols, methods)
+ 
+    if save_csv:
+        out.to_csv(save_csv, encoding="utf-8-sig")      # index 'pos' is written as the first column
+        print(f"[print_logs] saved {len(out)} rows to {save_csv}\n")
+ 
+    shown = out.copy()
+    for c in shown.columns:                              # left-align text columns
+        w = max(len(str(c)), shown[c].str.len().max())
+        shown[c] = shown[c].str.ljust(w)
+        shown = shown.rename(columns={c: str(c).ljust(w)})
+    print(shown.to_string())
+    print(f"\n{len(out)} rows  |  ✓/✗ = exact match with gold, (repl) = answer recovered from REPL code, "
+          f"[status] = no usable answer")
+ 
+
 # ----------------------------------------------------------------------------
 # CLI: audit the log alone
 # ----------------------------------------------------------------------------
@@ -396,15 +456,17 @@ if __name__ == "__main__":
     log["status"] = [parse_raw_result(r).status for r in log["raw_result"]]
 
     sample = get_sample_rows_for_maud_152(split="train")
-    with open("maud/question_answer_map_unique.json", "r", encoding="utf-8") as f:
+    with open("maud/dicts/question_answer_map_unique.json", "r", encoding="utf-8") as f:
         question_answer_map_unique = json.load(f)
     res = build_results(sample, question_answer_map_unique, "maud/maud_152_different_prompts_per_tier.csv")
     summary = summarize(res)
-    print(summary)
+    #print(summary)
     summary.to_csv("summary_152_maud.csv", index=False)                    # strict / lenient / answered-only, split by single vs multi-letter gold
-    print(paired_table(res, "lenient"))      # vanilla vs RLM, sample by sample
+    #print(paired_table(res, "lenient"))      # vanilla vs RLM, sample by sample
 
-    print(pd.crosstab(log["status"], log["method"], margins=True))
-    print()
-    for k, v in STATUS_DOC.items():
-        print(f"  {k:16s} {v}")
+    # print(pd.crosstab(log["status"], log["method"], margins=True))
+    # print()
+    # for k, v in STATUS_DOC.items():
+    #     print(f"  {k:16s} {v}")
+
+    print_logs(res, sort_by="length_bin", methods=("vanilla", "rlm"), save_csv="llm_rlm_res_comparison_152_maud.csv")

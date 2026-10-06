@@ -8,7 +8,6 @@ from transformers import AutoTokenizer
 from utils.maud_utils import get_main_def, get_maud_data_dir, get_text_token_count
 
 # config
-
 TOKENIZER_NAME = os.environ.get('DEEPSEEK_TOKENIZER_NAME')
 NUM_EXPECTED_CONTRACTS = 152
 tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_NAME)
@@ -69,7 +68,7 @@ def sort_contracts_by_token_count(results: list[dict], reverse: bool = False) ->
     return sorted(results, key=lambda x: x["n_tokens"], reverse=reverse)
 
 
-def save_contracts_token_count_to_json(save_path: str="maud_contract_lengths.json"):
+def save_contracts_token_count_to_json(save_path: str="maud/dicts/maud_contract_lengths.json"):
     contracts = get_contract_array()
     results = get_contracts_token_count(contracts)
     sorted_results = sort_contracts_by_token_count(results)
@@ -91,7 +90,7 @@ def save_contracts_token_count_to_json(save_path: str="maud_contract_lengths.jso
         )
 
 
-    print("\nSaved: maud_contract_lengths.json")
+    print("\nSaved: maud/dicts/maud_contract_lengths.json")
 
 
 
