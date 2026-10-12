@@ -7,14 +7,14 @@ from pathlib import Path
 # CONFIGURATION
 # ============================================================
 
-CSV_LOG = Path("logs/runs.csv")
-CONTRACT_NLI_JSON = Path("contract-nli/dev.json")
+CSV_LOG = Path("contract-nli/results/contract-nli-first-3-dev-contracts.csv")
+CONTRACT_NLI_JSON = Path("contract-nli/main_repo/dev.json")
 
 # Record range in the CSV.
 # Python-style indexing: i is inclusive, j is exclusive.
 # Example: 0, 10 => first 10 records.
-i = 177
-j = 182
+i = 0
+j = 5
 
 # Optional: filter to a specific method/model.
 # Set to None if you want all records.
