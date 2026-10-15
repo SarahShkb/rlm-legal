@@ -301,7 +301,7 @@ TOOL_PROMPT_NO_SECTIONS = TOOL_PROMPT.replace(
     '  terms_in("6.3")                  -> defined terms used inside a section (if available)\n', "")
 
 
-def inject(namespace: dict, context_text: str, log: ToolLog | None = None,
+def inject_definitions(namespace: dict, context_text: str, log: ToolLog | None = None,
            sections=None, **kw) -> DefinitionIndex:
     """Build the definition index for one contract and add tool 2 to the REPL namespace
     (the dict where `context` and `llm_query` live). Pass tool 1's SectionIndex as
@@ -325,7 +325,7 @@ if __name__ == "__main__":
 
     print("=== tool 2 alone ===")
     ns: dict = {}
-    idx = inject(ns, text, log)
+    idx = inject_definitions(ns, text, log)
     print("INDEX:", idx.stats())
     print(ns["define"]("Superior Proposal"), "\n")
 
@@ -333,7 +333,7 @@ if __name__ == "__main__":
     try:
         from tool1_section_locator import SectionIndex
         ns2: dict = {}
-        idx2 = inject(ns2, text, log, sections=SectionIndex(text))
+        idx2 = inject_definitions(ns2, text, log, sections=SectionIndex(text))
         print("INDEX:", idx2.stats())
         print(ns2["define"]("Superior Proposal"), "\n")
         print(ns2["define"]("MAE"), "\n")

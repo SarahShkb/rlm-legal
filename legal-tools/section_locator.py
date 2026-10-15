@@ -45,7 +45,6 @@ Usage in the RLM runner (per contract):
 from __future__ import annotations
 
 import re
-import time
 from typing import Callable
 
 from tools_utils import SectionIndex, ToolLog, _wrap
@@ -217,7 +216,7 @@ Prefer these tools to scanning `context` with regex or loops; they save iteratio
 """
 
 
-def inject(namespace: dict, context_text: str, log: ToolLog | None = None, **kw) -> SectionIndex:
+def inject_section_locator(namespace: dict, context_text: str, log: ToolLog | None = None, **kw) -> SectionIndex:
     """Build the section index for one contract and add tool 1 to the REPL namespace
     (the dict where `context` and `llm_query` live). Returns the index, which you can
     pass to tool2_definitions.inject(..., sections=index)."""
