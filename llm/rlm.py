@@ -20,9 +20,9 @@ from prompts.prompts import (
 from utils.run_logger import log_run
 
 load_dotenv()
-DEEPSEEK_API_KEY = os.environ.get('DEEPSEEK_API_KEY')
-DEEPSEEK_MODEL = os.environ.get('DEEPSEEK_MODEL_NAME')
-DEEPSEEK_BASE_URL = os.environ.get('DEEPSEEK_BASE_URL')
+DEEPSEEK_API_KEY = os.environ.get('DEEPSEEK_API_KEY', 'local')
+DEEPSEEK_MODEL = os.environ.get('MODEL_NAME')
+DEEPSEEK_BASE_URL = os.environ.get('OPENAI_BASE_URL')
 TEMPERATURE = 0 
 
 
