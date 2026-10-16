@@ -11,10 +11,15 @@ def main():
     #run_maud_pipeline()
 
     # phase 4.3
-    run_maud_152_sample_pipeline()
+    #run_maud_152_sample_pipeline()
 
     # phase 5: using tools
+    # just tool 1 (section locator)
     run_maud_152_sample_pipeline(tools={"1"})
+    # just tool 2 (definitions resolver)
+    run_maud_152_sample_pipeline(tools={"2"})
+    # both tools
+    run_maud_152_sample_pipeline(tools={"1", "2"})
 
  
 if __name__ == "__main__":

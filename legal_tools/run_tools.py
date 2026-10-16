@@ -13,11 +13,15 @@ baseline run, so the only difference between conditions is the tools.
 import argparse
 import os
 
-import definitions_resolver as tool2
-import section_locator as tool1
-from tools_utils import ToolLog, context_offset, load_maud_contract, merge_custom_tools
-
-from rlm import RLM
+import legal_tools.definitions_resolver as tool2
+import legal_tools.section_locator as tool1
+from legal_tools.tools_utils import (
+    ToolLog,
+    context_offset,
+    load_maud_contract,
+    merge_custom_tools,
+)
+from llm.rlm import RLM
 
 
 def build_tools(text: str, which: set[str], log: ToolLog, context: str | None = None) -> dict:

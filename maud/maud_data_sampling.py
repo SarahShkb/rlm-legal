@@ -9,9 +9,10 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
-from legal_tools.tools_utils import ToolLog, build_tools
 from scipy.stats import chi2_contingency
 
+from legal_tools.run_tools import build_tools
+from legal_tools.tools_utils import ToolLog
 from llm.rlm import run_rlm_customized
 from llm.vanila import run_vanilla
 from utils.maud_utils import get_main_def, get_maud_data_dir
@@ -801,18 +802,19 @@ def run_maud_152_sample_pipeline(tools: set[str] | None=None) -> None:
         print(f"=========ROW: {row.Index}============")
         
         task_prompt = build_query(question_text=full_question, multi_select=is_multi_select, options=answer_options)
-        print("=== 1. VANILLA ===")
-        vanilla_res = run_vanilla(
-            dataset="maud_152_samples",
-            row_id=f"{row.contract_name}_{row.Index}",
-            contract_text=contract_text,
-            TASK_SPEC=task_prompt,
-            experiment="maud_152_samples_per_contract_batch_run",
-        )
-        print(vanilla_res)
+        if tools is None:
+            print("=== VANILLA ===")
+            vanilla_res = run_vanilla(
+                dataset="maud_152_samples",
+                row_id=f"{row.contract_name}_{row.Index}",
+                contract_text=contract_text,
+                TASK_SPEC=task_prompt,
+                experiment="maud_152_samples_per_contract_batch_run",
+            )
+            print(vanilla_res)
 
 
-        print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
+        print("\n=== RLM CUSTOM SYSTEM PROMPT ===")
         if tools is not None:
             log = ToolLog()
             tools = build_tools(contract_text, tools, log) if which else None

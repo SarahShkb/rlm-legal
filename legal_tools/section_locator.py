@@ -59,7 +59,7 @@ from collections import Counter
 from dataclasses import dataclass
 from typing import Callable
 
-from tools_utils import (
+from legal_tools.tools_utils import (
     DEMO_CONTRACT,
     SECTION_REF,
     ToolLog,

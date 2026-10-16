@@ -54,7 +54,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from typing import Callable
 
-from tools_utils import (
+from legal_tools.tools_utils import (
     DEMO_CONTRACT,
     Q_CLOSE,
     Q_OPEN,
