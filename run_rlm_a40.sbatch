@@ -23,7 +23,7 @@ SIF=$SCRATCH/containers/vllm.sif
 MODEL_DIR=$SCRATCH/models/Qwen3-30B-A3B-Instruct-2507     # from download_qwen.py
 PROJECT=$HOME/thesis_s344640                               # your git clone
 VENV=$PROJECT/.venv
-EXPERIMENT_CMD="python -u run_maud.py"                     # CHANGE: your entry point (-u = live log)
+EXPERIMENT_CMD="python -u main.py"                     # CHANGE: your entry point (-u = live log)
 MAX_LEN=262144      # model's native max; set lower (e.g. 32768) for capped-context runs
 PORT=8000
 
