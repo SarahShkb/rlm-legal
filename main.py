@@ -5,13 +5,12 @@ from utils.contract_nli_utils import run_contract_nli_pipeline
 
 def main():
     # phase 4.1
-    #run_contract_nli_pipeline()
+    run_contract_nli_pipeline()
+
 
     # phase 4.2
-    #run_maud_pipeline()
+    run_maud_152_sample_pipeline()
 
-    # phase 4.3
-    #run_maud_152_sample_pipeline()
 
     # phase 5: using tools
     # just tool 1 (section locator)

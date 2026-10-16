@@ -61,9 +61,8 @@ def run_contract_nli_pipeline():
     CONTRACT_PATH = "./contract-nli/dev.json" 
     TASK_SPEC = CONTRACT_NLI_TASK_SPEC
 
-    # target_doc_ids = ["19", "20", "32"]
-
-    for i in range(5):
+    # 123 = full records
+    for i in range(123):
         row_id, contract_text = load_one_record(CONTRACT_PATH, doc_index=i)
         hypotheses = build_hypotheses_block(CONTRACT_PATH)
         task_prompt = f"{TASK_SPEC}\n\n{hypotheses}\n\n"
