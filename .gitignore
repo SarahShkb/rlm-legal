@@ -16,6 +16,7 @@ utils/__pycache__/
 prompts/__pycache__/
 llm/__pycache__/
 maud/__pycache__/
+legal-tools/__pycache__/
 
 
 # logs

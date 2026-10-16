@@ -11,8 +11,8 @@
 #SBATCH --gres=gpu:4                 # REQUIRED, without it you get no GPUs (guide 7.2)
 #SBATCH --ntasks-per-node=1          # one vLLM server process that uses all 4 GPUs
 #SBATCH --cpus-per-task=32           # 8 CPUs per H200 x 4 GPUs (guide Table 7.1)
-#SBATCH --mem=500G                   # CHANGE: about half the node's RAM (you use half its GPUs)
-#SBATCH --time=08:00:00              # CHANGE: must be within the partition's time limit
+#SBATCH --mem=1000G                   # CHANGE: about half the node's RAM (you use half its GPUs)
+#SBATCH --time=01:00:00              # CHANGE: must be within the partition's time limit
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --error=logs/%x_%j.err
 
@@ -21,7 +21,7 @@ set -euo pipefail
 # ---------- paths (CHANGE) ----------
 SIF=$SCRATCH/containers/vllm.sif                 # vLLM container from step 3
 MODEL_DIR=$SCRATCH/models/DeepSeek-V4-Flash      # weights from step 4
-PROJECT=$HOME/thesis                             # your RLM code
+PROJECT=$HOME/thesis_s344640                             # your RLM code
 VENV=$PROJECT/.venv                              # your Python env for the RLM code
 EXPERIMENT_CMD="python main.py"              # CHANGE: your experiment entry point
 PORT=8000

@@ -4,10 +4,12 @@ import numbers
 import re
 from collections import Counter
 from itertools import zip_longest
+from shutil import which
 from typing import Optional
 
 import numpy as np
 import pandas as pd
+from legal_tools.tools_utils import ToolLog, build_tools
 from scipy.stats import chi2_contingency
 
 from llm.rlm import run_rlm_customized
@@ -771,7 +773,7 @@ def get_sample_rows_for_maud_152(split: str = "train") -> list:
     return samples_sorted
 
 
-def run_maud_152_sample_pipeline():
+def run_maud_152_sample_pipeline(tools: set[str] | None=None) -> None:
     maud_data_dir = get_maud_data_dir()
     CONTRACTS_DIR = f"""{maud_data_dir}/contracts"""
     with open("maud/dicts/question_full_text_map.json", "r", encoding="utf-8") as f:
@@ -811,13 +813,17 @@ def run_maud_152_sample_pipeline():
 
 
         print("\n=== 3. RLM CUSTOM SYSTEM PROMPT ===")
+        if tools is not None:
+            log = ToolLog()
+            tools = build_tools(contract_text, tools, log) if which else None
         rlm_res = run_rlm_customized(
             dataset="maud_152_samples",
             row_id=f"{row.contract_name}_{row.Index}",
             contract_text=contract_text,
             TASK_SPEC=task_prompt,
             experiment="maud_152_samples_per_contract_batch_run",
-            max_iterations=8
+            max_iterations=8,
+            tools=tools
         )
         print(rlm_res)
         

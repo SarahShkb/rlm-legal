@@ -13,6 +13,9 @@ def main():
     # phase 4.3
     run_maud_152_sample_pipeline()
 
+    # phase 5: using tools
+    run_maud_152_sample_pipeline(tools={"1"})
+
  
 if __name__ == "__main__":
     main()

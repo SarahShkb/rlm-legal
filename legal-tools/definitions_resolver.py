@@ -23,7 +23,7 @@ Compared with LexNLP's get_definitions(), which returns only term names,
 define() returns the defining text plus its offsets, so the model can verify it
 and the run log records exactly what was retrieved.
 
-Works on its own. If you also pass the SectionIndex from tool 1
+Needs tools_util.py next to it. Works without tool 1. If you also pass the SectionIndex from tool 1
 (tool1_section_locator.py), definitions are labelled with their section,
 "has the meaning set forth in Section X" is followed into that section, and
 terms_in() is available. Without it, by-reference definitions are resolved by
@@ -34,11 +34,15 @@ Offline check on all 152 MAUD contracts: median 166 defined terms per contract
 definition boundaries with and without tool 1 agree for 92% of definitions.
 
 Usage in the RLM runner (per contract):
-    from tool2_definitions import inject, ToolLog, TOOL_PROMPT
+    from tools_util import load_maud_contract, merge_custom_tools, ToolLog
+    from tool1_section_locator import SectionIndex, rlm_custom_tools as tool1
+    from tool2_definitions import rlm_custom_tools as tool2
+    text = load_maud_contract("~/maud", 34)
     log = ToolLog()
-    inject(repl_globals, contract_text, log)                       # tool 2 alone
-    # or, with tool 1:  inject(repl_globals, contract_text, log, sections=sec_index)
-    system_prompt += "\\n" + TOOL_PROMPT
+    t2_only  = tool2(text, log)                                     # tool 2 alone
+    sec      = SectionIndex(text)                                   # or with tool 1:
+    t1_and_2 = merge_custom_tools(tool1(text, log, index=sec), tool2(text, log, sections=sec))
+    rlm = RLM(..., custom_tools=t1_and_2)
 """
 
 from __future__ import annotations
@@ -50,7 +54,19 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from typing import Callable
 
-from tools_utils import SectionIndex, ToolLog, _wrap
+from tools_utils import (
+    DEMO_CONTRACT,
+    Q_CLOSE,
+    Q_OPEN,
+    SECTION_NUM,
+    ToolLog,
+    as_rlm_custom_tools,
+    context_offset,
+    load_maud_contract,
+    maud_contract_ids,
+    norm_term,
+    wrap_tools,
+)
 
 # ----------------------------------------------------------------------------
 # Data structure
@@ -69,20 +85,6 @@ class Definition:
 
 
 # ----------------------------------------------------------------------------
-# Helpers
-# ----------------------------------------------------------------------------
-
-_OQ = "\"“”‘’'"          # quote characters seen in EDGAR text
-_Q_OPEN = r"[\"“]"
-_Q_CLOSE = r"[\"”]"
-
-
-def _norm_term(t: str) -> str:
-    t = t.strip(_OQ + " ").lower()
-    return re.sub(r"\s+", " ", t)
-
-
-# ----------------------------------------------------------------------------
 # The index
 # ----------------------------------------------------------------------------
 
@@ -96,21 +98,24 @@ class DefinitionIndex:
     # (the opening quote may be a mis-typed closing quote in EDGAR text; a short qualifier
     #  such as "with respect to a Person" may sit between the term and "means")
     _DEF_FORMAL = re.compile(
-        r"[\"\u201c\u201d]\s?([A-Z][^\"\u201c\u201d\n]{1,90}?)" + _Q_CLOSE +
+        r"[\"\u201c\u201d]\s?([A-Z][^\"\u201c\u201d\n]{1,90}?)" + Q_CLOSE +
         r"\s*(?:,\s*)?(?:(?:with respect to|as to|when used)[^\"\u201c\u201d.;]{0,60}?,?\s+)?"
         r"(?:shall\s+)?(?:means?|mean,|has the meaning|have the meaning|"
         r"shall have the meaning|is defined|refers to|includes?)")
     # parenthetical definitions: (the "Company"), (each, a "Share" and collectively, the "Shares")
-    _PAREN_Q = re.compile(r"\([^()]{0,300}?" + _Q_OPEN + r"[^()]{0,300}?\)")
-    _QTERM = re.compile(_Q_OPEN + r"([A-Z][^\"”\n]{1,90}?)" + _Q_CLOSE)
+    _PAREN_Q = re.compile(r"\([^()]{0,300}?" + Q_OPEN + r"[^()]{0,300}?\)")
+    _QTERM = re.compile(Q_OPEN + r"([A-Z][^\"”\n]{1,90}?)" + Q_CLOSE)
     # an ARTICLE / Section heading (used to end a definition when tool 1 is not available)
     _HEADING = re.compile(r"(?:\n[ \t]*|\s{2,})(?:ARTICLE\s+[IVXLC\d]+\b|"
-                          r"(?:Section|SECTION|§)\s*\d{1,2}\.\d{1,2}\.?\s+[A-Z])")
-    _DEF_BYREF = re.compile(r"(?:Section|Sections)\s+(\d{1,2}\.\d{1,2}(?:\([a-z0-9]+\))*)")
+                          r"(?:Section|SECTION|\u00a7)\s*" + SECTION_NUM + r"\.?\s+[A-Z])")
+    _DEF_BYREF = re.compile(r"(?:Section|Sections)\s+(" + SECTION_NUM + r"(?:\([a-z0-9]+\))*)")
 
-    def __init__(self, text: str, sections=None, max_def_chars: int = 12000):
+    def __init__(self, text: str, sections=None, max_def_chars: int = 12000, base: int | None = None):
+        """base: where the contract starts inside the RLM `context` (default: the
+        section index's base, else 0). Reported char offsets are shifted by it."""
         self.text = text
         self.sections = sections
+        self.base = base if base is not None else getattr(sections, "base", 0)
         self.defs: dict[str, list[Definition]] = defaultdict(list)
         t0 = time.time()
         self._parse(max_def_chars)
@@ -156,14 +161,14 @@ class DefinitionIndex:
                     self._add(Definition(term, text[s:e].strip(), s, e, self._sid(m.start()), "inline"))
 
     def _add(self, d: Definition) -> None:
-        k = _norm_term(d.term)
+        k = norm_term(d.term)
         if not any(abs(x.start - d.start) < 5 for x in self.defs[k]):
             self.defs[k].append(d)
 
     def match(self, term: str) -> tuple[str | None, list[str]]:
         """Resolve a user/model-typed term to an index key.
         Returns (key or None, other candidate term names)."""
-        k = _norm_term(term)
+        k = norm_term(term)
         for cand in (k, k.rstrip("s"), k + "s", re.sub(r"^the ", "", k)):
             if cand in self.defs:
                 return cand, []
@@ -198,12 +203,12 @@ class DefinitionIndex:
 def make_tools(index: DefinitionIndex, log: ToolLog | None = None, *,
                max_chars: int = 6000, def_chars: int = 5000) -> dict[str, Callable]:
     """Return {name: function}. Every function returns a str and never raises."""
-    log = log if log is not None else ToolLog()
     T = index.text
     S = index.sections
+    B = index.base       # offsets reported to the model are offsets in `context`
 
     def _sentence_with_quoted(body: str, term: str) -> str | None:
-        qm = re.search(_Q_OPEN + re.escape(term) + _Q_CLOSE, body)
+        qm = re.search(Q_OPEN + re.escape(term) + Q_CLOSE, body)
         if not qm:
             return None
         a = max(body.rfind(". ", 0, qm.start()), body.rfind("\n", 0, qm.start()), 0)
@@ -236,17 +241,17 @@ def make_tools(index: DefinitionIndex, log: ToolLog | None = None, *,
                             text += f"\n  -> in Section {sec.sid}: {found}"
                 if found is None and not any(x.kind == "formal" for x in index.defs[k]):
                     # no section map: look for the quoted term anywhere else in the contract
-                    for qm in re.finditer(_Q_OPEN + re.escape(d.term) + _Q_CLOSE, T):
+                    for qm in re.finditer(Q_OPEN + re.escape(d.term) + Q_CLOSE, T):
                         if abs(qm.start() - d.start) > 5:
                             win = T[max(0, qm.start() - 800):qm.end() + 1500]
                             found = _sentence_with_quoted(win, d.term)
                             if found:
-                                text += f"\n  -> at char {qm.start()}: {found}"
+                                text += f"\n  -> at char {B + qm.start()}: {found}"
                                 break
             if len(text) > def_chars:     # long definitions (MAE carve-outs): continue via context slice
-                text = text[:def_chars] + f"\n...[definition continues; read context[{d.start + def_chars}:{d.end}]]"
+                text = text[:def_chars] + f"\n...[definition continues; read context[{B + d.start + def_chars}:{B + d.end}]]"
             where = f"Section {d.sid}, " if d.sid else ""
-            out.append(f"[{d.kind}, {where}chars {d.start}-{d.end}]\n" + text)
+            out.append(f"[{d.kind}, {where}chars {B + d.start}-{B + d.end}]\n" + text)
         return f'"{index.defs[k][0].term}":\n' + "\n---\n".join(out)
 
     def term_usage(term: str, k: int = 8) -> str:
@@ -263,7 +268,7 @@ def make_tools(index: DefinitionIndex, log: ToolLog | None = None, *,
             rows = [f"  {sid} {S.by_sid[sid].title if sid in S.by_sid else ''} — {n}x"
                     for sid, n in c.most_common(k)]
             return f"'{name}' used {len(hits)}x in {len(c)} sections; top {min(k, len(c))}:\n" + "\n".join(rows)
-        rows = [f"  char {p}: ...{' '.join(T[max(0, p - 80):p + 120].split())}..." for p in hits[:k]]
+        rows = [f"  char {B + p}: ...{' '.join(T[max(0, p - 80):p + 120].split())}..." for p in hits[:k]]
         return f"'{name}' used {len(hits)}x; first {min(k, len(hits))}:\n" + "\n".join(rows)
 
     def terms_in(ref: str) -> str:
@@ -285,7 +290,34 @@ def make_tools(index: DefinitionIndex, log: ToolLog | None = None, *,
     tools = {"define": define, "term_usage": term_usage}
     if S is not None:
         tools["terms_in"] = terms_in
-    return {n: _wrap(n, f, log, max_chars) for n, f in tools.items()}
+    return wrap_tools(tools, log, max_chars)
+
+
+# ----------------------------------------------------------------------------
+# RLM adapter: the `custom_tools` dict expected by rlm.RLM(...)
+# ----------------------------------------------------------------------------
+
+TOOL_DESCRIPTIONS = {
+    "define": "define(term: str) -> str. Definition of a capitalized defined term in the contract "
+              "(e.g. 'Superior Proposal', 'Company Material Adverse Effect', or acronyms like 'MAE'), "
+              "with where it is defined. Follows 'has the meaning set forth in Section X'.",
+    "term_usage": "term_usage(term: str, k: int = 8) -> str. Where a defined term is used in the "
+                  "contract outside its own definition.",
+    "terms_in": "terms_in(ref: str) -> str. Defined terms used inside a section (e.g. '6.3'): "
+                "candidates to define() before choosing an answer.",
+}
+
+
+def rlm_custom_tools(contract_text: str, log: ToolLog | None = None, *,
+                     context: str | None = None, sections=None,
+                     max_chars: int = 6000) -> dict:
+    """Tool 2 for ONE contract, in the format of rlm.RLM(custom_tools=...).
+    sections: tool 1's SectionIndex for the same contract (optional; enables section
+              labels, by-reference following and terms_in). Its base offset is reused.
+    context:  the RLM context if it is not exactly the contract (offsets get shifted)."""
+    base = None if sections is not None else context_offset(contract_text, context)
+    idx = DefinitionIndex(contract_text, sections, base=base)
+    return as_rlm_custom_tools(make_tools(idx, log, max_chars=max_chars), TOOL_DESCRIPTIONS)
 
 
 TOOL_PROMPT = """\
@@ -301,44 +333,64 @@ TOOL_PROMPT_NO_SECTIONS = TOOL_PROMPT.replace(
     '  terms_in("6.3")                  -> defined terms used inside a section (if available)\n', "")
 
 
-def inject_definitions(namespace: dict, context_text: str, log: ToolLog | None = None,
+def inject(namespace: dict, context_text: str, log: ToolLog | None = None,
            sections=None, **kw) -> DefinitionIndex:
-    """Build the definition index for one contract and add tool 2 to the REPL namespace
-    (the dict where `context` and `llm_query` live). Pass tool 1's SectionIndex as
-    `sections` to enable section labels, by-reference following and terms_in()."""
+    """Build the definition index for one contract and add tool 2 to a REPL namespace
+    (the dict where `context` and `llm_query` live)."""
     idx = DefinitionIndex(context_text, sections)
     namespace.update(make_tools(idx, log, **kw))
     return idx
 
 
 # ----------------------------------------------------------------------------
-# Self-check:  python tool2_definitions.py [contract.txt]
+# Self-check:
+#   python tool2_definitions.py                         (demo contract)
+#   python tool2_definitions.py --maud ~/maud --contract 34 --term MAE
+#   python tool2_definitions.py --maud ~/maud --all     (stats for every contract)
 # ----------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) > 1:
-        text = open(sys.argv[1], encoding="utf-8").read()
+    import argparse
+    ap = argparse.ArgumentParser(description="Self-check of tool 2 (definitions).")
+    ap.add_argument("--maud", help="path to your cloned MAUD repo (or its data/ folder)")
+    ap.add_argument("--contract", help="contract number, e.g. 34 or contract_34")
+    ap.add_argument("--term", default="Superior Proposal", help="term to define()")
+    ap.add_argument("--all", action="store_true", help="index every MAUD contract and print stats")
+    ap.add_argument("--no-sections", action="store_true", help="run tool 2 without tool 1's index")
+    ap.add_argument("file", nargs="?", help="or: any contract .txt file")
+    a = ap.parse_args()
+
+    def _sections(text):
+        if a.no_sections:
+            return None
+        try:
+            from tool1_section_locator import SectionIndex
+        except ImportError:
+            print("(tool1_section_locator.py not found; running without sections)")
+            return None
+        return SectionIndex(text)
+
+    if a.maud and a.all:
+        for cid in maud_contract_ids(a.maud):
+            t = load_maud_contract(a.maud, cid)
+            idx = DefinitionIndex(t, _sections(t))
+            mae = make_tools(idx)["define"]("MAE")
+            print(f"contract_{cid:<4} terms={len(idx.defs):<4} MAE={'yes' if 'No definition' not in mae else 'NO'}")
+        raise SystemExit
+
+    if a.maud:
+        text = load_maud_contract(a.maud, a.contract if a.contract is not None else 0)
+    elif a.file:
+        text = open(a.file, encoding="utf-8").read()
     else:
-        from tool1_section_locator import DEMO as text   # demo contract lives in tool 1
-    log = ToolLog()
-
-    print("=== tool 2 alone ===")
-    ns: dict = {}
-    idx = inject_definitions(ns, text, log)
-    print("INDEX:", idx.stats())
-    print(ns["define"]("Superior Proposal"), "\n")
-
-    print("=== tool 2 with tool 1's section index ===")
-    try:
-        from tool1_section_locator import SectionIndex
-        ns2: dict = {}
-        idx2 = inject_definitions(ns2, text, log, sections=SectionIndex(text))
-        print("INDEX:", idx2.stats())
-        print(ns2["define"]("Superior Proposal"), "\n")
-        print(ns2["define"]("MAE"), "\n")
-        print(ns2["term_usage"]("Acquisition Proposal"), "\n")
-        print(ns2["terms_in"]("6.3"), "\n")
-    except ImportError:
-        print("(tool1_section_locator.py not found next to this file; skipped)")
+        text = DEMO_CONTRACT
+    log, ns = ToolLog(), {}
+    idx = inject(ns, text, log, sections=_sections(text))
+    print("INDEX:", idx.stats(), "\n")
+    print(ns["define"](a.term)[:2500], "\n")
+    print(ns["term_usage"](a.term), "\n")
+    if "terms_in" in ns:
+        k, _ = idx.match(a.term)
+        if k and idx.defs[k][0].sid:
+            print(ns["terms_in"](idx.defs[k][0].sid)[:1500], "\n")
     print("LOG:", log.summary())

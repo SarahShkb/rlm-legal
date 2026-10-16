@@ -79,7 +79,8 @@ def run_rlm_customized(
         contract_text: str,
         TASK_SPEC: str,
         experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
-        max_iterations=5
+        max_iterations=5,
+        tools=None
     ) -> str:
     custom_system_prompt = (
         RLM_SYSTEM_PROMPT
@@ -119,6 +120,7 @@ def run_rlm_customized(
         max_errors=3,
         logger=RLMLogger(log_dir="./logs"),
         custom_system_prompt=custom_system_prompt,
+        custom_tools=tools,
     )
     result = rlm.completion(prompt=contract_text, root_prompt=root_prompt)
     log_run(
