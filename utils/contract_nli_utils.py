@@ -58,7 +58,7 @@ def get_document_index_by_id(contractnli_json_path: str, doc_id: str) -> int:
 
 
 def run_contract_nli_pipeline():
-    CONTRACT_PATH = "./contract-nli/dev.json" 
+    CONTRACT_PATH = "./contract-nli/main_repo/dev.json" 
     TASK_SPEC = CONTRACT_NLI_TASK_SPEC
 
     # 123 = full records

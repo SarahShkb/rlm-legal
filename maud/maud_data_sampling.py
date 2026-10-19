@@ -774,7 +774,7 @@ def get_sample_rows_for_maud_152(split: str = "train") -> list:
     return samples_sorted
 
 
-def run_maud_152_sample_pipeline(tools: set[str] | None=None) -> None:
+def run_maud_152_sample_pipeline(tools: set[str] | None=None, runLLM=True) -> None:
     maud_data_dir = get_maud_data_dir()
     CONTRACTS_DIR = f"""{maud_data_dir}/contracts"""
     with open("maud/dicts/question_full_text_map.json", "r", encoding="utf-8") as f:
@@ -805,7 +805,7 @@ def run_maud_152_sample_pipeline(tools: set[str] | None=None) -> None:
         print(f"=========ROW: {row.Index}============")
         
         task_prompt = build_query(question_text=full_question, multi_select=is_multi_select, options=answer_options)
-        if tools is None:
+        if tools is None and runLLM:
             print("=== VANILLA ===")
             vanilla_res = run_vanilla(
                 dataset="maud_152_samples",
