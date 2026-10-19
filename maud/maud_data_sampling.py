@@ -785,14 +785,17 @@ def run_maud_152_sample_pipeline(tools: set[str] | None=None) -> None:
 
     # change this if the pipeline crashed and 
     # you want to resume from a specific row index
-    limit_index = -1 
+    limit_index_start = -1
+    limit_index_end = 999999
 
     samples_sorted = get_sample_rows_for_maud_152(split="train")
     print(samples_sorted[["contract_name", "question", "answer", "gold_letters", "n_tokens_contract"]])
 
     for row in samples_sorted.itertuples(index=True):
-        if row.Index < limit_index:
+        if row.Index < limit_index_start:
             continue
+        if row.Index > limit_index_end:
+            break
         full_question = question_full_text_map[row.question]
         answer_options = question_answer_map_unique[row.question]
         is_multi_select = row.is_multi_select
