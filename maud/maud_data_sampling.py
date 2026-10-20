@@ -4,7 +4,6 @@ import numbers
 import re
 from collections import Counter
 from itertools import zip_longest
-from shutil import which
 from typing import Optional
 
 import numpy as np
@@ -818,9 +817,10 @@ def run_maud_152_sample_pipeline(tools: set[str] | None=None, runLLM=True) -> No
 
 
         print("\n=== RLM CUSTOM SYSTEM PROMPT ===")
-        if tools is not None:
+        row_tools, log = None, None
+        if tools:
             log = ToolLog()
-            tools = build_tools(contract_text, tools, log) if which else None
+            row_tools = build_tools(contract_text, tools, log)
         rlm_res = run_rlm_customized(
             dataset="maud_152_samples",
             row_id=f"{row.contract_name}_{row.Index}",
@@ -828,9 +828,11 @@ def run_maud_152_sample_pipeline(tools: set[str] | None=None, runLLM=True) -> No
             TASK_SPEC=task_prompt,
             experiment="maud_152_samples_per_contract_batch_run",
             max_iterations=8,
-            tools=tools
+            tools=row_tools
         )
         print(rlm_res)
+        if log is not None:
+            print("TOOLS:", log.summary())
         
 
     
