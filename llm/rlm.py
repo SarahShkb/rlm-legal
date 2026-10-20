@@ -1,6 +1,3 @@
-import os
-
-from dotenv import load_dotenv
 
 # rlm
 from rlm.core.rlm import RLM
@@ -19,11 +16,7 @@ from prompts.prompts import (
 # logger
 from utils.run_logger import log_run
 
-load_dotenv()
-DEEPSEEK_API_KEY = os.environ.get('DEEPSEEK_API_KEY', 'local')
-DEEPSEEK_MODEL = os.environ.get('MODEL_NAME')
-DEEPSEEK_BASE_URL = os.environ.get('OPENAI_BASE_URL')
-TEMPERATURE = 0 
+from llm.config import API_KEY, BASE_URL, EXTRA_BODY, MODEL, TEMPERATURE
 
 
 #-----------------------------------------------
@@ -38,19 +31,19 @@ def run_rlm_generic(dataset: str, row_id: str, contract_text: str, TASK_SPEC: st
     rlm = RLM(
         backend="openai",
         backend_kwargs={
-            "model_name": DEEPSEEK_MODEL,
-            "api_key": DEEPSEEK_API_KEY,
-            "base_url": DEEPSEEK_BASE_URL,
+            "model_name": MODEL,
+            "api_key": API_KEY,
+            "base_url": BASE_URL,
         },
         verbose=True,
         sampling_args={
             "temperature": TEMPERATURE,
-            "extra_body":{"thinking": {"type": "enabled"}}
+            "extra_body": EXTRA_BODY
         },
         sub_sampling_args={
             "temperature": TEMPERATURE,
             "reasoning_effort": "low",
-            "extra_body":{"thinking": {"type": "enabled"}}
+            "extra_body": EXTRA_BODY
         },
         logger=RLMLogger(log_dir="./logs"),
         max_iterations=5,
@@ -61,7 +54,7 @@ def run_rlm_generic(dataset: str, row_id: str, contract_text: str, TASK_SPEC: st
     log_run(
         result,
         method="RLM-generic",
-        model=DEEPSEEK_MODEL,
+        model=MODEL,
         rlm=rlm,
         experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
         dataset=dataset,
@@ -101,19 +94,19 @@ def run_rlm_customized(
     rlm = RLM(
         backend="openai",
         backend_kwargs={
-            "model_name": DEEPSEEK_MODEL,
-            "api_key": DEEPSEEK_API_KEY,
-            "base_url": DEEPSEEK_BASE_URL,
+            "model_name": MODEL,
+            "api_key": API_KEY,
+            "base_url": BASE_URL,
         },
         verbose=True,
         sampling_args={
             "temperature": TEMPERATURE,
-            "extra_body":{"thinking": {"type": "enabled"}}
+            "extra_body": EXTRA_BODY
         },
         sub_sampling_args={
             "temperature": TEMPERATURE,
             "reasoning_effort": "low",
-            "extra_body":{"thinking": {"type": "enabled"}}
+            "extra_body": EXTRA_BODY
         },
         max_iterations=max_iterations,
         max_tokens=500_000,
@@ -126,7 +119,7 @@ def run_rlm_customized(
     log_run(
         result,
         method="RLM-customized",
-        model=DEEPSEEK_MODEL,
+        model=MODEL,
         experiment=experiment,
         dataset=dataset,
         rlm=rlm,

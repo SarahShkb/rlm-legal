@@ -1,16 +1,9 @@
-import os
-
-from dotenv import load_dotenv
 from openai import OpenAI
 
 # logger
 from utils.run_logger import log_run
 
-load_dotenv()
-DEEPSEEK_API_KEY = os.environ.get('DEEPSEEK_API_KEY', 'local')
-DEEPSEEK_MODEL = os.environ.get('MODEL_NAME')
-DEEPSEEK_BASE_URL = os.environ.get('OPENAI_BASE_URL')
-TEMPERATURE = 0 
+from llm.config import API_KEY, BASE_URL, EXTRA_BODY, MODEL, TEMPERATURE
 
 
 #-----------------------------------------
@@ -18,23 +11,23 @@ TEMPERATURE = 0
 #-----------------------------------------
 def run_vanilla(dataset: str,row_id: str, contract_text: str, TASK_SPEC: str, experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized") -> str:
     client = OpenAI(
-        api_key=os.environ.get('DEEPSEEK_API_KEY', 'local'),
-        base_url=DEEPSEEK_BASE_URL,)
+        api_key=API_KEY,
+        base_url=BASE_URL,)
 
     response = client.chat.completions.create(
-        model=DEEPSEEK_MODEL,
+        model=MODEL,
         messages=[
             {"role": "system", "content": "You are a helpful assistant"},
             {"role": "user", "content": f"{TASK_SPEC}\n\nCONTRACT:\n{contract_text}"},
         ],
         stream=False,
-        extra_body={"thinking": {"type": "enabled"}}
+        extra_body=EXTRA_BODY
     )
 
     log_run(
         response,
         method="vanilla",
-        model=DEEPSEEK_MODEL,
+        model=MODEL,
         experiment=experiment,
         dataset=dataset,
         rlm={},

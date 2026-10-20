@@ -67,6 +67,7 @@ done
 source "$VENV/bin/activate"
 export OPENAI_BASE_URL="http://127.0.0.1:$PORT/v1"
 export MODEL_NAME="qwen3-30b-a3b"    # must match --served-model-name
+export LLM_PROVIDER=local            # use OPENAI_API_KEY/OPENAI_BASE_URL/MODEL_NAME above, not DeepSeek
 
 cd "$PROJECT"
 $EXPERIMENT_CMD
