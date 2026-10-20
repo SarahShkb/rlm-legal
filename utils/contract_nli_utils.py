@@ -58,11 +58,14 @@ def get_document_index_by_id(contractnli_json_path: str, doc_id: str) -> int:
 
 
 def run_contract_nli_pipeline():
-    CONTRACT_PATH = "./contract-nli/main_repo/dev.json" 
+    CONTRACT_PATH = "./contract-nli/main_repo/test.json" 
     TASK_SPEC = CONTRACT_NLI_TASK_SPEC
+    with open(CONTRACT_PATH) as f:
+        n_docs = len(json.load(f)["documents"])
+
 
     # 123 = full records
-    for i in range(123):
+    for i in range(n_docs):
         row_id, contract_text = load_one_record(CONTRACT_PATH, doc_index=i)
         hypotheses = build_hypotheses_block(CONTRACT_PATH)
         task_prompt = f"{TASK_SPEC}\n\n{hypotheses}\n\n"

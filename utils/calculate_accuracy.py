@@ -8,7 +8,7 @@ from pathlib import Path
 # ============================================================
 
 CSV_LOG = Path("contract-nli/results/contract-nli-first-3-dev-contracts.csv")
-CONTRACT_NLI_JSON = Path("contract-nli/main_repo/dev.json")
+CONTRACT_NLI_JSON = Path("contract-nli/main_repo/test.json")
 
 # Record range in the CSV.
 # Python-style indexing: i is inclusive, j is exclusive.
