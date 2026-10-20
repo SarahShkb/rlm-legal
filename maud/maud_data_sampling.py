@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import chi2_contingency
 
-from legal_tools.run_tools import build_tools
+from legal_tools.run_tools import build_tools, tool_hints
 from legal_tools.tools_utils import ToolLog
 from llm.rlm import run_rlm_customized
 from llm.vanila import run_vanilla
@@ -773,7 +773,17 @@ def get_sample_rows_for_maud_152(split: str = "train") -> list:
     return samples_sorted
 
 
-def run_maud_152_sample_pipeline(tools: set[str] | None=None, runLLM=True) -> None:
+def run_maud_152_sample_pipeline(
+        tools: set[str] | None=None,
+        runLLM=True,
+        list_in_prompt=False,
+        hints=False,
+        experiment="maud_152_samples_per_contract_batch_run",
+        rows: list[int] | None=None,
+    ) -> None:
+    """list_in_prompt: tool 2's defined-term names go into the system prompt.
+    hints: append the tools' usage hints (TOOL_PROMPT) to the root prompt.
+    rows: only run these sample positions (e.g. for a pilot)."""
     maud_data_dir = get_maud_data_dir()
     CONTRACTS_DIR = f"""{maud_data_dir}/contracts"""
     with open("maud/dicts/question_full_text_map.json", "r", encoding="utf-8") as f:
@@ -795,6 +805,8 @@ def run_maud_152_sample_pipeline(tools: set[str] | None=None, runLLM=True) -> No
             continue
         if row.Index > limit_index_end:
             break
+        if rows is not None and row.Index not in rows:
+            continue
         full_question = question_full_text_map[row.question]
         answer_options = question_answer_map_unique[row.question]
         is_multi_select = row.is_multi_select
@@ -820,15 +832,16 @@ def run_maud_152_sample_pipeline(tools: set[str] | None=None, runLLM=True) -> No
         row_tools, log = None, None
         if tools:
             log = ToolLog()
-            row_tools = build_tools(contract_text, tools, log)
+            row_tools = build_tools(contract_text, tools, log, list_in_prompt=list_in_prompt)
         rlm_res = run_rlm_customized(
             dataset="maud_152_samples",
             row_id=f"{row.contract_name}_{row.Index}",
             contract_text=contract_text,
             TASK_SPEC=task_prompt,
-            experiment="maud_152_samples_per_contract_batch_run",
+            experiment=experiment,
             max_iterations=8,
-            tools=row_tools
+            tools=row_tools,
+            tool_hint=tool_hints(tools) if tools and hints else "",
         )
         print(rlm_res)
         if log is not None:

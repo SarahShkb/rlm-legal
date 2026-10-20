@@ -73,7 +73,8 @@ def run_rlm_customized(
         TASK_SPEC: str,
         experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
         max_iterations=5,
-        tools=None
+        tools=None,
+        tool_hint: str = "",
     ) -> str:
     custom_system_prompt = (
         RLM_SYSTEM_PROMPT
@@ -91,6 +92,8 @@ def run_rlm_customized(
     root_prompt += "If you have already set answer['ready']=True, simply output the JSON object."
     root_prompt += "\n\nIf you are unsure, always prefer to set answer['ready']=True at least one turn before the last turn."
     root_prompt += f"\n\nVERIFICATION: {SUB_LLM_VERIFICATION}\n\n"
+    if tool_hint:
+        root_prompt += f"TOOLS: {tool_hint}\n\n"
     rlm = RLM(
         backend="openai",
         backend_kwargs={

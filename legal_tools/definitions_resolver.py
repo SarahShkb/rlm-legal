@@ -7,8 +7,12 @@ char offsets in `context`, and exposes:
 
     define(term)            definition of a capitalized term, with its source;
                             follows "has the meaning set forth in Section X";
-                            resolves acronyms ("MAE") and near-misses
+                            resolves acronyms ("MAE") and party-prefix variants
+                            ("Material Adverse Effect" -> "Company Material Adverse
+                            Effect"); otherwise suggests the closest defined terms
     term_usage(term, k=8)   where a term is used outside its definition
+    list_definitions(contains="", start=0)
+                            names of all defined terms (filterable, paged)
     terms_in(ref)           defined terms used inside a section (needs tool 1's index)
 
 Why (thesis framing)
@@ -96,10 +100,13 @@ class DefinitionIndex:
 
     # "Term" means ... / "Term" shall have the meaning ... / "Term" has the meaning set forth in Section X
     # (the opening quote may be a mis-typed closing quote in EDGAR text; a short qualifier
-    #  such as "with respect to a Person" may sit between the term and "means")
+    #  such as "with respect to a Person" or "as used with respect to a party," may sit
+    #  between the term and "means")
     _DEF_FORMAL = re.compile(
         r"[\"\u201c\u201d]\s?([A-Z][^\"\u201c\u201d\n]{1,90}?)" + Q_CLOSE +
-        r"\s*(?:,\s*)?(?:(?:with respect to|as to|when used)[^\"\u201c\u201d.;]{0,60}?,?\s+)?"
+        r"\s*(?:,\s*)?(?:(?:(?:as |when )?used\b|with respect to|as to|in respect of|or similar|"
+        r"of (?:the )?(?:Company|Parent|Buyer|Purchaser|any Person)\b)"
+        r"[^\"\u201c\u201d.;]{0,60}?,?\s+)?"
         r"(?:shall\s+)?(?:means?|mean,|has the meaning|have the meaning|"
         r"shall have the meaning|is defined|refers to|includes?)")
     # parenthetical definitions: (the "Company"), (each, a "Share" and collectively, the "Shares")
@@ -165,13 +172,31 @@ class DefinitionIndex:
         if not any(abs(x.start - d.start) < 5 for x in self.defs[k]):
             self.defs[k].append(d)
 
+    # party prefixes that vary between contracts: "Company Material Adverse Effect" vs "Material Adverse Effect"
+    _PARTY = re.compile(r"^(?:the )?(?:company|parent|target|buyer|purchaser|acquiror|acquirer|seller)"
+                        r"(?:['’]s)?\s+")
+    _PREFERRED = re.compile(r"^(?:the )?(?:company|target)\b")
+
+    def exact_keys(self, term: str) -> tuple[str, ...]:
+        """Spellings of `term` that count as an exact match (plural / leading 'the')."""
+        k = norm_term(term)
+        return (k, k.rstrip("s"), k + "s", re.sub(r"^the ", "", k))
+
     def match(self, term: str) -> tuple[str | None, list[str]]:
         """Resolve a user/model-typed term to an index key.
         Returns (key or None, other candidate term names)."""
         k = norm_term(term)
-        for cand in (k, k.rstrip("s"), k + "s", re.sub(r"^the ", "", k)):
+        for cand in self.exact_keys(term):
             if cand in self.defs:
                 return cand, []
+        # same term with another party prefix (or none): prefer the Company / Target version
+        core = self._PARTY.sub("", k)
+        near = [t for t in self.defs if self._PARTY.sub("", t) == core
+                and (t == core or self._PREFERRED.match(t))]
+        if near:
+            near.sort(key=lambda t: (not self._PREFERRED.match(t), len(t)))
+            others = [t for t in self.defs if self._PARTY.sub("", t) == core and t != near[0]]
+            return near[0], [self.defs[t][0].term for t in others[:4]]
         # acronyms: MAE -> (Company) Material Adverse Effect
         if k.isalpha() and term.strip().isupper() and 2 <= len(k) <= 6:
             def initials(t):
@@ -185,10 +210,29 @@ class DefinitionIndex:
         ends = [t for t in self.defs if t.endswith(" " + k)]
         if len(ends) == 1:
             return ends[0], []
-        subs = [t for t in self.defs if k in t or t in k]
-        close = difflib.get_close_matches(k, list(self.defs), n=5, cutoff=0.75)
-        sugg = list(dict.fromkeys(close + sorted(subs, key=len)))[:6]
-        return None, [self.defs[s][0].term for s in sugg]
+        return None, [self.defs[s][0].term for s in self.suggest(k)]
+
+    def suggest(self, k: str, n: int = 6) -> list[str]:
+        """Closest index keys to a normalized term: substring matches first, then terms
+        sharing content words, then near-identical spellings."""
+        def words(t: str) -> set[str]:
+            return {w for w in re.findall(r"[a-z0-9]+", t) if len(w) > 2 and w not in {"the", "and", "for"}}
+
+        kw = words(k)
+
+        def score(t: str) -> tuple[float, float]:
+            tw = words(t)
+            return (len(kw & tw) / len(kw | tw) if kw | tw else 0.0,
+                    difflib.SequenceMatcher(None, k, t).ratio())
+
+        subs = sorted((t for t in self.defs if len(t) > 3 and (k in t or t in k)), key=len)
+        ranked = [t for t in sorted(self.defs, key=score, reverse=True)
+                  if score(t)[0] >= 0.3 or score(t)[1] >= 0.8]
+        return list(dict.fromkeys(subs + ranked))[:n]
+
+    def names(self) -> list[str]:
+        """Every defined term, as written in the contract, sorted."""
+        return sorted((ds[0].term for ds in self.defs.values()), key=str.lower)
 
     def stats(self) -> dict:
         kinds = Counter(d.kind for ds in self.defs.values() for d in ds)
@@ -222,10 +266,14 @@ def make_tools(index: DefinitionIndex, log: ToolLog | None = None, *,
         k, sugg = index.match(term)
         if k is None:
             return (f"No definition found for '{term}'."
-                    + (f" Similar defined terms: {', '.join(sugg)}" if sugg else ""))
-        out = []
+                    + (" Did you mean: " + ", ".join(f"'{s}'" for s in sugg) + "?" if sugg else "")
+                    + " Call list_definitions() to see every defined term.")
+        notes, out = [], []
+        if k not in index.exact_keys(term):
+            notes.append(f"'{term}' is not itself a defined term here; showing the closest: "
+                         f"'{index.defs[k][0].term}'.")
         if sugg:
-            out.append("Other matching terms: " + ", ".join(sugg))
+            notes.append("Other matching terms: " + ", ".join(sugg))
         ds = index.defs[k]
         if any(d.kind != "inline" for d in ds):      # quoted mentions in parentheses are noise then
             ds = [d for d in ds if d.kind != "inline"]
@@ -252,7 +300,7 @@ def make_tools(index: DefinitionIndex, log: ToolLog | None = None, *,
                 text = text[:def_chars] + f"\n...[definition continues; read context[{B + d.start + def_chars}:{B + d.end}]]"
             where = f"Section {d.sid}, " if d.sid else ""
             out.append(f"[{d.kind}, {where}chars {B + d.start}-{B + d.end}]\n" + text)
-        return f'"{index.defs[k][0].term}":\n' + "\n---\n".join(out)
+        return f'"{index.defs[k][0].term}":\n' + "".join(n + "\n" for n in notes) + "\n---\n".join(out)
 
     def term_usage(term: str, k: int = 8) -> str:
         """Where a term is used outside its own definition (by section if available)."""
@@ -287,7 +335,25 @@ def make_tools(index: DefinitionIndex, log: ToolLog | None = None, *,
         tl = ", ".join(f"{t} ({n}x)" for t, n in terms.most_common(25)) or "none"
         return f"Section {sec.sid} — {sec.title}\nDefined terms used: {tl}"
 
-    tools = {"define": define, "term_usage": term_usage}
+    def list_definitions(contains: str = "", start: int = 0) -> str:
+        """Names of the defined terms in this contract (optionally only those containing
+        `contains`), so define() is asked for terms that exist. Long lists are paged."""
+        names = [n for n in index.names() if contains.lower() in n.lower()]
+        if not names:
+            return f"No defined term contains '{contains}'."
+        shown, size = [], 0
+        for n in names[start:]:
+            if size + len(n) + 2 > max_chars - 200:
+                break
+            shown.append(n)
+            size += len(n) + 2
+        what = f" containing '{contains}'" if contains else ""
+        nxt = start + len(shown)
+        tail = (f"\n...[{len(names) - nxt} more: list_definitions({contains!r}, start={nxt})]"
+                if nxt < len(names) else "")
+        return f"{len(names)} defined terms{what}:\n" + "; ".join(shown) + tail
+
+    tools = {"define": define, "term_usage": term_usage, "list_definitions": list_definitions}
     if S is not None:
         tools["terms_in"] = terms_in
     return wrap_tools(tools, log, max_chars)
@@ -300,9 +366,13 @@ def make_tools(index: DefinitionIndex, log: ToolLog | None = None, *,
 TOOL_DESCRIPTIONS = {
     "define": "define(term: str) -> str. Definition of a capitalized defined term in the contract "
               "(e.g. 'Superior Proposal', 'Company Material Adverse Effect', or acronyms like 'MAE'), "
-              "with where it is defined. Follows 'has the meaning set forth in Section X'.",
+              "with where it is defined. Follows 'has the meaning set forth in Section X'. "
+              "If the exact term is not defined it returns the closest one, or suggestions.",
     "term_usage": "term_usage(term: str, k: int = 8) -> str. Where a defined term is used in the "
                   "contract outside its own definition.",
+    "list_definitions": "list_definitions(contains: str = '', start: int = 0) -> str. Names of all "
+                        "defined terms in the contract (filter with e.g. contains='Adverse'), so you "
+                        "define() terms that exist.",
     "terms_in": "terms_in(ref: str) -> str. Defined terms used inside a section (e.g. '6.3'): "
                 "candidates to define() before choosing an answer.",
 }
@@ -310,18 +380,24 @@ TOOL_DESCRIPTIONS = {
 
 def rlm_custom_tools(contract_text: str, log: ToolLog | None = None, *,
                      context: str | None = None, sections=None,
-                     max_chars: int = 6000) -> dict:
+                     max_chars: int = 6000, list_in_prompt: bool = False) -> dict:
     """Tool 2 for ONE contract, in the format of rlm.RLM(custom_tools=...).
-    sections: tool 1's SectionIndex for the same contract (optional; enables section
-              labels, by-reference following and terms_in). Its base offset is reused.
-    context:  the RLM context if it is not exactly the contract (offsets get shifted)."""
+    sections:       tool 1's SectionIndex for the same contract (optional; enables section
+                    labels, by-reference following and terms_in). Its base offset is reused.
+    context:        the RLM context if it is not exactly the contract (offsets get shifted).
+    list_in_prompt: also put the defined-term names into define()'s description, i.e. into
+                    the system prompt (~4-8k extra chars), so the model sees them up front."""
     base = None if sections is not None else context_offset(contract_text, context)
     idx = DefinitionIndex(contract_text, sections, base=base)
-    return as_rlm_custom_tools(make_tools(idx, log, max_chars=max_chars), TOOL_DESCRIPTIONS)
+    descriptions = dict(TOOL_DESCRIPTIONS)
+    if list_in_prompt:
+        descriptions["define"] += " Defined terms in this contract: " + "; ".join(idx.names())
+    return as_rlm_custom_tools(make_tools(idx, log, max_chars=max_chars), descriptions)
 
 
 TOOL_PROMPT = """\
 In the REPL you also have a definitions tool. It returns strings; print them.
+  list_definitions("Adverse")      -> names of the defined terms (all of them if no filter)
   define("Superior Proposal")      -> the definition of a capitalized term and where it is;
                                       also accepts acronyms like "MAE"
   term_usage("Intervening Event")  -> where a term is used in the agreement

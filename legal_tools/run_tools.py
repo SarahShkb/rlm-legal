@@ -24,16 +24,27 @@ from legal_tools.tools_utils import (
 from llm.rlm import RLM
 
 
-def build_tools(text: str, which: set[str], log: ToolLog, context: str | None = None) -> dict:
-    """custom_tools dict for the chosen tools, all bound to ONE contract."""
+def build_tools(text: str, which: set[str], log: ToolLog, context: str | None = None,
+                list_in_prompt: bool = False) -> dict:
+    """custom_tools dict for the chosen tools, all bound to ONE contract.
+    list_in_prompt: put tool 2's defined-term names into the system prompt."""
     parts = []
     sec = tool1.SectionIndex(text, base=context_offset(text, context)) if "1" in which else None
     if "1" in which:
         parts.append(tool1.rlm_custom_tools(text, log, index=sec))
     if "2" in which:
         # with tool 1 present, tool 2 reuses its section map (labels, cross-ref following, terms_in)
-        parts.append(tool2.rlm_custom_tools(text, log, sections=sec, context=context))
+        parts.append(tool2.rlm_custom_tools(text, log, sections=sec, context=context,
+                                            list_in_prompt=list_in_prompt))
     return merge_custom_tools(*parts)
+
+
+def tool_hints(which: set[str]) -> str:
+    """Usage hints for the chosen tools (identical wording in every run of a condition)."""
+    hints = [m.TOOL_PROMPT for k, m in (("1", tool1), ("2", tool2)) if k in which]
+    if "2" in which and "1" not in which:
+        hints[-1] = tool2.TOOL_PROMPT_NO_SECTIONS
+    return "\n\n".join(hints)
 
 
 def make_rlm(custom_tools: dict | None, custom_system_prompt: str | None = None) -> RLM:
