@@ -1,0 +1,35 @@
+{
+  "settings": {
+    "llm_provider": "openrouter",
+    "model": "deepseek/deepseek-v4.1-flash-1017",
+    "base_url": "https://openrouter.ai/api/v1",
+    "extra_body": {
+      "reasoning": {
+        "enabled": true
+      },
+      "provider": {
+        "order": [
+          "morph/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      }
+    },
+    "temperature": 0,
+    "rlm_max_iterations": 8,
+    "split": "validation"
+  },
+  "prompt_fingerprint": {
+    "RLM_SYSTEM_PROMPT": "e574a1c0f889f69845e4d279073ac05c1b4739dda17050c66975db6b1675d20a",
+    "RLM_FINISH_GUIDE": "358f02629045666adf0331f403f501a8cced725ac2d0e3e2a8c06cc1cb870497",
+    "CRITICAL_OUTPUT_RULE": "dd988b8c5c6fac97d9213e1de5c52c8e51619e64f3bee662ae43f20ed6a89062",
+    "CRASH_PROOF_FINAL_SUBMISSION": "ea1d0b7af2a9646b846237336a654f5a9454c8bae1b1d3a6239d3c56012c8f2b",
+    "REPL_STDOUT_VISIBILITY": "d7f0077fb1aeaab941a877cfdd397728dfdb1fa417c4d5b8d7b926100161d3ac",
+    "PRESERVE_VALID_ANSWERS": "23e18ccc5b096b4c3f47f74151e8f04bc36f34d94c033e4ecd83176bde0d19ba",
+    "SUB_LLM_VERIFICATION": "cb659a2710b47fd297b5a56928f9ad738fa4260debe4b1d41ddddcbe3d86c3ed",
+    "run_rlm_customized_source": "910e2c3cdd67168a4c8413ba5582e5ba0b1bd1f3b728f921524caaf2b46f11d7",
+    "run_vanilla_source": "9bac8344ebe074b03bf573fccee95637bd0d18bf2fbd12dddf0c032f2e867056",
+    "lexglue_prompts_source": "0c7135f4877623ef243c196f536dae9a7f41d21bb50830b28a99157f2f855aed"
+  },
+  "created_at": "2026-10-25T14:54:44.931+00:00"
+}

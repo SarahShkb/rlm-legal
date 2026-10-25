@@ -17,6 +17,8 @@ prompts/__pycache__/
 llm/__pycache__/
 maud/__pycache__/
 legal_tools/__pycache__/
+lexglue/__pycache__/
+lexglue/tests/__pycache__/
 
 
 # logs
@@ -25,3 +27,13 @@ logs/runs.csv
 
 # maud dataset
 maud_workdir/
+lexglue/results/smoke_parallel_deepinfra/
+lexglue/results/smoke_openrouter/
+lexglue/results/smoke_or_inference-net_fp8/
+lexglue/results/smoke_or_morph_fp8/
+lexglue/results/pilot_deepseek_direct/
+lexglue/results/lexglue_v1_morph/runs_csv/
+lexglue/results/lexglue_v1_morph/trajectories/
+lexglue/results/lexglue_v1_morph/workers/
+lexglue/results/lexglue_v1_morph/calls/
+lexglue/results/smoke_morph_speed/
