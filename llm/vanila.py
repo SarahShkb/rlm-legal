@@ -1,6 +1,7 @@
 from openai import OpenAI
 
 # logger
+from llm.rlm_usage_patch import cached_prompt_tokens
 from utils.run_logger import log_run
 
 from llm.config import API_KEY, BASE_URL, EXTRA_BODY, MODEL, TEMPERATURE
@@ -34,6 +35,7 @@ def run_vanilla(dataset: str,row_id: str, contract_text: str, TASK_SPEC: str, ex
         total_tokens=response.usage.total_tokens,
         output_tokens=response.usage.completion_tokens,
         input_tokens=response.usage.prompt_tokens,
+        cached_input_tokens=cached_prompt_tokens(response.usage),
         row_id=row_id,
     )
     return response.choices[0].message.content

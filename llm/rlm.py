@@ -1,5 +1,6 @@
 
 # rlm
+import llm.rlm_usage_patch  # noqa: F401  (fixes root-model usage being overwritten by sub-calls)
 from rlm.core.rlm import RLM
 from rlm.logger import RLMLogger
 from rlm.utils.prompts import RLM_SYSTEM_PROMPT
