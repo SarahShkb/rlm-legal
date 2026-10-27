@@ -13,6 +13,7 @@ Records are processed one at a time, so begin()/end() delimit one record.
 import functools
 import hashlib
 import json
+import logging
 import platform
 import socket
 import subprocess
@@ -75,6 +76,8 @@ class CallLedger:
         self.store_text = store_text  # keep full answer + reasoning text of every call
         self._lock = threading.Lock()
         self._calls: list[dict] = []
+        self._retries: list[dict] = []
+        self.last_retries: list[dict] = []   # SDK retries of the record that just ended
         self._installed = False
 
     def install(self) -> None:
@@ -108,15 +111,29 @@ class CallLedger:
 
         Completions.create = create
         AsyncCompletions.create = acreate
+
+        class RetryHandler(logging.Handler):
+            # openai re-sends a request after a timeout / 429 / 5xx and only logs
+            # "Retrying request to ..." at INFO; the failed attempt may still be billed
+            def emit(self, record):
+                if record.getMessage().startswith("Retrying request"):
+                    with ledger._lock:
+                        ledger._retries.append({"at": utc_now(), "message": record.getMessage()})
+
+        sdk_log = logging.getLogger("openai._base_client")
+        sdk_log.setLevel(logging.INFO)
+        sdk_log.addHandler(RetryHandler())
         self._installed = True
 
     def begin(self) -> None:
         with self._lock:
             self._calls = []
+            self._retries = []
 
     def end(self) -> list[dict]:
         with self._lock:
             calls, self._calls = self._calls, []
+            self.last_retries, self._retries = self._retries, []
         return calls
 
     def _record(self, kwargs: dict, response, started: str, latency: float, error: Exception | None) -> None:

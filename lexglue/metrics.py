@@ -209,7 +209,7 @@ def efficiency_table(df: pd.DataFrame, project_pricing: dict | None = None) -> p
         row["n_truncated_calls"] = int(pd.to_numeric(g["n_truncated_calls"], errors="coerce").fillna(0).sum())
         if "n_empty_responses" in g:
             row["n_empty_responses"] = int(pd.to_numeric(g["n_empty_responses"], errors="coerce").fillna(0).sum())
-        if "rlm_iterations" in g and method == "rlm":
+        if "rlm_iterations" in g and method.startswith("rlm"):
             row["rlm_iterations_mean"] = pd.to_numeric(g["rlm_iterations"], errors="coerce").mean()
             row["rlm_hit_max_iterations_rate"] = g["rlm_hit_max_iterations"].fillna(False).astype(bool).mean()
             row["rlm_repl_errors_mean"] = pd.to_numeric(g["rlm_repl_errors"], errors="coerce").mean()

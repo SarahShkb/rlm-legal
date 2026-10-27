@@ -1,0 +1,42 @@
+{
+  "settings": {
+    "llm_provider": "openrouter",
+    "model": "deepseek/deepseek-v4.1-flash-1017",
+    "base_url": "https://openrouter.ai/api/v1",
+    "extra_body": {
+      "reasoning": {
+        "enabled": true
+      },
+      "provider": {
+        "order": [
+          "morph/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      }
+    },
+    "temperature": 0,
+    "rlm_max_iterations": 8
+  },
+  "prompt_fingerprint": {
+    "RLM_SYSTEM_PROMPT": "e574a1c0f889f69845e4d279073ac05c1b4739dda17050c66975db6b1675d20a",
+    "RLM_FINISH_GUIDE": "358f02629045666adf0331f403f501a8cced725ac2d0e3e2a8c06cc1cb870497",
+    "CRITICAL_OUTPUT_RULE": "dd988b8c5c6fac97d9213e1de5c52c8e51619e64f3bee662ae43f20ed6a89062",
+    "CRASH_PROOF_FINAL_SUBMISSION": "ea1d0b7af2a9646b846237336a654f5a9454c8bae1b1d3a6239d3c56012c8f2b",
+    "REPL_STDOUT_VISIBILITY": "d7f0077fb1aeaab941a877cfdd397728dfdb1fa417c4d5b8d7b926100161d3ac",
+    "PRESERVE_VALID_ANSWERS": "23e18ccc5b096b4c3f47f74151e8f04bc36f34d94c033e4ecd83176bde0d19ba",
+    "SUB_LLM_VERIFICATION": "cb659a2710b47fd297b5a56928f9ad738fa4260debe4b1d41ddddcbe3d86c3ed",
+    "run_rlm_customized_source": "910e2c3cdd67168a4c8413ba5582e5ba0b1bd1f3b728f921524caaf2b46f11d7",
+    "run_vanilla_source": "9bac8344ebe074b03bf573fccee95637bd0d18bf2fbd12dddf0c032f2e867056",
+    "file:maud/maud_data_sampling.py": "d1f49cc0d97117a7be4077ff99dee8dfa33f1784efff0a861bbcaeb6729c9840",
+    "file:maud/maud_eval.py": "c4798ecb81040a11e871f90fce9203f1732f16effc68809c371601fff04fc442",
+    "file:maud/dicts/question_full_text_map.json": "12523b46811b26b5f04bef70892f029b9b6c52ab4fa0ba13d4517d1ee396aeaf",
+    "file:maud/dicts/question_answer_map_unique.json": "5835e034cf0e7ca75d92a7969b90328311e68368a48379bcbabb8ad069c89acd",
+    "file:legal_tools/run_tools.py": "81b598debc96ea11007f0a6984eea30c4da90b4d74cda9188d9f2b82d83fa18f",
+    "file:legal_tools/section_locator.py": "948f915e8656d1b90c3834b0a35a12a08276cddee30d5d454388043df0483083",
+    "file:legal_tools/definitions_resolver.py": "5b48563140d8946a608ff523f87ce59af04d94c8cea9656e36520792e5d75b14",
+    "file:legal_tools/tools_utils.py": "c92a75be13e216fcdbe6ae4996263e1bebfbfd442932a96d1d789738ce0317b5",
+    "file:benchmarks/maud_bench.py": "8adc781d25b08c6e8ccdae3c634ff3a9213e419ed53f12dc245d2284ddc77e7e"
+  },
+  "created_at": "2026-10-25T15:40:48.797+00:00"
+}

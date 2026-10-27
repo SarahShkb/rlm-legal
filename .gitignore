@@ -19,7 +19,8 @@ maud/__pycache__/
 legal_tools/__pycache__/
 lexglue/__pycache__/
 lexglue/tests/__pycache__/
-
+benchmarks/__pycache__/
+benchmarks/tests/__pycache__/
 
 # logs
 logs/
@@ -37,3 +38,12 @@ lexglue/results/lexglue_v1_morph/trajectories/
 lexglue/results/lexglue_v1_morph/workers/
 lexglue/results/lexglue_v1_morph/calls/
 lexglue/results/smoke_morph_speed/
+maud/results/rerun_v1_morph/trajectories/
+maud/results/rerun_v1_morph/workers/
+maud/results/rerun_v1_morph/runs_csv/
+contract-nli/results/rerun_v1_morph/workers/
+contract-nli/results/rerun_v1_morph/trajectories/
+contract-nli/results/rerun_v1_morph/runs_csv/
+
+contract-nli/results/smoke_rerun_morph/
+maud/results/smoke_rerun_morph/

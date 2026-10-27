@@ -1,0 +1,2 @@
+repeat,n_hypotheses,only_vanilla_correct,only_rlm_correct,mcnemar_exact_p_hypothesis_level,accuracy_diff_rlm_minus_vanilla,diff_ci_low_doc_bootstrap,diff_ci_high_doc_bootstrap
+0,2091,82,140,0.00012023264383677087,0.027737924438067996,0.010521281683405069,0.04351984696317551

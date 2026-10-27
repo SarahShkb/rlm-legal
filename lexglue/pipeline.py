@@ -313,6 +313,8 @@ def run_one(record, labels, method: str, repeat: int, experiment: str, session_i
         "gold": record.gold,
         "correct": is_correct(record.task, parsed.prediction, record.gold) if error is None else None,
         **_aggregate_calls(calls, pricing),
+        "n_sdk_retries": len(LEDGER.last_retries),
+        "sdk_retries": LEDGER.last_retries,
         **rlm_info,
     })
 
