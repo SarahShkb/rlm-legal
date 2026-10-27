@@ -26,9 +26,12 @@ elif LLM_PROVIDER == 'openrouter':
     OPENROUTER_PROVIDER = os.environ.get('OPENROUTER_PROVIDER')  # endpoint tag, e.g. "deepinfra/fp8"
     if not MODEL or not OPENROUTER_PROVIDER:
         raise ValueError("LLM_PROVIDER=openrouter needs OPENROUTER_MODEL and OPENROUTER_PROVIDER")
+    # "0" for models without a reasoning mode (e.g. qwen3-30b-a3b-instruct-2507): with
+    # require_parameters, a reasoning field makes every endpoint refuse the request
+    OPENROUTER_REASONING = os.environ.get('OPENROUTER_REASONING', '1') == '1'
     EXTRA_BODY = {
         # OpenRouter's equivalent of DeepSeek's {"thinking": {"type": "enabled"}}
-        "reasoning": {"enabled": True},
+        **({"reasoning": {"enabled": True}} if OPENROUTER_REASONING else {}),
         # every call is served by the same deployment, or fails loudly
         "provider": {
             "order": [OPENROUTER_PROVIDER],
@@ -46,3 +49,10 @@ else:
     raise ValueError(f"Unknown LLM_PROVIDER={LLM_PROVIDER!r}, expected 'deepseek', 'openrouter' or 'local'")
 
 TEMPERATURE = 0
+
+# Root context window enforced client-side (llm/root_window.py), e.g. 32768 to run a
+# 262K-context model as a 32K one; counted with ROOT_TOKENIZER (a Hugging Face repo id)
+ROOT_CONTEXT_TOKENS = int(os.environ.get('ROOT_CONTEXT_TOKENS', '0')) or None
+ROOT_TOKENIZER = os.environ.get('ROOT_TOKENIZER')
+if ROOT_CONTEXT_TOKENS and not ROOT_TOKENIZER:
+    raise ValueError("ROOT_CONTEXT_TOKENS needs ROOT_TOKENIZER (the root model's Hugging Face repo id)")

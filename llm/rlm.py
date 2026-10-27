@@ -7,6 +7,7 @@ from rlm.utils.prompts import RLM_SYSTEM_PROMPT
 import llm.empty_response_retry  # noqa: F401  (re-sends requests whose answer came back empty)
 import llm.rlm_usage_patch  # noqa: F401  (fixes root-model usage being overwritten by sub-calls)
 import llm.sub_llm as sub_llms  # (also wraps OpenAIClient: prompt-size guard for the small sub-LLMs)
+import llm.root_window  # noqa: F401  (root context window, when ROOT_CONTEXT_TOKENS is set)
 from llm.config import API_KEY, BASE_URL, EXTRA_BODY, MODEL, TEMPERATURE
 from prompts.prompts import (
     CRASH_PROOF_FINAL_SUBMISSION,

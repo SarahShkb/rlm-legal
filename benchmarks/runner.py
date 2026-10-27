@@ -70,7 +70,7 @@ class RunTimeout(Exception):
 
 def is_method_failure(e: BaseException) -> bool:
     """Failures caused by what the method did, not by the infrastructure."""
-    if isinstance(e, RunTimeout) or type(e).__name__ == "TokenLimitExceededError":
+    if isinstance(e, RunTimeout) or type(e).__name__ in ("TokenLimitExceededError", "ContextWindowExceededError"):
         return True
     # the RLM built a request the provider refuses ("total text input size exceeds 8 MB")
     return isinstance(e, openai.BadRequestError) and "exceeds" in str(e)
@@ -176,6 +176,10 @@ def llm_settings(max_iterations: int) -> dict:
         "extra_body": llm_config.EXTRA_BODY,
         "temperature": llm_config.TEMPERATURE,
         "rlm_max_iterations": max_iterations,
+        # only when set, so the manifests of earlier experiments still match
+        **({"root_context_tokens": llm_config.ROOT_CONTEXT_TOKENS, "root_tokenizer": llm_config.ROOT_TOKENIZER}
+           if llm_config.ROOT_CONTEXT_TOKENS else {}),
+        **({"sub_llm_delegate": False} if os.environ.get("SUB_LLM_DELEGATE", "1") != "1" else {}),
     }
 
 

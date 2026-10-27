@@ -239,3 +239,41 @@ def test_maud_tools_with_sub_llm(monkeypatch):
     assert seen["tool_hint"] and extra["tools"] == ["1"] and extra["sub_llm"] == "llama"
     assert "rlm_tool1_llama" in Maud.methods and "rlm_tool1_llama" not in Maud.default_methods
 
+
+
+def test_root_context_window(monkeypatch):
+    """ROOT_CONTEXT_TOKENS: the root's prompt must fit, its answer gets the rest; sub-LLM clients are exempt."""
+    import llm.root_window as rw
+    import llm.sub_llm as sub_llm
+    from rlm.clients.openai import OpenAIClient
+    monkeypatch.setattr(rw, "ROOT_CONTEXT_TOKENS", 1000)
+    monkeypatch.setattr(rw, "prompt_tokens", lambda prompt: len(prompt) // 10)   # 10 chars per token
+    seen = []
+    monkeypatch.setattr(sub_llm, "_inner_completion", lambda self, prompt, model=None: seen.append(
+        dict(self.sampling_args or {})) or "ok")
+    root = OpenAIClient(api_key="t", model_name="qwen/q", base_url="http://fake/v1", sampling_args={"temperature": 0})
+    assert root.completion("x" * 3000) == "ok" and seen[-1] == {"temperature": 0, "max_tokens": 700}
+    assert root.sampling_args == {"temperature": 0}                       # restored after the call
+    with pytest.raises(rw.ContextWindowExceededError, match="1,000"):
+        root.completion("x" * 10_000)
+    sub = OpenAIClient(api_key="t", model_name="qwen/q", base_url="http://fake/v1", sub_llm=True)
+    assert sub.completion("x" * 15_000) == "ok" and "max_tokens" not in seen[-1]
+    from benchmarks import runner
+    assert runner.is_method_failure(rw.ContextWindowExceededError("x"))
+
+
+def test_openrouter_reasoning_switch(monkeypatch):
+    import importlib
+    import llm.config as config
+    monkeypatch.setenv("LLM_PROVIDER", "openrouter")
+    monkeypatch.setenv("OPENROUTER_API_KEY", "k")
+    monkeypatch.setenv("OPENROUTER_MODEL", "qwen/qwen3-30b-a3b-instruct-2507")
+    monkeypatch.setenv("OPENROUTER_PROVIDER", "nebius/fp8")
+    monkeypatch.setenv("OPENROUTER_REASONING", "0")
+    try:
+        assert "reasoning" not in importlib.reload(config).EXTRA_BODY
+        monkeypatch.setenv("OPENROUTER_REASONING", "1")
+        assert importlib.reload(config).EXTRA_BODY["reasoning"] == {"enabled": True}
+    finally:
+        monkeypatch.undo()
+        importlib.reload(config)

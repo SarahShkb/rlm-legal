@@ -53,6 +53,8 @@ SUB_LLMS = {
     "lawma": {"host": "modal", "model": "ricdomolm/lawma-8b"},
     # Lawma's control, through OpenRouter (Meta refused the HF download): the only bf16 endpoint, pinned
     "llama": {"host": "openrouter", "model": "meta-llama/llama-3.1-8b-instruct", "provider": "coreweave/bf16"},
+    # baseline for a Qwen3-30B-A3B root: the same model as sub-LLM (no reasoning mode)
+    "qwen": {"host": "openrouter", "model": "qwen/qwen3-30b-a3b-instruct-2507", "provider": "nebius/fp8"},
     # anchor: the root model and endpoint itself (LLM_PROVIDER=openrouter), under the same
     # limits and delegation rule as the small models; no reasoning, as they have none
     "deepseek": {"host": "openrouter", "model": os.environ.get("OPENROUTER_MODEL", ""),

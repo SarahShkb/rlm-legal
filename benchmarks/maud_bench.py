@@ -20,6 +20,7 @@ Must run from the repo root (the MAUD code uses relative paths).
 """
 
 import json
+import os
 from functools import cached_property
 
 from benchmarks.runner import Dataset, Item
@@ -45,8 +46,10 @@ SUB_LLM_METHODS = {f"rlm_{name}": name for name in SUB_LLMS}
 SUB_LLM_TOOL_METHODS = {f"{tools}_{name}": (tools, name)
                         for tools in TOOLS if tools != "rlm" for name in SUB_LLMS}
 # the root is told to answer from the sub-LLM's reading (prompts.SUB_LLM_DELEGATION):
-# without it, the DeepSeek root called llm_query in 0/152 rlm runs of rerun_v1_morph
-SUB_LLM_DELEGATE = True
+# without it, the DeepSeek root called llm_query in 0/152 rlm runs of rerun_v1_morph.
+# SUB_LLM_DELEGATE=0 turns it off (and the root output cap with it), e.g. for a
+# small-window root that may delegate on its own
+SUB_LLM_DELEGATE = os.environ.get("SUB_LLM_DELEGATE", "1") == "1"
 
 
 class Maud(Dataset):
