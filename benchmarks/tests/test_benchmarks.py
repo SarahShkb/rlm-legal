@@ -39,6 +39,12 @@ def test_maud_score_uses_maud_eval_parser():
     r = ds.score(item, "Answer: A")
     assert not r["correct"] and r["jaccard"] == 0.5
     assert ds.score(item, "")["prediction"] is None
+    # the whole answer dict, and one boolean per letter (Qwen3-30B-A3B roots)
+    assert ds.score(item, '{"content": "A, C", "ready": true}')["correct_strict"]
+    assert ds.score(item, '{"A": true, "B": false, "C": true}')["correct_strict"]
+    assert ds.score(item, '{"content": "the answer is A", "ready": true}')["prediction"] is None
+    assert ds.score(item, '{"A": false, "B": false}')["prediction"] is None
+    assert ds.score(item, '{"content": "A", "notes": "x"}')["prediction"] is None
 
 
 def fake_completion(request: httpx.Request) -> httpx.Response:

@@ -93,11 +93,18 @@ def _letters_from_str(s: str) -> Optional[frozenset]:
 
 def letters_from_any(x) -> Optional[frozenset]:
     """'B' | 'Answer: B, D' | '"B"' | '{"answer": "B"}' | {"Answer": ["A","C"]} -> frozenset({...})
+    Also the whole answer dict ({"content": "C", "ready": true}) and one boolean per
+    letter ({"A": true, "C": true}), as Qwen3-30B-A3B roots submit them.
     Returns None unless the WHOLE value is a letter answer (so prose is never mis-read)."""
     if isinstance(x, dict):
         for k, v in x.items():
             if str(k).lower() == "answer":
                 return letters_from_any(v)
+        if x and set(map(str, x)) <= {"content", "ready"} and "content" in x:
+            return letters_from_any(x["content"])
+        if x and all(re.fullmatch(r"[A-Z]", str(k)) for k in x) and all(isinstance(v, bool) for v in x.values()):
+            chosen = frozenset(str(k) for k, v in x.items() if v)
+            return chosen or None
         return None
     if isinstance(x, (list, tuple, set, frozenset)):
         out: set = set()
