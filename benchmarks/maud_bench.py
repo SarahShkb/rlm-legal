@@ -13,6 +13,7 @@ build_tools / tool_hints (legal_tools/run_tools.py) and parse_raw_result
               sub-LLM <sub> of llm/sub_llm.py (rlm_saul, rlm_mistral, ...);
               rlm_deepseek: the root model itself as sub-LLM, same limits and
               delegation rule (separates the rule's effect from the model's)
+  rlm_tool<t>_<sub>  the same with tool set <t> (1, 2 or 12), e.g. rlm_tool1_llama
 Every tool condition uses the latest tool setup (maud_152_tool2_fixed_list_hints):
 usage hints in the root prompt, tool 2's defined-term list in the system prompt.
 Must run from the repo root (the MAUD code uses relative paths).
@@ -40,6 +41,9 @@ TOOLS = {"rlm": set(), "rlm_tool1": {"1"}, "rlm_tool2": {"2"}, "rlm_tool12": {"1
 LIST_IN_PROMPT = True
 HINTS = True
 SUB_LLM_METHODS = {f"rlm_{name}": name for name in SUB_LLMS}
+# method -> (tool set, sub-LLM), e.g. rlm_tool1_llama
+SUB_LLM_TOOL_METHODS = {f"{tools}_{name}": (tools, name)
+                        for tools in TOOLS if tools != "rlm" for name in SUB_LLMS}
 # the root is told to answer from the sub-LLM's reading (prompts.SUB_LLM_DELEGATION):
 # without it, the DeepSeek root called llm_query in 0/152 rlm runs of rerun_v1_morph
 SUB_LLM_DELEGATE = True
@@ -49,7 +53,7 @@ class Maud(Dataset):
     name = "maud"
     results_root = REPO_ROOT / "maud" / "results"
     default_methods = ("vanilla", "rlm", "rlm_tool1", "rlm_tool2", "rlm_tool12")
-    methods = default_methods + tuple(SUB_LLM_METHODS)
+    methods = default_methods + tuple(SUB_LLM_METHODS) + tuple(SUB_LLM_TOOL_METHODS)
     source_files = [
         "maud/maud_data_sampling.py", "maud/maud_eval.py", "maud/dicts/question_full_text_map.json",
         "maud/dicts/question_answer_map_unique.json", "legal_tools/run_tools.py",
@@ -104,6 +108,9 @@ class Maud(Dataset):
             return response, {"sub_llm": SUB_LLM_METHODS[method], "sub_llm_delegate": SUB_LLM_DELEGATE,
                               "root_output_chars": ROOT_OUTPUT_CHARS if SUB_LLM_DELEGATE else None,
                               "sub_llm_settings": public_settings(SUB_LLM_METHODS[method])}
+        sub_llm = None
+        if method in SUB_LLM_TOOL_METHODS:
+            method, sub_llm = SUB_LLM_TOOL_METHODS[method]
         which = TOOLS[method]
         log = ToolLog() if which else None
         tools = build_tools(item.document, which, log, list_in_prompt=LIST_IN_PROMPT) if which else None
@@ -112,8 +119,13 @@ class Maud(Dataset):
             experiment=experiment, max_iterations=max_iterations, tools=tools,
             tool_hint=tool_hints(which) if which and HINTS else "",
             on_result=on_result, runs_csv=runs_csv, log_dir=log_dir,
+            sub_llm=sub_llm, sub_llm_delegate=SUB_LLM_DELEGATE if sub_llm else False,
         )
         extra = {"tools": sorted(which)}
+        if sub_llm:
+            extra.update({"sub_llm": sub_llm, "sub_llm_delegate": SUB_LLM_DELEGATE,
+                          "root_output_chars": ROOT_OUTPUT_CHARS if SUB_LLM_DELEGATE else None,
+                          "sub_llm_settings": public_settings(sub_llm)})
         if log is not None:
             extra["tool_log_summary"] = log.summary()
             extra["tool_log"] = json.loads(log.to_json())

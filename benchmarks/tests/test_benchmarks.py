@@ -223,3 +223,19 @@ def test_maud_deepseek_anchor(monkeypatch):
     assert args["max_tokens"] == sub_llm.SUB_LLM_MAX_TOKENS and args["extra_body"]["reasoning"] == {"enabled": False}
     assert args["extra_body"]["provider"] == {"order": ["p/fp8"], "allow_fallbacks": False, "require_parameters": True}
     assert maud_bench.SUB_LLM_METHODS["rlm_deepseek"] == "deepseek"
+
+
+def test_maud_tools_with_sub_llm(monkeypatch):
+    """rlm_tool1_llama: tool 1 and its hint, plus the Llama sub-LLM under the delegation config."""
+    import benchmarks.maud_bench as maud_bench
+    monkeypatch.setenv("OPENROUTER_API_KEY", "or-key")
+    seen = {}
+    monkeypatch.setattr(maud_bench, "run_rlm_customized", lambda *a, **kw: seen.update(kw) or "Answer: A")
+    monkeypatch.setattr(maud_bench, "build_tools", lambda text, which, log, **kw: {"toc": object()})
+    item = Item(0, "contract_1_0", "doc", "spec", ["A"])
+    response, extra = Maud().call(item, "rlm_tool1_llama", experiment="e", max_iterations=12, runs_csv="x",
+                                  log_dir="y", on_result=None)
+    assert seen["sub_llm"] == "llama" and seen["sub_llm_delegate"] is True and "toc" in seen["tools"]
+    assert seen["tool_hint"] and extra["tools"] == ["1"] and extra["sub_llm"] == "llama"
+    assert "rlm_tool1_llama" in Maud.methods and "rlm_tool1_llama" not in Maud.default_methods
+
