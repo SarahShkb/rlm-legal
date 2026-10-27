@@ -47,3 +47,9 @@ contract-nli/results/rerun_v1_morph/runs_csv/
 
 contract-nli/results/smoke_rerun_morph/
 maud/results/smoke_rerun_morph/
+
+# every MAUD experiment: keep records, calls, manifest, sessions, report
+maud/results/*/trajectories/
+maud/results/*/workers/
+maud/results/*/runs_csv/
+modal_subllm/__pycache__/

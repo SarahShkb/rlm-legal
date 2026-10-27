@@ -9,6 +9,10 @@ build_tools / tool_hints (legal_tools/run_tools.py) and parse_raw_result
   rlm_tool1   + tool 1 (section locator)
   rlm_tool2   + tool 2 (definitions resolver)
   rlm_tool12  + both tools
+  rlm_<sub>   run_rlm_customized, no tools, llm_query() answered by the small
+              sub-LLM <sub> of llm/sub_llm.py (rlm_saul, rlm_mistral, ...);
+              rlm_deepseek: the root model itself as sub-LLM, same limits and
+              delegation rule (separates the rule's effect from the model's)
 Every tool condition uses the latest tool setup (maud_152_tool2_fixed_list_hints):
 usage hints in the root prompt, tool 2's defined-term list in the system prompt.
 Must run from the repo root (the MAUD code uses relative paths).
@@ -17,31 +21,40 @@ Must run from the repo root (the MAUD code uses relative paths).
 import json
 from functools import cached_property
 
+from benchmarks.runner import Dataset, Item
 from legal_tools.run_tools import build_tools, tool_hints
 from legal_tools.tools_utils import ToolLog
+from lexglue.tracking import REPO_ROOT
 from llm.config import TEMPERATURE
 from llm.rlm import run_rlm_customized
+from llm.sub_llm import ROOT_OUTPUT_CHARS, SUB_LLMS, public_settings
 from llm.vanila import run_vanilla
-from lexglue.tracking import REPO_ROOT
-from maud.maud_data_sampling import build_query, get_maud_data_dir, get_sample_rows_for_maud_152
+from maud.maud_data_sampling import (
+    build_query,
+    get_maud_data_dir,
+    get_sample_rows_for_maud_152,
+)
 from maud.maud_eval import parse_raw_result
-
-from benchmarks.runner import Dataset, Item
 
 TOOLS = {"rlm": set(), "rlm_tool1": {"1"}, "rlm_tool2": {"2"}, "rlm_tool12": {"1", "2"}}
 LIST_IN_PROMPT = True
 HINTS = True
+SUB_LLM_METHODS = {f"rlm_{name}": name for name in SUB_LLMS}
+# the root is told to answer from the sub-LLM's reading (prompts.SUB_LLM_DELEGATION):
+# without it, the DeepSeek root called llm_query in 0/152 rlm runs of rerun_v1_morph
+SUB_LLM_DELEGATE = True
 
 
 class Maud(Dataset):
     name = "maud"
     results_root = REPO_ROOT / "maud" / "results"
-    methods = ("vanilla", "rlm", "rlm_tool1", "rlm_tool2", "rlm_tool12")
+    default_methods = ("vanilla", "rlm", "rlm_tool1", "rlm_tool2", "rlm_tool12")
+    methods = default_methods + tuple(SUB_LLM_METHODS)
     source_files = [
         "maud/maud_data_sampling.py", "maud/maud_eval.py", "maud/dicts/question_full_text_map.json",
         "maud/dicts/question_answer_map_unique.json", "legal_tools/run_tools.py",
         "legal_tools/section_locator.py", "legal_tools/definitions_resolver.py",
-        "legal_tools/tools_utils.py", "benchmarks/maud_bench.py",
+        "legal_tools/tools_utils.py", "benchmarks/maud_bench.py", "llm/sub_llm.py", "modal_subllm/serve.py",
     ]
 
     @cached_property
@@ -81,6 +94,16 @@ class Maud(Dataset):
         if method == "vanilla":
             return run_vanilla("maud_152_samples", item.row_id, item.document, TASK_SPEC=item.task_spec,
                                experiment=experiment, temperature=TEMPERATURE, runs_csv=runs_csv), {}
+        if method in SUB_LLM_METHODS:
+            response = run_rlm_customized(
+                "maud_152_samples", item.row_id, item.document, TASK_SPEC=item.task_spec,
+                experiment=experiment, max_iterations=max_iterations, on_result=on_result,
+                runs_csv=runs_csv, log_dir=log_dir,
+                sub_llm=SUB_LLM_METHODS[method], sub_llm_delegate=SUB_LLM_DELEGATE,
+            )
+            return response, {"sub_llm": SUB_LLM_METHODS[method], "sub_llm_delegate": SUB_LLM_DELEGATE,
+                              "root_output_chars": ROOT_OUTPUT_CHARS if SUB_LLM_DELEGATE else None,
+                              "sub_llm_settings": public_settings(SUB_LLM_METHODS[method])}
         which = TOOLS[method]
         log = ToolLog() if which else None
         tools = build_tools(item.document, which, log, list_in_prompt=LIST_IN_PROMPT) if which else None

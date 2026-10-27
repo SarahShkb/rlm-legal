@@ -7,6 +7,11 @@
   LLM_PROVIDER=openrouter python -m benchmarks.cli run-parallel --datasets contract_nli maud \
       --experiment rerun_v1_morph --max-cost 15 --workers 24
 
+  # MAUD with a small sub-LLM for llm_query (modal_subllm/serve.py), 8 contracts at a time;
+  # one sub-LLM per launch, so only one GPU container is up at a time
+  LLM_PROVIDER=openrouter python -m benchmarks.cli run-parallel --datasets maud --methods rlm_saul \
+      --experiment subllm_v1 --max-cost 10 --workers 8 --shard-size 2
+
   # tables -> contract-nli/results/<experiment>/report/, maud/results/<experiment>/report/
   python -m benchmarks.cli report --dataset maud --experiment rerun_v1_morph
 
@@ -27,6 +32,23 @@ def get_dataset(name: str):
         from benchmarks.maud_bench import Maud
         return Maud()
     raise SystemExit(f"unknown dataset {name!r}")
+
+
+def _methods(ds, requested: list[str] | None) -> list[str]:
+    if not requested:
+        return list(getattr(ds, "default_methods", ds.methods))
+    unknown = [m for m in requested if m not in ds.methods]
+    if unknown:
+        sys.exit(f"{ds.name}: unknown method(s) {unknown}; available: {list(ds.methods)}")
+    return requested
+
+
+def _warm_up_sub_llms(methods: list[str]) -> None:
+    """Start the sub-LLM servers before the workers: a cold start would fail the first sub-calls."""
+    from benchmarks.maud_bench import SUB_LLM_METHODS
+    from llm.sub_llm import wait_ready
+    for name in sorted({SUB_LLM_METHODS[m] for m in methods if m in SUB_LLM_METHODS}):
+        wait_ready(name)
 
 
 def _confirm(args, plan: str) -> None:
@@ -88,9 +110,10 @@ def cmd_run(args) -> None:
     from benchmarks.runner import run_experiment
     ds = get_dataset(args.dataset)
     indices = args.indices or ds.all_indices()
-    methods = args.methods or list(ds.methods)
+    methods = _methods(ds, args.methods)
     _confirm(args, f"      dataset={ds.name} experiment={args.experiment} items={len(indices)} methods={methods} "
                    f"repeats={args.repeats} -> {len(indices) * len(methods) * args.repeats} runs, budget ${args.max_cost}")
+    _warm_up_sub_llms(methods)
     run_experiment(ds, args.experiment, indices, methods, repeats=args.repeats,
                    max_iterations=args.max_iterations, max_cost_usd=args.max_cost,
                    allow_config_change=args.allow_config_change)
@@ -99,11 +122,12 @@ def cmd_run(args) -> None:
 def cmd_run_parallel(args) -> None:
     from benchmarks.parallel import run_parallel
     datasets = [get_dataset(n) for n in args.datasets]
-    methods = {d.name: list(d.methods) for d in datasets}
+    methods = {d.name: _methods(d, args.methods) for d in datasets}
     indices = {d.name: d.all_indices() for d in datasets}
     n = sum(len(indices[d.name]) * len(methods[d.name]) for d in datasets) * args.repeats
     _confirm(args, "      " + "; ".join(f"{d.name}: {len(indices[d.name])} items x {methods[d.name]}" for d in datasets)
              + f"\n      repeats={args.repeats} -> {n} runs, workers={args.workers}, global budget ${args.max_cost}")
+    _warm_up_sub_llms([m for ms in methods.values() for m in ms])
     sys.exit(run_parallel(datasets, args.experiment, methods, indices, args.repeats, args.max_iterations,
                           args.max_cost, args.workers, args.shard_size))
 
@@ -138,10 +162,10 @@ def main() -> None:
 
     for name, func in (("run", cmd_run), ("run-parallel", cmd_run_parallel)):
         s = sub.add_parser(name)
+        s.add_argument("--methods", nargs="+", help="default: the dataset's default_methods")
         if name == "run":
             s.add_argument("--dataset", required=True, choices=["contract_nli", "maud"])
             s.add_argument("--indices", type=int, nargs="+")
-            s.add_argument("--methods", nargs="+")
             s.add_argument("--allow-config-change", action="store_true")
         else:
             s.add_argument("--datasets", nargs="+", required=True, choices=["contract_nli", "maud"])

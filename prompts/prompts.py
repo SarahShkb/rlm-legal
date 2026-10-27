@@ -80,3 +80,29 @@ After every REPL block you execute, the output (stdout) will be shown to you in 
 If you do not see any output (or see an error), it means your REPL code was not valid.
 In that case, you should treat that turn as having failed and try again with corrected code.
 """
+
+
+#----------------------------------------
+# small sub-LLM (llm/sub_llm.py): filled in with .format(), the same text for every sub-LLM
+#----------------------------------------
+
+SUB_LLM_LIMITS = """
+In this run, llm_query() / llm_query_batched() are answered by a separate language model with a limited input size.
+These limits replace the sub-LLM capacity stated above and in the context metadata (≈500K characters, ~100K characters per prompt, ~100k tokens per call), which does not apply here:
+- Each prompt (your instructions + the text) must be at most {max_chars:,} characters. A longer prompt is not sent: you get a string starting with "Error:" instead. Pass excerpts of at most ~{chunk_chars:,} characters, never the whole `context`.
+- Each answer is cut off after about {max_tokens:,} tokens: ask for short, structured outputs (e.g. the supporting sentence and the letter(s) it supports).
+- The sub-LLM sees only the prompt you write: restate the question and the full list of answer choices in every prompt.
+- An answer starting with "Error:" means the call failed: shorten the prompt or retry; it is not evidence.
+"""
+
+SUB_LLM_DELEGATION = """
+Answer from the sub-LLM's reading of the contract, not from your own:
+- Decide which parts of `context` the sub-LLM must read. When the question names something distinctive (a defined term, a clause title), Python string / regex search can find candidate sections quickly. Keyword hits are only candidates: contracts often express the same idea in different words, so when the question is about the meaning or effect of the language, or a search finds nothing convincing, split the whole `context` into consecutive excerpts of at most ~{chunk_chars:,} characters and send all of them to llm_query_batched.
+- Every sub-LLM prompt holds one excerpt, the full question and all answer choices, and asks which choice(s) the excerpt supports (or "none") and for the sentence that supports it.
+- Choose the final answer by combining the sub-LLM answers (e.g. the answer backed by the most specific quoted language, or the majority). Do not print long contract passages to read them yourself: print only the sub-LLM answers and short quotes.
+"""
+
+# with SUB_LLM_DELEGATION: appended to the system prompt and repeated in the root prompt
+SUB_LLM_OUTPUT_LIMIT = """
+In this run you see only the first {output_chars:,} characters of each REPL output block (this replaces the ~20K characters stated above); the rest is cut off. You cannot read the contract by printing it: the sub-LLM reads it for you through llm_query() / llm_query_batched(). Use print() for search results (positions, counts, section titles) and for a compact summary of the sub-LLM answers: keep the answers in Python variables and print e.g. the count of each answer letter and one or two short supporting quotes. Base your final answer on the sub-LLM answers.
+"""

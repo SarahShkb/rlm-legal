@@ -1,24 +1,27 @@
 
 # rlm
-import llm.rlm_usage_patch  # noqa: F401  (fixes root-model usage being overwritten by sub-calls)
-import llm.empty_response_retry  # noqa: F401  (re-sends requests whose answer came back empty)
 from rlm.core.rlm import RLM
 from rlm.logger import RLMLogger
 from rlm.utils.prompts import RLM_SYSTEM_PROMPT
 
+import llm.empty_response_retry  # noqa: F401  (re-sends requests whose answer came back empty)
+import llm.rlm_usage_patch  # noqa: F401  (fixes root-model usage being overwritten by sub-calls)
+import llm.sub_llm as sub_llms  # (also wraps OpenAIClient: prompt-size guard for the small sub-LLMs)
+from llm.config import API_KEY, BASE_URL, EXTRA_BODY, MODEL, TEMPERATURE
 from prompts.prompts import (
     CRASH_PROOF_FINAL_SUBMISSION,
     CRITICAL_OUTPUT_RULE,
     PRESERVE_VALID_ANSWERS,
     REPL_STDOUT_VISIBILITY,
     RLM_FINISH_GUIDE,
+    SUB_LLM_DELEGATION,
+    SUB_LLM_LIMITS,
+    SUB_LLM_OUTPUT_LIMIT,
     SUB_LLM_VERIFICATION,
 )
 
 # logger
 from utils.run_logger import log_run
-
-from llm.config import API_KEY, BASE_URL, EXTRA_BODY, MODEL, TEMPERATURE
 
 
 #-----------------------------------------------
@@ -81,13 +84,20 @@ def run_rlm_customized(
         on_result=None,
         runs_csv: str = "logs/runs.csv",
         log_dir: str = "./logs",
+        sub_llm: str | None = None,
+        sub_llm_delegate: bool = False,
     ) -> str:
     """escape_task_spec_braces: RLM runs str.format() on the system prompt, so a
     TASK_SPEC written with single literal braces (e.g. a JSON example) must have
     them doubled there; the root prompt is not formatted and gets TASK_SPEC as-is.
     on_result: optional callback(result, rlm), called before logging, for callers
     that need the RLMChatCompletion (trajectory, execution time, logger path).
-    runs_csv / log_dir: where the summary row and the RLM trajectory are written."""
+    runs_csv / log_dir: where the summary row and the RLM trajectory are written.
+    sub_llm: name in llm/sub_llm.py SUB_LLMS; llm_query() then goes to that
+    model, and text appended to the system prompt states its limits.
+    sub_llm_delegate: also tell the root to answer from the sub-LLM's reading, and
+    show it only sub_llm.ROOT_OUTPUT_CHARS of each REPL output block, so that it
+    cannot read the contract by printing it."""
     system_task_spec = (
         TASK_SPEC.replace("{", "{{").replace("}", "}}") if escape_task_spec_braces else TASK_SPEC
     )
@@ -102,6 +112,19 @@ def run_rlm_customized(
         + f"\n\nREPL STDOUT VISIBILITY: {REPL_STDOUT_VISIBILITY}"
         + f"\n\nPRESERVE VALID ANSWERS: {PRESERVE_VALID_ANSWERS}"
     )
+    sub_backend = {}
+    sub_sampling = {"temperature": TEMPERATURE, "reasoning_effort": "low", "extra_body": EXTRA_BODY}
+    if sub_llm is not None:
+        # appended only: everything above (rlm's prompt included) is sent unchanged
+        limits = {"max_chars": sub_llms.SUB_LLM_MAX_PROMPT_CHARS, "chunk_chars": sub_llms.SUB_LLM_CHUNK_CHARS,
+                  "max_tokens": sub_llms.SUB_LLM_MAX_TOKENS}
+        custom_system_prompt += f"\n\nSUB-LLM: {SUB_LLM_LIMITS.format(**limits)}"
+        if sub_llm_delegate:
+            custom_system_prompt += f"\n\nDELEGATION: {SUB_LLM_DELEGATION.format(**limits)}"
+            output_limit = SUB_LLM_OUTPUT_LIMIT.format(output_chars=sub_llms.ROOT_OUTPUT_CHARS)
+            custom_system_prompt += f"\n\nREPL OUTPUT LIMIT: {output_limit}"
+        sub_backend = {"other_backends": ["openai"], "other_backend_kwargs": [sub_llms.backend_kwargs(sub_llm)]}
+        sub_sampling = sub_llms.sampling_args(sub_llm)
     root_prompt = f"{TASK_SPEC}\n\n{RLM_FINISH_GUIDE}\n\n"
     root_prompt += "Remember: your last message must be the JSON answer, not a repl block. "
     root_prompt += "If you have already set answer['ready']=True, simply output the JSON object."
@@ -109,6 +132,8 @@ def run_rlm_customized(
     root_prompt += f"\n\nVERIFICATION: {SUB_LLM_VERIFICATION}\n\n"
     if tool_hint:
         root_prompt += f"TOOLS: {tool_hint}\n\n"
+    if sub_llm is not None and sub_llm_delegate:
+        root_prompt += f"REPL OUTPUT LIMIT: {output_limit}\n\n"
     rlm = RLM(
         backend="openai",
         backend_kwargs={
@@ -121,11 +146,8 @@ def run_rlm_customized(
             "temperature": TEMPERATURE,
             "extra_body": EXTRA_BODY
         },
-        sub_sampling_args={
-            "temperature": TEMPERATURE,
-            "reasoning_effort": "low",
-            "extra_body": EXTRA_BODY
-        },
+        sub_sampling_args=sub_sampling,
+        **sub_backend,
         max_iterations=max_iterations,
         max_tokens=500_000,
         max_errors=3,
@@ -133,7 +155,9 @@ def run_rlm_customized(
         custom_system_prompt=custom_system_prompt,
         custom_tools=tools,
     )
-    result = rlm.completion(prompt=contract_text, root_prompt=root_prompt)
+    output_cap = sub_llms.ROOT_OUTPUT_CHARS if sub_llm is not None and sub_llm_delegate else None
+    with sub_llms.root_output_cap(output_cap):
+        result = rlm.completion(prompt=contract_text, root_prompt=root_prompt)
     if on_result is not None:
         on_result(result, rlm)
     log_run(

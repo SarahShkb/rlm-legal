@@ -35,9 +35,6 @@ import openai
 from rlm.utils.prompts import RLM_SYSTEM_PROMPT
 
 import prompts.prompts as rlm_prompt_parts
-from llm import config as llm_config
-from llm.rlm import run_rlm_customized
-from llm.vanila import run_vanilla
 from lexglue.pipeline import (
     FATAL_STATUS_CODES,
     LEDGER,
@@ -58,7 +55,9 @@ from lexglue.tracking import (
     sha256_text,
     utc_now,
 )
-
+from llm import config as llm_config
+from llm.rlm import run_rlm_customized
+from llm.vanila import run_vanilla
 
 RUN_TIMEOUT_S = 30 * 60
 HARD_EXIT_GRACE_S = 120
@@ -130,6 +129,7 @@ class Dataset:
     name: str
     results_root: Path
     methods: tuple[str, ...]
+    default_methods: tuple[str, ...]  # run when no --methods is given (defaults to `methods`)
     source_files: list[str]          # files whose content shapes the prompts / tools
 
     def all_indices(self) -> list[int]: ...
@@ -158,7 +158,8 @@ def prompt_fingerprint(dataset: Dataset) -> dict:
         "RLM_SYSTEM_PROMPT": RLM_SYSTEM_PROMPT,
         **{name: getattr(rlm_prompt_parts, name) for name in (
             "RLM_FINISH_GUIDE", "CRITICAL_OUTPUT_RULE", "CRASH_PROOF_FINAL_SUBMISSION",
-            "REPL_STDOUT_VISIBILITY", "PRESERVE_VALID_ANSWERS", "SUB_LLM_VERIFICATION")},
+            "REPL_STDOUT_VISIBILITY", "PRESERVE_VALID_ANSWERS", "SUB_LLM_VERIFICATION",
+            "SUB_LLM_LIMITS", "SUB_LLM_DELEGATION", "SUB_LLM_OUTPUT_LIMIT")},
         "run_rlm_customized_source": inspect.getsource(run_rlm_customized),
         "run_vanilla_source": inspect.getsource(run_vanilla),
     }
@@ -273,7 +274,8 @@ def run_one(dataset: Dataset, item: Item, method: str, repeat: int, experiment: 
         append_jsonl(exp_dir / "calls" / f"{dataset.name}.jsonl", {
             "experiment": experiment, "session_id": session_id, "task": dataset.name,
             "index": item.index, "row_id": item.row_id, "method": method, "repeat": repeat,
-            "call_seq": i, "estimated_cost_usd": estimate_cost(call, (pricing or {}).get("pricing_per_token")),
+            "call_seq": i, "estimated_cost_usd": estimate_cost(call, (pricing or {}).get("pricing_per_token"))
+            if call["request_model"] == llm_config.MODEL else None,   # the prices are the root model's
             **call,
         })
     append_jsonl(records_path, row)

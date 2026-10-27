@@ -204,7 +204,8 @@ def _aggregate_calls(calls: list[dict], pricing: dict | None) -> dict:
         return sum(values) if values else None
 
     prices = (pricing or {}).get("pricing_per_token")
-    estimated = [estimate_cost(c, prices) for c in calls if c["error"] is None]
+    # the prices are the root model's; small sub-LLMs (llm/sub_llm.py) are billed elsewhere
+    estimated = [estimate_cost(c, prices) for c in calls if c["error"] is None and c["request_model"] == llm_config.MODEL]
     finish = {}
     for c in calls:
         if c["error"] is None:
