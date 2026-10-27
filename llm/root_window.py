@@ -17,6 +17,12 @@ from rlm.clients.openai import OpenAIClient
 from llm.config import ROOT_CONTEXT_TOKENS, ROOT_TOKENIZER
 
 
+# calibrated on 19 MAUD vanilla prompts (2 messages each): the text count + 2 x 15 matched
+# OpenRouter's prompt_tokens exactly for deepseek-v4.1-flash-1017; if part of it is per
+# request rather than per message, long histories are slightly over-counted (safe side)
+MESSAGE_OVERHEAD_TOKENS = 15
+
+
 class ContextWindowExceededError(Exception):
     """The root's prompt does not fit in ROOT_CONTEXT_TOKENS."""
 
@@ -30,8 +36,13 @@ def _tokenizer():
 def prompt_tokens(prompt) -> int:
     messages = [{"role": "user", "content": prompt}] if isinstance(prompt, str) else prompt
     tok = _tokenizer()
-    text = tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    return len(tok(text, add_special_tokens=False)["input_ids"])
+    if tok.chat_template:
+        text = tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        return len(tok(text, add_special_tokens=False)["input_ids"])
+    # no chat template shipped (e.g. deepseek-ai/DeepSeek-V4.1-Flash-1017): the text of each
+    # message + MESSAGE_OVERHEAD_TOKENS for its role markers
+    return sum(len(tok(str(m.get("content") or ""), add_special_tokens=False)["input_ids"]) + MESSAGE_OVERHEAD_TOKENS
+               for m in messages)
 
 
 def _answer_budget(self, prompt) -> int:
