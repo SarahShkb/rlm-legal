@@ -1,0 +1,3 @@
+repeat,baseline,method,n_paired,only_baseline_correct,only_method_correct,mcnemar_exact_p,acc_diff_method_minus_baseline,diff_ci_low,diff_ci_high
+0,rlm,rlm_tool1,152,3,9,0.14599609375,0.03947368421052633,-0.006578947368421018,0.08552631578947367
+0,rlm,rlm_tool12,152,2,12,0.012939453125,0.06578947368421051,0.019736842105263164,0.11184210526315796
