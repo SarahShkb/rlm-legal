@@ -1,0 +1,4 @@
+method,tool_n_tool_calls,tool_n_tool_calls,tool_chars_returned,tool_chars_returned
+,mean,sum,mean,sum
+rlm_tool1,3.2039473684210527,487,12349.171052631578,1877074
+rlm_tool12,3.0789473684210527,468,9908.546052631578,1506099
