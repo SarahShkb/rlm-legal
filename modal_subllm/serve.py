@@ -55,7 +55,7 @@ MODELS = {
     # Qwen3-30B-A3B-Instruct-2507, trained with the rlm harness; served under the adapter's
     # name, on an 80 GB GPU (the bf16 base is ~61 GB)
     "rlm30b": {"repo": "Qwen/Qwen3-30B-A3B-Instruct-2507", "revision": "0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe",
-               "gpu": "H100",
+               "gpu": "H100", "max_model_len": 32768,   # the 32K root window (sub-LLM calls stay under 20K chars)
                "lora": {"repo": "mit-oasys/rlm-qwen3-30b-a3b-v0.1", "revision": "7d72253525f47b1a8c3c4e1059ff88e40232dd2f",
                         "name": "rlm-qwen3-30b-a3b", "rank": 32}},
 }
@@ -106,7 +106,7 @@ def _start_vllm(model: str) -> None:
         "--served-model-name", MODELS[model]["repo"],
         "--api-key", os.environ["VLLM_API_KEY"],
         "--dtype", DTYPE,
-        "--max-model-len", str(MAX_MODEL_LEN),
+        "--max-model-len", str(MODELS[model].get("max_model_len", MAX_MODEL_LEN)),
         "--generation-config", "vllm",
         "--host", "0.0.0.0",
         "--port", str(PORT),
