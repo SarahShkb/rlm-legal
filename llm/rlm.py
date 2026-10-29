@@ -8,7 +8,7 @@ import llm.empty_response_retry  # noqa: F401  (re-sends requests whose answer c
 import llm.rlm_usage_patch  # noqa: F401  (fixes root-model usage being overwritten by sub-calls)
 import llm.sub_llm as sub_llms  # (also wraps OpenAIClient: prompt-size guard for the small sub-LLMs)
 import llm.root_window  # noqa: F401  (root context window, when ROOT_CONTEXT_TOKENS is set)
-from llm.config import API_KEY, BASE_URL, EXTRA_BODY, MODEL, TEMPERATURE
+from llm.config import API_KEY, BASE_URL, DEFAULT_HEADERS, EXTRA_BODY, MODEL, TEMPERATURE
 from prompts.prompts import (
     CRASH_PROOF_FINAL_SUBMISSION,
     CRITICAL_OUTPUT_RULE,
@@ -28,7 +28,21 @@ from utils.run_logger import log_run
 #-----------------------------------------------
 # condition 2: RLM calls (Generic system prompt)
 #-----------------------------------------------
-def run_rlm_generic(dataset: str, row_id: str, contract_text: str, TASK_SPEC: str) -> str:
+def run_rlm_generic(
+        dataset: str,
+        row_id: str,
+        contract_text: str,
+        TASK_SPEC: str,
+        experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
+        max_iterations=5,
+        on_result=None,
+        runs_csv: str = "logs/runs.csv",
+        log_dir: str = "./logs",
+    ) -> str:
+    """The rlm library's default system prompt (no custom_system_prompt); the root
+    prompt is the same as run_rlm_customized's without tools or sub-LLM, so the
+    system prompt is the only difference. on_result / runs_csv / log_dir: as in
+    run_rlm_customized."""
     root_prompt = f"{TASK_SPEC}\n\n{RLM_FINISH_GUIDE}\n\n"
     root_prompt += "Remember: your last message must be the JSON answer, not a repl block. "
     root_prompt += "If you have already set answer['ready']=True, simply output the JSON object."
@@ -40,6 +54,7 @@ def run_rlm_generic(dataset: str, row_id: str, contract_text: str, TASK_SPEC: st
             "model_name": MODEL,
             "api_key": API_KEY,
             "base_url": BASE_URL,
+            **({"default_headers": DEFAULT_HEADERS} if DEFAULT_HEADERS else {}),
         },
         verbose=True,
         sampling_args={
@@ -51,20 +66,23 @@ def run_rlm_generic(dataset: str, row_id: str, contract_text: str, TASK_SPEC: st
             "reasoning_effort": "low",
             "extra_body": EXTRA_BODY
         },
-        logger=RLMLogger(log_dir="./logs"),
-        max_iterations=5,
+        logger=RLMLogger(log_dir=log_dir),
+        max_iterations=max_iterations,
             max_tokens=500_000,
             max_errors=3,
     )
     result = rlm.completion(prompt=contract_text, root_prompt=root_prompt)
+    if on_result is not None:
+        on_result(result, rlm)
     log_run(
         result,
         method="RLM-generic",
         model=MODEL,
         rlm=rlm,
-        experiment="rlm-comparing-vanilla-vs-rlmgGeneric-vs-rlmCustomized",
+        experiment=experiment,
         dataset=dataset,
         row_id=row_id,
+        csv_path=runs_csv,
     )
     return result.response
 
@@ -141,6 +159,7 @@ def run_rlm_customized(
             "model_name": MODEL,
             "api_key": API_KEY,
             "base_url": BASE_URL,
+            **({"default_headers": DEFAULT_HEADERS} if DEFAULT_HEADERS else {}),
         },
         verbose=True,
         sampling_args={

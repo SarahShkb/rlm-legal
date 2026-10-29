@@ -53,3 +53,6 @@ maud/results/*/trajectories/
 maud/results/*/workers/
 maud/results/*/runs_csv/
 modal_subllm/__pycache__/
+
+# compressed trajectory archives
+*.tar.zst

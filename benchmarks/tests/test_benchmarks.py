@@ -124,7 +124,8 @@ def test_sub_llm_registry_matches_modal_server():
     from llm.sub_llm import SUB_LLMS
     for name, cfg in SUB_LLMS.items():
         if cfg["host"] == "modal":
-            assert serve.MODELS[name]["repo"] == cfg["model"]
+            spec = serve.MODELS[name]
+            assert (spec["lora"]["name"] if "lora" in spec else spec["repo"]) == cfg["model"]   # served model name
             assert hasattr(serve, name)                      # one web endpoint per model
 
 

@@ -9,6 +9,8 @@ build_tools / tool_hints (legal_tools/run_tools.py) and parse_raw_result
   rlm_tool1   + tool 1 (section locator)
   rlm_tool2   + tool 2 (definitions resolver)
   rlm_tool12  + both tools
+  rlm_generic run_rlm_generic: the rlm library's default system prompt, no tools
+              (the effect of the system-prompt customization)
   rlm_<sub>   run_rlm_customized, no tools, llm_query() answered by the small
               sub-LLM <sub> of llm/sub_llm.py (rlm_saul, rlm_mistral, ...);
               rlm_deepseek: the root model itself as sub-LLM, same limits and
@@ -28,7 +30,7 @@ from legal_tools.run_tools import build_tools, tool_hints
 from legal_tools.tools_utils import ToolLog
 from lexglue.tracking import REPO_ROOT
 from llm.config import TEMPERATURE
-from llm.rlm import run_rlm_customized
+from llm.rlm import run_rlm_customized, run_rlm_generic
 from llm.sub_llm import ROOT_OUTPUT_CHARS, SUB_LLMS, public_settings
 from llm.vanila import run_vanilla
 from maud.maud_data_sampling import (
@@ -56,7 +58,7 @@ class Maud(Dataset):
     name = "maud"
     results_root = REPO_ROOT / "maud" / "results"
     default_methods = ("vanilla", "rlm", "rlm_tool1", "rlm_tool2", "rlm_tool12")
-    methods = default_methods + tuple(SUB_LLM_METHODS) + tuple(SUB_LLM_TOOL_METHODS)
+    methods = default_methods + ("rlm_generic",) + tuple(SUB_LLM_METHODS) + tuple(SUB_LLM_TOOL_METHODS)
     source_files = [
         "maud/maud_data_sampling.py", "maud/maud_eval.py", "maud/dicts/question_full_text_map.json",
         "maud/dicts/question_answer_map_unique.json", "legal_tools/run_tools.py",
@@ -101,6 +103,12 @@ class Maud(Dataset):
         if method == "vanilla":
             return run_vanilla("maud_152_samples", item.row_id, item.document, TASK_SPEC=item.task_spec,
                                experiment=experiment, temperature=TEMPERATURE, runs_csv=runs_csv), {}
+        if method == "rlm_generic":
+            return run_rlm_generic(
+                "maud_152_samples", item.row_id, item.document, TASK_SPEC=item.task_spec,
+                experiment=experiment, max_iterations=max_iterations, on_result=on_result,
+                runs_csv=runs_csv, log_dir=log_dir,
+            ), {"tools": [], "system_prompt": "rlm default"}
         if method in SUB_LLM_METHODS:
             response = run_rlm_customized(
                 "maud_152_samples", item.row_id, item.document, TASK_SPEC=item.task_spec,

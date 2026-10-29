@@ -51,6 +51,13 @@ MODELS = {
     # Llama 3.1 8B (llama3 rope scaling in its config) fine-tuned on 260 US court classification tasks;
     # its chat template is the MMLU-style "...\nAnswer:" prompt it was trained on
     "lawma": {"repo": "ricdomolm/lawma-8b", "revision": "3b088a47c72e6ce572c273ba923af14f7dfe40ef"},
+    # RLM root from the RLM authors: a LoRA adapter (attention projections, rank 32) on
+    # Qwen3-30B-A3B-Instruct-2507, trained with the rlm harness; served under the adapter's
+    # name, on an 80 GB GPU (the bf16 base is ~61 GB)
+    "rlm30b": {"repo": "Qwen/Qwen3-30B-A3B-Instruct-2507", "revision": "0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe",
+               "gpu": "H100",
+               "lora": {"repo": "mit-oasys/rlm-qwen3-30b-a3b-v0.1", "revision": "7d72253525f47b1a8c3c4e1059ff88e40232dd2f",
+                        "name": "rlm-qwen3-30b-a3b", "rank": 32}},
 }
 # HF-format files only: no pytorch_model*.bin duplicates, no original/ checkpoints,
 # no mistral-format tokenizer (tokenizer.model.v1), so every model goes through
@@ -58,7 +65,9 @@ MODELS = {
 ALLOW_PATTERNS = [
     "config.json", "generation_config.json", "model.safetensors.index.json", "model-*.safetensors",
     "tokenizer.json", "tokenizer_config.json", "special_tokens_map.json", "tokenizer.model",
+    "vocab.json", "merges.txt",
 ]
+LORA_PATTERNS = ["adapter_config.json", "adapter_model.safetensors"]
 
 app = modal.App(APP_NAME)
 weights = modal.Volume.from_name("rlm-subllm-weights", create_if_missing=True)
@@ -82,8 +91,13 @@ def download(model: str) -> None:
     spec = MODELS[model]
     path = snapshot_download(spec["repo"], revision=spec["revision"], local_dir=f"{MODELS_DIR}/{model}",
                              allow_patterns=ALLOW_PATTERNS, token=os.environ["HF_TOKEN"])
-    weights.commit()
     print(f"{spec['repo']}@{spec['revision'][:10]} -> {path}: {sorted(os.listdir(path))}")
+    lora = spec.get("lora")
+    if lora:
+        path = snapshot_download(lora["repo"], revision=lora["revision"], local_dir=f"{MODELS_DIR}/{model}-lora",
+                                 allow_patterns=LORA_PATTERNS, token=os.environ["HF_TOKEN"])
+        print(f"{lora['repo']}@{lora['revision'][:10]} -> {path}: {sorted(os.listdir(path))}")
+    weights.commit()
 
 
 def _start_vllm(model: str) -> None:
@@ -97,6 +111,10 @@ def _start_vllm(model: str) -> None:
         "--host", "0.0.0.0",
         "--port", str(PORT),
     ]
+    lora = MODELS[model].get("lora")
+    if lora:
+        cmd += ["--enable-lora", "--lora-modules", f"{lora['name']}={MODELS_DIR}/{model}-lora",
+                "--max-lora-rank", str(lora["rank"])]
     subprocess.Popen(cmd)
 
 
@@ -130,4 +148,11 @@ def mistral():
 @modal.web_server(port=PORT, startup_timeout=STARTUP_S, label=f"{APP_NAME}-lawma", requires_proxy_auth=True)
 def lawma():
     _start_vllm("lawma")
+
+
+@app.function(**{**SERVE, "gpu": MODELS["rlm30b"]["gpu"]})
+@modal.concurrent(max_inputs=MAX_INPUTS)
+@modal.web_server(port=PORT, startup_timeout=STARTUP_S, label=f"{APP_NAME}-rlm30b", requires_proxy_auth=True)
+def rlm30b():
+    _start_vllm("rlm30b")
 

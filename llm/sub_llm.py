@@ -51,6 +51,9 @@ SUB_LLMS = {
     "saul": {"host": "modal", "model": "Equall/Saul-7B-Instruct-v1"},
     "mistral": {"host": "modal", "model": "mistralai/Mistral-7B-Instruct-v0.1"},
     "lawma": {"host": "modal", "model": "ricdomolm/lawma-8b"},
+    # RLM-trained Qwen3-30B-A3B (LoRA, served under the adapter's name); also usable as root
+    # (LLM_PROVIDER=modal, MODAL_ROOT=rlm30b)
+    "rlm30b": {"host": "modal", "model": "rlm-qwen3-30b-a3b"},
     # Lawma's control, through OpenRouter (Meta refused the HF download): the only bf16 endpoint, pinned
     "llama": {"host": "openrouter", "model": "meta-llama/llama-3.1-8b-instruct", "provider": "coreweave/bf16"},
     # baseline for a Qwen3-30B-A3B root: the same model as sub-LLM (no reasoning mode)

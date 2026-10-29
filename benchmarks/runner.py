@@ -56,7 +56,7 @@ from lexglue.tracking import (
     utc_now,
 )
 from llm import config as llm_config
-from llm.rlm import run_rlm_customized
+from llm.rlm import run_rlm_customized, run_rlm_generic
 from llm.vanila import run_vanilla
 
 RUN_TIMEOUT_S = 30 * 60
@@ -161,6 +161,7 @@ def prompt_fingerprint(dataset: Dataset) -> dict:
             "REPL_STDOUT_VISIBILITY", "PRESERVE_VALID_ANSWERS", "SUB_LLM_VERIFICATION",
             "SUB_LLM_LIMITS", "SUB_LLM_DELEGATION", "SUB_LLM_OUTPUT_LIMIT")},
         "run_rlm_customized_source": inspect.getsource(run_rlm_customized),
+        "run_rlm_generic_source": inspect.getsource(run_rlm_generic),
         "run_vanilla_source": inspect.getsource(run_vanilla),
     }
     fp = {k: sha256_text(v) for k, v in parts.items()}

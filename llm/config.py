@@ -8,6 +8,9 @@ load_dotenv()
 # "deepseek" (default, local machine via .env) or "local" (vLLM server on the HPC)
 LLM_PROVIDER = os.environ.get('LLM_PROVIDER', 'deepseek').lower()
 
+# extra HTTP headers for the root's client (the Modal proxy token when LLM_PROVIDER=modal)
+DEFAULT_HEADERS = None
+
 if LLM_PROVIDER == 'deepseek':
     API_KEY = os.environ.get('DEEPSEEK_API_KEY')
     BASE_URL = os.environ.get('OPENAI_BASE_URL', 'https://api.deepseek.com')
@@ -39,6 +42,17 @@ elif LLM_PROVIDER == 'openrouter':
             "require_parameters": True,
         },
     }
+elif LLM_PROVIDER == 'modal':
+    # root served by modal_subllm/serve.py: MODAL_ROOT = its key there (e.g. "rlm30b"),
+    # MODEL_NAME = its served model name; same credentials as the Modal sub-LLMs
+    MODAL_ROOT = os.environ['MODAL_ROOT']
+    API_KEY = os.environ['SUBLLM_API_KEY']
+    BASE_URL = (os.environ.get(f'SUBLLM_{MODAL_ROOT.upper()}_URL')
+                or f"https://{os.environ['MODAL_WORKSPACE']}--rlm-subllm-{MODAL_ROOT}.modal.run/v1")
+    MODEL = os.environ['MODEL_NAME']
+    EXTRA_BODY = {}
+    DEFAULT_HEADERS = {"Modal-Key": os.environ['MODAL_PROXY_TOKEN_ID'],
+                       "Modal-Secret": os.environ['MODAL_PROXY_TOKEN_SECRET']}
 elif LLM_PROVIDER == 'local':
     # vLLM checks requests against the key passed to `vllm serve --api-key`
     API_KEY = os.environ.get('OPENAI_API_KEY', 'local')
@@ -46,9 +60,10 @@ elif LLM_PROVIDER == 'local':
     MODEL = os.environ['MODEL_NAME']
     EXTRA_BODY = {}
 else:
-    raise ValueError(f"Unknown LLM_PROVIDER={LLM_PROVIDER!r}, expected 'deepseek', 'openrouter' or 'local'")
+    raise ValueError(f"Unknown LLM_PROVIDER={LLM_PROVIDER!r}, expected 'deepseek', 'openrouter', 'modal' or 'local'")
 
 TEMPERATURE = 0
+
 
 # Root context window enforced client-side (llm/root_window.py), e.g. 32768 to run a
 # 262K-context model as a 32K one; counted with ROOT_TOKENIZER (a Hugging Face repo id)
