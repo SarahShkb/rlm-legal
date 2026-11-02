@@ -1,0 +1,4508 @@
+[
+ {
+  "index": 0,
+  "row_id": "contract_88_0",
+  "contract_name": "contract_88",
+  "question": "Relational language (MAE) applies to",
+  "text_type": "MAE Definition",
+  "status": "not_found",
+  "spans": [],
+  "gold_chars": 0,
+  "contract_chars": 105682,
+  "lbr_file": "maud/Magellan Health, Inc._Centene Corporation.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 1,
+  "row_id": "contract_119_1",
+  "contract_name": "contract_119",
+  "question": "Accuracy of Target Capitalization R&W (outstanding shares): Bringdown Standard Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    51277,
+    51322
+   ],
+   [
+    52048,
+    52087
+   ],
+   [
+    52925,
+    53746
+   ],
+   [
+    56660,
+    56690
+   ],
+   [
+    70807,
+    70849
+   ],
+   [
+    71102,
+    71351
+   ],
+   [
+    104257,
+    104290
+   ],
+   [
+    179713,
+    179790
+   ],
+   [
+    179932,
+    181661
+   ]
+  ],
+  "gold_chars": 3065,
+  "contract_chars": 206215,
+  "lbr_file": "maud/Raven Industries, Inc._CNH Industrial N.V..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 2,
+  "row_id": "contract_6_2",
+  "contract_name": "contract_6",
+  "question": "Compliance with Target Covenant Closing Condition-Answer",
+  "text_type": "Compliance with Covenant Closing Condition",
+  "status": "strict",
+  "spans": [
+   [
+    174245,
+    174440
+   ],
+   [
+    176163,
+    176510
+   ]
+  ],
+  "gold_chars": 542,
+  "contract_chars": 217634,
+  "lbr_file": "maud/Altabancorp_Glacier Bancorp, Inc..txt",
+  "lbr_spans": [
+   [
+    174245,
+    174440
+   ],
+   [
+    176163,
+    176510
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 542,
+   "chars_lbr": 542,
+   "chars_common": 542,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 3,
+  "row_id": "contract_59_3",
+  "contract_name": "contract_59",
+  "question": "Knowledge Definition limited to one or more identified persons-Answer (Y/",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    221825,
+    222021
+   ]
+  ],
+  "gold_chars": 196,
+  "contract_chars": 236804,
+  "lbr_file": "maud/Foundation Building Materials, Inc._American Securities LLC.txt",
+  "lbr_spans": [
+   [
+    221825,
+    222021
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 196,
+   "chars_lbr": 196,
+   "chars_common": 196,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 4,
+  "row_id": "contract_21_4",
+  "contract_name": "contract_21",
+  "question": "General political and/or social conditions:  subject to \"disproportionate impact\" modifier",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    29896,
+    32879
+   ]
+  ],
+  "gold_chars": 2983,
+  "contract_chars": 239582,
+  "lbr_file": "maud/Century Bancorp, Inc._Eastern Bankshares, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 5,
+  "row_id": "contract_112_5",
+  "contract_name": "contract_112",
+  "question": "Type of Consideration-Answer",
+  "text_type": "Type of Consideration",
+  "status": "strict",
+  "spans": [
+   [
+    31313,
+    31726
+   ]
+  ],
+  "gold_chars": 413,
+  "contract_chars": 249544,
+  "lbr_file": "maud/Premier Financial Bancorp, Inc._Peoples Bancorp Inc..txt",
+  "lbr_spans": [
+   [
+    31313,
+    31726
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 413,
+   "chars_lbr": 413,
+   "chars_common": 413,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 6,
+  "row_id": "contract_106_6",
+  "contract_name": "contract_106",
+  "question": "MAE definition includes adverse impact on Target's ability to consummate (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    10396,
+    14274
+   ]
+  ],
+  "gold_chars": 3878,
+  "contract_chars": 243690,
+  "lbr_file": "maud/Pacific Mercantile Bancorp_Banc of California, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 7,
+  "row_id": "contract_43_7",
+  "contract_name": "contract_43",
+  "question": "A/P/C application to-Answer",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    226443,
+    230353
+   ]
+  ],
+  "gold_chars": 3910,
+  "contract_chars": 250142,
+  "lbr_file": "maud/Dicerna_Pharmaceuticals_Inc_Novo_Nordisk_A_S.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 8,
+  "row_id": "contract_138_8",
+  "contract_name": "contract_138",
+  "question": "Relational language (MAE carveout)-Answer (Dropdown)",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    10716,
+    15027
+   ]
+  ],
+  "gold_chars": 4311,
+  "contract_chars": 249259,
+  "lbr_file": "maud/Tribune Publishing Company_Alden Global Capital LLC.txt",
+  "lbr_spans": [
+   [
+    10716,
+    15027
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 4311,
+   "chars_lbr": 4311,
+   "chars_common": 4311,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 9,
+  "row_id": "contract_11_9",
+  "contract_name": "contract_11",
+  "question": "Accuracy of Fundamental Target R&Ws: Bringdown Standard",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    35202,
+    35251
+   ],
+   [
+    39343,
+    39366
+   ],
+   [
+    45700,
+    45736
+   ],
+   [
+    45881,
+    46077
+   ],
+   [
+    46832,
+    47682
+   ],
+   [
+    47807,
+    47920
+   ],
+   [
+    48195,
+    48991
+   ],
+   [
+    57270,
+    57289
+   ],
+   [
+    57791,
+    58499
+   ],
+   [
+    67032,
+    67474
+   ],
+   [
+    223323,
+    225444
+   ]
+  ],
+  "gold_chars": 5353,
+  "contract_chars": 258183,
+  "lbr_file": "maud/Bank of Commerce Holdings_Columbia Banking System, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 10,
+  "row_id": "contract_125_10",
+  "contract_name": "contract_125",
+  "question": "Tail Period Length-Answer",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "ambiguous",
+  "spans": [
+   [
+    4048,
+    4091
+   ],
+   [
+    229053,
+    229077
+   ],
+   [
+    229686,
+    231200
+   ]
+  ],
+  "gold_chars": 1581,
+  "contract_chars": 256364,
+  "lbr_file": "maud/Select_Interior_Concepts_Astro_Stone.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 11,
+  "row_id": "contract_55_11",
+  "contract_name": "contract_55",
+  "question": "Constructive Knowledge-Answer",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    28392,
+    29212
+   ]
+  ],
+  "gold_chars": 820,
+  "contract_chars": 257690,
+  "lbr_file": "maud/Five Prime Therapeutics, Inc._Amgen Inc..txt",
+  "lbr_spans": [
+   [
+    28392,
+    29212
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 820,
+   "chars_lbr": 820,
+   "chars_common": 820,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 12,
+  "row_id": "contract_97_12",
+  "contract_name": "contract_97",
+  "question": "Knowledge persons include Target management (intervening event)",
+  "text_type": "Intervening Event Definition",
+  "status": "strict",
+  "spans": [
+   [
+    158515,
+    158850
+   ]
+  ],
+  "gold_chars": 335,
+  "contract_chars": 258339,
+  "lbr_file": "maud/Navistar International Corporation_TRATON SE.txt",
+  "lbr_spans": [
+   [
+    158515,
+    158850
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 335,
+   "chars_lbr": 335,
+   "chars_common": 335,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 13,
+  "row_id": "contract_32_13",
+  "contract_name": "contract_32",
+  "question": "Negative Interim Covenant includes carveout for pandemic responses-Answer (Y/N)",
+  "text_type": "Negative interim operating covenant",
+  "status": "strict",
+  "spans": [
+   [
+    130129,
+    130988
+   ]
+  ],
+  "gold_chars": 859,
+  "contract_chars": 260491,
+  "lbr_file": "maud/Constellation Pharmaceuticals, Inc._MorphoSys AG.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 14,
+  "row_id": "contract_113_14",
+  "contract_name": "contract_113",
+  "question": "Accuracy of Target \"General\" R&W: Bringdown Standard Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    45909,
+    45956
+   ],
+   [
+    46172,
+    46205
+   ],
+   [
+    47265,
+    47322
+   ],
+   [
+    47637,
+    47766
+   ],
+   [
+    48263,
+    48702
+   ],
+   [
+    253666,
+    253693
+   ],
+   [
+    254937,
+    255441
+   ],
+   [
+    256011,
+    256865
+   ],
+   [
+    256868,
+    257564
+   ]
+  ],
+  "gold_chars": 2786,
+  "contract_chars": 258676,
+  "lbr_file": "maud/Prevail Therapeutics Inc._Eli Lilly and Company.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 15,
+  "row_id": "contract_30_15",
+  "contract_name": "contract_30",
+  "question": "COR permitted with board fiduciary determination only",
+  "text_type": "Fiduciary exception to COR covenant",
+  "status": "strict",
+  "spans": [
+   [
+    138389,
+    138416
+   ],
+   [
+    139026,
+    139681
+   ]
+  ],
+  "gold_chars": 682,
+  "contract_chars": 258300,
+  "lbr_file": "maud/Community Bankers Trust Corporation_United Bankshares, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 16,
+  "row_id": "contract_87_16",
+  "contract_name": "contract_87",
+  "question": "\"Ability to consummate\" concept is subject to MAE carveouts",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    231687,
+    234583
+   ]
+  ],
+  "gold_chars": 2896,
+  "contract_chars": 263274,
+  "lbr_file": "maud/Mackinac Financial Corporation_Nicolet Bankshares, Inc..txt",
+  "lbr_spans": [
+   [
+    231687,
+    234583
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 2896,
+   "chars_lbr": 2896,
+   "chars_common": 2896,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 17,
+  "row_id": "contract_115_17",
+  "contract_name": "contract_115",
+  "question": "Accuracy of Fundamental Target R&Ws-Types of R&Ws",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    67398,
+    67469
+   ],
+   [
+    69246,
+    69285
+   ],
+   [
+    70374,
+    71636
+   ],
+   [
+    72504,
+    72533
+   ],
+   [
+    124382,
+    124415
+   ],
+   [
+    125633,
+    125668
+   ],
+   [
+    202294,
+    203880
+   ]
+  ],
+  "gold_chars": 3055,
+  "contract_chars": 266758,
+  "lbr_file": "maud/Protective Insurance Corporation_The Progressive Corporation.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 18,
+  "row_id": "contract_136_18",
+  "contract_name": "contract_136",
+  "question": "FLS (MAE) Standard-Answer",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    247366,
+    251769
+   ]
+  ],
+  "gold_chars": 4403,
+  "contract_chars": 269415,
+  "lbr_file": "maud/Translate_Bio_Sanofi_SA.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 19,
+  "row_id": "contract_102_19",
+  "contract_name": "contract_102",
+  "question": "Liability for breaches of no-shop by Target Representatives (Y/N)",
+  "text_type": "No-Shop",
+  "status": "strict",
+  "spans": [
+   [
+    160486,
+    160511
+   ],
+   [
+    160651,
+    160840
+   ],
+   [
+    161372,
+    163934
+   ]
+  ],
+  "gold_chars": 2776,
+  "contract_chars": 253598,
+  "lbr_file": "maud/Oaktree_Strategic_Income_Oaktree_Fund_Advisors.txt",
+  "lbr_spans": [
+   [
+    160486,
+    160511
+   ],
+   [
+    160651,
+    160840
+   ],
+   [
+    161372,
+    163934
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 2776,
+   "chars_lbr": 2776,
+   "chars_common": 2776,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 20,
+  "row_id": "contract_124_20",
+  "contract_name": "contract_124",
+  "question": "Acquisition Proposal Timing-Answer",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "pagebreak",
+  "spans": [
+   [
+    206722,
+    206743
+   ],
+   [
+    207149,
+    208189
+   ]
+  ],
+  "gold_chars": 1061,
+  "contract_chars": 267162,
+  "lbr_file": "maud/Select_Bancorp_Inc_First_Bancorp.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 21,
+  "row_id": "contract_78_21",
+  "contract_name": "contract_78",
+  "question": "Initial matching rights period (COR)-Answer",
+  "text_type": "Agreement provides for matching rights in connection with COR",
+  "status": "strict",
+  "spans": [
+   [
+    158813,
+    161807
+   ]
+  ],
+  "gold_chars": 2994,
+  "contract_chars": 276568,
+  "lbr_file": "maud/Kindred Biosciences, Inc._Elanco Animal Health Incorporated.pdf||Kindred_Biosciences_Inc_Elanco_Animal_Health_Incorporated Amendment No.1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 22,
+  "row_id": "contract_83_22",
+  "contract_name": "contract_83",
+  "question": "Includes \"consistent with past practice\"",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    148381,
+    149530
+   ]
+  ],
+  "gold_chars": 1149,
+  "contract_chars": 278246,
+  "lbr_file": "maud/Lydall, Inc._Clearlake Capital Group, L.P..txt",
+  "lbr_spans": [
+   [
+    148381,
+    149530
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1149,
+   "chars_lbr": 1149,
+   "chars_common": 1149,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 23,
+  "row_id": "contract_75_23",
+  "contract_name": "contract_75",
+  "question": "Target stockholder proceedings-Answer (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    253457,
+    258270
+   ]
+  ],
+  "gold_chars": 4813,
+  "contract_chars": 283907,
+  "lbr_file": "maud/Kadmon_Holdings_Sanofi_SA_Merger_Agreement.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 24,
+  "row_id": "contract_65_24",
+  "contract_name": "contract_65",
+  "question": "Changes in GAAP or other accounting principles (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    14327,
+    18417
+   ]
+  ],
+  "gold_chars": 4090,
+  "contract_chars": 261054,
+  "lbr_file": "maud/Goodrich_Petroleum_Corporation_EnCap_Investments_L_P.txt",
+  "lbr_spans": [
+   [
+    14327,
+    18417
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 4090,
+   "chars_lbr": 4090,
+   "chars_common": 4090,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 25,
+  "row_id": "contract_133_25",
+  "contract_name": "contract_133",
+  "question": "Buyer consent requirement (ordinary course)-Answer",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    151739,
+    152864
+   ]
+  ],
+  "gold_chars": 1125,
+  "contract_chars": 279636,
+  "lbr_file": "maud/Telenav, Inc._Management Led Buyout.pdf||Telenav, Inc._Management Led Buyout Amendment No. 1.txt",
+  "lbr_spans": [
+   [
+    151739,
+    152864
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1125,
+   "chars_lbr": 1125,
+   "chars_common": 1125,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 26,
+  "row_id": "contract_47_26",
+  "contract_name": "contract_47",
+  "question": "COR standard (superior offer)",
+  "text_type": "Fiduciary exception to COR covenant",
+  "status": "piecewise",
+  "spans": [
+   [
+    126758,
+    126797
+   ],
+   [
+    134126,
+    134933
+   ],
+   [
+    138536,
+    139086
+   ]
+  ],
+  "gold_chars": 1396,
+  "contract_chars": 259027,
+  "lbr_file": "maud/Echo_Global_Logistics_The_Jordan_Company_L_P.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 27,
+  "row_id": "contract_85_27",
+  "contract_name": "contract_85",
+  "question": "Changes in market price/trading volume of Target's securities or credit rating (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    236446,
+    240292
+   ]
+  ],
+  "gold_chars": 3846,
+  "contract_chars": 286455,
+  "lbr_file": "maud/MSG Networks Inc._Madison Square Garden Entertainment Corp..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 28,
+  "row_id": "contract_127_28",
+  "contract_name": "contract_127",
+  "question": "Absence of Litigation Closing Condition: Pending v. Threatened v. Threatened in Writing-Answer",
+  "text_type": "Absence of Litigation Closing Condition",
+  "status": "strict",
+  "spans": [
+   [
+    53716,
+    53847
+   ],
+   [
+    202767,
+    203074
+   ],
+   [
+    205555,
+    205887
+   ]
+  ],
+  "gold_chars": 770,
+  "contract_chars": 286201,
+  "lbr_file": "maud/Soliton_Inc_Abbvie_Inc.txt",
+  "lbr_spans": [
+   [
+    53716,
+    53847
+   ],
+   [
+    202767,
+    203074
+   ],
+   [
+    205555,
+    205887
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 770,
+   "chars_lbr": 770,
+   "chars_common": 770,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 29,
+  "row_id": "contract_82_29",
+  "contract_name": "contract_82",
+  "question": "W/N/A/F subject to \"disproportionate impact\"-Answer",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    261522,
+    266468
+   ]
+  ],
+  "gold_chars": 4946,
+  "contract_chars": 291404,
+  "lbr_file": "maud/Luminex Corporation_DiaSorin S.p.A..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 30,
+  "row_id": "contract_16_30",
+  "contract_name": "contract_16",
+  "question": "Additional matching rights period for modifications (FTR)-Answer",
+  "text_type": "Agreement provides for matching rights in connection with FTR",
+  "status": "strict",
+  "spans": [
+   [
+    194822,
+    197203
+   ]
+  ],
+  "gold_chars": 2381,
+  "contract_chars": 289862,
+  "lbr_file": "maud/CAI International, Inc._Mitsubishi HC Capital Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 31,
+  "row_id": "contract_141_31",
+  "contract_name": "contract_141",
+  "question": "General Antitrust Efforts Standard-Answer",
+  "text_type": "General Antitrust Efforts Standard",
+  "status": "strict",
+  "spans": [
+   [
+    43360,
+    43517
+   ],
+   [
+    196195,
+    196938
+   ]
+  ],
+  "gold_chars": 900,
+  "contract_chars": 288267,
+  "lbr_file": "maud/Varian Medical Systems, Inc._Siemens Healthineers AG.txt",
+  "lbr_spans": [
+   [
+    43360,
+    43517
+   ],
+   [
+    196195,
+    196938
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 900,
+   "chars_lbr": 900,
+   "chars_common": 900,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 32,
+  "row_id": "contract_39_32",
+  "contract_name": "contract_39",
+  "question": "COR permitted in response to Intervening Event",
+  "text_type": "Fiduciary exception to COR covenant",
+  "status": "strict",
+  "spans": [
+   [
+    170489,
+    170526
+   ],
+   [
+    171614,
+    172261
+   ]
+  ],
+  "gold_chars": 684,
+  "contract_chars": 290417,
+  "lbr_file": "maud/County Bancorp, Inc._Nicolet Bankshares, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 33,
+  "row_id": "contract_64_33",
+  "contract_name": "contract_64",
+  "question": "Specific Performance-Answer",
+  "text_type": "Specific Performance",
+  "status": "strict",
+  "spans": [
+   [
+    243114,
+    243907
+   ]
+  ],
+  "gold_chars": 793,
+  "contract_chars": 296075,
+  "lbr_file": "maud/Glu Mobile Inc._Electronic Arts Inc..txt",
+  "lbr_spans": [
+   [
+    243114,
+    243907
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 793,
+   "chars_lbr": 793,
+   "chars_common": 793,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 34,
+  "row_id": "contract_58_34",
+  "contract_name": "contract_58",
+  "question": "Ordinary Course Covenant includes carve-out for Pandemic responses-Answer (Y/N)",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    130561,
+    131638
+   ]
+  ],
+  "gold_chars": 1077,
+  "contract_chars": 285179,
+  "lbr_file": "maud/Forterra, Inc._Quikrete Holdings, Inc..txt",
+  "lbr_spans": [
+   [
+    130561,
+    131638
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1077,
+   "chars_lbr": 1077,
+   "chars_common": 1077,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 35,
+  "row_id": "contract_130_35",
+  "contract_name": "contract_130",
+  "question": "Ordinary course efforts standard-Answer",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    125378,
+    125972
+   ]
+  ],
+  "gold_chars": 594,
+  "contract_chars": 298750,
+  "lbr_file": "maud/Sykes Enterprises, Incorporated_CREADEV.txt",
+  "lbr_spans": [
+   [
+    125378,
+    125972
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 594,
+   "chars_lbr": 594,
+   "chars_common": 594,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 36,
+  "row_id": "contract_67_36",
+  "contract_name": "contract_67",
+  "question": "Limitations on FTR Exercise-Answer",
+  "text_type": "Limitations on FTR Exercise",
+  "status": "pagebreak",
+  "spans": [
+   [
+    183594,
+    184064
+   ],
+   [
+    185016,
+    185248
+   ],
+   [
+    191362,
+    195264
+   ]
+  ],
+  "gold_chars": 4604,
+  "contract_chars": 298478,
+  "lbr_file": "maud/HMS Holdings Corp._Veritas Capital.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 37,
+  "row_id": "contract_139_37",
+  "contract_name": "contract_139",
+  "question": "Liability standard for no-shop breach by Target Non-D&O Representatives",
+  "text_type": "No-Shop",
+  "status": "pagebreak",
+  "spans": [
+   [
+    184271,
+    186971
+   ],
+   [
+    188281,
+    188617
+   ]
+  ],
+  "gold_chars": 3036,
+  "contract_chars": 298465,
+  "lbr_file": "maud/U.S. Concrete, Inc._Vulcan Materials Company.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 38,
+  "row_id": "contract_14_38",
+  "contract_name": "contract_14",
+  "question": "Tail Period Length-Answer",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "strict",
+  "spans": [
+   [
+    268291,
+    268384
+   ],
+   [
+    270004,
+    270534
+   ]
+  ],
+  "gold_chars": 623,
+  "contract_chars": 304771,
+  "lbr_file": "maud/Boston Private Financial Holdings, Inc._SVB Financial Group.txt",
+  "lbr_spans": [
+   [
+    268291,
+    268384
+   ],
+   [
+    270004,
+    270534
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 623,
+   "chars_lbr": 623,
+   "chars_common": 623,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 39,
+  "row_id": "contract_63_39",
+  "contract_name": "contract_63",
+  "question": "Materiality/MAE Scrape applies to",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    96393,
+    96433
+   ],
+   [
+    101539,
+    102119
+   ],
+   [
+    103050,
+    103129
+   ],
+   [
+    103363,
+    103858
+   ],
+   [
+    104438,
+    104828
+   ],
+   [
+    106508,
+    106859
+   ],
+   [
+    291773,
+    292443
+   ],
+   [
+    293792,
+    294945
+   ],
+   [
+    294952,
+    295678
+   ]
+  ],
+  "gold_chars": 4484,
+  "contract_chars": 298680,
+  "lbr_file": "maud/General Finance Corporation_United Rentals, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 40,
+  "row_id": "contract_96_40",
+  "contract_name": "contract_96",
+  "question": "Matters listed on disclosure schedules-Answer (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    256856,
+    260004
+   ]
+  ],
+  "gold_chars": 3148,
+  "contract_chars": 303799,
+  "lbr_file": "maud/National General Holdings Corp._The Allstate Corporation.txt",
+  "lbr_spans": [
+   [
+    256856,
+    260004
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 3148,
+   "chars_lbr": 3148,
+   "chars_common": 3148,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 41,
+  "row_id": "contract_101_41",
+  "contract_name": "contract_101",
+  "question": "Buyer consent requirement (ordinary course)-Answer",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    125586,
+    126467
+   ],
+   [
+    286077,
+    286195
+   ]
+  ],
+  "gold_chars": 999,
+  "contract_chars": 306479,
+  "lbr_file": "maud/ORBCOMM Inc._GI Partners.txt",
+  "lbr_spans": [
+   [
+    125586,
+    126467
+   ],
+   [
+    286077,
+    286195
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 999,
+   "chars_lbr": 999,
+   "chars_common": 999,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 42,
+  "row_id": "contract_86_42",
+  "contract_name": "contract_86",
+  "question": "Constructive Knowledge-Answer",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    256394,
+    256632
+   ]
+  ],
+  "gold_chars": 238,
+  "contract_chars": 302219,
+  "lbr_file": "maud/MTS Systems Corporation_Amphenol Corporation.txt",
+  "lbr_spans": [
+   [
+    256394,
+    256632
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 238,
+   "chars_lbr": 238,
+   "chars_common": 238,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 43,
+  "row_id": "contract_116_43",
+  "contract_name": "contract_116",
+  "question": "Negative Interim Covenant includes carveout for pandemic responses-Answer (Y/N)",
+  "text_type": "Negative interim operating covenant",
+  "status": "strict",
+  "spans": [
+   [
+    177282,
+    177847
+   ],
+   [
+    178567,
+    178722
+   ]
+  ],
+  "gold_chars": 720,
+  "contract_chars": 305223,
+  "lbr_file": "maud/QAD Inc._Thoma Bravo, L.P..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 44,
+  "row_id": "contract_129_44",
+  "contract_name": "contract_129",
+  "question": "Knowledge Definition-Answer",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    271685,
+    271830
+   ]
+  ],
+  "gold_chars": 145,
+  "contract_chars": 310795,
+  "lbr_file": "maud/Sterling_Bancorp_Webster_Financial_Corporation.txt",
+  "lbr_spans": [
+   [
+    271685,
+    271830
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 145,
+   "chars_lbr": 145,
+   "chars_common": 145,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 45,
+  "row_id": "contract_74_45",
+  "contract_name": "contract_74",
+  "question": "Number of additional matching rights periods for modifications (FTR)",
+  "text_type": "Agreement provides for matching rights in connection with FTR",
+  "status": "strict",
+  "spans": [
+   [
+    167935,
+    167970
+   ],
+   [
+    184903,
+    187685
+   ]
+  ],
+  "gold_chars": 2817,
+  "contract_chars": 307781,
+  "lbr_file": "maud/J_Alexander_s_Holdings_Inc_SPB_Hospitality_LLC.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 46,
+  "row_id": "contract_95_46",
+  "contract_name": "contract_95",
+  "question": "FLS (MAE) Standard-Answer",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    277003,
+    282554
+   ]
+  ],
+  "gold_chars": 5551,
+  "contract_chars": 302893,
+  "lbr_file": "maud/NIC Inc._Tyler Technologies, Inc..txt",
+  "lbr_spans": [
+   [
+    277003,
+    282554
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 5551,
+   "chars_lbr": 5551,
+   "chars_common": 5551,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 47,
+  "row_id": "contract_104_47",
+  "contract_name": "contract_104",
+  "question": "A/P/C application to-Answer",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    264182,
+    268735
+   ]
+  ],
+  "gold_chars": 4553,
+  "contract_chars": 309049,
+  "lbr_file": "maud/PPD, Inc._Thermo Fisher Scientific Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 48,
+  "row_id": "contract_12_48",
+  "contract_name": "contract_12",
+  "question": "Accuracy of Target \"General\" R&W: Bringdown Timing Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    107375,
+    108227
+   ],
+   [
+    111036,
+    111094
+   ],
+   [
+    111332,
+    111633
+   ],
+   [
+    195876,
+    196174
+   ],
+   [
+    302523,
+    303192
+   ],
+   [
+    304135,
+    304734
+   ],
+   [
+    304736,
+    305508
+   ],
+   [
+    305515,
+    306217
+   ]
+  ],
+  "gold_chars": 4251,
+  "contract_chars": 308060,
+  "lbr_file": "maud/BioTelemetry, Inc._Koninklijke Philips N.V..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 49,
+  "row_id": "contract_25_49",
+  "contract_name": "contract_25",
+  "question": "W/N/A/F applies to-Answer",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    258689,
+    261700
+   ]
+  ],
+  "gold_chars": 3011,
+  "contract_chars": 310504,
+  "lbr_file": "maud/Cincinnati Bell Inc._Macquarie Infrastructure and Real Assets.txt",
+  "lbr_spans": [
+   [
+    258689,
+    261700
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 3011,
+   "chars_lbr": 3011,
+   "chars_common": 3011,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 50,
+  "row_id": "contract_146_50",
+  "contract_name": "contract_146",
+  "question": "Accuracy of Target Capitalization R&W (outstanding shares): Bringdown Standard Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "strict",
+  "spans": [
+   [
+    37113,
+    37560
+   ],
+   [
+    42856,
+    42925
+   ],
+   [
+    43198,
+    43334
+   ],
+   [
+    43496,
+    43640
+   ],
+   [
+    44594,
+    44858
+   ],
+   [
+    75606,
+    75644
+   ],
+   [
+    76036,
+    76181
+   ],
+   [
+    223452,
+    225314
+   ]
+  ],
+  "gold_chars": 3105,
+  "contract_chars": 312441,
+  "lbr_file": "maud/W_R_Grace_Co_40_North_Management_LLC.txt",
+  "lbr_spans": [
+   [
+    37113,
+    37560
+   ],
+   [
+    42856,
+    42925
+   ],
+   [
+    43198,
+    43334
+   ],
+   [
+    43496,
+    43640
+   ],
+   [
+    44594,
+    44858
+   ],
+   [
+    75606,
+    75644
+   ],
+   [
+    76036,
+    76181
+   ],
+   [
+    223452,
+    225314
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 3105,
+   "chars_lbr": 3105,
+   "chars_common": 3105,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 51,
+  "row_id": "contract_98_51",
+  "contract_name": "contract_98",
+  "question": "Fiduciary exception:  Board determination standard-Answer (no-shop)",
+  "text_type": "Fiduciary exception:  Board determination (no-shop)",
+  "status": "strict",
+  "spans": [
+   [
+    188862,
+    188928
+   ],
+   [
+    191360,
+    193321
+   ]
+  ],
+  "gold_chars": 2027,
+  "contract_chars": 312316,
+  "lbr_file": "maud/New Senior Investment Group Inc._Ventas, Inc..txt",
+  "lbr_spans": [
+   [
+    188862,
+    188928
+   ],
+   [
+    191360,
+    193321
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 2027,
+   "chars_lbr": 2027,
+   "chars_common": 2027,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 52,
+  "row_id": "contract_3_52",
+  "contract_name": "contract_3",
+  "question": "Type of Consideration-Answer",
+  "text_type": "Type of Consideration",
+  "status": "not_found",
+  "spans": [],
+  "gold_chars": 0,
+  "contract_chars": 312016,
+  "lbr_file": "maud/Aegion Corporation_New Mountain Capital, L.L.C..pdf||Aegion Corporation_New Mountain Capital, L.L.C. Amendments No.1 & 2.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 53,
+  "row_id": "contract_72_53",
+  "contract_name": "contract_72",
+  "question": "Definition contains a materiality standard (Y/N)",
+  "text_type": "Intervening Event Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    36106,
+    37331
+   ]
+  ],
+  "gold_chars": 1225,
+  "contract_chars": 315505,
+  "lbr_file": "maud/Inovalon_Holdings_Management_Led_Buyout.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 54,
+  "row_id": "contract_9_54",
+  "contract_name": "contract_9",
+  "question": "Initial matching rights period (FTR)-Answer",
+  "text_type": "Agreement provides for matching rights in connection with FTR",
+  "status": "piecewise",
+  "spans": [
+   [
+    147411,
+    147447
+   ],
+   [
+    155596,
+    159867
+   ]
+  ],
+  "gold_chars": 4307,
+  "contract_chars": 315030,
+  "lbr_file": "maud/At Home Group Inc._Hellman_Friedman LLC (A&R).txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 55,
+  "row_id": "contract_89_55",
+  "contract_name": "contract_89",
+  "question": "Definition includes stock deals-Answer",
+  "text_type": "Superior Offer Definition",
+  "status": "strict",
+  "spans": [
+   [
+    249088,
+    250052
+   ]
+  ],
+  "gold_chars": 964,
+  "contract_chars": 320624,
+  "lbr_file": "maud/Marlin Business Services Corp._HPS Investment Partners, LLC.txt",
+  "lbr_spans": [
+   [
+    249088,
+    250052
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 964,
+   "chars_lbr": 964,
+   "chars_common": 964,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 56,
+  "row_id": "contract_62_56",
+  "contract_name": "contract_62",
+  "question": "Acquisition Proposal Timing-Answer",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "ambiguous",
+  "spans": [
+   [
+    187529,
+    187551
+   ],
+   [
+    187992,
+    187999
+   ],
+   [
+    188279,
+    188308
+   ],
+   [
+    188821,
+    189185
+   ]
+  ],
+  "gold_chars": 422,
+  "contract_chars": 321753,
+  "lbr_file": "maud/GenMark Diagnostics, Inc._Roche Holding Ltd.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 57,
+  "row_id": "contract_77_57",
+  "contract_name": "contract_77",
+  "question": "Relational language (MAE) applies to",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    55246,
+    58202
+   ],
+   [
+    58238,
+    58463
+   ],
+   [
+    58476,
+    58921
+   ]
+  ],
+  "gold_chars": 3626,
+  "contract_chars": 304581,
+  "lbr_file": "maud/Kentucky_Bancshares_Stock_Yards_Bancorp.txt",
+  "lbr_spans": [
+   [
+    55246,
+    58202
+   ],
+   [
+    58238,
+    58463
+   ],
+   [
+    58476,
+    58921
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 3626,
+   "chars_lbr": 3626,
+   "chars_common": 3626,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 58,
+  "row_id": "contract_110_58",
+  "contract_name": "contract_110",
+  "question": "Specific Performance-Answer",
+  "text_type": "Specific Performance",
+  "status": "strict",
+  "spans": [
+   [
+    313042,
+    314107
+   ]
+  ],
+  "gold_chars": 1065,
+  "contract_chars": 322626,
+  "lbr_file": "maud/Perspecta Inc._Veritas Capital.txt",
+  "lbr_spans": [
+   [
+    313042,
+    314107
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1065,
+   "chars_lbr": 1065,
+   "chars_common": 1065,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 59,
+  "row_id": "contract_36_59",
+  "contract_name": "contract_36",
+  "question": "Accuracy of Fundamental Target R&Ws: Bringdown Standard",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    49366,
+    49415
+   ],
+   [
+    50447,
+    51326
+   ],
+   [
+    229522,
+    232217
+   ]
+  ],
+  "gold_chars": 3623,
+  "contract_chars": 322495,
+  "lbr_file": "maud/CoreLogic, Inc._Investment Group.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 60,
+  "row_id": "contract_18_60",
+  "contract_name": "contract_18",
+  "question": "Acquisition Proposal required to be still pending-Answer (Y/N)",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "ambiguous",
+  "spans": [
+   [
+    283680,
+    283715
+   ],
+   [
+    285130,
+    285162
+   ],
+   [
+    285665,
+    285694
+   ],
+   [
+    286096,
+    286804
+   ]
+  ],
+  "gold_chars": 804,
+  "contract_chars": 318574,
+  "lbr_file": "maud/Cadence Bancorporation_BancorpSouth Bank.pdf||Cadence_Bancorporation_BancorpSouth_Bank_Amendment No.1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 61,
+  "row_id": "contract_69_61",
+  "contract_name": "contract_69",
+  "question": "Fiduciary exception: Board determination trigger (no shop)-Answer",
+  "text_type": "Fiduciary exception:  Board determination (no-shop)",
+  "status": "strict",
+  "spans": [
+   [
+    203588,
+    203642
+   ],
+   [
+    205466,
+    207446
+   ]
+  ],
+  "gold_chars": 2034,
+  "contract_chars": 324177,
+  "lbr_file": "maud/Hill_Rom_Holdings~Baxter_International_Inc.txt",
+  "lbr_spans": [
+   [
+    203588,
+    203642
+   ],
+   [
+    205466,
+    207446
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 2034,
+   "chars_lbr": 2034,
+   "chars_common": 2034,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 62,
+  "row_id": "contract_61_62",
+  "contract_name": "contract_61",
+  "question": "MAE Forward looking standard (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    271948,
+    277497
+   ]
+  ],
+  "gold_chars": 5549,
+  "contract_chars": 323275,
+  "lbr_file": "maud/GP_Strategies_Corp_Learning_Technologies_Group.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 63,
+  "row_id": "contract_137_63",
+  "contract_name": "contract_137",
+  "question": "Number of additional matching rights periods for modifications (COR)",
+  "text_type": "Agreement provides for matching rights in connection with COR",
+  "status": "strict",
+  "spans": [
+   [
+    218525,
+    218580
+   ],
+   [
+    225744,
+    230512
+   ]
+  ],
+  "gold_chars": 4823,
+  "contract_chars": 300372,
+  "lbr_file": "maud/Tremont_Mortgage_Trust_RMR_Mortgage_Trust.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 64,
+  "row_id": "contract_40_64",
+  "contract_name": "contract_40",
+  "question": "General political and/or social conditions (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    17096,
+    22656
+   ]
+  ],
+  "gold_chars": 5560,
+  "contract_chars": 327438,
+  "lbr_file": "maud/Covanta_Holding_Corporation_EQT_Holdings_AB.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 65,
+  "row_id": "contract_107_65",
+  "contract_name": "contract_107",
+  "question": "W/N/A/F subject to \"disproportionate impact\"-Answer",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    12974,
+    16012
+   ]
+  ],
+  "gold_chars": 3038,
+  "contract_chars": 326476,
+  "lbr_file": "maud/Pandion Therapeutics, Inc._Merck _ Co., Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 66,
+  "row_id": "contract_0_66",
+  "contract_name": "contract_0",
+  "question": "Absence of Litigation Closing Condition: Governmental v. Non-Governmental-Answer",
+  "text_type": "Absence of Litigation Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    295165,
+    295665
+   ],
+   [
+    298611,
+    298753
+   ]
+  ],
+  "gold_chars": 642,
+  "contract_chars": 327583,
+  "lbr_file": "maud/Acacia_Communications_Cisco_Systems.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 67,
+  "row_id": "contract_132_67",
+  "contract_name": "contract_132",
+  "question": "Pandemic or other public health event: Specific reference to COVID-19",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    40886,
+    45353
+   ]
+  ],
+  "gold_chars": 4467,
+  "contract_chars": 327981,
+  "lbr_file": "maud/TIFFANY_&_CO._LVMH_MO\u00cbT_HENNESSY-LOUIS_VUITTON.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 68,
+  "row_id": "contract_7_68",
+  "contract_name": "contract_7",
+  "question": "Includes \"consistent with past practice\"",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    141440,
+    142589
+   ],
+   [
+    155090,
+    156343
+   ]
+  ],
+  "gold_chars": 2402,
+  "contract_chars": 331860,
+  "lbr_file": "maud/American_Renal_Associates_Holdings_IRC_Superman_Midco.txt",
+  "lbr_spans": [
+   [
+    141440,
+    142589
+   ],
+   [
+    155090,
+    156343
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 2402,
+   "chars_lbr": 2402,
+   "chars_common": 2402,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 69,
+  "row_id": "contract_15_69",
+  "contract_name": "contract_15",
+  "question": "Ordinary course efforts standard-Answer",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    176196,
+    176751
+   ],
+   [
+    288832,
+    289484
+   ]
+  ],
+  "gold_chars": 1207,
+  "contract_chars": 320979,
+  "lbr_file": "maud/Bryn Mawr Bank Corporation_WSFS Financial Corporation.txt",
+  "lbr_spans": [
+   [
+    176196,
+    176751
+   ],
+   [
+    288832,
+    289484
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1207,
+   "chars_lbr": 1207,
+   "chars_common": 1207,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 70,
+  "row_id": "contract_49_70",
+  "contract_name": "contract_49",
+  "question": "Changes in GAAP or other accounting principles:  subject to \"disproportionate impact\" modifier",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    236885,
+    242835
+   ]
+  ],
+  "gold_chars": 5950,
+  "contract_chars": 331789,
+  "lbr_file": "maud/Endurance International Group Holdings, Inc._Clearlake Capital Group, L.P..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 71,
+  "row_id": "contract_48_71",
+  "contract_name": "contract_48",
+  "question": "Definition includes asset deals-Answer",
+  "text_type": "Superior Offer Definition",
+  "status": "strict",
+  "spans": [
+   [
+    297968,
+    299324
+   ]
+  ],
+  "gold_chars": 1356,
+  "contract_chars": 331151,
+  "lbr_file": "maud/Eidos Therapeutics, Inc._BridgeBio Pharma, Inc..txt",
+  "lbr_spans": [
+   [
+    297968,
+    299324
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1356,
+   "chars_lbr": 1356,
+   "chars_common": 1356,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 72,
+  "row_id": "contract_4_72",
+  "contract_name": "contract_4",
+  "question": "General Antitrust Efforts Standard-Answer",
+  "text_type": "General Antitrust Efforts Standard",
+  "status": "strict",
+  "spans": [
+   [
+    249280,
+    250087
+   ]
+  ],
+  "gold_chars": 807,
+  "contract_chars": 337047,
+  "lbr_file": "maud/Alaska Communications Systems Group, Inc._Investment Group.txt",
+  "lbr_spans": [
+   [
+    249280,
+    250087
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 807,
+   "chars_lbr": 807,
+   "chars_common": 807,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 73,
+  "row_id": "contract_93_73",
+  "contract_name": "contract_93",
+  "question": "Buyer consent requirement (negative interim covenant)-Answer",
+  "text_type": "Negative interim operating covenant",
+  "status": "strict",
+  "spans": [
+   [
+    181035,
+    181073
+   ],
+   [
+    181794,
+    182095
+   ]
+  ],
+  "gold_chars": 339,
+  "contract_chars": 338697,
+  "lbr_file": "maud/Meridian Bancorp, Inc._Independent Bank Corp..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 74,
+  "row_id": "contract_144_74",
+  "contract_name": "contract_144",
+  "question": "Compliance with Target Covenant Closing Condition-Answer",
+  "text_type": "Compliance with Covenant Closing Condition",
+  "status": "strict",
+  "spans": [
+   [
+    255861,
+    256026
+   ],
+   [
+    257776,
+    258027
+   ]
+  ],
+  "gold_chars": 416,
+  "contract_chars": 341128,
+  "lbr_file": "maud/Virtusa Corporation_Baring Private Equity Asia.txt",
+  "lbr_spans": [
+   [
+    255861,
+    256026
+   ],
+   [
+    257776,
+    258027
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 416,
+   "chars_lbr": 416,
+   "chars_common": 416,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 75,
+  "row_id": "contract_122_75",
+  "contract_name": "contract_122",
+  "question": "Accuracy of Fundamental Target R&Ws-Types of R&Ws",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    38675,
+    38729
+   ],
+   [
+    42411,
+    42431
+   ],
+   [
+    46456,
+    46550
+   ],
+   [
+    47337,
+    47623
+   ],
+   [
+    49400,
+    49444
+   ],
+   [
+    50030,
+    50156
+   ],
+   [
+    51154,
+    51572
+   ],
+   [
+    52563,
+    52596
+   ],
+   [
+    124040,
+    124064
+   ],
+   [
+    125712,
+    125726
+   ],
+   [
+    249084,
+    251016
+   ],
+   [
+    251020,
+    251558
+   ],
+   [
+    251588,
+    251851
+   ]
+  ],
+  "gold_chars": 3846,
+  "contract_chars": 343451,
+  "lbr_file": "maud/RigNet, Inc._Viasat, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 76,
+  "row_id": "contract_22_76",
+  "contract_name": "contract_22",
+  "question": "Additional matching rights period for modifications (COR)-Answer",
+  "text_type": "Agreement provides for matching rights in connection with COR",
+  "status": "piecewise",
+  "spans": [
+   [
+    159762,
+    159819
+   ],
+   [
+    167386,
+    167471
+   ],
+   [
+    169531,
+    172737
+   ]
+  ],
+  "gold_chars": 3348,
+  "contract_chars": 342657,
+  "lbr_file": "maud/Change Healthcare Inc._UnitedHealth Group Incorporated.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 77,
+  "row_id": "contract_114_77",
+  "contract_name": "contract_114",
+  "question": "Pandemic or other public health event: specific reference to pandemic-related governmental responses or measures",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    311008,
+    315785
+   ]
+  ],
+  "gold_chars": 4777,
+  "contract_chars": 344629,
+  "lbr_file": "maud/Proofpoint, Inc._Thoma Bravo, L.P..txt",
+  "lbr_spans": [
+   [
+    311008,
+    315785
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 4777,
+   "chars_lbr": 4777,
+   "chars_common": 4777,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 78,
+  "row_id": "contract_71_78",
+  "contract_name": "contract_71",
+  "question": "Definition includes asset deals-Answer",
+  "text_type": "Superior Offer Definition",
+  "status": "anchored",
+  "spans": [
+   [
+    9715,
+    11806
+   ],
+   [
+    44346,
+    44561
+   ],
+   [
+    45675,
+    47232
+   ]
+  ],
+  "gold_chars": 3863,
+  "contract_chars": 337580,
+  "lbr_file": "maud/Iconix_Brand_Group_Lancer Capital.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 79,
+  "row_id": "contract_45_79",
+  "contract_name": "contract_45",
+  "question": "Announcement, pendency or consummation of deal (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    15866,
+    20519
+   ]
+  ],
+  "gold_chars": 4653,
+  "contract_chars": 347590,
+  "lbr_file": "maud/Domtar Corporation_Paper Excellence Canada Group.txt",
+  "lbr_spans": [
+   [
+    15866,
+    20519
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 4653,
+   "chars_lbr": 4653,
+   "chars_common": 4653,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 80,
+  "row_id": "contract_60_80",
+  "contract_name": "contract_60",
+  "question": "Liability standard for no-shop breach by Target Non-D&O Representatives",
+  "text_type": "No-Shop",
+  "status": "strict",
+  "spans": [
+   [
+    168658,
+    169824
+   ]
+  ],
+  "gold_chars": 1166,
+  "contract_chars": 342622,
+  "lbr_file": "maud/Front Yard Residential Corporation_Investment Group.pdf||Front Yard Residential Corporation Investment Group Amendment No. 1.txt",
+  "lbr_spans": [
+   [
+    168658,
+    169824
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1166,
+   "chars_lbr": 1166,
+   "chars_common": 1166,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 81,
+  "row_id": "contract_131_81",
+  "contract_name": "contract_131",
+  "question": "Breach of Meeting Covenant required to be willful, material and/or intentional",
+  "text_type": "Breach of Meeting Covenant",
+  "status": "strict",
+  "spans": [
+   [
+    220374,
+    220412
+   ],
+   [
+    273047,
+    273102
+   ],
+   [
+    275638,
+    275760
+   ],
+   [
+    276473,
+    276554
+   ],
+   [
+    277809,
+    277841
+   ],
+   [
+    281093,
+    281277
+   ]
+  ],
+  "gold_chars": 512,
+  "contract_chars": 357753,
+  "lbr_file": "maud/TCF Financial Corporation_Huntington Bancshares Incorporated.txt",
+  "lbr_spans": [
+   [
+    220374,
+    220412
+   ],
+   [
+    273047,
+    273102
+   ],
+   [
+    275638,
+    275760
+   ],
+   [
+    276473,
+    276554
+   ],
+   [
+    277809,
+    277841
+   ],
+   [
+    281093,
+    281277
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 512,
+   "chars_lbr": 512,
+   "chars_common": 512,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 82,
+  "row_id": "contract_52_82",
+  "contract_name": "contract_52",
+  "question": "Negative Interim Covenant includes carveout for pandemic responses-Answer (Y/N)",
+  "text_type": "Negative interim operating covenant",
+  "status": "strict",
+  "spans": [
+   [
+    170384,
+    170512
+   ],
+   [
+    170652,
+    170863
+   ],
+   [
+    171026,
+    171120
+   ]
+  ],
+  "gold_chars": 433,
+  "contract_chars": 348378,
+  "lbr_file": "maud/FLIR Systems, Inc._Teledyne Technologies Incorporated.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 83,
+  "row_id": "contract_1_83",
+  "contract_name": "contract_1",
+  "question": "Absence of Litigation Closing Condition: Governmental v. Non-Governmental-Answer",
+  "text_type": "Absence of Litigation Closing Condition",
+  "status": "strict",
+  "spans": [
+   [
+    283060,
+    283086
+   ],
+   [
+    283213,
+    283802
+   ],
+   [
+    285316,
+    285443
+   ]
+  ],
+  "gold_chars": 742,
+  "contract_chars": 333768,
+  "lbr_file": "maud/Acceleron_Pharma_Inc_Merck_Co.txt",
+  "lbr_spans": [
+   [
+    283060,
+    283086
+   ],
+   [
+    283213,
+    283802
+   ],
+   [
+    285316,
+    285443
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 742,
+   "chars_lbr": 742,
+   "chars_common": 742,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 84,
+  "row_id": "contract_103_84",
+  "contract_name": "contract_103",
+  "question": "Application of Buyer consent requirement (negative interim covenant)-Answer",
+  "text_type": "Negative interim operating covenant",
+  "status": "strict",
+  "spans": [
+   [
+    150005,
+    150606
+   ],
+   [
+    151947,
+    152293
+   ]
+  ],
+  "gold_chars": 947,
+  "contract_chars": 340637,
+  "lbr_file": "maud/PNM Resources, Inc._Avangrid, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 85,
+  "row_id": "contract_142_85",
+  "contract_name": "contract_142",
+  "question": "Constructive Knowledge-Answer",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    314527,
+    315228
+   ]
+  ],
+  "gold_chars": 701,
+  "contract_chars": 352305,
+  "lbr_file": "maud/Viela Bio, Inc._Horizon Therapeutics Public Limited Company.txt",
+  "lbr_spans": [
+   [
+    314527,
+    315228
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 701,
+   "chars_lbr": 701,
+   "chars_common": 701,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 86,
+  "row_id": "contract_35_86",
+  "contract_name": "contract_35",
+  "question": "FTR Triggers-Answer",
+  "text_type": "FTR Triggers",
+  "status": "strict",
+  "spans": [
+   [
+    267789,
+    267814
+   ],
+   [
+    272002,
+    272769
+   ]
+  ],
+  "gold_chars": 792,
+  "contract_chars": 350474,
+  "lbr_file": "maud/Core-Mark Holding Company, Inc._Performance Food Group Company.txt",
+  "lbr_spans": [
+   [
+    267789,
+    267814
+   ],
+   [
+    272002,
+    272769
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 792,
+   "chars_lbr": 792,
+   "chars_common": 792,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 87,
+  "row_id": "contract_135_87",
+  "contract_name": "contract_135",
+  "question": "Accuracy of Fundamental Target R&Ws: Bringdown Standard",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "strict",
+  "spans": [
+   [
+    61170,
+    61203
+   ],
+   [
+    62312,
+    63507
+   ],
+   [
+    63744,
+    65572
+   ],
+   [
+    281823,
+    284153
+   ]
+  ],
+  "gold_chars": 5386,
+  "contract_chars": 348781,
+  "lbr_file": "maud/The_ExOne_Company~Desktop_Metal.txt",
+  "lbr_spans": [
+   [
+    61170,
+    61203
+   ],
+   [
+    62312,
+    63507
+   ],
+   [
+    63744,
+    65572
+   ],
+   [
+    281823,
+    284153
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 5386,
+   "chars_lbr": 5386,
+   "chars_common": 5386,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 88,
+  "row_id": "contract_29_88",
+  "contract_name": "contract_29",
+  "question": "Specific Performance-Answer",
+  "text_type": "Specific Performance",
+  "status": "strict",
+  "spans": [
+   [
+    259887,
+    260524
+   ]
+  ],
+  "gold_chars": 637,
+  "contract_chars": 316347,
+  "lbr_file": "maud/Columbia_Property_Pacific_Investment_Management.txt",
+  "lbr_spans": [
+   [
+    259887,
+    260524
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 637,
+   "chars_lbr": 637,
+   "chars_common": 637,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 89,
+  "row_id": "contract_149_89",
+  "contract_name": "contract_149",
+  "question": "Changes in Target's industry (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "not_found",
+  "spans": [],
+  "gold_chars": 0,
+  "contract_chars": 355834,
+  "lbr_file": "maud/Weingarten Realty Investors_Kimco Realty Corporation.txt",
+  "lbr_spans": [
+   [
+    333008,
+    338072
+   ]
+  ],
+  "lbr_overlap": null
+ },
+ {
+  "index": 90,
+  "row_id": "contract_148_90",
+  "contract_name": "contract_148",
+  "question": "FLS (MAE) applies to",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    333008,
+    338072
+   ]
+  ],
+  "gold_chars": 5064,
+  "contract_chars": 355834,
+  "lbr_file": "maud/Weingarten Realty Investors_Kimco Realty Corporation.txt",
+  "lbr_spans": [
+   [
+    333008,
+    338072
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 5064,
+   "chars_lbr": 5064,
+   "chars_common": 5064,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 91,
+  "row_id": "contract_28_91",
+  "contract_name": "contract_28",
+  "question": "Type of Consideration-Answer",
+  "text_type": "Type of Consideration",
+  "status": "piecewise",
+  "spans": [
+   [
+    6361,
+    6779
+   ],
+   [
+    45842,
+    45928
+   ],
+   [
+    87979,
+    88585
+   ]
+  ],
+  "gold_chars": 1110,
+  "contract_chars": 352714,
+  "lbr_file": "maud/Collectors Universe, Inc._Investment Group.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 92,
+  "row_id": "contract_53_92",
+  "contract_name": "contract_53",
+  "question": "Accuracy of Target Capitalization R&W (outstanding shares): Bringdown Standard Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "not_found",
+  "spans": [],
+  "gold_chars": 0,
+  "contract_chars": 355264,
+  "lbr_file": "maud/Ferro Corporation_American Securities LLC.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 93,
+  "row_id": "contract_13_93",
+  "contract_name": "contract_13",
+  "question": "Accuracy of Fundamental Target R&Ws-Types of R&Ws",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    68210,
+    68242
+   ],
+   [
+    73104,
+    73921
+   ],
+   [
+    75812,
+    75880
+   ],
+   [
+    76703,
+    77412
+   ],
+   [
+    77423,
+    77571
+   ],
+   [
+    78343,
+    78474
+   ],
+   [
+    171342,
+    171377
+   ],
+   [
+    302131,
+    304227
+   ]
+  ],
+  "gold_chars": 4036,
+  "contract_chars": 360929,
+  "lbr_file": "maud/Boingo Wireless, Inc._Digital Colony Partners, LP.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 94,
+  "row_id": "contract_143_94",
+  "contract_name": "contract_143",
+  "question": "A/P/C application to-Answer",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    336639,
+    342068
+   ]
+  ],
+  "gold_chars": 5429,
+  "contract_chars": 356049,
+  "lbr_file": "maud/Vine_Energy_Inc_Chesapeake_Energy.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 95,
+  "row_id": "contract_90_95",
+  "contract_name": "contract_90",
+  "question": "Relational language (MAE carveout)-Answer (Dropdown)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    321256,
+    324636
+   ]
+  ],
+  "gold_chars": 3380,
+  "contract_chars": 359418,
+  "lbr_file": "maud/Maxim Integrated Products, Inc._Analog Devices, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 96,
+  "row_id": "contract_134_96",
+  "contract_name": "contract_134",
+  "question": "Acquisition Proposal required to be publicly disclosed-Answer",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "strict",
+  "spans": [
+   [
+    318395,
+    318420
+   ],
+   [
+    318608,
+    318646
+   ],
+   [
+    319131,
+    319150
+   ],
+   [
+    319519,
+    319548
+   ],
+   [
+    319842,
+    320206
+   ]
+  ],
+  "gold_chars": 475,
+  "contract_chars": 356639,
+  "lbr_file": "maud/The Michaels Companies, Inc._Apollo Global Management, LLC.txt",
+  "lbr_spans": [
+   [
+    318395,
+    318420
+   ],
+   [
+    318608,
+    318646
+   ],
+   [
+    319131,
+    319150
+   ],
+   [
+    319519,
+    319548
+   ],
+   [
+    319842,
+    320206
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 475,
+   "chars_lbr": 475,
+   "chars_common": 475,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 97,
+  "row_id": "contract_31_97",
+  "contract_name": "contract_31",
+  "question": "Accuracy of Target \"General\" R&W: Bringdown Timing Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    47249,
+    47556
+   ],
+   [
+    50178,
+    50784
+   ],
+   [
+    57809,
+    58122
+   ],
+   [
+    273863,
+    275646
+   ],
+   [
+    275650,
+    276460
+   ]
+  ],
+  "gold_chars": 3819,
+  "contract_chars": 360546,
+  "lbr_file": "maud/Concho Resources Inc._ConocoPhillips.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 98,
+  "row_id": "contract_17_98",
+  "contract_name": "contract_17",
+  "question": "FLS (MAE) Standard-Answer",
+  "text_type": "MAE Definition",
+  "status": "anchored",
+  "spans": [
+   [
+    50204,
+    53065
+   ]
+  ],
+  "gold_chars": 2861,
+  "contract_chars": 355777,
+  "lbr_file": "maud/CIT Group Inc._First Citizens BancShares, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 99,
+  "row_id": "contract_80_99",
+  "contract_name": "contract_80",
+  "question": "Tail Period Length-Answer",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "pagebreak",
+  "spans": [
+   [
+    262693,
+    262746
+   ],
+   [
+    263452,
+    263546
+   ],
+   [
+    264198,
+    264605
+   ]
+  ],
+  "gold_chars": 554,
+  "contract_chars": 336987,
+  "lbr_file": "maud/Leaf Group Ltd._Graham Holdings Company.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 100,
+  "row_id": "contract_117_100",
+  "contract_name": "contract_117",
+  "question": "Ordinary course efforts standard-Answer",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    171669,
+    172343
+   ],
+   [
+    345926,
+    346099
+   ]
+  ],
+  "gold_chars": 847,
+  "contract_chars": 361026,
+  "lbr_file": "maud/QEP Resources, Inc._Diamondback Energy, Inc..txt",
+  "lbr_spans": [
+   [
+    171669,
+    172343
+   ],
+   [
+    345926,
+    346099
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 847,
+   "chars_lbr": 847,
+   "chars_common": 847,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 101,
+  "row_id": "contract_56_101",
+  "contract_name": "contract_56",
+  "question": "COR permitted in response to Intervening Event",
+  "text_type": "Fiduciary exception to COR covenant",
+  "status": "piecewise",
+  "spans": [
+   [
+    256488,
+    259188
+   ]
+  ],
+  "gold_chars": 2700,
+  "contract_chars": 345119,
+  "lbr_file": "maud/Flagstar Bancorp, Inc._New York Community Bancorp, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 102,
+  "row_id": "contract_26_102",
+  "contract_name": "contract_26",
+  "question": "Materiality/MAE Scrape applies to",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    95003,
+    95042
+   ],
+   [
+    95806,
+    95857
+   ],
+   [
+    99001,
+    99061
+   ],
+   [
+    103268,
+    103302
+   ],
+   [
+    120190,
+    120218
+   ],
+   [
+    120514,
+    120581
+   ],
+   [
+    169532,
+    169581
+   ],
+   [
+    309878,
+    312999
+   ]
+  ],
+  "gold_chars": 3449,
+  "contract_chars": 369677,
+  "lbr_file": "maud/Cloudera, Inc._Investment Group.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 103,
+  "row_id": "contract_37_103",
+  "contract_name": "contract_37",
+  "question": "Relational language (MAE) applies to",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    275339,
+    279918
+   ]
+  ],
+  "gold_chars": 4579,
+  "contract_chars": 334239,
+  "lbr_file": "maud/CoreSite_Realty_Corporation_American_Tower_Corporation.txt",
+  "lbr_spans": [
+   [
+    275339,
+    279918
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 4579,
+   "chars_lbr": 4579,
+   "chars_common": 4579,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 104,
+  "row_id": "contract_120_104",
+  "contract_name": "contract_120",
+  "question": "Knowledge Definition limited to one or more identified persons-Answer (Y/",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    39213,
+    39493
+   ]
+  ],
+  "gold_chars": 280,
+  "contract_chars": 373984,
+  "lbr_file": "maud/RealPage, Inc._Thoma Bravo, L.P..txt",
+  "lbr_spans": [
+   [
+    39213,
+    39493
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 280,
+   "chars_lbr": 280,
+   "chars_common": 280,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 105,
+  "row_id": "contract_151_105",
+  "contract_name": "contract_151",
+  "question": "Buyer consent requirement (ordinary course)-Answer",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    68903,
+    69035
+   ],
+   [
+    236424,
+    236883
+   ],
+   [
+    236955,
+    237032
+   ]
+  ],
+  "gold_chars": 668,
+  "contract_chars": 374403,
+  "lbr_file": "maud/Zix_Corporation_Open_Text_Corporation.txt",
+  "lbr_spans": [
+   [
+    68903,
+    69035
+   ],
+   [
+    236424,
+    236883
+   ],
+   [
+    236955,
+    237032
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 668,
+   "chars_lbr": 668,
+   "chars_common": 668,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 106,
+  "row_id": "contract_123_106",
+  "contract_name": "contract_123",
+  "question": "General Antitrust Efforts Standard-Answer",
+  "text_type": "General Antitrust Efforts Standard",
+  "status": "piecewise",
+  "spans": [
+   [
+    199810,
+    200331
+   ],
+   [
+    201262,
+    201677
+   ],
+   [
+    203652,
+    204042
+   ],
+   [
+    205653,
+    207145
+   ]
+  ],
+  "gold_chars": 2818,
+  "contract_chars": 380169,
+  "lbr_file": "maud/SEACOR Holdings Inc._American Industrial Partners.pdf||SEACOR_Holdings_Inc_American_Industrial_Partners Amendment No.1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 107,
+  "row_id": "contract_50_107",
+  "contract_name": "contract_50",
+  "question": "Knowledge Definition-Answer",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    330205,
+    330458
+   ]
+  ],
+  "gold_chars": 253,
+  "contract_chars": 378575,
+  "lbr_file": "maud/Extended Stay America, Inc._Investment Group.pdf||Extended Stay America, Inc._Investment Group Amendment No. 1.txt",
+  "lbr_spans": [
+   [
+    330205,
+    330458
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 253,
+   "chars_lbr": 253,
+   "chars_common": 253,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 108,
+  "row_id": "contract_19_108",
+  "contract_name": "contract_19",
+  "question": "Accuracy of Target \"General\" R&W: Bringdown Standard Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    55408,
+    55450
+   ],
+   [
+    58703,
+    58806
+   ],
+   [
+    61577,
+    61896
+   ],
+   [
+    83817,
+    84100
+   ],
+   [
+    104964,
+    105015
+   ],
+   [
+    105927,
+    105963
+   ],
+   [
+    115095,
+    115137
+   ],
+   [
+    118568,
+    119105
+   ],
+   [
+    277775,
+    279630
+   ],
+   [
+    279632,
+    280489
+   ]
+  ],
+  "gold_chars": 4125,
+  "contract_chars": 381032,
+  "lbr_file": "maud/Cantel Medical Corp._STERIS plc.pdf||Cantel Medical Corp._STERIS plc. Amendment No. 1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 109,
+  "row_id": "contract_91_109",
+  "contract_name": "contract_91",
+  "question": "Actions taken with consent or approval of Buyer-Answer (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    18731,
+    27441
+   ]
+  ],
+  "gold_chars": 8710,
+  "contract_chars": 381136,
+  "lbr_file": "maud/Medallia_Inc_Thoma_Bravo_L_P.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 110,
+  "row_id": "contract_128_110",
+  "contract_name": "contract_128",
+  "question": "Target's securities or credit rating: subject to \"disproportionate impact\" modifier",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    18464,
+    24978
+   ]
+  ],
+  "gold_chars": 6514,
+  "contract_chars": 386214,
+  "lbr_file": "maud/Stamps_com_Inc_Thoma_Bravo_L_P.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 111,
+  "row_id": "contract_99_111",
+  "contract_name": "contract_99",
+  "question": "General economic and financial conditions (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    308129,
+    313939
+   ]
+  ],
+  "gold_chars": 5810,
+  "contract_chars": 387394,
+  "lbr_file": "maud/New_Home_Co_Apollo_Global_Management.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 112,
+  "row_id": "contract_34_112",
+  "contract_name": "contract_34",
+  "question": "Initial matching rights period (FTR)-Answer",
+  "text_type": "Agreement provides for matching rights in connection with FTR",
+  "status": "not_found",
+  "spans": [],
+  "gold_chars": 0,
+  "contract_chars": 390173,
+  "lbr_file": "maud/Cooper Tire _ Rubber Company_The Goodyear Tire _ Rubber Company.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 113,
+  "row_id": "contract_126_113",
+  "contract_name": "contract_126",
+  "question": "Intervening Event - Required to Occur After Signing - answer",
+  "text_type": "Intervening Event Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    219798,
+    221168
+   ]
+  ],
+  "gold_chars": 1370,
+  "contract_chars": 384954,
+  "lbr_file": "maud/Slack Technologies, Inc._salesforce.com, inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 114,
+  "row_id": "contract_42_114",
+  "contract_name": "contract_42",
+  "question": "Relational language (MAE carveout)-Answer (Dropdown)",
+  "text_type": "MAE Definition",
+  "status": "piecewise",
+  "spans": [
+   [
+    16293,
+    21465
+   ],
+   [
+    22729,
+    23317
+   ]
+  ],
+  "gold_chars": 5760,
+  "contract_chars": 385553,
+  "lbr_file": "maud/DSP_Group_Synaptics_Incorporated.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 115,
+  "row_id": "contract_79_115",
+  "contract_name": "contract_79",
+  "question": "Accuracy of Fundamental Target R&Ws: Bringdown Standard",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    52473,
+    52521
+   ],
+   [
+    54113,
+    54139
+   ],
+   [
+    59094,
+    59305
+   ],
+   [
+    59763,
+    60475
+   ],
+   [
+    69822,
+    69867
+   ],
+   [
+    116153,
+    116177
+   ],
+   [
+    308753,
+    309748
+   ],
+   [
+    309752,
+    310595
+   ]
+  ],
+  "gold_chars": 2904,
+  "contract_chars": 392258,
+  "lbr_file": "maud/Knoll_Inc_Herman_Miller_Inc.pdf.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 116,
+  "row_id": "contract_100_116",
+  "contract_name": "contract_100",
+  "question": "\"Financial point of view\" is the sole consideration",
+  "text_type": "Superior Offer Definition",
+  "status": "strict",
+  "spans": [
+   [
+    53578,
+    54663
+   ]
+  ],
+  "gold_chars": 1085,
+  "contract_chars": 372424,
+  "lbr_file": "maud/Nuance Communications, Inc._Microsoft Corporation.txt",
+  "lbr_spans": [
+   [
+    53578,
+    54663
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1085,
+   "chars_lbr": 1085,
+   "chars_common": 1085,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 117,
+  "row_id": "contract_109_117",
+  "contract_name": "contract_109",
+  "question": "Acquisition Proposal required to be publicly disclosed-Answer (Y/N)",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "ambiguous",
+  "spans": [
+   [
+    315393,
+    315423
+   ],
+   [
+    316775,
+    316801
+   ],
+   [
+    317330,
+    317359
+   ],
+   [
+    317740,
+    318299
+   ]
+  ],
+  "gold_chars": 644,
+  "contract_chars": 388601,
+  "lbr_file": "maud/People_s United Financial, Inc._M_T Bank Corporation.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 118,
+  "row_id": "contract_70_118",
+  "contract_name": "contract_70",
+  "question": "Accuracy of Target Capitalization R&W (outstanding shares): Bringdown Standard Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    67651,
+    68134
+   ],
+   [
+    71735,
+    71755
+   ],
+   [
+    72625,
+    72653
+   ],
+   [
+    84468,
+    85109
+   ],
+   [
+    101295,
+    101336
+   ],
+   [
+    137784,
+    137815
+   ],
+   [
+    326130,
+    327283
+   ],
+   [
+    328554,
+    330890
+   ]
+  ],
+  "gold_chars": 4733,
+  "contract_chars": 393285,
+  "lbr_file": "maud/IEC_Electronics_Corp_Lindsay_Goldberg_LLC.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 119,
+  "row_id": "contract_41_119",
+  "contract_name": "contract_41",
+  "question": "Buyer consent requirement (negative interim covenant)-Answer",
+  "text_type": "Negative interim operating covenant",
+  "status": "strict",
+  "spans": [
+   [
+    164132,
+    164755
+   ]
+  ],
+  "gold_chars": 623,
+  "contract_chars": 398140,
+  "lbr_file": "maud/Cubic Corporation_Investment Group.pdf||Cubic_Corporation_Investment_Group_Amendment No.1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 120,
+  "row_id": "contract_23_120",
+  "contract_name": "contract_23",
+  "question": "W/N/A/F subject to \"disproportionate impact\"-Answer",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    32260,
+    36581
+   ]
+  ],
+  "gold_chars": 4321,
+  "contract_chars": 399269,
+  "lbr_file": "maud/Chiasma, Inc._Amryt Pharma plc.txt",
+  "lbr_spans": [
+   [
+    32260,
+    36581
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 4321,
+   "chars_lbr": 4321,
+   "chars_common": 4321,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 121,
+  "row_id": "contract_54_121",
+  "contract_name": "contract_54",
+  "question": "Compliance with Target Covenant Closing Condition-Answer",
+  "text_type": "Compliance with Covenant Closing Condition",
+  "status": "strict",
+  "spans": [
+   [
+    295762,
+    296002
+   ],
+   [
+    296905,
+    297433
+   ]
+  ],
+  "gold_chars": 768,
+  "contract_chars": 411373,
+  "lbr_file": "maud/First Choice Bancorp_Enterprise Financial Services Corp.txt",
+  "lbr_spans": [
+   [
+    295762,
+    296002
+   ],
+   [
+    296905,
+    297433
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 768,
+   "chars_lbr": 768,
+   "chars_common": 768,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 122,
+  "row_id": "contract_2_122",
+  "contract_name": "contract_2",
+  "question": "General Antitrust Efforts Standard-Answer",
+  "text_type": "General Antitrust Efforts Standard",
+  "status": "strict",
+  "spans": [
+   [
+    189350,
+    190683
+   ]
+  ],
+  "gold_chars": 1333,
+  "contract_chars": 402375,
+  "lbr_file": "maud/Adamas_Pharmaceuticals_Supernus_Pharmaceuticals.txt",
+  "lbr_spans": [
+   [
+    189350,
+    190683
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1333,
+   "chars_lbr": 1333,
+   "chars_common": 1333,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 123,
+  "row_id": "contract_150_123",
+  "contract_name": "contract_150",
+  "question": "Tail Period Length-Answer",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "strict",
+  "spans": [
+   [
+    317877,
+    317907
+   ],
+   [
+    319050,
+    319092
+   ],
+   [
+    320094,
+    320873
+   ]
+  ],
+  "gold_chars": 851,
+  "contract_chars": 408805,
+  "lbr_file": "maud/Xilinx, Inc._Advanced Micro Devices, Inc..txt",
+  "lbr_spans": [
+   [
+    317877,
+    317907
+   ],
+   [
+    319050,
+    319092
+   ],
+   [
+    320094,
+    320873
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 851,
+   "chars_lbr": 851,
+   "chars_common": 851,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 124,
+  "row_id": "contract_92_124",
+  "contract_name": "contract_92",
+  "question": "Limitations on FTR Exercise-Answer",
+  "text_type": "Limitations on FTR Exercise",
+  "status": "not_found",
+  "spans": [],
+  "gold_chars": 0,
+  "contract_chars": 417068,
+  "lbr_file": "maud/Meredith Corporation_Gray Television, Inc..pdf||Meredith Corporation_Gray Television, Inc. Amendment No.1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 125,
+  "row_id": "contract_38_125",
+  "contract_name": "contract_38",
+  "question": "MAE definition includes reference to Target \"prospects\" (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    301246,
+    305687
+   ]
+  ],
+  "gold_chars": 4441,
+  "contract_chars": 416376,
+  "lbr_file": "maud/Cornerstone_OnDemand_Clearlake_Capital_Group_L_P.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 126,
+  "row_id": "contract_147_126",
+  "contract_name": "contract_147",
+  "question": "Number of additional matching rights periods for modifications (FTR)",
+  "text_type": "Agreement provides for matching rights in connection with FTR",
+  "status": "piecewise",
+  "spans": [
+   [
+    267318,
+    267374
+   ],
+   [
+    277006,
+    281220
+   ]
+  ],
+  "gold_chars": 4270,
+  "contract_chars": 417674,
+  "lbr_file": "maud/Waddell _ Reed Financial, Inc._Macquarie Group Limited.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 127,
+  "row_id": "contract_108_127",
+  "contract_name": "contract_108",
+  "question": "Breach of No Shop required to be willful, material and/or intentional",
+  "text_type": "Breach of No Shop",
+  "status": "strict",
+  "spans": [
+   [
+    267947,
+    267993
+   ],
+   [
+    340167,
+    340565
+   ],
+   [
+    343458,
+    344407
+   ],
+   [
+    347453,
+    347484
+   ],
+   [
+    347728,
+    347751
+   ],
+   [
+    349079,
+    349149
+   ],
+   [
+    349235,
+    349551
+   ]
+  ],
+  "gold_chars": 1833,
+  "contract_chars": 416268,
+  "lbr_file": "maud/Parsley Energy, Inc._Pioneer Natural Resources Company.txt",
+  "lbr_spans": [
+   [
+    267947,
+    267993
+   ],
+   [
+    340167,
+    340565
+   ],
+   [
+    343458,
+    344407
+   ],
+   [
+    347453,
+    347484
+   ],
+   [
+    347728,
+    347751
+   ],
+   [
+    349079,
+    349149
+   ],
+   [
+    349235,
+    349551
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1833,
+   "chars_lbr": 1833,
+   "chars_common": 1833,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 128,
+  "row_id": "contract_20_128",
+  "contract_name": "contract_20",
+  "question": "Relational language (MAE carveout)-Answer (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    323477,
+    328501
+   ]
+  ],
+  "gold_chars": 5024,
+  "contract_chars": 418271,
+  "lbr_file": "maud/Capstead_Mortgage_Corp_Benefit_Street_Partners.pdf||Capstead_Mortgage_Corp_Benefit_Street_Partners_Amendment No.1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 129,
+  "row_id": "contract_111_129",
+  "contract_name": "contract_111",
+  "question": "Type of Consideration-Answer",
+  "text_type": "Type of Consideration",
+  "status": "strict",
+  "spans": [
+   [
+    6842,
+    7934
+   ],
+   [
+    71313,
+    72292
+   ]
+  ],
+  "gold_chars": 2071,
+  "contract_chars": 417510,
+  "lbr_file": "maud/Pluralsight, Inc._Vista Equity Partners.txt",
+  "lbr_spans": [
+   [
+    6842,
+    7934
+   ],
+   [
+    71313,
+    72292
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 2071,
+   "chars_lbr": 2071,
+   "chars_common": 2071,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 130,
+  "row_id": "contract_57_130",
+  "contract_name": "contract_57",
+  "question": "Ordinary Course Covenant includes carve-out for Pandemic responses-Answer (Y/N)",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    181353,
+    182485
+   ]
+  ],
+  "gold_chars": 1132,
+  "contract_chars": 429054,
+  "lbr_file": "maud/Flexion_Therapeutics_Pacira_BioSciences.txt",
+  "lbr_spans": [
+   [
+    181353,
+    182485
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1132,
+   "chars_lbr": 1132,
+   "chars_common": 1132,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 131,
+  "row_id": "contract_140_131",
+  "contract_name": "contract_140",
+  "question": "Materiality/MAE Scrape applies to",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    54568,
+    54641
+   ],
+   [
+    57531,
+    57588
+   ],
+   [
+    62881,
+    63291
+   ],
+   [
+    322055,
+    323721
+   ]
+  ],
+  "gold_chars": 2206,
+  "contract_chars": 412781,
+  "lbr_file": "maud/VEREIT_Realty_Income_Corporation.pdf||VEREIT_Realty_Income_Corporation Amendment No.1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 132,
+  "row_id": "contract_5_132",
+  "contract_name": "contract_5",
+  "question": "Accuracy of Target \"General\" R&W: Bringdown Timing Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    111607,
+    111789
+   ],
+   [
+    112878,
+    112928
+   ],
+   [
+    113604,
+    114215
+   ],
+   [
+    114379,
+    114803
+   ],
+   [
+    116558,
+    116600
+   ],
+   [
+    118139,
+    118179
+   ],
+   [
+    133851,
+    133904
+   ],
+   [
+    194272,
+    194318
+   ],
+   [
+    194673,
+    194728
+   ],
+   [
+    381515,
+    381823
+   ],
+   [
+    382004,
+    383069
+   ],
+   [
+    383073,
+    383776
+   ]
+  ],
+  "gold_chars": 3579,
+  "contract_chars": 434638,
+  "lbr_file": "maud/Alexion Pharmaceuticals, Inc._AstraZeneca PLC.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 133,
+  "row_id": "contract_51_133",
+  "contract_name": "contract_51",
+  "question": "Accuracy of Target \"General\" R&W: Bringdown Standard Answer",
+  "text_type": "Accuracy of Target R&W Closing Condition",
+  "status": "piecewise",
+  "spans": [
+   [
+    49366,
+    49709
+   ],
+   [
+    52195,
+    52264
+   ],
+   [
+    52953,
+    53559
+   ],
+   [
+    63350,
+    63660
+   ],
+   [
+    327687,
+    329508
+   ],
+   [
+    329512,
+    330365
+   ]
+  ],
+  "gold_chars": 4002,
+  "contract_chars": 434114,
+  "lbr_file": "maud/Extraction Oil _ Gas, Inc._Bonanza Creek Energy, Inc..pdf||Extraction Oil Gas, Inc. Bonanza Creek Energy Amendment No.1.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 134,
+  "row_id": "contract_46_134",
+  "contract_name": "contract_46",
+  "question": "Knowledge persons include Target management (intervening event)",
+  "text_type": "Intervening Event Definition",
+  "status": "strict",
+  "spans": [
+   [
+    308671,
+    310283
+   ]
+  ],
+  "gold_chars": 1612,
+  "contract_chars": 437852,
+  "lbr_file": "maud/Eaton Vance Corp._Morgan Stanley.txt",
+  "lbr_spans": [
+   [
+    308671,
+    310283
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1612,
+   "chars_lbr": 1612,
+   "chars_common": 1612,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 135,
+  "row_id": "contract_66_135",
+  "contract_name": "contract_66",
+  "question": "Knowledge Definition limited to one or more identified persons-Answer (Y/",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    372961,
+    373146
+   ]
+  ],
+  "gold_chars": 185,
+  "contract_chars": 439955,
+  "lbr_file": "maud/Grubhub Inc._Just Eat Takeaway.com N.V..pdf||Grubhub Inc._Just Eat Takeaway.com N.V..Amendment No. 1&2.txt",
+  "lbr_spans": [
+   [
+    372961,
+    373146
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 185,
+   "chars_lbr": 185,
+   "chars_common": 185,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 136,
+  "row_id": "contract_118_136",
+  "contract_name": "contract_118",
+  "question": "Acquisition Proposal required to be publicly disclosed-Answer",
+  "text_type": "Tail Period & Acquisition Proposal Details",
+  "status": "pagebreak",
+  "spans": [
+   [
+    307250,
+    308242
+   ]
+  ],
+  "gold_chars": 992,
+  "contract_chars": 442221,
+  "lbr_file": "maud/QTS Realty Trust, Inc._The Blackstone Group Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 137,
+  "row_id": "contract_94_137",
+  "contract_name": "contract_94",
+  "question": "Additional matching rights period for modifications (COR)-Answer",
+  "text_type": "Agreement provides for matching rights in connection with COR",
+  "status": "pagebreak",
+  "spans": [
+   [
+    241313,
+    241398
+   ],
+   [
+    250177,
+    256641
+   ]
+  ],
+  "gold_chars": 6549,
+  "contract_chars": 454069,
+  "lbr_file": "maud/Misonix_Inc_Bioventus_Inc.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 138,
+  "row_id": "contract_76_138",
+  "contract_name": "contract_76",
+  "question": "W/N/A/F applies to-Answer",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    376892,
+    380682
+   ]
+  ],
+  "gold_chars": 3790,
+  "contract_chars": 461400,
+  "lbr_file": "maud/Kansas_City_Southern_Canadian_Pacific_Railway.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 139,
+  "row_id": "contract_105_139",
+  "contract_name": "contract_105",
+  "question": "Failure to meet projections (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    23740,
+    27468
+   ]
+  ],
+  "gold_chars": 3728,
+  "contract_chars": 478666,
+  "lbr_file": "maud/PRA Health Sciences, Inc._ICON plc.txt",
+  "lbr_spans": [
+   [
+    23740,
+    27468
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 3728,
+   "chars_lbr": 3728,
+   "chars_common": 3728,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 140,
+  "row_id": "contract_44_140",
+  "contract_name": "contract_44",
+  "question": "COR standard (intervening event)",
+  "text_type": "Fiduciary exception to COR covenant",
+  "status": "ambiguous",
+  "spans": [
+   [
+    3937,
+    3967
+   ],
+   [
+    271830,
+    274238
+   ]
+  ],
+  "gold_chars": 2438,
+  "contract_chars": 471061,
+  "lbr_file": "maud/Dime Community Bancshares, Inc._Bridge Bancorp, Inc..txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 141,
+  "row_id": "contract_27_141",
+  "contract_name": "contract_27",
+  "question": "MAE applies to Target and subsidiaries (MAE)-Answer",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    377236,
+    381523
+   ]
+  ],
+  "gold_chars": 4287,
+  "contract_chars": 492275,
+  "lbr_file": "maud/Coherent, Inc._II-VI Incorporated.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 142,
+  "row_id": "contract_8_142",
+  "contract_name": "contract_8",
+  "question": "Actions taken by Buyer-Answer (Y/N)",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    299727,
+    304861
+   ]
+  ],
+  "gold_chars": 5134,
+  "contract_chars": 499504,
+  "lbr_file": "maud/Anworth Mortgage Asset Corporation_Ready Capital Corporation.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 143,
+  "row_id": "contract_121_143",
+  "contract_name": "contract_121",
+  "question": "Change in Target's industry: subject to \"disproportionate impact\" modifier",
+  "text_type": "MAE Definition",
+  "status": "strict",
+  "spans": [
+   [
+    17158,
+    20871
+   ]
+  ],
+  "gold_chars": 3713,
+  "contract_chars": 492715,
+  "lbr_file": "maud/Retail_Properties_of_America_Inc_Kite_Realty_Group_Trust.txt",
+  "lbr_spans": [
+   [
+    17158,
+    20871
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 3713,
+   "chars_lbr": 3713,
+   "chars_common": 3713,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 144,
+  "row_id": "contract_24_144",
+  "contract_name": "contract_24",
+  "question": "Knowledge Definition-Answer",
+  "text_type": "Knowledge Definition",
+  "status": "strict",
+  "spans": [
+   [
+    386850,
+    386995
+   ]
+  ],
+  "gold_chars": 145,
+  "contract_chars": 440077,
+  "lbr_file": "maud/Cimarex Energy Co._Cabot Oil & Gas Corporation.pdf||Cimarex_Energy_Co_Cabot_Oil_Gas_Corporation_Amendment No.1.txt",
+  "lbr_spans": [
+   [
+    386850,
+    386995
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 145,
+   "chars_lbr": 145,
+   "chars_common": 145,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 145,
+  "row_id": "contract_81_145",
+  "contract_name": "contract_81",
+  "question": "Relational language (MAE) applies to",
+  "text_type": "MAE Definition",
+  "status": "pagebreak",
+  "spans": [
+   [
+    371818,
+    377681
+   ]
+  ],
+  "gold_chars": 5863,
+  "contract_chars": 503130,
+  "lbr_file": "maud/Lonestar_Resources_US_Inc_Penn_Virginia_Corporation.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 146,
+  "row_id": "contract_73_146",
+  "contract_name": "contract_73",
+  "question": "Absence of Litigation Closing Condition: Pending v. Threatened v. Threatened in Writing-Answer",
+  "text_type": "Absence of Litigation Closing Condition",
+  "status": "strict",
+  "spans": [
+   [
+    348064,
+    348573
+   ],
+   [
+    356335,
+    357668
+   ]
+  ],
+  "gold_chars": 1842,
+  "contract_chars": 502513,
+  "lbr_file": "maud/Inphi Corporation_Marvell Technology Group Ltd..txt",
+  "lbr_spans": [
+   [
+    348064,
+    348573
+   ],
+   [
+    356335,
+    357668
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1842,
+   "chars_lbr": 1842,
+   "chars_common": 1842,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 147,
+  "row_id": "contract_84_147",
+  "contract_name": "contract_84",
+  "question": "FLS (MAE) applies to",
+  "text_type": "MAE Definition",
+  "status": "anchored",
+  "spans": [
+   [
+    40451,
+    44917
+   ]
+  ],
+  "gold_chars": 4466,
+  "contract_chars": 553964,
+  "lbr_file": "maud/MGM_Growth_Properties_LLC_VICI_Properties_Inc.txt",
+  "lbr_spans": null
+ },
+ {
+  "index": 148,
+  "row_id": "contract_10_148",
+  "contract_name": "contract_10",
+  "question": "Definition contains knowledge requirement - answer",
+  "text_type": "Intervening Event Definition",
+  "status": "ambiguous",
+  "spans": [
+   [
+    212326,
+    213773
+   ]
+  ],
+  "gold_chars": 1447,
+  "contract_chars": 733316,
+  "lbr_file": null,
+  "lbr_spans": null
+ },
+ {
+  "index": 149,
+  "row_id": "contract_68_149",
+  "contract_name": "contract_68",
+  "question": "Ordinary course efforts standard-Answer",
+  "text_type": "Ordinary course covenant",
+  "status": "strict",
+  "spans": [
+   [
+    201363,
+    202562
+   ]
+  ],
+  "gold_chars": 1199,
+  "contract_chars": 778047,
+  "lbr_file": "maud/HighPoint Resources Corporation_Bonanza Creek Energy, Inc..pdf||HighPoint Resources Corporation_Bonanza Creek Energy, Inc. Amendment No. 1.txt",
+  "lbr_spans": [
+   [
+    201363,
+    202562
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 1199,
+   "chars_lbr": 1199,
+   "chars_common": 1199,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 150,
+  "row_id": "contract_145_150",
+  "contract_name": "contract_145",
+  "question": "Specific Performance-Answer",
+  "text_type": "Specific Performance",
+  "status": "strict",
+  "spans": [
+   [
+    368093,
+    368745
+   ]
+  ],
+  "gold_chars": 652,
+  "contract_chars": 810484,
+  "lbr_file": "maud/WPX Energy, Inc._Devon Energy Corporation.txt",
+  "lbr_spans": [
+   [
+    368093,
+    368745
+   ]
+  ],
+  "lbr_overlap": {
+   "chars_ours": 652,
+   "chars_lbr": 652,
+   "chars_common": 652,
+   "iou": 1.0
+  }
+ },
+ {
+  "index": 151,
+  "row_id": "contract_33_151",
+  "contract_name": "contract_33",
+  "question": "Application of Buyer consent requirement (negative interim covenant)-Answer",
+  "text_type": "Negative interim operating covenant",
+  "status": "strict",
+  "spans": [
+   [
+    221181,
+    221236
+   ],
+   [
+    222245,
+    222817
+   ]
+  ],
+  "gold_chars": 627,
+  "contract_chars": 999235,
+  "lbr_file": "maud/Contango_Oil_&_Gas_KKR_&_Co.txt",
+  "lbr_spans": null
+ }
+]

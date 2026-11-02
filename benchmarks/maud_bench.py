@@ -16,6 +16,10 @@ build_tools / tool_hints (legal_tools/run_tools.py) and parse_raw_result
               rlm_deepseek: the root model itself as sub-LLM, same limits and
               delegation rule (separates the rule's effect from the model's)
   rlm_tool<t>_<sub>  the same with tool set <t> (1, 2 or 12), e.g. rlm_tool1_llama
+  rag_k<k>    run_vanilla on the top-k retrieved chunks of the contract instead of the
+              whole contract (rag/maud_index.py: LegalBench-RAG's rcts-500 chunking,
+              text-embedding-3-large, cosine top-k, document order), same prompt and parser;
+              needs the index built first (python -m rag.maud_index build)
 Every tool condition uses the latest tool setup (maud_152_tool2_fixed_list_hints):
 usage hints in the root prompt, tool 2's defined-term list in the system prompt.
 Must run from the repo root (the MAUD code uses relative paths).
@@ -52,18 +56,22 @@ SUB_LLM_TOOL_METHODS = {f"{tools}_{name}": (tools, name)
 # SUB_LLM_DELEGATE=0 turns it off (and the root output cap with it), e.g. for a
 # small-window root that may delegate on its own
 SUB_LLM_DELEGATE = os.environ.get("SUB_LLM_DELEGATE", "1") == "1"
+# rag_k<k> -> k retrieved chunks (rcts chunks average ~250 characters)
+RAG_METHODS = {"rag_k16": 16, "rag_k64": 64, "rag_k128": 128}
 
 
 class Maud(Dataset):
     name = "maud"
     results_root = REPO_ROOT / "maud" / "results"
     default_methods = ("vanilla", "rlm", "rlm_tool1", "rlm_tool2", "rlm_tool12")
-    methods = default_methods + ("rlm_generic",) + tuple(SUB_LLM_METHODS) + tuple(SUB_LLM_TOOL_METHODS)
+    methods = (default_methods + ("rlm_generic",) + tuple(SUB_LLM_METHODS) + tuple(SUB_LLM_TOOL_METHODS)
+               + tuple(RAG_METHODS))
     source_files = [
         "maud/maud_data_sampling.py", "maud/maud_eval.py", "maud/dicts/question_full_text_map.json",
         "maud/dicts/question_answer_map_unique.json", "legal_tools/run_tools.py",
         "legal_tools/section_locator.py", "legal_tools/definitions_resolver.py",
         "legal_tools/tools_utils.py", "benchmarks/maud_bench.py", "llm/sub_llm.py", "modal_subllm/serve.py",
+        "rag/maud_index.py",
     ]
 
     @cached_property
@@ -103,6 +111,19 @@ class Maud(Dataset):
         if method == "vanilla":
             return run_vanilla("maud_152_samples", item.row_id, item.document, TASK_SPEC=item.task_spec,
                                experiment=experiment, temperature=TEMPERATURE, runs_csv=runs_csv), {}
+        if method in RAG_METHODS:
+            from rag import maud_index
+            k = RAG_METHODS[method]
+            spans = maud_index.retrieve(item.meta["contract_name"], item.row_id, k)
+            response = run_vanilla("maud_152_samples", item.row_id, maud_index.excerpts(item.document, spans),
+                                   TASK_SPEC=item.task_spec, experiment=experiment, temperature=TEMPERATURE,
+                                   context_label="CONTRACT (retrieved excerpts, in document order)",
+                                   runs_csv=runs_csv)
+            gold = maud_index.gold_spans().get(item.row_id)
+            recall, precision = maud_index.recall_precision(spans, gold) if gold else (None, None)
+            return response, {"rag": {"config": maud_index.CONFIG, "k": k, "n_passages": len(spans),
+                                      "retrieved_chars": sum(e - s for s, e in spans), "spans": spans,
+                                      "gold_recall": recall, "gold_precision": precision}}
         if method == "rlm_generic":
             return run_rlm_generic(
                 "maud_152_samples", item.row_id, item.document, TASK_SPEC=item.task_spec,

@@ -1,0 +1,609 @@
+experiment,method,repeat,row_id,text_type,gold_status,status,correct,has_trajectory,trajectory_too_large,coverage_root,coverage_any,bin_root,bin_any
+rerun_v1_morph,rlm,0,contract_0_66,Absence of Litigation Closing Condition,piecewise,ok,True,True,False,0.9166666666666666,0.9166666666666666,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_0_66,Absence of Litigation Closing Condition,piecewise,ok,True,True,False,0.20833333333333334,0.20833333333333334,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_0_66,Absence of Litigation Closing Condition,piecewise,ok,True,True,False,0.9166666666666666,0.9166666666666666,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_0_66,Absence of Litigation Closing Condition,piecewise,ok,True,True,False,0.9166666666666666,0.9166666666666666,seen,seen
+rerun_v1_morph,rlm,0,contract_100_116,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_100_116,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_100_116,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_100_116,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_101_41,Ordinary course covenant,strict,ok,True,True,False,0.8536585365853658,0.8536585365853658,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_101_41,Ordinary course covenant,strict,ok,True,True,False,0.8780487804878049,0.8780487804878049,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_101_41,Ordinary course covenant,strict,ok,True,True,False,0.8780487804878049,0.8780487804878049,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_101_41,Ordinary course covenant,strict,ok,True,True,False,0.8536585365853658,0.8536585365853658,seen,seen
+rerun_v1_morph,rlm,0,contract_102_19,No-Shop,strict,ok,True,True,False,0.9741379310344828,0.9741379310344828,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_102_19,No-Shop,strict,ok,True,True,False,0.9741379310344828,0.9741379310344828,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_102_19,No-Shop,strict,ok,True,True,False,0.9741379310344828,0.9741379310344828,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_102_19,No-Shop,strict,ok,True,True,False,0.9741379310344828,0.9741379310344828,seen,seen
+rerun_v1_morph,rlm,0,contract_103_84,Negative interim operating covenant,strict,ok,True,True,False,0.9473684210526315,0.9473684210526315,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_103_84,Negative interim operating covenant,strict,ok,True,True,False,0.9473684210526315,0.9473684210526315,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_103_84,Negative interim operating covenant,strict,ok,True,True,False,0.9473684210526315,0.9473684210526315,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_103_84,Negative interim operating covenant,strict,ok,True,True,False,0.9473684210526315,0.9473684210526315,seen,seen
+rerun_v1_morph,rlm,0,contract_104_47,MAE Definition,pagebreak,ok,False,True,False,0.3631578947368421,0.3631578947368421,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_104_47,MAE Definition,pagebreak,ok,False,True,False,0.7789473684210526,0.7789473684210526,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_104_47,MAE Definition,pagebreak,ok,False,True,False,0.8894736842105263,0.8894736842105263,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_104_47,MAE Definition,pagebreak,ok,False,True,False,0.9578947368421052,0.9578947368421052,seen,seen
+rerun_v1_morph,rlm,0,contract_105_139,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_105_139,MAE Definition,strict,ok,True,True,False,0.9871794871794872,0.9871794871794872,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_105_139,MAE Definition,strict,ok,True,True,False,0.7948717948717948,0.7948717948717948,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_105_139,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_106_6,MAE Definition,pagebreak,ok,True,True,False,0.8074534161490683,0.8074534161490683,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_106_6,MAE Definition,pagebreak,ok,True,True,False,0.484472049689441,0.484472049689441,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_106_6,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_106_6,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_107_65,MAE Definition,pagebreak,ok,True,True,False,0.848,0.848,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_107_65,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_107_65,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_107_65,MAE Definition,pagebreak,ok,True,True,False,0.968,0.968,seen,seen
+rerun_v1_morph,rlm,0,contract_108_127,Breach of No Shop,strict,ok,False,True,False,0.18666666666666668,0.18666666666666668,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_108_127,Breach of No Shop,strict,ok,True,True,False,0.18666666666666668,0.18666666666666668,not seen,not seen
+rerun_v1_morph,rlm_tool12,0,contract_108_127,Breach of No Shop,strict,ok,True,True,False,0.8666666666666667,0.8666666666666667,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_108_127,Breach of No Shop,strict,failed,False,False,False,,,,
+rerun_v1_morph,rlm,0,contract_109_117,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_109_117,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool12,0,contract_109_117,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.84,0.84,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_109_117,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm,0,contract_10_148,Intervening Event Definition,ambiguous,ok,False,True,False,0.7627118644067796,0.7627118644067796,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_10_148,Intervening Event Definition,ambiguous,ok,False,True,False,0.7457627118644068,0.7457627118644068,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_10_148,Intervening Event Definition,ambiguous,ok,False,True,False,0.9830508474576272,0.9830508474576272,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_10_148,Intervening Event Definition,ambiguous,ok,False,True,False,0.9830508474576272,0.9830508474576272,seen,seen
+rerun_v1_morph,rlm,0,contract_110_58,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_110_58,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_110_58,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_110_58,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_111_129,Type of Consideration,strict,ok,True,True,False,0.42168674698795183,0.42168674698795183,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_111_129,Type of Consideration,strict,ok,True,True,False,0.4578313253012048,0.4578313253012048,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_111_129,Type of Consideration,strict,ok,True,True,False,0.46987951807228917,0.46987951807228917,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_111_129,Type of Consideration,strict,ok,True,True,False,0.4457831325301205,0.4457831325301205,partial,partial
+rerun_v1_morph,rlm,0,contract_112_5,Type of Consideration,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_112_5,Type of Consideration,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_112_5,Type of Consideration,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_112_5,Type of Consideration,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_113_14,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5304347826086957,0.5304347826086957,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_113_14,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.6869565217391305,0.6869565217391305,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_113_14,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6869565217391305,0.6869565217391305,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_113_14,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5304347826086957,0.5304347826086957,partial,partial
+rerun_v1_morph,rlm,0,contract_114_77,MAE Definition,strict,ok,True,True,False,0.605,0.605,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_114_77,MAE Definition,strict,ok,True,True,False,0.645,0.645,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_114_77,MAE Definition,strict,ok,True,True,False,0.67,0.67,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_114_77,MAE Definition,strict,ok,True,True,False,0.67,0.67,partial,partial
+rerun_v1_morph,rlm,0,contract_115_17,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.8188976377952756,0.8188976377952756,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_115_17,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.9291338582677166,0.9291338582677166,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_115_17,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.5748031496062992,0.5748031496062992,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_115_17,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.33070866141732286,0.33070866141732286,partial,partial
+rerun_v1_morph,rlm,0,contract_116_43,Negative interim operating covenant,strict,ok,True,True,False,0.8928571428571429,0.8928571428571429,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_116_43,Negative interim operating covenant,strict,ok,True,True,False,0.5714285714285714,0.5714285714285714,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_116_43,Negative interim operating covenant,strict,ok,True,True,False,0.9285714285714286,0.9285714285714286,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_116_43,Negative interim operating covenant,strict,ok,True,True,False,0.8928571428571429,0.8928571428571429,seen,seen
+rerun_v1_morph,rlm,0,contract_117_100,Ordinary course covenant,strict,ok,True,True,False,0.7058823529411765,0.7058823529411765,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_117_100,Ordinary course covenant,strict,ok,True,True,False,0.7941176470588235,0.7941176470588235,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_117_100,Ordinary course covenant,strict,ok,True,True,False,0.7941176470588235,0.7941176470588235,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_117_100,Ordinary course covenant,strict,ok,True,True,False,0.7941176470588235,0.7941176470588235,partial,partial
+rerun_v1_morph,rlm,0,contract_118_136,Tail Period & Acquisition Proposal Details,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_118_136,Tail Period & Acquisition Proposal Details,pagebreak,failed,False,False,False,,,,
+rerun_v1_morph,rlm_tool12,0,contract_118_136,Tail Period & Acquisition Proposal Details,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_118_136,Tail Period & Acquisition Proposal Details,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_119_1,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5476190476190477,0.5476190476190477,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_119_1,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5714285714285714,0.5714285714285714,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_119_1,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5714285714285714,0.5714285714285714,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_119_1,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5079365079365079,0.5079365079365079,partial,partial
+rerun_v1_morph,rlm,0,contract_11_9,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.3891402714932127,0.3891402714932127,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_11_9,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5339366515837104,0.5339366515837104,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_11_9,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.4343891402714932,0.4343891402714932,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_11_9,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.27149321266968324,0.27149321266968324,partial,partial
+rerun_v1_morph,rlm,0,contract_120_104,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_120_104,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_120_104,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_120_104,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_121_143,MAE Definition,strict,ok,True,True,False,0.9870967741935484,0.9870967741935484,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_121_143,MAE Definition,strict,ok,True,True,False,0.9935483870967742,0.9935483870967742,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_121_143,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_121_143,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_122_75,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.5345911949685535,0.5345911949685535,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_122_75,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.7232704402515723,0.7232704402515723,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_122_75,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.7547169811320755,0.7547169811320755,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_122_75,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.5157232704402516,0.5157232704402516,partial,partial
+rerun_v1_morph,rlm,0,contract_123_106,General Antitrust Efforts Standard,piecewise,ok,True,True,False,0.3247863247863248,0.3247863247863248,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_123_106,General Antitrust Efforts Standard,piecewise,ok,True,True,False,0.4444444444444444,0.4444444444444444,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_123_106,General Antitrust Efforts Standard,piecewise,ok,True,True,False,0.4444444444444444,0.4444444444444444,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_123_106,General Antitrust Efforts Standard,piecewise,ok,True,True,False,0.3247863247863248,0.3247863247863248,partial,partial
+rerun_v1_morph,rlm,0,contract_124_20,Tail Period & Acquisition Proposal Details,pagebreak,ok,False,True,False,0.9761904761904762,0.9761904761904762,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_124_20,Tail Period & Acquisition Proposal Details,pagebreak,ok,False,True,False,0.9761904761904762,0.9761904761904762,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_124_20,Tail Period & Acquisition Proposal Details,pagebreak,ok,False,True,False,0.9761904761904762,0.9761904761904762,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_124_20,Tail Period & Acquisition Proposal Details,pagebreak,failed,False,False,False,,,,
+rerun_v1_morph,rlm,0,contract_125_10,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.7538461538461538,0.7538461538461538,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_125_10,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.9538461538461539,0.9538461538461539,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_125_10,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.9538461538461539,0.9538461538461539,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_125_10,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.5538461538461539,0.5538461538461539,partial,partial
+rerun_v1_morph,rlm,0,contract_126_113,Intervening Event Definition,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_126_113,Intervening Event Definition,pagebreak,ok,False,True,False,0.6727272727272727,0.6727272727272727,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_126_113,Intervening Event Definition,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_126_113,Intervening Event Definition,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_127_28,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.8387096774193549,0.8387096774193549,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_127_28,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.8387096774193549,0.8387096774193549,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_127_28,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.7419354838709677,0.7419354838709677,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_127_28,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.7419354838709677,0.7419354838709677,partial,partial
+rerun_v1_morph,rlm,0,contract_128_110,MAE Definition,pagebreak,ok,True,True,False,0.9924528301886792,0.9924528301886792,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_128_110,MAE Definition,pagebreak,ok,True,True,False,0.9132075471698113,0.9132075471698113,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_128_110,MAE Definition,pagebreak,ok,True,True,False,0.9924528301886792,0.9924528301886792,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_128_110,MAE Definition,pagebreak,ok,True,True,False,0.9924528301886792,0.9924528301886792,seen,seen
+rerun_v1_morph,rlm,0,contract_129_44,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_129_44,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_129_44,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_129_44,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_12_48,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.4602272727272727,0.4602272727272727,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_12_48,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.4147727272727273,0.4147727272727273,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_12_48,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.4659090909090909,0.4659090909090909,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_12_48,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.4602272727272727,0.4602272727272727,partial,partial
+rerun_v1_morph,rlm,0,contract_130_35,Ordinary course covenant,strict,ok,True,True,False,0.75,0.75,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_130_35,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_130_35,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_130_35,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_131_81,Breach of Meeting Covenant,strict,ok,False,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_131_81,Breach of Meeting Covenant,strict,ok,True,True,False,0.5263157894736842,0.5263157894736842,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_131_81,Breach of Meeting Covenant,strict,ok,True,True,False,0.3157894736842105,0.3157894736842105,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_131_81,Breach of Meeting Covenant,strict,failed,False,False,False,,,,
+rerun_v1_morph,rlm,0,contract_132_67,MAE Definition,pagebreak,ok,True,True,False,0.26881720430107525,0.26881720430107525,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_132_67,MAE Definition,pagebreak,ok,True,True,False,0.27956989247311825,0.27956989247311825,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_132_67,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_132_67,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_133_25,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_133_25,Ordinary course covenant,strict,ok,True,True,False,0.2826086956521739,0.2826086956521739,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_133_25,Ordinary course covenant,strict,ok,True,True,False,0.5,0.5,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_133_25,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_134_96,Tail Period & Acquisition Proposal Details,strict,ok,False,True,False,0.7777777777777778,0.7777777777777778,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_134_96,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.7777777777777778,0.7777777777777778,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_134_96,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.7777777777777778,0.7777777777777778,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_134_96,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.7777777777777778,0.7777777777777778,partial,partial
+rerun_v1_morph,rlm,0,contract_135_87,Accuracy of Target R&W Closing Condition,strict,ok,True,True,False,0.3167420814479638,0.3167420814479638,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_135_87,Accuracy of Target R&W Closing Condition,strict,ok,True,True,False,0.42081447963800905,0.42081447963800905,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_135_87,Accuracy of Target R&W Closing Condition,strict,ok,True,True,False,0.42081447963800905,0.42081447963800905,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_135_87,Accuracy of Target R&W Closing Condition,strict,ok,True,True,False,0.2850678733031674,0.2850678733031674,partial,partial
+rerun_v1_morph,rlm,0,contract_136_18,MAE Definition,pagebreak,ok,True,True,False,0.2677595628415301,0.2677595628415301,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_136_18,MAE Definition,pagebreak,ok,False,True,False,0.994535519125683,0.994535519125683,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_136_18,MAE Definition,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_136_18,MAE Definition,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_137_63,Agreement provides for matching rights in connection with COR,strict,ok,True,True,False,0.9850746268656716,0.9850746268656716,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_137_63,Agreement provides for matching rights in connection with COR,strict,ok,True,True,False,0.9900497512437811,0.9900497512437811,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_137_63,Agreement provides for matching rights in connection with COR,strict,ok,True,True,False,0.9900497512437811,0.9900497512437811,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_137_63,Agreement provides for matching rights in connection with COR,strict,ok,True,True,False,0.9850746268656716,0.9850746268656716,seen,seen
+rerun_v1_morph,rlm,0,contract_138_8,MAE Definition,strict,ok,True,True,False,0.988950276243094,0.988950276243094,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_138_8,MAE Definition,strict,ok,True,True,False,0.988950276243094,0.988950276243094,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_138_8,MAE Definition,strict,ok,True,True,False,0.988950276243094,0.988950276243094,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_138_8,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_139_37,No-Shop,pagebreak,ok,True,True,False,0.992,0.992,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_139_37,No-Shop,pagebreak,ok,True,True,False,0.992,0.992,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_139_37,No-Shop,pagebreak,ok,True,True,False,0.992,0.992,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_139_37,No-Shop,pagebreak,ok,True,True,False,0.912,0.912,seen,seen
+rerun_v1_morph,rlm,0,contract_13_93,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_13_93,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.7300613496932515,0.7300613496932515,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_13_93,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.7361963190184049,0.7361963190184049,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_13_93,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.49693251533742333,0.49693251533742333,partial,partial
+rerun_v1_morph,rlm,0,contract_140_131,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6067415730337079,0.6067415730337079,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_140_131,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.7528089887640449,0.7528089887640449,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_140_131,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.7528089887640449,0.7528089887640449,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_140_131,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm,0,contract_141_31,General Antitrust Efforts Standard,strict,ok,True,True,False,0.8055555555555556,0.8055555555555556,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_141_31,General Antitrust Efforts Standard,strict,ok,True,True,False,0.8055555555555556,0.8055555555555556,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_141_31,General Antitrust Efforts Standard,strict,ok,True,True,False,0.8055555555555556,0.8055555555555556,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_141_31,General Antitrust Efforts Standard,strict,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm,0,contract_142_85,Knowledge Definition,strict,ok,True,True,False,0.9642857142857143,0.9642857142857143,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_142_85,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_142_85,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_142_85,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_143_94,MAE Definition,pagebreak,ok,True,True,False,0.4732142857142857,0.4732142857142857,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_143_94,MAE Definition,pagebreak,ok,True,True,False,0.4419642857142857,0.4419642857142857,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_143_94,MAE Definition,pagebreak,ok,True,True,False,0.6026785714285714,0.6026785714285714,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_143_94,MAE Definition,pagebreak,ok,True,True,False,0.5044642857142857,0.5044642857142857,partial,partial
+rerun_v1_morph,rlm,0,contract_144_74,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.8,0.8,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_144_74,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.8666666666666667,0.8666666666666667,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_144_74,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.8666666666666667,0.8666666666666667,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_144_74,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.5333333333333333,0.5333333333333333,partial,partial
+rerun_v1_morph,rlm,0,contract_145_150,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_145_150,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_145_150,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_145_150,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_146_50,Accuracy of Target R&W Closing Condition,strict,ok,True,True,False,0.33070866141732286,0.33070866141732286,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_146_50,Accuracy of Target R&W Closing Condition,strict,ok,True,True,False,0.5826771653543307,0.5826771653543307,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_146_50,Accuracy of Target R&W Closing Condition,strict,ok,True,True,False,0.5905511811023622,0.5905511811023622,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_146_50,Accuracy of Target R&W Closing Condition,strict,ok,True,True,False,0.5905511811023622,0.5905511811023622,partial,partial
+rerun_v1_morph,rlm,0,contract_147_126,Agreement provides for matching rights in connection with FTR,piecewise,ok,True,True,False,0.9887005649717514,0.9887005649717514,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_147_126,Agreement provides for matching rights in connection with FTR,piecewise,ok,True,True,False,0.9717514124293786,0.9717514124293786,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_147_126,Agreement provides for matching rights in connection with FTR,piecewise,ok,True,True,False,0.9491525423728814,0.9491525423728814,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_147_126,Agreement provides for matching rights in connection with FTR,piecewise,ok,True,True,False,0.7966101694915254,0.7966101694915254,partial,partial
+rerun_v1_morph,rlm,0,contract_148_90,MAE Definition,strict,ok,False,True,False,0.8301886792452831,0.8301886792452831,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_148_90,MAE Definition,strict,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_148_90,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_148_90,MAE Definition,strict,ok,False,True,False,0.9858490566037735,0.9858490566037735,seen,seen
+rerun_v1_morph,rlm,0,contract_149_89,MAE Definition,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool1,0,contract_149_89,MAE Definition,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool12,0,contract_149_89,MAE Definition,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool2,0,contract_149_89,MAE Definition,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm,0,contract_14_38,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.5833333333333334,0.5833333333333334,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_14_38,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.9166666666666666,0.9166666666666666,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_14_38,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.9166666666666666,0.9166666666666666,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_14_38,Tail Period & Acquisition Proposal Details,strict,ok,False,True,False,0.8333333333333334,0.8333333333333334,seen,seen
+rerun_v1_morph,rlm,0,contract_150_123,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.5,0.5,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_150_123,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.9117647058823529,0.9117647058823529,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_150_123,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.9117647058823529,0.9117647058823529,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_150_123,Tail Period & Acquisition Proposal Details,strict,ok,True,True,False,0.9117647058823529,0.9117647058823529,seen,seen
+rerun_v1_morph,rlm,0,contract_151_105,Ordinary course covenant,strict,ok,True,True,False,0.6923076923076923,0.6923076923076923,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_151_105,Ordinary course covenant,strict,ok,True,True,False,0.6923076923076923,0.6923076923076923,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_151_105,Ordinary course covenant,strict,ok,True,True,False,0.6923076923076923,0.6923076923076923,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_151_105,Ordinary course covenant,strict,ok,True,True,False,0.5,0.5,partial,partial
+rerun_v1_morph,rlm,0,contract_15_69,Ordinary course covenant,strict,ok,True,True,False,0.7708333333333334,0.7708333333333334,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_15_69,Ordinary course covenant,strict,ok,True,True,False,0.4375,0.4375,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_15_69,Ordinary course covenant,strict,ok,True,True,False,0.4375,0.4375,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_15_69,Ordinary course covenant,strict,ok,True,True,False,0.875,0.875,seen,seen
+rerun_v1_morph,rlm,0,contract_16_30,Agreement provides for matching rights in connection with FTR,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_16_30,Agreement provides for matching rights in connection with FTR,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_16_30,Agreement provides for matching rights in connection with FTR,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_16_30,Agreement provides for matching rights in connection with FTR,strict,ok,True,True,False,0.9292929292929293,0.9292929292929293,seen,seen
+rerun_v1_morph,rlm,0,contract_17_98,MAE Definition,anchored,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_17_98,MAE Definition,anchored,ok,True,True,False,0.8067226890756303,0.8067226890756303,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_17_98,MAE Definition,anchored,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_17_98,MAE Definition,anchored,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_18_60,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.875,0.875,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_18_60,Tail Period & Acquisition Proposal Details,ambiguous,ok,False,True,False,0.875,0.875,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_18_60,Tail Period & Acquisition Proposal Details,ambiguous,ok,True,True,False,0.875,0.875,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_18_60,Tail Period & Acquisition Proposal Details,ambiguous,ok,False,True,False,0.875,0.875,seen,seen
+rerun_v1_morph,rlm,0,contract_19_108,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5903614457831325,0.5903614457831325,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_19_108,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6746987951807228,0.6746987951807228,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_19_108,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6746987951807228,0.6746987951807228,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_19_108,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.536144578313253,0.536144578313253,partial,partial
+rerun_v1_morph,rlm,0,contract_1_83,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.896551724137931,0.896551724137931,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_1_83,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.896551724137931,0.896551724137931,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_1_83,Absence of Litigation Closing Condition,strict,ok,False,True,False,0.896551724137931,0.896551724137931,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_1_83,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.7241379310344828,0.7241379310344828,partial,partial
+rerun_v1_morph,rlm,0,contract_20_128,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_20_128,MAE Definition,pagebreak,ok,True,True,False,0.9856459330143541,0.9856459330143541,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_20_128,MAE Definition,pagebreak,ok,True,True,False,0.9952153110047847,0.9952153110047847,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_20_128,MAE Definition,pagebreak,ok,True,True,False,0.9904306220095693,0.9904306220095693,seen,seen
+rerun_v1_morph,rlm,0,contract_21_4,MAE Definition,pagebreak,ok,True,True,False,0.9838709677419355,0.9838709677419355,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_21_4,MAE Definition,pagebreak,ok,True,True,False,0.9838709677419355,0.9838709677419355,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_21_4,MAE Definition,pagebreak,ok,True,True,False,0.9838709677419355,0.9838709677419355,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_21_4,MAE Definition,pagebreak,ok,True,True,False,0.9838709677419355,0.9838709677419355,seen,seen
+rerun_v1_morph,rlm,0,contract_22_76,Agreement provides for matching rights in connection with COR,piecewise,ok,True,True,False,0.9784172661870504,0.9784172661870504,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_22_76,Agreement provides for matching rights in connection with COR,piecewise,ok,True,True,False,0.9712230215827338,0.9712230215827338,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_22_76,Agreement provides for matching rights in connection with COR,piecewise,ok,True,True,False,0.9712230215827338,0.9712230215827338,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_22_76,Agreement provides for matching rights in connection with COR,piecewise,ok,True,True,False,0.9640287769784173,0.9640287769784173,seen,seen
+rerun_v1_morph,rlm,0,contract_23_120,MAE Definition,strict,ok,True,True,False,0.9834254143646409,0.9834254143646409,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_23_120,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_23_120,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_23_120,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_24_144,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_24_144,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_24_144,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_24_144,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_25_49,MAE Definition,strict,ok,True,True,False,0.9841269841269841,0.9841269841269841,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_25_49,MAE Definition,strict,ok,True,True,False,0.9761904761904762,0.9761904761904762,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_25_49,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_25_49,MAE Definition,strict,ok,True,True,False,0.9841269841269841,0.9841269841269841,seen,seen
+rerun_v1_morph,rlm,0,contract_26_102,Accuracy of Target R&W Closing Condition,pagebreak,ok,True,True,False,0.9,0.9,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_26_102,Accuracy of Target R&W Closing Condition,pagebreak,ok,True,True,False,0.9142857142857143,0.9142857142857143,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_26_102,Accuracy of Target R&W Closing Condition,pagebreak,ok,True,True,False,0.9,0.9,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_26_102,Accuracy of Target R&W Closing Condition,pagebreak,ok,True,True,False,0.9,0.9,seen,seen
+rerun_v1_morph,rlm,0,contract_27_141,MAE Definition,pagebreak,ok,True,True,False,0.2303370786516854,0.2303370786516854,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_27_141,MAE Definition,pagebreak,ok,True,True,False,0.4550561797752809,0.4550561797752809,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_27_141,MAE Definition,pagebreak,ok,True,True,False,0.6853932584269663,0.6853932584269663,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_27_141,MAE Definition,pagebreak,ok,True,True,False,0.6910112359550562,0.6910112359550562,partial,partial
+rerun_v1_morph,rlm,0,contract_28_91,Type of Consideration,piecewise,ok,True,True,False,0.8863636363636364,0.8863636363636364,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_28_91,Type of Consideration,piecewise,ok,True,True,False,0.6136363636363636,0.6136363636363636,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_28_91,Type of Consideration,piecewise,ok,True,True,False,0.13636363636363635,0.13636363636363635,not seen,not seen
+rerun_v1_morph,rlm_tool2,0,contract_28_91,Type of Consideration,piecewise,ok,True,True,False,0.38636363636363635,0.38636363636363635,partial,partial
+rerun_v1_morph,rlm,0,contract_29_88,Specific Performance,strict,ok,True,True,False,0.4583333333333333,0.4583333333333333,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_29_88,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_29_88,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_29_88,Specific Performance,strict,ok,True,True,False,0.5416666666666666,0.5416666666666666,partial,partial
+rerun_v1_morph,rlm,0,contract_2_122,General Antitrust Efforts Standard,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_2_122,General Antitrust Efforts Standard,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_2_122,General Antitrust Efforts Standard,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_2_122,General Antitrust Efforts Standard,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_30_15,Fiduciary exception to COR covenant,strict,ok,True,True,False,0.9259259259259259,0.9259259259259259,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_30_15,Fiduciary exception to COR covenant,strict,ok,True,True,False,0.9259259259259259,0.9259259259259259,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_30_15,Fiduciary exception to COR covenant,strict,ok,True,True,False,0.9259259259259259,0.9259259259259259,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_30_15,Fiduciary exception to COR covenant,strict,ok,True,True,False,0.9259259259259259,0.9259259259259259,seen,seen
+rerun_v1_morph,rlm,0,contract_31_97,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6538461538461539,0.6538461538461539,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_31_97,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6474358974358975,0.6474358974358975,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_31_97,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6602564102564102,0.6602564102564102,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_31_97,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.3974358974358974,0.3974358974358974,partial,partial
+rerun_v1_morph,rlm,0,contract_32_13,Negative interim operating covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_32_13,Negative interim operating covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_32_13,Negative interim operating covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_32_13,Negative interim operating covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_33_151,Negative interim operating covenant,strict,ok,False,True,False,0.36,0.36,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_33_151,Negative interim operating covenant,strict,ok,False,True,False,0.92,0.92,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_33_151,Negative interim operating covenant,strict,ok,True,True,False,0.92,0.92,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_33_151,Negative interim operating covenant,strict,ok,True,True,False,0.72,0.72,partial,partial
+rerun_v1_morph,rlm,0,contract_34_112,Agreement provides for matching rights in connection with FTR,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool1,0,contract_34_112,Agreement provides for matching rights in connection with FTR,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool12,0,contract_34_112,Agreement provides for matching rights in connection with FTR,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool2,0,contract_34_112,Agreement provides for matching rights in connection with FTR,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm,0,contract_35_86,FTR Triggers,strict,ok,True,True,False,0.9375,0.9375,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_35_86,FTR Triggers,strict,ok,True,True,False,0.9375,0.9375,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_35_86,FTR Triggers,strict,ok,True,True,False,0.9375,0.9375,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_35_86,FTR Triggers,strict,ok,True,True,False,0.9375,0.9375,seen,seen
+rerun_v1_morph,rlm,0,contract_36_59,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5933333333333334,0.5933333333333334,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_36_59,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.7333333333333333,0.7333333333333333,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_36_59,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.7333333333333333,0.7333333333333333,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_36_59,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.7,0.7,partial,partial
+rerun_v1_morph,rlm,0,contract_37_103,MAE Definition,strict,ok,False,True,False,0.9895833333333334,0.9895833333333334,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_37_103,MAE Definition,strict,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_37_103,MAE Definition,strict,ok,False,True,False,0.9895833333333334,0.9895833333333334,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_37_103,MAE Definition,strict,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_38_125,MAE Definition,pagebreak,ok,True,True,False,0.9459459459459459,0.9459459459459459,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_38_125,MAE Definition,pagebreak,ok,True,True,False,0.9567567567567568,0.9567567567567568,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_38_125,MAE Definition,pagebreak,ok,True,True,False,0.9459459459459459,0.9459459459459459,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_38_125,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_39_32,Fiduciary exception to COR covenant,strict,ok,True,True,False,0.9259259259259259,0.9259259259259259,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_39_32,Fiduciary exception to COR covenant,strict,ok,True,True,False,0.9259259259259259,0.9259259259259259,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_39_32,Fiduciary exception to COR covenant,strict,ok,True,True,False,0.9259259259259259,0.9259259259259259,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_39_32,Fiduciary exception to COR covenant,strict,ok,True,True,False,0.9259259259259259,0.9259259259259259,seen,seen
+rerun_v1_morph,rlm,0,contract_3_52,Type of Consideration,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool1,0,contract_3_52,Type of Consideration,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool12,0,contract_3_52,Type of Consideration,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool2,0,contract_3_52,Type of Consideration,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm,0,contract_40_64,MAE Definition,pagebreak,ok,True,True,False,0.8025751072961373,0.8025751072961373,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_40_64,MAE Definition,pagebreak,ok,True,True,False,0.8283261802575107,0.8283261802575107,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_40_64,MAE Definition,pagebreak,ok,True,True,False,0.592274678111588,0.592274678111588,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_40_64,MAE Definition,pagebreak,ok,True,True,False,0.9098712446351931,0.9098712446351931,seen,seen
+rerun_v1_morph,rlm,0,contract_41_119,Negative interim operating covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_41_119,Negative interim operating covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_41_119,Negative interim operating covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_41_119,Negative interim operating covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_42_114,MAE Definition,piecewise,ok,True,True,False,0.8936170212765957,0.8936170212765957,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_42_114,MAE Definition,piecewise,ok,True,True,False,0.8851063829787233,0.8851063829787233,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_42_114,MAE Definition,piecewise,ok,True,True,False,0.8851063829787233,0.8851063829787233,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_42_114,MAE Definition,piecewise,ok,True,True,False,0.8638297872340426,0.8638297872340426,seen,seen
+rerun_v1_morph,rlm,0,contract_43_7,MAE Definition,pagebreak,ok,True,True,False,0.49693251533742333,0.49693251533742333,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_43_7,MAE Definition,pagebreak,ok,False,True,False,0.5153374233128835,0.5153374233128835,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_43_7,MAE Definition,pagebreak,failed,False,False,False,,,,
+rerun_v1_morph,rlm_tool2,0,contract_43_7,MAE Definition,pagebreak,ok,True,True,False,0.44171779141104295,0.44171779141104295,partial,partial
+rerun_v1_morph,rlm,0,contract_44_140,Fiduciary exception to COR covenant,ambiguous,ok,True,True,False,0.98,0.98,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_44_140,Fiduciary exception to COR covenant,ambiguous,ok,True,True,False,0.98,0.98,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_44_140,Fiduciary exception to COR covenant,ambiguous,ok,True,True,False,0.98,0.98,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_44_140,Fiduciary exception to COR covenant,ambiguous,ok,True,True,False,0.98,0.98,seen,seen
+rerun_v1_morph,rlm,0,contract_45_79,MAE Definition,strict,ok,True,True,False,0.9030612244897959,0.9030612244897959,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_45_79,MAE Definition,strict,ok,True,True,False,0.7704081632653061,0.7704081632653061,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_45_79,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_45_79,MAE Definition,strict,ok,True,True,False,0.9897959183673469,0.9897959183673469,seen,seen
+rerun_v1_morph,rlm,0,contract_46_134,Intervening Event Definition,strict,ok,False,True,False,0.9393939393939394,0.9393939393939394,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_46_134,Intervening Event Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_46_134,Intervening Event Definition,strict,ok,False,True,False,0.9848484848484849,0.9848484848484849,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_46_134,Intervening Event Definition,strict,ok,True,True,False,0.9848484848484849,0.9848484848484849,seen,seen
+rerun_v1_morph,rlm,0,contract_47_26,Fiduciary exception to COR covenant,piecewise,ok,True,True,False,0.6071428571428571,0.6071428571428571,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_47_26,Fiduciary exception to COR covenant,piecewise,ok,True,True,False,0.42857142857142855,0.42857142857142855,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_47_26,Fiduciary exception to COR covenant,piecewise,ok,True,True,False,0.7678571428571429,0.7678571428571429,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_47_26,Fiduciary exception to COR covenant,piecewise,ok,True,True,False,0.9107142857142857,0.9107142857142857,seen,seen
+rerun_v1_morph,rlm,0,contract_48_71,Superior Offer Definition,strict,ok,True,True,False,0.9272727272727272,0.9272727272727272,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_48_71,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_48_71,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_48_71,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_49_70,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_49_70,MAE Definition,pagebreak,ok,True,True,False,0.9919028340080972,0.9919028340080972,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_49_70,MAE Definition,pagebreak,ok,True,True,False,0.9919028340080972,0.9919028340080972,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_49_70,MAE Definition,pagebreak,ok,True,True,False,0.9919028340080972,0.9919028340080972,seen,seen
+rerun_v1_morph,rlm,0,contract_4_72,General Antitrust Efforts Standard,strict,ok,True,True,False,0.9393939393939394,0.9393939393939394,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_4_72,General Antitrust Efforts Standard,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_4_72,General Antitrust Efforts Standard,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_4_72,General Antitrust Efforts Standard,strict,ok,True,True,False,0.9090909090909091,0.9090909090909091,seen,seen
+rerun_v1_morph,rlm,0,contract_50_107,Knowledge Definition,strict,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_50_107,Knowledge Definition,strict,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_50_107,Knowledge Definition,strict,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_50_107,Knowledge Definition,strict,ok,False,True,False,0.6666666666666666,0.6666666666666666,partial,partial
+rerun_v1_morph,rlm,0,contract_51_133,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.4691358024691358,0.4691358024691358,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_51_133,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6419753086419753,0.6419753086419753,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_51_133,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6419753086419753,0.6419753086419753,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_51_133,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5,0.5,partial,partial
+rerun_v1_morph,rlm,0,contract_52_82,Negative interim operating covenant,strict,ok,True,True,False,0.75,0.75,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_52_82,Negative interim operating covenant,strict,ok,True,True,False,0.75,0.75,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_52_82,Negative interim operating covenant,strict,ok,True,True,False,0.25,0.25,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_52_82,Negative interim operating covenant,strict,ok,True,True,False,0.75,0.75,partial,partial
+rerun_v1_morph,rlm,0,contract_53_92,Accuracy of Target R&W Closing Condition,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool1,0,contract_53_92,Accuracy of Target R&W Closing Condition,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool12,0,contract_53_92,Accuracy of Target R&W Closing Condition,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm_tool2,0,contract_53_92,Accuracy of Target R&W Closing Condition,not_found,ok,True,True,False,,,,
+rerun_v1_morph,rlm,0,contract_54_121,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.9032258064516129,0.9032258064516129,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_54_121,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.9354838709677419,0.9354838709677419,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_54_121,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.9354838709677419,0.9354838709677419,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_54_121,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.9354838709677419,0.9354838709677419,seen,seen
+rerun_v1_morph,rlm,0,contract_55_11,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_55_11,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_55_11,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_55_11,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_56_101,Fiduciary exception to COR covenant,piecewise,ok,True,True,False,0.9818181818181818,0.9818181818181818,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_56_101,Fiduciary exception to COR covenant,piecewise,ok,True,True,False,0.9818181818181818,0.9818181818181818,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_56_101,Fiduciary exception to COR covenant,piecewise,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_56_101,Fiduciary exception to COR covenant,piecewise,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_57_130,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_57_130,Ordinary course covenant,strict,ok,True,True,False,0.5,0.5,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_57_130,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_57_130,Ordinary course covenant,strict,ok,True,True,False,0.8913043478260869,0.8913043478260869,seen,seen
+rerun_v1_morph,rlm,0,contract_58_34,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_58_34,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_58_34,Ordinary course covenant,strict,ok,True,True,False,0.5681818181818182,0.5681818181818182,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_58_34,Ordinary course covenant,strict,ok,True,True,False,0.9772727272727273,0.9772727272727273,seen,seen
+rerun_v1_morph,rlm,0,contract_59_3,Knowledge Definition,strict,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_59_3,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_59_3,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_59_3,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_5_132,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.4722222222222222,0.4722222222222222,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_5_132,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5486111111111112,0.5486111111111112,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_5_132,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5486111111111112,0.5486111111111112,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_5_132,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.4722222222222222,0.4722222222222222,partial,partial
+rerun_v1_morph,rlm,0,contract_60_80,No-Shop,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_60_80,No-Shop,strict,ok,True,True,False,0.9166666666666666,0.9166666666666666,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_60_80,No-Shop,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_60_80,No-Shop,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_61_62,MAE Definition,pagebreak,ok,False,True,False,0.5497835497835498,0.5497835497835498,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_61_62,MAE Definition,pagebreak,ok,True,True,False,0.7619047619047619,0.7619047619047619,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_61_62,MAE Definition,pagebreak,ok,False,True,False,0.987012987012987,0.987012987012987,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_61_62,MAE Definition,pagebreak,ok,False,True,False,0.9913419913419913,0.9913419913419913,seen,seen
+rerun_v1_morph,rlm,0,contract_62_56,Tail Period & Acquisition Proposal Details,ambiguous,ok,False,True,False,0.8235294117647058,0.8235294117647058,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_62_56,Tail Period & Acquisition Proposal Details,ambiguous,ok,False,True,False,0.8235294117647058,0.8235294117647058,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_62_56,Tail Period & Acquisition Proposal Details,ambiguous,ok,False,True,False,0.8235294117647058,0.8235294117647058,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_62_56,Tail Period & Acquisition Proposal Details,ambiguous,ok,False,True,False,0.8235294117647058,0.8235294117647058,seen,seen
+rerun_v1_morph,rlm,0,contract_63_39,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.4230769230769231,0.4230769230769231,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_63_39,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.4230769230769231,0.4230769230769231,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_63_39,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.554945054945055,0.554945054945055,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_63_39,Accuracy of Target R&W Closing Condition,piecewise,ok,False,True,False,0.4230769230769231,0.4230769230769231,partial,partial
+rerun_v1_morph,rlm,0,contract_64_33,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_64_33,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_64_33,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_64_33,Specific Performance,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_65_24,MAE Definition,strict,ok,True,True,False,0.7426900584795322,0.7426900584795322,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_65_24,MAE Definition,strict,ok,True,True,False,0.9883040935672515,0.9883040935672515,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_65_24,MAE Definition,strict,ok,True,True,False,0.7192982456140351,0.7192982456140351,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_65_24,MAE Definition,strict,ok,True,True,False,0.7251461988304093,0.7251461988304093,partial,partial
+rerun_v1_morph,rlm,0,contract_66_135,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_66_135,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_66_135,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_66_135,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_67_36,Limitations on FTR Exercise,pagebreak,ok,False,True,False,0.8994708994708994,0.8994708994708994,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_67_36,Limitations on FTR Exercise,pagebreak,ok,False,True,False,0.9841269841269841,0.9841269841269841,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_67_36,Limitations on FTR Exercise,pagebreak,ok,False,True,False,0.9841269841269841,0.9841269841269841,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_67_36,Limitations on FTR Exercise,pagebreak,ok,False,True,False,0.8465608465608465,0.8465608465608465,seen,seen
+rerun_v1_morph,rlm,0,contract_68_149,Ordinary course covenant,strict,ok,True,True,False,0.62,0.62,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_68_149,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_68_149,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_68_149,Ordinary course covenant,strict,ok,True,True,False,0.62,0.62,partial,partial
+rerun_v1_morph,rlm,0,contract_69_61,Fiduciary exception:  Board determination (no-shop),strict,ok,True,True,False,0.9764705882352941,0.9764705882352941,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_69_61,Fiduciary exception:  Board determination (no-shop),strict,ok,True,True,False,0.9764705882352941,0.9764705882352941,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_69_61,Fiduciary exception:  Board determination (no-shop),strict,ok,False,True,False,0.9764705882352941,0.9764705882352941,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_69_61,Fiduciary exception:  Board determination (no-shop),strict,ok,True,True,False,0.9764705882352941,0.9764705882352941,seen,seen
+rerun_v1_morph,rlm,0,contract_6_2,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.5714285714285714,0.5714285714285714,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_6_2,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.9047619047619048,0.9047619047619048,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_6_2,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.9047619047619048,0.9047619047619048,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_6_2,Compliance with Covenant Closing Condition,strict,ok,True,True,False,0.5714285714285714,0.5714285714285714,partial,partial
+rerun_v1_morph,rlm,0,contract_70_118,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.4897959183673469,0.4897959183673469,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_70_118,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6785714285714286,0.6785714285714286,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_70_118,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.4387755102040816,0.4387755102040816,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_70_118,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.4897959183673469,0.4897959183673469,partial,partial
+rerun_v1_morph,rlm,0,contract_71_78,Superior Offer Definition,anchored,ok,False,True,False,0.9753086419753086,0.9753086419753086,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_71_78,Superior Offer Definition,anchored,ok,False,True,False,0.8950617283950617,0.8950617283950617,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_71_78,Superior Offer Definition,anchored,ok,False,True,False,0.9629629629629629,0.9629629629629629,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_71_78,Superior Offer Definition,anchored,ok,False,True,False,0.8950617283950617,0.8950617283950617,seen,seen
+rerun_v1_morph,rlm,0,contract_72_53,Intervening Event Definition,pagebreak,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_72_53,Intervening Event Definition,pagebreak,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool12,0,contract_72_53,Intervening Event Definition,pagebreak,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool2,0,contract_72_53,Intervening Event Definition,pagebreak,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm,0,contract_73_146,Absence of Litigation Closing Condition,strict,ok,False,True,False,0.02666666666666667,0.02666666666666667,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_73_146,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.7333333333333333,0.7333333333333333,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_73_146,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.7333333333333333,0.7333333333333333,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_73_146,Absence of Litigation Closing Condition,strict,ok,True,True,False,0.7333333333333333,0.7333333333333333,partial,partial
+rerun_v1_morph,rlm,0,contract_74_45,Agreement provides for matching rights in connection with FTR,strict,ok,True,True,False,0.9655172413793104,0.9655172413793104,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_74_45,Agreement provides for matching rights in connection with FTR,strict,ok,True,True,False,0.9655172413793104,0.9655172413793104,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_74_45,Agreement provides for matching rights in connection with FTR,strict,ok,True,True,False,0.9655172413793104,0.9655172413793104,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_74_45,Agreement provides for matching rights in connection with FTR,strict,ok,True,True,False,0.9827586206896551,0.9827586206896551,seen,seen
+rerun_v1_morph,rlm,0,contract_75_23,MAE Definition,pagebreak,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_75_23,MAE Definition,pagebreak,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool12,0,contract_75_23,MAE Definition,pagebreak,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool2,0,contract_75_23,MAE Definition,pagebreak,ok,True,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm,0,contract_76_138,MAE Definition,pagebreak,ok,True,True,False,0.3924050632911392,0.3924050632911392,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_76_138,MAE Definition,pagebreak,ok,True,True,False,0.5379746835443038,0.5379746835443038,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_76_138,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_76_138,MAE Definition,pagebreak,ok,True,True,False,0.5569620253164557,0.5569620253164557,partial,partial
+rerun_v1_morph,rlm,0,contract_77_57,MAE Definition,strict,ok,True,True,False,0.8562091503267973,0.8562091503267973,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_77_57,MAE Definition,strict,ok,True,True,False,0.8496732026143791,0.8496732026143791,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_77_57,MAE Definition,strict,ok,True,True,False,0.8104575163398693,0.8104575163398693,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_77_57,MAE Definition,strict,ok,True,True,False,0.8431372549019608,0.8431372549019608,seen,seen
+rerun_v1_morph,rlm,0,contract_78_21,Agreement provides for matching rights in connection with COR,strict,ok,True,True,False,0.8699186991869918,0.8699186991869918,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_78_21,Agreement provides for matching rights in connection with COR,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_78_21,Agreement provides for matching rights in connection with COR,strict,ok,True,True,False,0.8211382113821138,0.8211382113821138,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_78_21,Agreement provides for matching rights in connection with COR,strict,ok,True,True,False,0.8373983739837398,0.8373983739837398,seen,seen
+rerun_v1_morph,rlm,0,contract_79_115,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6068376068376068,0.6068376068376068,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_79_115,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6068376068376068,0.6068376068376068,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_79_115,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.6068376068376068,0.6068376068376068,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_79_115,Accuracy of Target R&W Closing Condition,piecewise,ok,True,True,False,0.5213675213675214,0.5213675213675214,partial,partial
+rerun_v1_morph,rlm,0,contract_7_68,Ordinary course covenant,strict,ok,True,True,False,0.494949494949495,0.494949494949495,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_7_68,Ordinary course covenant,strict,ok,True,True,False,0.4444444444444444,0.4444444444444444,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_7_68,Ordinary course covenant,strict,ok,True,True,False,0.41414141414141414,0.41414141414141414,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_7_68,Ordinary course covenant,strict,ok,True,True,False,0.48484848484848486,0.48484848484848486,partial,partial
+rerun_v1_morph,rlm,0,contract_80_99,Tail Period & Acquisition Proposal Details,pagebreak,ok,True,True,False,0.7368421052631579,0.7368421052631579,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_80_99,Tail Period & Acquisition Proposal Details,pagebreak,ok,True,True,False,0.7894736842105263,0.7894736842105263,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_80_99,Tail Period & Acquisition Proposal Details,pagebreak,ok,True,True,False,0.7894736842105263,0.7894736842105263,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_80_99,Tail Period & Acquisition Proposal Details,pagebreak,ok,True,True,False,0.7368421052631579,0.7368421052631579,partial,partial
+rerun_v1_morph,rlm,0,contract_81_145,MAE Definition,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_81_145,MAE Definition,pagebreak,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_81_145,MAE Definition,pagebreak,ok,False,True,False,0.9959183673469387,0.9959183673469387,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_81_145,MAE Definition,pagebreak,ok,False,True,False,0.963265306122449,0.963265306122449,seen,seen
+rerun_v1_morph,rlm,0,contract_82_29,MAE Definition,pagebreak,ok,True,True,False,0.9950738916256158,0.9950738916256158,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_82_29,MAE Definition,pagebreak,ok,True,True,False,0.9901477832512315,0.9901477832512315,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_82_29,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_82_29,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_83_22,Ordinary course covenant,strict,ok,True,True,False,0.8913043478260869,0.8913043478260869,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_83_22,Ordinary course covenant,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_83_22,Ordinary course covenant,strict,ok,True,True,False,0.41304347826086957,0.41304347826086957,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_83_22,Ordinary course covenant,strict,ok,True,True,False,0.3695652173913043,0.3695652173913043,partial,partial
+rerun_v1_morph,rlm,0,contract_84_147,MAE Definition,anchored,ok,False,True,False,0.989247311827957,0.989247311827957,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_84_147,MAE Definition,anchored,ok,False,True,False,0.989247311827957,0.989247311827957,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_84_147,MAE Definition,anchored,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_84_147,MAE Definition,anchored,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_85_27,MAE Definition,pagebreak,ok,True,True,False,0.7924528301886793,0.7924528301886793,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_85_27,MAE Definition,pagebreak,ok,True,True,False,0.8301886792452831,0.8301886792452831,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_85_27,MAE Definition,pagebreak,ok,True,True,False,0.7610062893081762,0.7610062893081762,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_85_27,MAE Definition,pagebreak,ok,True,True,False,0.7672955974842768,0.7672955974842768,partial,partial
+rerun_v1_morph,rlm,0,contract_86_42,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_86_42,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_86_42,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_86_42,Knowledge Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_87_16,MAE Definition,strict,ok,True,True,False,0.9836065573770492,0.9836065573770492,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_87_16,MAE Definition,strict,ok,True,True,False,0.9672131147540983,0.9672131147540983,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_87_16,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_87_16,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_88_0,MAE Definition,not_found,ok,False,True,False,,,,
+rerun_v1_morph,rlm_tool1,0,contract_88_0,MAE Definition,not_found,ok,False,True,False,,,,
+rerun_v1_morph,rlm_tool12,0,contract_88_0,MAE Definition,not_found,ok,False,True,False,,,,
+rerun_v1_morph,rlm_tool2,0,contract_88_0,MAE Definition,not_found,ok,False,True,False,,,,
+rerun_v1_morph,rlm,0,contract_89_55,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_89_55,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_89_55,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_89_55,Superior Offer Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_8_142,MAE Definition,pagebreak,ok,True,True,False,0.9906542056074766,0.9906542056074766,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_8_142,MAE Definition,pagebreak,ok,False,True,False,0.9906542056074766,0.9906542056074766,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_8_142,MAE Definition,pagebreak,ok,False,True,False,0.9813084112149533,0.9813084112149533,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_8_142,MAE Definition,pagebreak,ok,True,True,False,0.9953271028037384,0.9953271028037384,seen,seen
+rerun_v1_morph,rlm,0,contract_90_95,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_90_95,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_90_95,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_90_95,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_91_109,MAE Definition,pagebreak,ok,True,True,False,0.754874651810585,0.754874651810585,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_91_109,MAE Definition,pagebreak,ok,True,True,False,0.924791086350975,0.924791086350975,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_91_109,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_91_109,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_92_124,Limitations on FTR Exercise,not_found,ok,False,True,False,,,,
+rerun_v1_morph,rlm_tool1,0,contract_92_124,Limitations on FTR Exercise,not_found,ok,False,True,False,,,,
+rerun_v1_morph,rlm_tool12,0,contract_92_124,Limitations on FTR Exercise,not_found,ok,False,True,False,,,,
+rerun_v1_morph,rlm_tool2,0,contract_92_124,Limitations on FTR Exercise,not_found,ok,False,True,False,,,,
+rerun_v1_morph,rlm,0,contract_93_73,Negative interim operating covenant,strict,ok,False,True,False,0.8461538461538461,0.8461538461538461,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_93_73,Negative interim operating covenant,strict,ok,False,True,False,0.8461538461538461,0.8461538461538461,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_93_73,Negative interim operating covenant,strict,ok,False,True,False,0.8461538461538461,0.8461538461538461,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_93_73,Negative interim operating covenant,strict,ok,False,True,False,0.8461538461538461,0.8461538461538461,seen,seen
+rerun_v1_morph,rlm,0,contract_94_137,Agreement provides for matching rights in connection with COR,pagebreak,ok,True,True,False,0.6948529411764706,0.6948529411764706,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_94_137,Agreement provides for matching rights in connection with COR,pagebreak,ok,True,True,False,0.9632352941176471,0.9632352941176471,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_94_137,Agreement provides for matching rights in connection with COR,pagebreak,ok,True,True,False,0.6102941176470589,0.6102941176470589,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_94_137,Agreement provides for matching rights in connection with COR,pagebreak,ok,True,True,False,0.28308823529411764,0.28308823529411764,partial,partial
+rerun_v1_morph,rlm,0,contract_95_46,MAE Definition,strict,ok,True,True,False,0.1630901287553648,0.1630901287553648,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_95_46,MAE Definition,strict,ok,True,True,False,0.5622317596566524,0.5622317596566524,partial,partial
+rerun_v1_morph,rlm_tool12,0,contract_95_46,MAE Definition,strict,ok,True,True,False,0.5793991416309013,0.5793991416309013,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_95_46,MAE Definition,strict,ok,True,True,False,0.9356223175965666,0.9356223175965666,seen,seen
+rerun_v1_morph,rlm,0,contract_96_40,MAE Definition,strict,ok,False,True,False,0.0,0.0,not seen,not seen
+rerun_v1_morph,rlm_tool1,0,contract_96_40,MAE Definition,strict,ok,False,True,False,0.9465648854961832,0.9465648854961832,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_96_40,MAE Definition,strict,ok,False,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_96_40,MAE Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_97_12,Intervening Event Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_97_12,Intervening Event Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_97_12,Intervening Event Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_97_12,Intervening Event Definition,strict,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm,0,contract_98_51,Fiduciary exception:  Board determination (no-shop),strict,ok,True,True,False,0.5476190476190477,0.5476190476190477,partial,partial
+rerun_v1_morph,rlm_tool1,0,contract_98_51,Fiduciary exception:  Board determination (no-shop),strict,ok,True,True,False,0.9761904761904762,0.9761904761904762,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_98_51,Fiduciary exception:  Board determination (no-shop),strict,ok,True,True,False,0.9761904761904762,0.9761904761904762,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_98_51,Fiduciary exception:  Board determination (no-shop),strict,ok,True,True,False,0.3333333333333333,0.3333333333333333,partial,partial
+rerun_v1_morph,rlm,0,contract_99_111,MAE Definition,pagebreak,ok,True,True,False,1.0,1.0,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_99_111,MAE Definition,pagebreak,ok,True,True,False,0.9916666666666667,0.9916666666666667,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_99_111,MAE Definition,pagebreak,ok,True,True,False,0.6791666666666667,0.6791666666666667,partial,partial
+rerun_v1_morph,rlm_tool2,0,contract_99_111,MAE Definition,pagebreak,ok,True,True,False,0.8666666666666667,0.8666666666666667,seen,seen
+rerun_v1_morph,rlm,0,contract_9_54,Agreement provides for matching rights in connection with FTR,piecewise,ok,True,True,False,0.9887640449438202,0.9887640449438202,seen,seen
+rerun_v1_morph,rlm_tool1,0,contract_9_54,Agreement provides for matching rights in connection with FTR,piecewise,ok,True,True,False,0.9831460674157303,0.9831460674157303,seen,seen
+rerun_v1_morph,rlm_tool12,0,contract_9_54,Agreement provides for matching rights in connection with FTR,piecewise,ok,True,True,False,0.9775280898876404,0.9775280898876404,seen,seen
+rerun_v1_morph,rlm_tool2,0,contract_9_54,Agreement provides for matching rights in connection with FTR,piecewise,ok,True,True,False,0.3146067415730337,0.3146067415730337,partial,partial
